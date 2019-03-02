@@ -1,0 +1,11 @@
+<input type="text" id="vorname" placeholder="Vorname" oninput="vornameChanged()">
+
+<p>Hallo <span id="display"></span></p>
+
+<script>
+  // Das folgende Stück Code wird jedes mal aufgerufen, wenn der Inhalt vom Feld vorname ändert.
+  // Es ist also ein Eventhandler, es "kümmert" sich um das Ereignis.
+  function vornameChanged() {
+    display.innerText = vorname.value
+  }
+</script>

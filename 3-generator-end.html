@@ -1,0 +1,26 @@
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Zahlenraten</title>
+    </head>
+    <body>
+        <input type="number" id="zahl" placeholder="Zahl" oninput="zahlChanged()">
+
+        <p id="display"></p>
+
+        <script>
+          const secret = Math.floor(Math.random() * 10)
+          const $display = document.getElementById("display")
+          const $zahl = document.getElementById("zahl")
+
+          function zahlChanged() {
+            if(Number($zahl.value) === secret){
+              $display.innerText = "Richtig!"
+              $zahl.disabled = true
+            }else{
+              $display.innerText = "Falsch 😔"
+            }
+          }
+        </script>
+    </body>
+</html>

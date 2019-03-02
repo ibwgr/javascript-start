@@ -1,0 +1,35 @@
+<input type="number" id="zahl" placeholder="Zahl" oninput="zahlChanged()">
+
+<p id="display"></p>
+
+<script>
+  // Math ist ein Objekt, welches in allen JavaScript Programmen zur Verfügung steht.
+  var secret = Math.floor(Math.random() * 10)
+  console.log(secret)
+
+  function zahlChanged() {
+    if(zahl.value == secret){
+      display.innerText = "Richtig!"
+    }else{
+      display.innerText = "Falsch 😔"
+    }
+  }
+</script>
+
+
+<!--
+
+Aufgaben
+
+1. Welche Werte kann secret haben?
+    Tip: https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/math.random
+
+2. Was passiert, wenn du == durch === ersetzt?
+    Tip: Vergleiche die Inhalte von secret und zahl.value
+
+3. Was musst du tun, damit das Programm weiterhin funktioniert, obwohl du === verwendest?
+
+4. Warum wird das Emoticon von Zeile 16 im Browser nicht korrekt dargestellt?
+
+5. Ändere das HTML und Script soweit, dass keine Warnungen mehr vorhanden sind :)
+-->
