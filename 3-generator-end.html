@@ -4,7 +4,7 @@
         <title>Zahlenraten</title>
     </head>
     <body>
-        <input type="number" id="zahl" placeholder="Zahl" oninput="zahlChanged()">
+        <input type="number" id="zahl" placeholder="Zahl">
 
         <p id="display"></p>
 
@@ -21,6 +21,8 @@
               $display.innerText = "Falsch 😔"
             }
           }
+
+          $zahl.addEventListener('input', zahlChanged)
         </script>
     </body>
 </html>
