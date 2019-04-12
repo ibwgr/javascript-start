@@ -9,7 +9,7 @@ const ctx = canvas.getContext("2d");
 // rectangle left top
 ctx.beginPath();
 ctx.rect(0, 0, 100, 100);
-ctx.fillStyle = "#FF0000";
+ctx.fillStyle = "red";
 ctx.fill();
 ctx.closePath();
 
@@ -17,14 +17,14 @@ ctx.closePath();
 ctx.beginPath();
 const fullCircle = 2 * Math.PI;
 ctx.arc((gameWidth / 2) - 5, (gameHeight / 2) - 5, 10, 0, fullCircle);
-ctx.fillStyle = "#00FF00";
+ctx.fillStyle = "green";
 ctx.fill();
 ctx.closePath();
 
 // triangle right bottom
 ctx.beginPath();
-ctx.strokeStyle = "#0000FF";
-ctx.fillStyle = "#0000FF";
+ctx.strokeStyle = "blue";
+ctx.fillStyle = "blue";
 const triangleWidth = 50;
 const triangleHeight = 50;
 const startX = gameWidth - triangleWidth; // 350
