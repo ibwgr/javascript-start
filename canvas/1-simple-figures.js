@@ -9,14 +9,14 @@ const ctx = canvas.getContext("2d");
 // rectangle left top
 ctx.beginPath();
 ctx.rect(0, 0, 100, 100);
-ctx.fillStyle = "red";
+ctx.fillStyle = "purple";
 ctx.fill();
 ctx.closePath();
 
 // circle center
 ctx.beginPath();
 const fullCircle = 2 * Math.PI;
-ctx.arc((gameWidth / 2) - 5, (gameHeight / 2) - 5, 10, 0, fullCircle);
+ctx.arc((gameWidth / 2), (gameHeight / 2), 50, 0, fullCircle);
 ctx.fillStyle = "green";
 ctx.fill();
 ctx.closePath();
@@ -35,3 +35,19 @@ ctx.lineTo(startX, gameHeight);
 ctx.stroke();
 ctx.fill();
 ctx.closePath();
+
+
+/*
+Aufgaben
+
+1. Erstelle die Funktionen drawCircle, drawRect, drawTriangle. Entscheide selbst welche Parameter die Funktionen haben.
+   Zeichne damit die drei bestehenden Figuren.
+
+2. Nutze die Funktionen aus Aufgabe 1 und zeichne damit:
+
+a) einen Tannenbaum
+b) ein Haus
+c) was du willst :)
+
+
+* */
