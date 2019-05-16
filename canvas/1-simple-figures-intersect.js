@@ -80,11 +80,12 @@ canvas.addEventListener('click', (e) => {
             console.log('clicked', obj)
             obj.hit = true
             anyHit = true
-            window.requestAnimationFrame(draw)
         }
     }
 
-    if(!anyHit){
+    if(anyHit){
+        window.requestAnimationFrame(draw)
+    }else{
         console.log('almost …', point)
     }
 });
