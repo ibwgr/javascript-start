@@ -4,26 +4,30 @@
     <title>Snake Game</title>
 </head>
 <body>
-<canvas id="game"></canvas>
+<canvas id="board"></canvas>
 
 <script>
     const gridSize = 10;
     const gameSize = 300;
-    const game = document.getElementById('game');
-    game.width = gameSize;
-    game.height = gameSize;
-    const ctx = game.getContext('2d');
-    clearCanvas();
+    const board = document.getElementById('board');
+    board.width = gameSize;
+    board.height = gameSize;
+    const ctx = board.getContext('2d');
 
     // Koordinaten der Glieder der Schlange
     // Jedes Glied ist ein Rechteck
-    let snake = [
+    const snake = [
         {x: 150, y: 150},
         {x: 140, y: 150},
         {x: 130, y: 150},
         {x: 120, y: 150},
         {x: 110, y: 150}
     ];
+
+    const game = {
+        dx: 1,
+        dy: 0
+    };
 
     // Zeichne Schlangenglied, als Rechteck
     function drawSnakePart(snakePart) {
@@ -46,23 +50,56 @@
         snake.pop();
     }
 
-
     function clearCanvas() {
         // Set canvas background color
         ctx.fillStyle = 'beige';
         // Set the canvas border color
         ctx.strokeStyle = 'black';
         // Draw a filled rectangle covering the entire canvas
-        ctx.fillRect(0, 0, game.width, game.height);
+        ctx.fillRect(0, 0, board.width, board.height);
         // Draw a border around the entire canvas
-        ctx.strokeRect(0, 0, game.width, game.height);
+        ctx.strokeRect(0, 0, board.width, board.height);
     }
 
-    drawSnake(snake);
+    function changeDirection(game, event) {
+        const keyName = event.key;
+        const goingUp = game.dy === -1;
+        const goingDown = game.dy === 1;
+        const goingRight = game.dx === 1;
+        const goingLeft = game.dx === -1;
+        if (keyName === 'ArrowLeft' && !goingRight) {
+            game.dx = -1;
+            game.dy = 0;
+        }
+        if (keyName === 'ArrowUp' && !goingDown) {
+            game.dx = 0;
+            game.dy = -1;
+        }
+        if (keyName === 'ArrowRight' && !goingLeft) {
+            game.dx = 1;
+            game.dy = 0;
+        }
+        if (keyName === 'ArrowDown' && !goingUp) {
+            game.dx = 0;
+            game.dy = 1;
+        }
+    }
+
+    function main() {
+        window.setTimeout(function tick() {
+            clearCanvas();
+            addSnakePart(snake, game.dx, game.dy);
+            drawSnake(snake);
+            main();
+        }, 100)
+    }
+
+    document.addEventListener('keydown', function(event){
+        changeDirection(game, event);
+    });
+
     clearCanvas();
-    addSnakePart(snake, 1);
-    addSnakePart(snake, 0, 1);
-    drawSnake(snake);
+    main();
 </script>
 </body>
 </html>
