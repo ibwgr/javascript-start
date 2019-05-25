@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Snake Game</title>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<script>
+    const gridSize = 10;
+    const gameSize = 300;
+    const game = document.getElementById('game');
+    game.width = gameSize;
+    game.height = gameSize;
+    const ctx = game.getContext('2d');
+    clearCanvas();
+
+    // Koordinaten der Glieder der Schlange
+    // Jedes Glied ist ein Rechteck
+    let snake = [
+        {x: 150, y: 150},
+        {x: 140, y: 150},
+        {x: 130, y: 150},
+        {x: 120, y: 150},
+        {x: 110, y: 150}
+    ];
+
+    // Zeichne Schlangenglied, als Rechteck
+    function drawSnakePart(snakePart) {
+        ctx.fillStyle = 'green';
+        ctx.strokeStyle = 'white';
+        ctx.fillRect(snakePart.x, snakePart.y, gridSize, gridSize);
+        ctx.strokeRect(snakePart.x, snakePart.y, gridSize, gridSize);
+    }
+
+    // Zeichne alle Glieder der Schlange
+    function drawSnake(snake) {
+        snake.forEach(drawSnakePart);
+    }
+
+    // Füge neues Glied hinzu.
+    // dx (delta X) ist entweder 0, 1 oder -1
+    function addSnakePart(snake, dx = 0, dy = 0) {
+        const head = {x: snake[0].x + dx * gridSize, y: snake[0].y + dy * gridSize};
+        snake.unshift(head);
+        snake.pop();
+    }
+
+
+    function clearCanvas() {
+        // Set canvas background color
+        ctx.fillStyle = 'beige';
+        // Set the canvas border color
+        ctx.strokeStyle = 'black';
+        // Draw a filled rectangle covering the entire canvas
+        ctx.fillRect(0, 0, game.width, game.height);
+        // Draw a border around the entire canvas
+        ctx.strokeRect(0, 0, game.width, game.height);
+    }
+
+    drawSnake(snake);
+    clearCanvas();
+    addSnakePart(snake, 1);
+    addSnakePart(snake, 0, 1);
+    drawSnake(snake);
+</script>
+</body>
+</html>
