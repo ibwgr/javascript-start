@@ -7,8 +7,8 @@
 <canvas id="board"></canvas>
 
 <script>
-    const gridSize = 10;
-    const gameSize = 300;
+    const gridSize = 15;
+    const gameSize = 450; // multpiple of gridSize
     const board = document.getElementById('board');
     const speed = 100;
     board.width = gameSize;
@@ -39,15 +39,15 @@
 
     function newSnake(snakeSize){
         const firstPart = {
-            x: randomMultiple(gridSize* (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize),
-            y: randomMultiple(gridSize* (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize)
+            x: randomMultiple(gridSize * (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize),
+            y: randomMultiple(gridSize * (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize)
         }
         let dx = firstPart.x > gameSize / 2 ? 1 : -1
         return [
             {x: firstPart.x, y: firstPart.y},
-            {x: firstPart.x + dx*gridSize, y: firstPart.y},
-            {x: firstPart.x + dx*gridSize*2, y: firstPart.y},
-            {x: firstPart.x + dx*gridSize*3, y: firstPart.y},
+            {x: firstPart.x + dx * gridSize, y: firstPart.y},
+            {x: firstPart.x + dx * gridSize * 2, y: firstPart.y},
+            {x: firstPart.x + dx * gridSize * 3, y: firstPart.y},
         ]
     }
 
@@ -145,20 +145,20 @@
         ctx.strokeRect(food.x, food.y, gridSize, gridSize);
     }
 
-    function didGameEnd() {
+    function didGameEnd(snakeHead) {
         let snakeHitItself = snake.slice(1).filter(function(part){
-            return part.x === snake[0].x && part.y === snake[0].y
+            return part.x === snakeHead.x && part.y === snakeHead.y
         }).length > 0;
 
-        const hitLeftWall = snake[0].x < 0;
-        const hitRightWall = snake[0].x > gameSize - gridSize;
-        const hitTopWall = snake[0].y < 0;
-        const hitBottomWall = snake[0].y > gameSize - gridSize;
+        const hitLeftWall = snakeHead.x < 0;
+        const hitRightWall = snakeHead.x > gameSize - gridSize;
+        const hitTopWall = snakeHead.y < 0;
+        const hitBottomWall = snakeHead.y > gameSize - gridSize;
         return snakeHitItself || hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
     }
 
     function main() {
-        if(didGameEnd()) return;
+        if(didGameEnd(snake[0])) return;
 
         window.setTimeout(function tick() {
             game.changingDirection = false;
