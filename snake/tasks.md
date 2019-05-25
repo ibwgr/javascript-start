@@ -17,6 +17,10 @@
  - Lasse die Schlange wachsen, sobald sie die Nahrung isst
 
  - Beende das Spiel, sobald die Schlange den Spielbrettrand berührt
+ 
+ - Zähle und zeige die Punktezahl
+
+# Bonus-Aufgaben
 
  - Platziere die Schlange bei jedem Start an einem zufälligen Ort
 
@@ -24,4 +28,8 @@
  
  - Verwende ein Apfel-Bild als Nahrung
  
- - Zähle und zeige die Punktezahl
+ - Lasse die Schlange durch die Spielbrettränder gehen und auf der anderen Seite wieder auftauchen.
+ 
+ - Erstelle einen "Neu Starten" Button, welcher nur aktiv ist, wenn man Game Over ist, oder noch nicht gespielt hat.
+ 
+ - Lasse die Schlange schneller werden, jedesmal wenn sie was gegessen hat.
