@@ -25,7 +25,13 @@
     ];
 
     const game = {
+        // Veränderung des Schlangekopfs auf der X-Achse im nächsten Tick.
+        // Entweder 0, 1 oder -1.
+        // 0 = keine Veränderung,
+        // 1 = nach Rechts,
+        // -1 = nach Links
         dx: 1,
+        // Wie xy, einfach für Y-Achse
         dy: 0
     };
 
@@ -51,7 +57,9 @@
     // dx (delta X) ist entweder 0, 1 oder -1
     function addSnakePart(snake, dx = 0, dy = 0) {
         const head = {x: snake[0].x + dx * gridSize, y: snake[0].y + dy * gridSize};
+        // Füge neues Glied am Anfang hinzu
         snake.unshift(head);
+        // Entferne das letzte Glied
         snake.pop();
     }
 
@@ -90,15 +98,25 @@
         }
     }
 
+    // Generiert eine Zufallszahl, welche zwischen min und max liegt und ein vielfaches von multiplier ist.
     function randomMultiple(min, max, multiplier){
         return Math.round((Math.random() * (max-min) + min) / multiplier) * multiplier;
     }
 
-    function createFood(){
-        return {
+    function createFood(snake){
+        const food = {
             x: randomMultiple(0, gameSize-gridSize, gridSize),
             y: randomMultiple(0, gameSize-gridSize, gridSize)
         }
+
+        const isPartOfSnake = snake.filter(function(part){
+            return part.x === food.x && part.y === food.y
+        }).length > 0;
+
+        if(isPartOfSnake){
+            return createFood(snake);
+        }
+        return food;
     }
 
     function drawFood(food){
@@ -123,7 +141,7 @@
     });
 
     clearCanvas();
-    food = createFood();
+    food = createFood(snake);
     main();
 </script>
 </body>
