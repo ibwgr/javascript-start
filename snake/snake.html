@@ -8,26 +8,24 @@
 
 <script>
     const gridSize = 15;
-    const gameSize = 450; // multpiple of gridSize
+    const gameSize = 450; // multiple of gridSize
     const board = document.getElementById('board');
     const speed = 100;
     board.width = gameSize;
     board.height = gameSize;
     const ctx = board.getContext('2d');
 
-    // Koordinaten der Glieder der Schlange
-    // Jedes Glied ist ein Rechteck
     const initialSnakeSize = 4;
-    const snake = newSnake(initialSnakeSize);
+    const snake = createSnake(initialSnakeSize);
 
     const game = {
-        // Veränderung des Schlangekopfs auf der X-Achse im nächsten Tick.
+        // Veränderung des Schlangekopfs auf der x-Achse im nächsten Tick.
         // Entweder 0, 1 oder -1.
         // 0 = keine Veränderung,
         // 1 = nach Rechts,
         // -1 = nach Links
         dx: snake[0].x > gameSize / 2 ? -1 : 1,
-        // Wie xy, einfach für Y-Achse
+        // Wie x, einfach für y-Achse
         dy: 0,
         changingDirection: false
     };
@@ -37,12 +35,13 @@
       y: 0
     };
 
-    function newSnake(snakeSize){
+    function createSnake(snakeSize){
         const firstPart = {
             x: randomMultiple(gridSize * (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize),
             y: randomMultiple(gridSize * (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize)
         }
         let dx = firstPart.x > gameSize / 2 ? 1 : -1
+        // Koordinaten der Glieder der Schlange. Jedes Glied ist ein Rechteck
         return [
             {x: firstPart.x, y: firstPart.y},
             {x: firstPart.x + dx * gridSize, y: firstPart.y},
@@ -65,6 +64,7 @@
     }
 
     // Bewege Schlange um eins weiter. Entweder auf der x- oder y-Achse.
+    // Schlange wächst um ein Glied, falls Sie was gegessen hat.
     function advanceSnake(snake, dx = 0, dy = 0) {
         const head = {x: snake[0].x + dx * gridSize, y: snake[0].y + dy * gridSize};
         // Füge neues Glied am Anfang hinzu
@@ -145,7 +145,7 @@
         ctx.strokeRect(food.x, food.y, gridSize, gridSize);
     }
 
-    function didGameEnd(snakeHead) {
+    function hasCollided(snakeHead) {
         let snakeHitItself = snake.slice(1).filter(function(part){
             return part.x === snakeHead.x && part.y === snakeHead.y
         }).length > 0;
@@ -158,7 +158,7 @@
     }
 
     function main() {
-        if(didGameEnd(snake[0])) return;
+        if(hasCollided(snake[0])) return;
 
         window.setTimeout(function tick() {
             game.changingDirection = false;
