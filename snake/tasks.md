@@ -21,3 +21,5 @@
  - Platziere die Schlange bei jedem Start an einem zufälligen Ort
 
  - Erlaube auch vertikal ausgerichtete Schlangen am Start
+ 
+ - Verwende ein Apfel-Bild als Nahrung
