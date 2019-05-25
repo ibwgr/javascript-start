@@ -3,13 +3,20 @@
 <head>
     <title>Snake Game</title>
     <meta charset="UTF-8">
+    <style>
+        p{
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
+<p id="score"></p>
 <canvas id="board"></canvas>
 
 <script>
     const gridSize = 15;
-    const gameSize = 450; // multiple of gridSize
+    const gameSize = 390; // multiple of gridSize
     const board = document.getElementById('board');
     const speed = 100;
     board.width = gameSize;
@@ -28,7 +35,8 @@
         dx: snake[0].x > gameSize / 2 ? -1 : 1,
         // Wie x, einfach für y-Achse
         dy: 0,
-        changingDirection: false
+        changingDirection: false,
+        score: 0
     };
 
     let food = {
@@ -52,8 +60,8 @@
     }
 
     // Zeichne Schlangenglied, als Rechteck
-    function drawSnakePart(snakePart) {
-        ctx.fillStyle = 'green';
+    function drawSnakePart(snakePart, fillColor) {
+        ctx.fillStyle = fillColor;
         ctx.strokeStyle = 'white';
         ctx.fillRect(snakePart.x, snakePart.y, gridSize, gridSize);
         ctx.strokeRect(snakePart.x, snakePart.y, gridSize, gridSize);
@@ -61,7 +69,9 @@
 
     // Zeichne alle Glieder der Schlange
     function drawSnake(snake) {
-        snake.forEach(drawSnakePart);
+        snake.forEach(function(part, index){
+            drawSnakePart(part, index === 0 ? 'darkgreen' : 'green')
+        });
     }
 
     // Bewege Schlange um eins weiter. Entweder auf der x- oder y-Achse.
@@ -73,6 +83,7 @@
 
         const didEat = snake[0].x === food.x && snake[0].y === food.y;
         if(didEat){
+            game.score++;
             Object.assign(food, findNewFoodPlace(snake));
         }else{
             // Entferne das letzte Glied
@@ -155,6 +166,10 @@
         return snakeHitItself || hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
     }
 
+    function drawScore(game){
+        document.getElementById('score').innerText = game.score;
+    }
+
     function gameLoop() {
         if(hasCollided(snake[0])) return;
 
@@ -164,6 +179,7 @@
             drawFood(food);
             advanceSnake(snake, game.dx, game.dy);
             drawSnake(snake);
+            drawScore(game);
             gameLoop();
         }, speed)
     }
@@ -185,7 +201,7 @@
         };
     }
 
-    loadImage('apple.png', function onAppleLoaded(apple){
+    loadImage('raspberry.png', function onAppleLoaded(apple){
         food.img = apple;
         start();
     })

@@ -23,3 +23,5 @@
  - Erlaube auch vertikal ausgerichtete Schlangen am Start
  
  - Verwende ein Apfel-Bild als Nahrung
+ 
+ - Zähle und zeige die Punktezahl
