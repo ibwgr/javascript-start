@@ -40,6 +40,8 @@
       y: 0
     };
 
+    let changingDirection = false;
+
     // Zeichne Schlangenglied, als Rechteck
     function drawSnakePart(snakePart) {
         ctx.fillStyle = 'green';
@@ -53,14 +55,19 @@
         snake.forEach(drawSnakePart);
     }
 
-    // Füge neues Glied hinzu.
-    // dx (delta X) ist entweder 0, 1 oder -1
-    function addSnakePart(snake, dx = 0, dy = 0) {
+    // Bewege Schlange um eins weiter. Entweder auf der x- oder y-Achse.
+    function advanceSnake(snake, dx = 0, dy = 0) {
         const head = {x: snake[0].x + dx * gridSize, y: snake[0].y + dy * gridSize};
         // Füge neues Glied am Anfang hinzu
         snake.unshift(head);
-        // Entferne das letzte Glied
-        snake.pop();
+
+        const didEat = snake[0].x === food.x && snake[0].y === food.y;
+        if(didEat){
+            food = createFood(snake);
+        }else{
+            // Entferne das letzte Glied
+            snake.pop();
+        }
     }
 
     function clearCanvas() {
@@ -75,6 +82,9 @@
     }
 
     function changeDirection(game, event) {
+        if(changingDirection) return;
+        changingDirection = true;
+
         const keyName = event.key;
         const goingUp = game.dy === -1;
         const goingDown = game.dy === 1;
@@ -98,15 +108,15 @@
         }
     }
 
-    // Generiert eine Zufallszahl, welche zwischen min und max liegt und ein vielfaches von multiplier ist.
+    // Generiert eine Zufallszahl, welche zwischen min und max liegt und ein Vielfaches von multiplier ist.
     function randomMultiple(min, max, multiplier){
         return Math.round((Math.random() * (max-min) + min) / multiplier) * multiplier;
     }
 
     function createFood(snake){
         const food = {
-            x: randomMultiple(0, gameSize-gridSize, gridSize),
-            y: randomMultiple(0, gameSize-gridSize, gridSize)
+            x: randomMultiple(0, gameSize - gridSize, gridSize),
+            y: randomMultiple(0, gameSize - gridSize, gridSize)
         }
 
         const isPartOfSnake = snake.filter(function(part){
@@ -128,9 +138,10 @@
 
     function main() {
         window.setTimeout(function tick() {
+            changingDirection = false;
             clearCanvas();
             drawFood(food);
-            addSnakePart(snake, game.dx, game.dy);
+            advanceSnake(snake, game.dx, game.dy);
             drawSnake(snake);
             main();
         }, 100)
