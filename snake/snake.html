@@ -29,6 +29,11 @@
         dy: 0
     };
 
+    let food = {
+      x: 0,
+      y: 0
+    };
+
     // Zeichne Schlangenglied, als Rechteck
     function drawSnakePart(snakePart) {
         ctx.fillStyle = 'green';
@@ -85,9 +90,28 @@
         }
     }
 
+    function randomMultiple(min, max, multiplier){
+        return Math.round((Math.random() * (max-min) + min) / multiplier) * multiplier;
+    }
+
+    function createFood(){
+        return {
+            x: randomMultiple(0, gameSize-gridSize, gridSize),
+            y: randomMultiple(0, gameSize-gridSize, gridSize)
+        }
+    }
+
+    function drawFood(food){
+        ctx.fillStyle = 'red';
+        ctx.strokestyle = 'darkred';
+        ctx.fillRect(food.x, food.y, gridSize, gridSize);
+        ctx.strokeRect(food.x, food.y, gridSize, gridSize);
+    }
+
     function main() {
         window.setTimeout(function tick() {
             clearCanvas();
+            drawFood(food);
             addSnakePart(snake, game.dx, game.dy);
             drawSnake(snake);
             main();
@@ -99,6 +123,7 @@
     });
 
     clearCanvas();
+    food = createFood();
     main();
 </script>
 </body>
