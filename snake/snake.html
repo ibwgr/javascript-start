@@ -16,13 +16,7 @@
 
     // Koordinaten der Glieder der Schlange
     // Jedes Glied ist ein Rechteck
-    const snake = [
-        {x: 150, y: 150},
-        {x: 140, y: 150},
-        {x: 130, y: 150},
-        {x: 120, y: 150},
-        {x: 110, y: 150}
-    ];
+    const snake = newSnake();
 
     const game = {
         // Veränderung des Schlangekopfs auf der X-Achse im nächsten Tick.
@@ -30,7 +24,7 @@
         // 0 = keine Veränderung,
         // 1 = nach Rechts,
         // -1 = nach Links
-        dx: 1,
+        dx: snake[0].x > gameSize / 2 ? -1 : 1,
         // Wie xy, einfach für Y-Achse
         dy: 0
     };
@@ -41,6 +35,20 @@
     };
 
     let changingDirection = false;
+
+    function newSnake(){
+        const snakeSize = 4;
+        const part = {
+            x: randomMultiple(gridSize* (snakeSize-1), gameSize - snakeSize * gridSize, gridSize),
+            y: randomMultiple(gridSize* (snakeSize-1), gameSize - snakeSize * gridSize, gridSize)
+        }
+        return [
+            {x: part.x + gridSize*3, y: part.y},
+            {x: part.x + gridSize*2, y: part.y},
+            {x: part.x + gridSize, y: part.y},
+            {x: part.x, y: part.y}
+        ]
+    }
 
     // Zeichne Schlangenglied, als Rechteck
     function drawSnakePart(snakePart) {
