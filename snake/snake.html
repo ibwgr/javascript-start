@@ -8,6 +8,9 @@
             font-size: 18px;
             font-family: sans-serif;
         }
+        #board{
+            zoom: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -18,7 +21,7 @@
     const gridSize = 15;
     const gameSize = 390; // multiple of gridSize
     const board = document.getElementById('board');
-    const speed = 100;
+    const speed = 150;
     board.width = gameSize;
     board.height = gameSize;
     const ctx = board.getContext('2d');
@@ -62,9 +65,7 @@
     // Zeichne Schlangenglied, als Rechteck
     function drawSnakePart(snakePart, fillColor) {
         ctx.fillStyle = fillColor;
-        ctx.strokeStyle = 'white';
         ctx.fillRect(snakePart.x, snakePart.y, gridSize, gridSize);
-        ctx.strokeRect(snakePart.x, snakePart.y, gridSize, gridSize);
     }
 
     // Zeichne alle Glieder der Schlange
@@ -155,7 +156,8 @@
     }
 
     function hasCollided(snakeHead) {
-        let snakeHitItself = snake.slice(1).filter(function(part){
+        const snakeWithoutHead = snake.slice(1);
+        let snakeHitItself = snakeWithoutHead.filter(function(part){
             return part.x === snakeHead.x && part.y === snakeHead.y
         }).length > 0;
 
