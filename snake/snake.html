@@ -4,48 +4,69 @@
     <title>Snake Game</title>
     <meta charset="UTF-8">
     <style>
-        p{
+        main{
+            min-width: 400px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        header{
+            font-family: "Andale Mono", "Courier New", sans-serif;
+            font-weight: bold;
+            margin-bottom: 16px;
+            margin-top: 16px;
+        }
+        .label{
             font-size: 18px;
-            font-family: sans-serif;
+            padding-right: 9px;
+        }
+        .label ~ em {
+            font-size: 18px;
         }
         #board{
             zoom: 1.5;
         }
+        small{
+            color: lightgray;
+        }
     </style>
 </head>
 <body>
-<p id="score"></p>
-<canvas id="board"></canvas>
+<main>
+    <header>
+        <span class="label">Score</span><em id="score"></em>
+    </header>
+    <canvas id="board"></canvas>
+    <small>Start using SPACE key. Navigate using ARROW keys.</small>
+</main>
 
 <script>
     const gridSize = 15;
-    const gameSize = 390; // multiple of gridSize
+    const gameSize = 25*15; // multiple of gridSize
     const board = document.getElementById('board');
-    const speed = 150;
+    const speed = 70;
     board.width = gameSize;
     board.height = gameSize;
     const ctx = board.getContext('2d');
 
     const initialSnakeSize = 4;
-    const snake = createSnake(initialSnakeSize);
+    let snake;
+    let game;
+    let food = {};
 
-    const game = {
-        // Veränderung des Schlangekopfs auf der x-Achse im nächsten Tick.
-        // Entweder 0, 1 oder -1.
-        // 0 = keine Veränderung,
-        // 1 = nach Rechts,
-        // -1 = nach Links
-        dx: snake[0].x > gameSize / 2 ? -1 : 1,
-        // Wie x, einfach für y-Achse
-        dy: 0,
-        changingDirection: false,
-        score: 0
-    };
-
-    let food = {
-      x: 0,
-      y: 0
-    };
+    function createGame(snake){
+        return {
+            // Veränderung des Schlangekopfs auf der x-Achse im nächsten Tick.
+            // Entweder 0, 1 oder -1.
+            // 0 = keine Veränderung,
+            // 1 = nach Rechts,
+            // -1 = nach Links
+            dx: snake[0].x > gameSize / 2 ? -1 : 1,
+                // Wie x, einfach für y-Achse
+                dy: 0,
+            changingDirection: false,
+            score: 0
+        }
+    }
 
     function createSnake(snakeSize){
         const firstPart = {
@@ -173,7 +194,10 @@
     }
 
     function gameLoop() {
-        if(hasCollided(snake[0])) return;
+        if(hasCollided(snake[0])) {
+            resetGame();
+            return;
+        }
 
         window.setTimeout(function tick() {
             game.changingDirection = false;
@@ -186,13 +210,19 @@
         }, speed)
     }
 
-    function start(){
+    function startOnSpace(event){
+        if(event.key === ' '){
+            gameLoop();
+        }
+    }
+
+    function readyToStart(){
+        clearCanvas();
+        drawScore(game);
         document.addEventListener('keydown', function(event){
+            startOnSpace(event)
             changeDirection(game, event);
         });
-
-        Object.assign(food, findNewFoodPlace(snake));
-        gameLoop();
     }
 
     function loadImage(url, onload) {
@@ -203,9 +233,16 @@
         };
     }
 
-    loadImage('raspberry.png', function onAppleLoaded(apple){
+    function resetGame() {
+        snake = createSnake(initialSnakeSize);
+        Object.assign(food, findNewFoodPlace(snake));
+        game = createGame(snake);
+    }
+
+    loadImage('raspberry.png', function onImageLoaded(apple){
         food.img = apple;
-        start();
+        resetGame();
+        readyToStart();
     })
 </script>
 <!--
