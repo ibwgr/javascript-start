@@ -45,7 +45,8 @@
     const gridSize = 15;
     const gameSize = 15*15; // multiple of gridSize
     const board = document.getElementById('board');
-    const speed = 130;
+    const initialGameSpeed = 130;
+    let speed = initialGameSpeed;
     board.width = gameSize;
     board.height = gameSize;
     const ctx = board.getContext('2d');
@@ -114,11 +115,20 @@
         const didEat = snake[0].x === food.x && snake[0].y === food.y;
         if(didEat){
             game.score++;
+            applyFoodEffect(food);
             Object.assign(food, findNewFoodPlace(snake));
             food.img = findNewFood(foods)
         }else{
             // Entferne das letzte Glied
             snake.pop();
+        }
+    }
+
+    function applyFoodEffect(food){
+        if(food.img.attributes.src.value === 'mushroom.png'){
+            speed = 70;
+        }else{
+            speed = initialGameSpeed;
         }
     }
 
@@ -256,6 +266,7 @@
         snake = createSnake(initialSnakeSize);
         Object.assign(food, findNewFoodPlace(snake));
         food.img = foods[0];
+        speed = initialGameSpeed;
         game = createGame(snake);
     }
 
