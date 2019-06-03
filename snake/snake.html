@@ -112,8 +112,8 @@
         const didEat = snake[0].x === food.x && snake[0].y === food.y;
         if(didEat){
             game.score++;
-            applyFoodEffect(food);
-            Object.assign(food, findNewFoodPlace(snake));
+            const foodSideEffect = applyFoodEffect(food, snake);
+            Object.assign(food, findNewFoodPlace(snake, foodSideEffect));
             food.img = findNewFood(foods)
         }else{
             // Entferne das letzte Glied
@@ -121,9 +121,15 @@
         }
     }
 
-    function applyFoodEffect(food){
-        if(food.img.attributes.src.value === 'mushroom.svg'){
-            speed = 70;
+    function applyFoodEffect(food, snake){
+        if(food.img.attributes.src.value === 'mushroom.svg') {
+          speed = 70;
+        }else if(food.img.attributes.src.value === 'banana.svg'){
+          snake[0].x += gridSize
+          snake[0].x = snake[0].x % gameSize
+          return (food) => {
+            food.x = gameSize - gridSize
+          }
         }else{
             speed = initialGameSpeed;
         }
@@ -176,11 +182,13 @@
         return foods[randomMultiple(0, foods.length - 1)];
     }
 
-    function findNewFoodPlace(snake){
+    function findNewFoodPlace(snake, foodSideEffect = () => {}){
         const food = {
             x: randomMultiple(0, gameSize - gridSize, gridSize),
             y: randomMultiple(0, gameSize - gridSize, gridSize)
         }
+
+        foodSideEffect(food)
 
         const isPartOfSnake = snake.filter(function(part){
             return part.x === food.x && part.y === food.y
@@ -196,12 +204,16 @@
         ctx.drawImage(food.img, food.x, food.y, gridSize, gridSize);
     }
 
-    function hasCollided(snakeHead) {
-        const snakeWithoutHead = snake.slice(1);
-        let snakeHitItself = snakeWithoutHead.filter(function(part){
-            return part.x === snakeHead.x && part.y === snakeHead.y
-        }).length > 0;
+    function getCollidedPart(snake){
+      const snakeWithoutHead = snake.slice(1);
+      return snakeWithoutHead.filter(function(part){
+        return part.x === snake[0].x && part.y === snake[0].y
+      }).shift()
+    }
 
+    function hasCollided(snake) {
+        const snakeHead = snake[0];
+        const snakeHitItself = getCollidedPart(snake);
         const hitLeftWall = snakeHead.x < 0;
         const hitRightWall = snakeHead.x > gameSize - gridSize;
         const hitTopWall = snakeHead.y < 0;
@@ -214,7 +226,11 @@
     }
 
     function gameLoop() {
-        if(hasCollided(snake[0])) {
+        if(hasCollided(snake)) {
+            const collidedPart = getCollidedPart(snake)
+            if(collidedPart){
+              drawSnakePart(collidedPart, 'red')
+            }
             resetGame();
             return;
         }
@@ -268,7 +284,7 @@
     }
 
     // Erstes Food-Element ist guter / normaler Food.
-    loadImages(['raspberry.png', 'mushroom.svg'], function onImagesLoaded(foodImages){
+    loadImages(['raspberry.png', 'mushroom.svg', 'banana.svg'], function onImagesLoaded(foodImages){
         foods = foods.concat(foodImages)
         resetGame();
         readyToStart();
