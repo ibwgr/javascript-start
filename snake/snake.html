@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <style>
         main{
-            min-width: 400px;
-            max-width: 500px;
+            min-width: fit-content;
+            max-width: fit-content;
             margin: 0 auto;
         }
         header{
@@ -23,7 +23,7 @@
             font-size: 18px;
         }
         #board{
-            zoom: 1.5;
+            border: 1px solid black;
         }
         small{
             color: lightgray;
@@ -42,20 +42,17 @@
 </main>
 
 <script>
-    const gridSize = 15;
-    const gameSize = 15*15; // multiple of gridSize
+    const dpr = window.devicePixelRatio || 1;
+    const gridSize = 12;
+    const gameSize = 15 * gridSize;
     const board = document.getElementById('board');
+    board.width = gameSize * dpr;
+    board.height = gameSize * dpr;
+    const ctx = board.getContext('2d');
+    ctx.scale(dpr, dpr);
+
     const initialGameSpeed = 130;
     let speed = initialGameSpeed;
-    board.width = gameSize;
-    board.height = gameSize;
-    const ctx = board.getContext('2d');
-
-    ctx.ImageSmoothingEnabled = false;
-    ctx.webkitImageSmoothingEnabled = false;
-    ctx.mozImageSmoothingEnabled = false;
-
-
     const initialSnakeSize = 4;
     let snake;
     let game;
@@ -125,7 +122,7 @@
     }
 
     function applyFoodEffect(food){
-        if(food.img.attributes.src.value === 'mushroom.png'){
+        if(food.img.attributes.src.value === 'mushroom.svg'){
             speed = 70;
         }else{
             speed = initialGameSpeed;
@@ -271,7 +268,7 @@
     }
 
     // Erstes Food-Element ist guter / normaler Food.
-    loadImages(['raspberry.png', 'mushroom.png'], function onImagesLoaded(foodImages){
+    loadImages(['raspberry.png', 'mushroom.svg'], function onImagesLoaded(foodImages){
         foods = foods.concat(foodImages)
         resetGame();
         readyToStart();
