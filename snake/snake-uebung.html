@@ -55,16 +55,13 @@
         const dx = 1
         return [
             {x: 10, y: 10},
-            {x: 10 + dx * gridSize, y: 10},
-            {x: 10 + dx * gridSize * 2, y: 10},
-            {x: 10 + dx * gridSize * 3, y: 10},
+            // TODO, 3 Glieder fehlen noch
         ]
     }
 
     // Zeichne Schlangenglied, als Rechteck
     function drawSnakePart(snakePart, fillColor) {
-        ctx.fillStyle = fillColor;
-        ctx.fillRect(snakePart.x, snakePart.y, gridSize, gridSize);
+        // TODO
     }
 
     // Zeichne alle Glieder der Schlange
