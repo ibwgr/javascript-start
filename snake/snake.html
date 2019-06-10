@@ -41,22 +41,23 @@
     </aside>
 </main>
 
-<script>
-    const dpr = window.devicePixelRatio || 1;
-    const gridSize = 12;
-    const gameSize = 18 * gridSize;
-    const board = document.getElementById('board');
-    board.width = gameSize * dpr;
-    board.height = gameSize * dpr;
-    const ctx = board.getContext('2d');
-    ctx.scale(dpr, dpr);
+<script type="module">
+    import {loadImages, setupContext} from "./helpers.js";
+    import {randomMultiple} from "./helpers";
 
+    const gridSize = 12; // Anzahl Pixel pro Feld
+    const gameSize = 18 * gridSize; // Anzahl Felder pro Seitenlänge des Spielbretts
+    const board = document.getElementById('board');
+    const ctx = setupContext(board, gameSize);
+
+    // Alle x ms (Millisekunden) bewegt sich die Schlange. Je tiefer der Wert, desto schneller also die Schlange.
     const initialGameSpeed = 160;
-    let speed = initialGameSpeed;
     const initialSnakeSize = 4;
+    // Die Geschwindigkeit ändert sich (später) während des Spiels
+    let speed = initialGameSpeed;
     let snake;
     let game;
-    let food = {};
+    let food = {}; // { x: number, y: number, img: Image }
     let foods = [];
 
     function createGame(snake){
@@ -173,11 +174,6 @@
         }
     }
 
-    // Generiert eine Zufallszahl, welche zwischen min und max liegt und ein Vielfaches von multiplier ist.
-    function randomMultiple(min, max, multiplier = 1){
-        return Math.round((Math.random() * (max-min) + min) / multiplier) * multiplier;
-    }
-
     function findNewFood(foods){
         return foods[randomMultiple(0, foods.length - 1)];
     }
@@ -259,20 +255,6 @@
             startOnSpace(event)
             changeDirection(game, event);
         });
-    }
-
-    function loadImage(url) {
-        return new Promise(function(res){
-            const img = new Image();
-            img.src = url;
-            img.onload = function () {
-                res(img);
-            };
-        })
-    }
-
-    function loadImages(names, onload){
-        Promise.all(names.map(loadImage)).then(onload)
     }
 
     function resetGame() {

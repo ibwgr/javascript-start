@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Snake Game</title>
+    <meta charset="UTF-8">
+    <style>
+        main{
+            min-width: fit-content;
+            max-width: fit-content;
+            margin: 0 auto;
+        }
+
+        #board{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <canvas id="board"></canvas>
+</main>
+
+<script type="module">
+    import {setupContext} from "./helpers.js";
+
+    const gridSize = 12; // Anzahl Pixel pro Feld
+    const gameSize = 18 * gridSize; // Anzahl Felder pro Seitenlänge des Spielbretts
+    const board = document.getElementById('board');
+    const ctx = setupContext(board, gameSize);
+
+    // Alle x ms (Millisekunden) bewegt sich die Schlange. Je tiefer der Wert, desto schneller also die Schlange.
+    const initialGameSpeed = 160;
+    // Die Geschwindigkeit ändert sich (später) während des Spiels
+    let speed = initialGameSpeed;
+    // Beinhaltet die Glieder der Schlange als Objekte von {x: number, y: number}
+    let snake;
+    // Eigenschaften des Spiels, z.B. Bewegungsrichtung (dx, dy), Punkte etc.
+    let game;
+
+    function createGame(){
+        return {
+            // Veränderung des Schlangekopfs auf der x-Achse im nächsten Tick.
+            // Entweder 0, 1 oder -1.
+            // 0 = keine Veränderung,
+            // 1 = nach Rechts,
+            // -1 = nach Links
+            dx: 1,
+            // Wie x, einfach für y-Achse
+            dy: 0
+        }
+    }
+
+    function createSnake(){
+        // Koordinaten der Glieder der Schlange. Jedes Glied ist ein Rechteck
+        const dx = 1
+        return [
+            {x: 10, y: 10},
+            {x: 10 + dx * gridSize, y: 10},
+            {x: 10 + dx * gridSize * 2, y: 10},
+            {x: 10 + dx * gridSize * 3, y: 10},
+        ]
+    }
+
+    // Zeichne Schlangenglied, als Rechteck
+    function drawSnakePart(snakePart, fillColor) {
+        ctx.fillStyle = fillColor;
+        ctx.fillRect(snakePart.x, snakePart.y, gridSize, gridSize);
+    }
+
+    // Zeichne alle Glieder der Schlange
+    function drawSnake(snake) {
+        snake.forEach(function(part){
+            drawSnakePart(part, 'green')
+        });
+    }
+
+    function startGame() {
+        snake = createSnake();
+        speed = initialGameSpeed;
+        game = createGame();
+        drawSnake(snake);
+    }
+
+    startGame();
+</script>
+<!--
+Lösung basiert auf https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e
+-->
+</body>
+</html>
