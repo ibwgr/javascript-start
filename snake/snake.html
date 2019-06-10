@@ -68,8 +68,8 @@
             // 1 = nach Rechts,
             // -1 = nach Links
             dx: snake[0].x > gameSize / 2 ? -1 : 1,
-                // Wie x, einfach für y-Achse
-                dy: 0,
+            // Wie x, einfach für y-Achse
+            dy: 0,
             changingDirection: false,
             score: 0
         }
@@ -105,7 +105,7 @@
 
     // Bewege Schlange um eins weiter. Entweder auf der x- oder y-Achse.
     // Schlange wächst um ein Glied, falls Sie was gegessen hat.
-    function advanceSnake(snake, dx = 0, dy = 0) {
+    function advanceSnake(snake, dx, dy) {
         const head = {x: snake[0].x + dx * gridSize, y: snake[0].y + dy * gridSize};
         // Füge neues Glied am Anfang hinzu
         snake.unshift(head);
