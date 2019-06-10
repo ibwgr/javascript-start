@@ -42,8 +42,7 @@
 </main>
 
 <script type="module">
-    import {loadImages, setupContext} from "./helpers.js";
-    import {randomMultiple} from "./helpers";
+    import {loadImages, setupContext, randomMultiple} from "./helpers.js";
 
     const gridSize = 12; // Anzahl Pixel pro Feld
     const gameSize = 18 * gridSize; // Anzahl Felder pro Seitenlänge des Spielbretts
@@ -71,7 +70,8 @@
             // Wie x, einfach für y-Achse
             dy: 0,
             changingDirection: false,
-            score: 0
+            score: 0,
+            running: false
         }
     }
 
@@ -243,8 +243,9 @@
     }
 
     function startOnSpace(event){
-        if(event.key === ' '){
+        if(event.key === ' ' && !game.running === true){
             gameLoop();
+            game.running = true;
         }
     }
 
