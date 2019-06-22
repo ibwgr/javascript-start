@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Snake Game</title>
+    <meta charset="UTF-8">
+    <style>
+        main{
+            min-width: fit-content;
+            max-width: fit-content;
+            margin: 0 auto;
+        }
+
+        #board{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <canvas id="board"></canvas>
+</main>
+
+<script type="module">
+    function drawRect(x, y, w, h, fillColor, strokeColor) {
+        ctx.beginPath();
+        ctx.rect(x*w, y*h, w, h);
+        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = strokeColor;
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    const gridSize = 20             // Anzahl Pixel pro Feld
+    const gameSize = 18 * gridSize; // Anzahl Felder pro Seitenlänge des Spielbretts
+
+    const board = document.getElementById('board');
+    board.width = gameSize;
+    board.height = gameSize;
+    const ctx = board.getContext('2d');
+
+    const snakeParts = [
+        {x: 3, y: 2},
+        {x: 3, y: 3},
+        {x: 3, y: 4},
+        {x: 3, y: 5}
+    ]
+
+    function clearAll() {
+        drawRect(0, 0, gameSize, gameSize, 'beige');
+    }
+
+    function drawSnake(){
+        for(let part of snakeParts){
+            drawRect(part.x, part.y, gridSize, gridSize, 'red')
+        }
+    }
+
+    clearAll()
+    drawSnake()
+
+    window.setTimeout(function(){
+        for (let part of snakeParts){
+            part.x = part.x + 1
+        }
+        clearAll()
+        drawSnake()
+    }, 1000)
+</script>
+</body>
+</html>
