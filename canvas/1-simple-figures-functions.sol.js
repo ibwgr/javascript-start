@@ -28,7 +28,7 @@ function clearAll() {
 // Zeichne einen quadratischen Raster mit 9 Quadraten.
 
 // Schritt 1
-const sideLength = 3;
+const sideLength = 8;
 const cellWidth = gameWidth / sideLength;
 const cellHeight = gameHeight / sideLength;
 
@@ -45,24 +45,24 @@ drawRect(cellWidth, 2 * cellHeight, cellWidth, cellHeight, "green", "white");
 drawRect(2 * cellWidth, 2 * cellHeight, cellWidth, cellHeight, "green", "white");
 
 // Schritt 2
+
 clearAll();
 
-for (let row = 0; row < 3; row++) {
-    for (let col = 0; col < 3; col++) {
-        drawRect(col * cellWidth, row * cellHeight, cellWidth, cellHeight, "green", "white")
+for (let row = 0; row < sideLength; row++) {
+    for (let col = 0; col < sideLength; col++) {
+        drawRect(col * cellWidth, row * cellHeight, cellWidth, cellHeight, "hsl(200, 100%, 50%)", "white")
     }
 }
 
-
 // Aufgabe 2
 // Nutze das ganze Farbspektrum, um jeder Kachel eine andere Farbe zu geben.
-clearAll();
 
+clearAll();
 let cellNumber = 0
 for (let row = 0; row < sideLength; row++) {
     for (let col = 0; col < sideLength; col++) {
-        let color = `hsl(${360 / (sideLength ** 2) * cellNumber} ,100%, 50%)`;
-        drawRect(col * cellWidth, row * cellHeight, cellWidth, cellHeight, color, "white")
+        let color = `hsl(${360 / (sideLength * sideLength) * cellNumber}, 100%, 50%)`;
+        drawRect(col * cellWidth, row * cellHeight, cellWidth, cellHeight, color, color)
         cellNumber++
     }
 }

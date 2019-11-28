@@ -13,13 +13,15 @@ ctx.fillStyle = "purple";
 ctx.fill();
 ctx.closePath();
 
+
 // circle center
 ctx.beginPath();
-const fullCircle = 2 * Math.PI;
+const fullCircle = 2*Math.PI;
 ctx.arc((gameWidth / 2), (gameHeight / 2), 50, 0, fullCircle);
 ctx.fillStyle = "green";
 ctx.fill();
 ctx.closePath();
+
 
 // triangle right bottom
 ctx.beginPath();

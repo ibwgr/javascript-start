@@ -9,8 +9,9 @@
             margin: 0 auto;
         }
 
-        p{
-            font-size: 12px;
+        p, select, button{
+            font-size: 18px;
+            font-family: "Andale Mono", "Courier New", sans-serif;
         }
 
         h1{
@@ -23,6 +24,7 @@
             flex-wrap: wrap;
             padding: 10px;
             border-width: 1px;
+            border-radius: 30px;
             border-style: solid;
             border-color: black;
             user-select: none;
@@ -60,12 +62,13 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">6</option>
+                <option value="6" selected>6</option>
             </select>
             <button id="start">Start!</button>
         </p>
         <p>Fehler: <span id="fails"></span></p>
         <p>Gefunden: <span id="found"></span></p>
+        <p>&nbsp;</p>
         <div id="game">
         </div>
     </main>

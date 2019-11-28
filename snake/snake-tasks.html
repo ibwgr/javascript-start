@@ -4,13 +4,13 @@
     <title>Snake Game</title>
     <meta charset="UTF-8">
     <style>
-        main{
+        main {
             min-width: fit-content;
             max-width: fit-content;
             margin: 0 auto;
         }
 
-        #board{
+        #board {
             border: 1px solid black;
         }
     </style>
@@ -21,51 +21,85 @@
 </main>
 
 <script type="module">
-    function drawRect(x, y, w, h, fillColor, strokeColor) {
-        ctx.beginPath();
-        ctx.rect(x*w, y*h, w, h);
-        ctx.fillStyle = fillColor;
-        ctx.strokeStyle = strokeColor;
-        ctx.stroke();
-        ctx.fill();
-        ctx.closePath();
+  function drawRect(x, y, w, h, fillColor, strokeColor) {
+    ctx.beginPath()
+    ctx.rect(x * w, y * h, w, h)
+    ctx.fillStyle = fillColor
+    ctx.strokeStyle = strokeColor
+    ctx.stroke()
+    ctx.fill()
+    ctx.closePath()
+  }
+
+  const gridSize = 20             // Anzahl Pixel pro Feld
+  const gameSize = 18 * gridSize // Anzahl Felder pro Seitenlänge des Spielbretts
+
+  const board = document.getElementById('board')
+  board.width = gameSize
+  board.height = gameSize
+  const ctx = board.getContext('2d')
+
+  const snakeParts = [
+    {x: 3, y: 2},
+    {x: 3, y: 3},
+    {x: 3, y: 4},
+    {x: 3, y: 5}
+  ]
+
+  function clearAll() {
+    drawRect(0, 0, gameSize, gameSize, 'beige')
+  }
+
+  function drawSnake() {
+    for (let part of snakeParts) {
+      drawRect(part.x, part.y, gridSize, gridSize, 'red')
     }
+  }
 
-    const gridSize = 20             // Anzahl Pixel pro Feld
-    const gameSize = 18 * gridSize; // Anzahl Felder pro Seitenlänge des Spielbretts
+  clearAll()
+  drawSnake()
 
-    const board = document.getElementById('board');
-    board.width = gameSize;
-    board.height = gameSize;
-    const ctx = board.getContext('2d');
+  let dx = 1
+  let dy = 0
+  let frameDuration = 1000
 
-    const snakeParts = [
-        {x: 3, y: 2},
-        {x: 3, y: 3},
-        {x: 3, y: 4},
-        {x: 3, y: 5}
-    ]
-
-    function clearAll() {
-        drawRect(0, 0, gameSize, gameSize, 'beige');
+  document.addEventListener('keydown', function(event){
+    const goingUp    = dy === -1;
+    const goingDown  = dy ===  1;
+    const goingRight = dx ===  1;
+    const goingLeft  = dx === -1;
+    if(event.key === 'ArrowRight' && !goingLeft){
+      dx = 1
+      dy = 0
     }
-
-    function drawSnake(){
-        for(let part of snakeParts){
-            drawRect(part.x, part.y, gridSize, gridSize, 'red')
-        }
+    if(event.key === 'ArrowUp' && !goingDown){
+      dx = 0
+      dy = -1
     }
+    if(event.key === 'ArrowLeft' && !goingRight){
+      dx = -1
+      dy = 0
+    }
+    if(event.key === 'ArrowDown' && !goingUp){
+      dx = 0
+      dy = 1
+    }
+  })
 
-    clearAll()
-    drawSnake()
+  function gameLoop() {
+    window.setTimeout(function () {
+      const head = snakeParts[0]
+      const newHead = {y: head.y + dy, x: head.x + dx}
+      snakeParts.unshift(newHead)
+      snakeParts.pop()
 
-    window.setTimeout(function(){
-        for (let part of snakeParts){
-            part.x = part.x + 1
-        }
-        clearAll()
-        drawSnake()
-    }, 1000)
+      clearAll()
+      drawSnake()
+      gameLoop()
+    }, frameDuration)
+  }
+
+  gameLoop()
 </script>
 </body>
 </html>
