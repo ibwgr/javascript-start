@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Memorie</title>
+    <style>
+        #board {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(4 * 62px);
+        }
+
+        #board > div {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            margin: 6px;
+            font-size: 24px;
+            text-align: center;
+            background-color: #444;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        p{
+            font-size: 12px;
+            font-family: "Andale Mono", "Courier New", sans-serif;
+        }
+    </style>
+</head>
+<body>
+<p>
+    Punkte: <span id="score">0</span>
+</p>
+<div id="board">
+</div>
+<script>
+    // ---------------------- Start Hilfsfunktionen ----------------------
+    function duplicate(symbols) {
+        return symbols.concat(symbols);
+    }
+
+    // Literatur: https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Zufallszahlen
+    function getRndInteger(min, max) {
+        // Ganzzahl zwischen min und max, inklusiv.
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function shuffle(symbols) {
+        const shuffled = []
+        while (symbols.length > 0) {
+            const randomIndex = getRndInteger(0, symbols.length - 1)
+            shuffled.push(symbols[randomIndex])
+            symbols.splice(randomIndex, 1)
+        }
+        return shuffled
+    }
+
+    // Literatur: https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/DOM/DOM-Manipulation
+    function createCardElements(symbols) {
+        const divs = []
+        for (const symbol of symbols) {
+            // generiert ein HTML Element. z.B. <div>💰</div>
+            const element = document.createElement('div')
+            element.dataset['symbol'] = symbol
+            divs.push(element)
+        }
+        return divs
+    }
+
+    function addToBoard(divs) {
+        const board = document.getElementById('board')
+        for (const div of divs) {
+            board.appendChild(div)
+        }
+    }
+
+    function setScore(score){
+        document.getElementById('score').innerText = score
+    }
+
+    function openCard(card){
+        card.innerText = card.dataset['symbol']
+    }
+
+    function closeCard(card){
+        card.innerText = ""
+    }
+    // ---------------------- Ende Hilfsfunktionen ----------------------
+
+
+    // Variablen für Spielstand
+    const symbols = ["💰", "🌋", "🛺", "⏰", "🗝", "💾"]
+    let alreadyOpenCard = null
+    let score = 0
+    let blocked = false
+
+
+    // Spiel aufbauen
+    const allSymbols = duplicate(symbols)
+    const randomizedSymbols = shuffle(allSymbols)
+    const cardDivs = createCardElements(randomizedSymbols)
+    addToBoard(cardDivs)
+
+
+    // Spiellogik
+    for (const div of cardDivs) {
+        // Literatur: https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/DOM/Ereignisverarbeitung
+        div.addEventListener('click', function onClick(ev) {
+            const clickedCard = ev.target;
+
+            if(blocked === true){
+                // Timeout ist noch am laufen
+                return
+            }
+
+            if (alreadyOpenCard == null) {
+                // erster Click
+                openCard(clickedCard)
+                alreadyOpenCard = clickedCard
+            } else if (alreadyOpenCard !== clickedCard) {
+                // zweiter Click
+                openCard(clickedCard)
+
+                const foundMatchingCard = alreadyOpenCard.innerText === clickedCard.innerText;
+                if (foundMatchingCard) {
+                    setScore(++score);
+                    alreadyOpenCard = null
+                } else {
+                    // keine Punkte
+
+                    // blockiere weitere Clicks, bis beide Karten automatisch zugedeckt worden sind
+                    blocked = true
+
+                    // schliesse beide Karten wieder, nach 2 Sekunden (2000 Millisekunden)
+                    // Literatur: https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/komfortable_Timer-Funktion
+                    window.setTimeout(function(){
+                        closeCard(clickedCard)
+                        closeCard(alreadyOpenCard)
+                        alreadyOpenCard = null
+                        // Board für weitere Clicks freigeben
+                        blocked = false
+                    }, 2000)
+                }
+            } else {
+                // bereits offene Karte clicked
+            }
+        })
+    }
+</script>
+</body>
+</html>
