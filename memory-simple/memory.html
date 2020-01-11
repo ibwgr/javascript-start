@@ -116,6 +116,11 @@
                 return
             }
 
+            const clickedCardIsAlreadyOpen = clickedCard.innerText !== "";
+            if(clickedCardIsAlreadyOpen){
+                return
+            }
+
             if (alreadyOpenCard == null) {
                 // erster Click
                 openCard(clickedCard)
@@ -126,7 +131,7 @@
 
                 const foundMatchingCard = alreadyOpenCard.innerText === clickedCard.innerText;
                 if (foundMatchingCard) {
-                    setScore(++score);
+                    setScore(++score)
                     alreadyOpenCard = null
                 } else {
                     // keine Punkte
