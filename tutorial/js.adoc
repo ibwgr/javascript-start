@@ -1,0 +1,158 @@
+= JavaScript lernen
+:toc:
+:toclevels: 3
+:tip-caption: 💡
+:warning-caption: ⚠️
+:source-highlighter: coderay
+:docinfo: shared-head
+
+== Einleitung
+
+In diesem Tutorial wirst du Programmieren lernen.
+Du lernst wie man mit der Programmiersprache JavaScript 2D Elemente zeichnet,
+diese Elemente animiert und auf Benutzereingaben reagiert.
+
+Am Ende des Tutorials kennst du die grundlegenden Bausteine moderner Programmiersprachen und kannst diese verwenden,
+um eigenständig deine Ideen als Computer-Programm zu realisieren.
+
+=== Aufbau
+
+Das Tutorial ist in Kapitel unterteilt. In jedem Kapitel lernst du neue Bausteine kennen.
+Mit jedem Baustein kannst du komplexere / vielfältigere Programme schreiben.
+Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.
+
+Die Inhalte beschränken sich auf das Kursziel. Weiteführende, empfehlenswerte Lernquellen sind am Ende aufgeführt.
+
+=== Tools / Werkzeuge
+Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen Texteditor.
+Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben; eine sogenannte *IDE* (Integrated Development Environment).
+Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Visual Studio Code" (kurz vs code).
+
+Um unseren Code auszuführen verwenden wir einen *Browser* (z.B. Chrome, Firefox oder Edge).
+
+== Anweisungen & Variablen
+
+=== Anweisungen
+Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung veranlasst den Computer dazu etwas zu tun.
+Mögliche Dinge die man tun kann:
+
+* Mathematische Berechnung
+* Eine Datei einlesen
+* Eine Linie zeichnen
+* Rückfrage an den Benutzer (z.B. "Sind sie sicher, dass sie diese Datei löschen wollen?")
+
+Im folgenden JavaScript Programmcode ist jede Zeile eine Anweisung.
+
+[source,javascript,linenums]
+----
+1 + 3
+Math.sqrt(25)
+"Hallo " + prompt("Wie ist dein Name?")
+----
+
+Die Anweisungen werden sequentiell von oben nach unten ausgeführt. In JavaScript liefert jede Anweisung ein Ergebnis.
+
+Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.
+
+Die zweite Zeile berechnet die Quadratwurzel (Englisch Square Root, sqrt) aus 25, das Ergebnis ist 5.
+
+Die dritte Zeile fragt den User (Englisch für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo <NAME>".
+
+==== Übung - Anweisungen
+
+1. Öffne einen Browser
+1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
+1. Öffne die console in den Entwicklertools
+1. Führe eine Zeile nach der anderen aus. Dazu einfach die Zeile eingeben und Enter drücken.
+
+=== Variablen
+Mit einer Variable können Werte gespeichert werden. Das ist sehr praktisch. Denn jede Variable hat einen Namen. So kann man später im Programm auf den gespeicherten Wert zugreifen.
+
+Das Beispiel der Addition von oben, nun mit Variablen:
+
+[source,javascript,linenums]
+----
+a = 1
+b = 3
+summe = a + b
+----
+
+Jede Zeile im obigen Beispiel ist eine Anweisung.
+Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird direkt ein Wert zugewiesen.
+
+Das Ergebnis von Zeile 1 ist 1. Es entspricht dem Wert der Variable `a`.
+
+Das Ergebnis von Zeile 2 ist 3. Es entspricht dem Wert der Variable `b`.
+
+Das Ergebnis von Zeile 3 ist 4. Es entspricht dem Wert der Variable `summe`.
+
+Auf Zeile 3 wird auf die Variablen `a` und `b` zugegriffen und deren Werte werden ausgelesen.
+Man sagt auch, Zeile 3 referenziert die Variablen `a` und `b`.
+Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nicht möglich, Zeile 3 nach oben zu verschieben.
+Allerdings ist es möglich die Zeilen 1 und 2 zu tauschen.
+
+
+==== Variabelarten
+Die Variabel-Definitionen im obigen Beispiel sind kurz und sprechend, es fehlt jedoch ein sehr wichtiges Detail.
+In JavaScript gibt es zwei unterschiedliche Variabelarten: *veränderbare* und *unveränderbare*, sogenannte Konstanten.
+
+Veränderbaren Variablen kann mehrfach ein Wert zugewiesen werden. Konstanten kann nur einmal ein Wert zugewiesen werden.
+Veränderbare Variablen erkennt man an dem <<keyword>> `let`, unveränderbare am Keyword `const`.
+
+[source,javascript,linenums]
+----
+const a = 1
+a = 11 // Error, a ist bereits definiert
+let b = 3
+b = 33
+const summe = a + b
+----
+
+Der obige Code läuft nur dann Fehlerfrei durch, wenn Zeile 2 gelöscht wird.
+
+WARNING: Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet wird.
+
+
+== Datentypen
+
+=== Zahlen
+
+=== Zeichenketten
+
+
+== 2D Zeichnen
+
+=== P5.js
+
+== Schleifen
+
+== Funktionen
+
+== Objekte
+
+
+== Weiterführende JavaScript Resourcen
+
+...
+
+
+
+
+
+
+++++
+<script type="text/p5" src="p5-sketches/sketch.js" data-height="600"></script>
+++++
+link:p5-sketches/index.html?s=sketch[open]
+
+
+++++
+<script type="text/p5" src="p5-sketches/sketch.js" data-height="600"></script>
+++++
+link:p5-sketches/index.html?s=sketch[open]
+
+[glossary]
+= Glossar
+[[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variabeln) verwendet werden kann.
+
+
