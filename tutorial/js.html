@@ -46,6 +46,25 @@ iframe{
     width: 150% !important;
 }
 
+pre.rouge table.linenotable{
+    border: 0;
+    margin-bottom: 0;
+    background: transparent;
+}
+
+pre.rouge table td{
+    padding: 0px !important;
+}
+
+pre.rouge table td.linenos{
+    border-right: 1px solid white;
+}
+
+.listingblock pre.rouge code pre {
+    border-radius: 0 !important;
+}
+
+
 </style>
 <script src="//julesfouchy.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
@@ -66,6 +85,7 @@ iframe{
 <li><a href="#_anweisungen">Anweisungen</a>
 <ul class="sectlevel3">
 <li><a href="#_übung_anweisungen">Übung - Anweisungen</a></li>
+<li><a href="#_kommentare">Kommentare</a></li>
 </ul>
 </li>
 <li><a href="#_variablen">Variablen</a>
@@ -73,12 +93,14 @@ iframe{
 <li><a href="#_variabelarten">Variabelarten</a></li>
 </ul>
 </li>
+<li><a href="#_lernkontrolle">Lernkontrolle</a></li>
 </ul>
 </li>
-<li><a href="#_datentypen">Datentypen</a>
+<li><a href="#_datentypen_i">Datentypen I</a>
 <ul class="sectlevel2">
-<li><a href="#_zahlen">Zahlen</a></li>
-<li><a href="#_zeichenketten">Zeichenketten</a></li>
+<li><a href="#_zahlen_number">Zahlen (Number)</a></li>
+<li><a href="#_zeichenketten_string">Zeichenketten (String)</a></li>
+<li><a href="#_vergleiche_boolean">Vergleiche &amp; Boolean</a></li>
 </ul>
 </li>
 <li><a href="#_2d_zeichnen">2D Zeichnen</a>
@@ -86,6 +108,7 @@ iframe{
 <li><a href="#_p5_js">P5.js</a></li>
 </ul>
 </li>
+<li><a href="#_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</a></li>
 <li><a href="#_schleifen">Schleifen</a></li>
 <li><a href="#_funktionen">Funktionen</a></li>
 <li><a href="#_objekte">Objekte</a></li>
@@ -100,8 +123,8 @@ iframe{
 <div class="sectionbody">
 <div class="paragraph">
 <p>In diesem Tutorial wirst du Programmieren lernen.
-Du lernst wie man mit der Programmiersprache JavaScript 2D Elemente zeichnet,
-diese Elemente animiert und auf Benutzereingaben reagiert.</p>
+Du lernst wie man mit der Programmiersprache JavaScript 2D-Grafiken zeichnet,
+Elemente animiert und auf Benutzereingaben reagiert.</p>
 </div>
 <div class="paragraph">
 <p>Am Ende des Tutorials kennst du die grundlegenden Bausteine moderner Programmiersprachen und kannst diese verwenden,
@@ -137,7 +160,7 @@ Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Vi
 <div class="sect2">
 <h3 id="_anweisungen">Anweisungen</h3>
 <div class="paragraph">
-<p>Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung veranlasst den Computer dazu etwas zu tun.
+<p>Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung (engl. statement) veranlasst den Computer dazu etwas zu tun.
 Mögliche Dinge die man tun kann:</p>
 </div>
 <div class="ulist">
@@ -161,15 +184,13 @@ Mögliche Dinge die man tun kann:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre>1
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 3
-</pre></td>
-  <td class="code"><pre><span class="integer">1</span> + <span class="integer">3</span>
-Math.sqrt(<span class="integer">25</span>)
-<span class="string"><span class="delimiter">&quot;</span><span class="content">Hallo </span><span class="delimiter">&quot;</span></span> + prompt(<span class="string"><span class="delimiter">&quot;</span><span class="content">Wie ist dein Name?</span><span class="delimiter">&quot;</span></span>)</pre></td>
-</tr></table></code></pre>
+</pre></td><td class="code"><pre><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="dl">"</span><span class="s2">Hallo </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Wie ist dein Name?</span><span class="dl">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -179,10 +200,10 @@ Math.sqrt(<span class="integer">25</span>)
 <p>Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.</p>
 </div>
 <div class="paragraph">
-<p>Die zweite Zeile berechnet die Quadratwurzel (Englisch Square Root, sqrt) aus 25, das Ergebnis ist 5.</p>
+<p>Die zweite Zeile berechnet die Quadratwurzel (engl. Square Root, sqrt) aus 25, das Ergebnis ist 5.</p>
 </div>
 <div class="paragraph">
-<p>Die dritte Zeile fragt den User (Englisch für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo &lt;NAME&gt;".</p>
+<p>Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo &lt;NAME&gt;".</p>
 </div>
 <div class="sect3">
 <h4 id="_übung_anweisungen">Übung - Anweisungen</h4>
@@ -203,6 +224,47 @@ Math.sqrt(<span class="integer">25</span>)
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_kommentare">Kommentare</h4>
+<div class="paragraph">
+<p>Eine spezielle Anweisung ist ein Kommentar. Ein Kommentar ist ein Stück Code, welches vom Computer nicht ausgeführt wird. Kommentare sind dazu da, den restlichen Code zu beschreiben. Sie sind also für den Code-Leser gedacht, für Programmierer selbst.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c1">// Addiere 1 und 3</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="cm">/*
+Mehrzeiliger Kommentar ...
+...
+Ende Kommentar
+*/</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="c1">// Quadratwurzel von 25</span>
+<span class="nb">Math</span><span class="p">.</span><span class="cm">/*Kommentar innerhalb einer Anweisung, einfach weils geht :)*/</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Kommentare sind zu Beginn hilfreich. Später, wenn du die Grundlagen des Programmierens kennst, solltest du Kommentare aber sehr sparsam einsetzen. Als Programmierer ist es nämlich unsere Aufgabe den Code so zu schreiben, dass erläuternde Kommentare kaum notwendig sind.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_variablen">Variablen</h3>
@@ -214,20 +276,18 @@ Math.sqrt(<span class="integer">25</span>)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre>1
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 3
-</pre></td>
-  <td class="code"><pre>a = <span class="integer">1</span>
-b = <span class="integer">3</span>
-summe = a + b</pre></td>
-</tr></table></code></pre>
+</pre></td><td class="code"><pre><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Jede Zeile im obigen Beispiel ist eine Anweisung.
-Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird direkt ein Wert zugewiesen.</p>
+Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).</p>
 </div>
 <div class="paragraph">
 <p>Das Ergebnis von Zeile 1 ist 1. Es entspricht dem Wert der Variable <code>a</code>.</p>
@@ -241,8 +301,32 @@ Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst 
 <div class="paragraph">
 <p>Auf Zeile 3 wird auf die Variablen <code>a</code> und <code>b</code> zugegriffen und deren Werte werden ausgelesen.
 Man sagt auch, Zeile 3 referenziert die Variablen <code>a</code> und <code>b</code>.
-Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nicht möglich, Zeile 3 nach oben zu verschieben.
-Allerdings ist es möglich die Zeilen 1 und 2 zu tauschen.</p>
+Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nicht möglich, Zeile 3 nach oben zu verschieben. Denn dann würde man versuchen auf eine Variable zuzugreifen die es noch gar nicht gibt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="c1">// Error. Variable b existiert nicht</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Allerdings ist es möglich die Zeilen 1 und 2 zu tauschen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_variabelarten">Variabelarten</h4>
@@ -256,19 +340,17 @@ Veränderbare Variablen erkennt man an dem <a href="#keyword">Keyword</a> <code>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre>1
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td>
-  <td class="code"><pre>const a = <span class="integer">1</span>
-a = <span class="integer">11</span> <span class="comment">// Error, a ist bereits definiert</span>
-let b = <span class="integer">3</span>
-b = <span class="integer">33</span>
-const summe = a + b</pre></td>
-</tr></table></code></pre>
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1">// Error, a ist bereits definiert</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="kd">const</span> <span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -288,18 +370,101 @@ Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_lernkontrolle">Lernkontrolle</h3>
+<div class="paragraph">
+<p>Ich weiss, &#8230;&#8203;</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; was eine Anweisung ist</p>
+</li>
+<li>
+<p>&#10003; wie ich eine Variabel anlege</p>
+</li>
+<li>
+<p>&#10003; wie ich einer Variabel einen Wert zuweise</p>
+</li>
+<li>
+<p>&#10003; welche Variabelarten es gibt</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_datentypen">Datentypen</h2>
+<h2 id="_datentypen_i">Datentypen I</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_zahlen">Zahlen</h3>
-
+<div class="paragraph">
+<p>In einem Programm werden Informationen verarbeitet. Diese Informationen haben verschiedene Formate. Es können zum Beispiel Zahlen sein. Oder eine Liste von Namen. Als Programmierer ist es wichtig, dass man genau weiss, für was man die Informationen braucht, denn daraus leitet sich ab, welchen Datentyp man verwendet.</p>
+</div>
+<div class="paragraph">
+<p>Mit Zahlen kann ich andere Dinge anstellen als mit einer Liste von Namen.
+Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann es aber Sinn machen, zwei Zahlen zu einer Summe zu addieren.</p>
+</div>
+<div class="paragraph">
+<p>In JavaScript hat jede Variable einen Datentyp. Genauer: Der Wert, welcher einer Variable zugewiesen wird hat einen Datentyp, die Variable übernimmt diesen Datentyp.</p>
+</div>
+<div class="paragraph">
+<p>Zwei wichtige Datentypen werden hier vorgestellt. Später lernen wir noch einige mehr kennen.</p>
 </div>
 <div class="sect2">
-<h3 id="_zeichenketten">Zeichenketten</h3>
-
+<h3 id="_zahlen_number">Zahlen (Number)</h3>
+<div class="paragraph">
+<p>Damit können Ganzzahlen (sogenannte Integer) oder Fliesskommazahlen (sogenannte Floats) abgebildet werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="kd">const</span> <span class="nx">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="kd">const</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">pi</span> <span class="o">*</span> <span class="nx">r</span><span class="o">**</span><span class="mi">2</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zeichenketten_string">Zeichenketten (String)</h3>
+<div class="paragraph">
+<p>Wird verwendet um eine beliebige Anzahl von Zeichen zu speichern. z.B. einen Personennamen, eine Automarke oder ein Gedicht.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hallo!</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">brand</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Mercedes Benz</span><span class="dl">"</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mit dem + Zeichen ist es möglich zwei Strings miteinander zu verbinden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hallo</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2"> Mrs. Simpson</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">greeting</span> <span class="o">+</span> <span class="nx">name</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vergleiche_boolean">Vergleiche &amp; Boolean</h3>
+<div class="paragraph">
+<p>&amp;&amp;, ||, &lt;=, true/false</p>
+</div>
 </div>
 </div>
 </div>
@@ -310,6 +475,12 @@ Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet
 <h3 id="_p5_js">P5.js</h3>
 
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</h2>
+<div class="sectionbody">
+
 </div>
 </div>
 <div class="sect1">
@@ -362,97 +533,219 @@ Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-15 20:50:37 UTC
+Last updated 2021-03-16 21:01:48 UTC
 </div>
 </div>
 <style>
-/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
-pre.CodeRay{background:#f7f7f8}
-.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
-.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
-.CodeRay .line-numbers strong{color:#000}
-table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.CodeRay td{vertical-align:top;line-height:inherit}
-table.CodeRay td.line-numbers{text-align:right}
-table.CodeRay td.code{padding:0 0 0 .75em}
-.CodeRay .debug{color:#fff !important;background:#000080 !important}
-.CodeRay .annotation{color:#007}
-.CodeRay .attribute-name{color:#000080}
-.CodeRay .attribute-value{color:#700}
-.CodeRay .binary{color:#509}
-.CodeRay .comment{color:#998;font-style:italic}
-.CodeRay .char{color:#04d}
-.CodeRay .char .content{color:#04d}
-.CodeRay .char .delimiter{color:#039}
-.CodeRay .class{color:#458;font-weight:bold}
-.CodeRay .complex{color:#a08}
-.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
-.CodeRay .color{color:#099}
-.CodeRay .class-variable{color:#369}
-.CodeRay .decorator{color:#b0b}
-.CodeRay .definition{color:#099}
-.CodeRay .delimiter{color:#000}
-.CodeRay .doc{color:#970}
-.CodeRay .doctype{color:#34b}
-.CodeRay .doc-string{color:#d42}
-.CodeRay .escape{color:#666}
-.CodeRay .entity{color:#800}
-.CodeRay .error{color:#808}
-.CodeRay .exception{color:inherit}
-.CodeRay .filename{color:#099}
-.CodeRay .function{color:#900;font-weight:bold}
-.CodeRay .global-variable{color:#008080}
-.CodeRay .hex{color:#058}
-.CodeRay .integer,.CodeRay .float{color:#099}
-.CodeRay .include{color:#555}
-.CodeRay .inline{color:#000}
-.CodeRay .inline .inline{background:#ccc}
-.CodeRay .inline .inline .inline{background:#bbb}
-.CodeRay .inline .inline-delimiter{color:#d14}
-.CodeRay .inline-delimiter{color:#d14}
-.CodeRay .important{color:#555;font-weight:bold}
-.CodeRay .interpreted{color:#b2b}
-.CodeRay .instance-variable{color:#008080}
-.CodeRay .label{color:#970}
-.CodeRay .local-variable{color:#963}
-.CodeRay .octal{color:#40e}
-.CodeRay .predefined{color:#369}
-.CodeRay .preprocessor{color:#579}
-.CodeRay .pseudo-class{color:#555}
-.CodeRay .directive{font-weight:bold}
-.CodeRay .type{font-weight:bold}
-.CodeRay .predefined-type{color:inherit}
-.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
-.CodeRay .key{color:#808}
-.CodeRay .key .delimiter{color:#606}
-.CodeRay .key .char{color:#80f}
-.CodeRay .value{color:#088}
-.CodeRay .regexp .delimiter{color:#808}
-.CodeRay .regexp .content{color:#808}
-.CodeRay .regexp .modifier{color:#808}
-.CodeRay .regexp .char{color:#d14}
-.CodeRay .regexp .function{color:#404;font-weight:bold}
-.CodeRay .string{color:#d20}
-.CodeRay .string .string .string{background:#ffd0d0}
-.CodeRay .string .content{color:#d14}
-.CodeRay .string .char{color:#d14}
-.CodeRay .string .delimiter{color:#d14}
-.CodeRay .shell{color:#d14}
-.CodeRay .shell .delimiter{color:#d14}
-.CodeRay .symbol{color:#990073}
-.CodeRay .symbol .content{color:#a60}
-.CodeRay .symbol .delimiter{color:#630}
-.CodeRay .tag{color:#008080}
-.CodeRay .tag-special{color:#d70}
-.CodeRay .variable{color:#036}
-.CodeRay .insert{background:#afa}
-.CodeRay .delete{background:#faa}
-.CodeRay .change{color:#aaf;background:#007}
-.CodeRay .head{color:#f8f;background:#505}
-.CodeRay .insert .insert{color:#080}
-.CodeRay .delete .delete{color:#800}
-.CodeRay .change .change{color:#66f}
-.CodeRay .head .head{color:#f4f}
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
 </style>
 </body>
 </html>

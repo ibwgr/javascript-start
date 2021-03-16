@@ -3,14 +3,14 @@
 :toclevels: 3
 :tip-caption: 💡
 :warning-caption: ⚠️
-:source-highlighter: coderay
+:source-highlighter: rouge
 :docinfo: shared-head
 
 == Einleitung
 
 In diesem Tutorial wirst du Programmieren lernen.
-Du lernst wie man mit der Programmiersprache JavaScript 2D Elemente zeichnet,
-diese Elemente animiert und auf Benutzereingaben reagiert.
+Du lernst wie man mit der Programmiersprache JavaScript 2D-Grafiken zeichnet,
+Elemente animiert und auf Benutzereingaben reagiert.
 
 Am Ende des Tutorials kennst du die grundlegenden Bausteine moderner Programmiersprachen und kannst diese verwenden,
 um eigenständig deine Ideen als Computer-Programm zu realisieren.
@@ -33,7 +33,7 @@ Um unseren Code auszuführen verwenden wir einen *Browser* (z.B. Chrome, Firefox
 == Anweisungen & Variablen
 
 === Anweisungen
-Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung veranlasst den Computer dazu etwas zu tun.
+Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung (engl. statement) veranlasst den Computer dazu etwas zu tun.
 Mögliche Dinge die man tun kann:
 
 * Mathematische Berechnung
@@ -54,9 +54,9 @@ Die Anweisungen werden sequentiell von oben nach unten ausgeführt. In JavaScrip
 
 Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.
 
-Die zweite Zeile berechnet die Quadratwurzel (Englisch Square Root, sqrt) aus 25, das Ergebnis ist 5.
+Die zweite Zeile berechnet die Quadratwurzel (engl. Square Root, sqrt) aus 25, das Ergebnis ist 5.
 
-Die dritte Zeile fragt den User (Englisch für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo <NAME>".
+Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo <NAME>".
 
 ==== Übung - Anweisungen
 
@@ -64,6 +64,25 @@ Die dritte Zeile fragt den User (Englisch für Benutzer) nach dem Namen. Hat der
 1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
 1. Öffne die console in den Entwicklertools
 1. Führe eine Zeile nach der anderen aus. Dazu einfach die Zeile eingeben und Enter drücken.
+
+==== Kommentare
+Eine spezielle Anweisung ist ein Kommentar. Ein Kommentar ist ein Stück Code, welches vom Computer nicht ausgeführt wird. Kommentare sind dazu da, den restlichen Code zu beschreiben. Sie sind also für den Code-Leser gedacht, für Programmierer selbst.
+
+[source,javascript,linenums]
+----
+// Addiere 1 und 3
+1 + 3
+/*
+Mehrzeiliger Kommentar ...
+...
+Ende Kommentar
+*/
+Math.sqrt(25) // Quadratwurzel von 25
+Math./*Kommentar innerhalb einer Anweisung, einfach weils geht :)*/sqrt(25)
+----
+
+TIP: Kommentare sind zu Beginn hilfreich. Später, wenn du die Grundlagen des Programmierens kennst, solltest du Kommentare aber sehr sparsam einsetzen. Als Programmierer ist es nämlich unsere Aufgabe den Code so zu schreiben, dass erläuternde Kommentare kaum notwendig sind.
+
 
 === Variablen
 Mit einer Variable können Werte gespeichert werden. Das ist sehr praktisch. Denn jede Variable hat einen Namen. So kann man später im Programm auf den gespeicherten Wert zugreifen.
@@ -78,7 +97,7 @@ summe = a + b
 ----
 
 Jede Zeile im obigen Beispiel ist eine Anweisung.
-Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird direkt ein Wert zugewiesen.
+Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).
 
 Das Ergebnis von Zeile 1 ist 1. Es entspricht dem Wert der Variable `a`.
 
@@ -88,9 +107,23 @@ Das Ergebnis von Zeile 3 ist 4. Es entspricht dem Wert der Variable `summe`.
 
 Auf Zeile 3 wird auf die Variablen `a` und `b` zugegriffen und deren Werte werden ausgelesen.
 Man sagt auch, Zeile 3 referenziert die Variablen `a` und `b`.
-Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nicht möglich, Zeile 3 nach oben zu verschieben.
+Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nicht möglich, Zeile 3 nach oben zu verschieben. Denn dann würde man versuchen auf eine Variable zuzugreifen die es noch gar nicht gibt.
+
+[source,javascript,linenums]
+----
+a = 1
+summe = a + b // Error. Variable b existiert nicht
+b = 3
+----
+
 Allerdings ist es möglich die Zeilen 1 und 2 zu tauschen.
 
+[source,javascript,linenums]
+----
+b = 3
+a = 1
+summe = a + b
+----
 
 ==== Variabelarten
 Die Variabel-Definitionen im obigen Beispiel sind kurz und sprechend, es fehlt jedoch ein sehr wichtiges Detail.
@@ -113,16 +146,64 @@ Der obige Code läuft nur dann Fehlerfrei durch, wenn Zeile 2 gelöscht wird.
 WARNING: Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet wird.
 
 
-== Datentypen
+=== Lernkontrolle
+Ich weiss, ...
+====
+* [*] was eine Anweisung ist
+* [*] wie ich eine Variabel anlege
+* [*] wie ich einer Variabel einen Wert zuweise
+* [*] welche Variabelarten es gibt
+====
 
-=== Zahlen
+== Datentypen I
 
-=== Zeichenketten
+In einem Programm werden Informationen verarbeitet. Diese Informationen haben verschiedene Formate. Es können zum Beispiel Zahlen sein. Oder eine Liste von Namen. Als Programmierer ist es wichtig, dass man genau weiss, für was man die Informationen braucht, denn daraus leitet sich ab, welchen Datentyp man verwendet.
+
+Mit Zahlen kann ich andere Dinge anstellen als mit einer Liste von Namen.
+Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann es aber Sinn machen, zwei Zahlen zu einer Summe zu addieren.
+
+In JavaScript hat jede Variable einen Datentyp. Genauer: Der Wert, welcher einer Variable zugewiesen wird hat einen Datentyp, die Variable übernimmt diesen Datentyp.
+
+Zwei wichtige Datentypen werden hier vorgestellt. Später lernen wir noch einige mehr kennen.
+
+=== Zahlen (Number)
+Damit können Ganzzahlen (sogenannte Integer) oder Fliesskommazahlen (sogenannte Floats) abgebildet werden.
+
+[source,javascript,linenums]
+----
+const r = 14
+const pi = 3.14
+const area = pi * r**2
+----
+
+=== Zeichenketten (String)
+Wird verwendet um eine beliebige Anzahl von Zeichen zu speichern. z.B. einen Personennamen, eine Automarke oder ein Gedicht.
+
+[source,javascript,linenums]
+----
+const greeting = "Hallo!"
+const brand = "Mercedes Benz"
+----
+
+Mit dem + Zeichen ist es möglich zwei Strings miteinander zu verbinden.
+
+[source,javascript,linenums]
+----
+const greeting = "Hallo"
+const name = " Mrs. Simpson"
+const text = greeting + name
+----
+
+
+=== Vergleiche & Boolean
+&&, ||, \<=, true/false
 
 
 == 2D Zeichnen
 
 === P5.js
+
+== Verzweigungen / Entscheidungen
 
 == Schleifen
 
@@ -152,7 +233,7 @@ link:p5-sketches/index.html?s=sketch[open]
 link:p5-sketches/index.html?s=sketch[open]
 
 [glossary]
-= Glossar
+== Glossar
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variabeln) verwendet werden kann.
 
 
