@@ -99,14 +99,16 @@ summe = a + b
 Jede Zeile im obigen Beispiel ist eine Anweisung.
 Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).
 
-Das Ergebnis von Zeile 1 ist 1. Es entspricht dem Wert der Variable `a`.
+Nachdem die erste Zeile ausgeführt ist, hat die Variable `a` den Wert 1.
 
-Das Ergebnis von Zeile 2 ist 3. Es entspricht dem Wert der Variable `b`.
+Nachdem die zweite Zeile ausgeführt ist, hat die Variable `b` den Wert 3.
 
-Das Ergebnis von Zeile 3 ist 4. Es entspricht dem Wert der Variable `summe`.
+Nachdem die dritte Zeile ausgeführt ist, hat die Variable `summe` den Wert 4.
 
-Auf Zeile 3 wird auf die Variablen `a` und `b` zugegriffen und deren Werte werden ausgelesen.
+Auf Zeile 3 wird auf die Variablen `a` und `b` zugegriffen und deren Werte werden ausgelesen und für die Addition verwendet.
 Man sagt auch, Zeile 3 referenziert die Variablen `a` und `b`.
+
+
 Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nicht möglich, Zeile 3 nach oben zu verschieben. Denn dann würde man versuchen auf eine Variable zuzugreifen die es noch gar nicht gibt.
 
 [source,javascript,linenums]
@@ -157,12 +159,12 @@ Ich weiss, ...
 
 == Datentypen I
 
-In einem Programm werden Informationen verarbeitet. Diese Informationen haben verschiedene Formate. Es können zum Beispiel Zahlen sein. Oder eine Liste von Namen. Als Programmierer ist es wichtig, dass man genau weiss, für was man die Informationen braucht, denn daraus leitet sich ab, welchen Datentyp man verwendet.
+In einem Programm werden Daten verarbeitet. Diese Daten können unterschiedlicher Art sein. Es können zum Beispiel Zahlen sein. Oder eine Liste von Namen. Als Programmierer ist es wichtig, dass man genau weiss, für was man die Daten braucht, denn daraus leitet sich ab, welchen Datentyp man verwendet.
 
 Mit Zahlen kann ich andere Dinge anstellen als mit einer Liste von Namen.
 Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann es aber Sinn machen, zwei Zahlen zu einer Summe zu addieren.
 
-In JavaScript hat jede Variable einen Datentyp. Genauer: Der Wert, welcher einer Variable zugewiesen wird hat einen Datentyp, die Variable übernimmt diesen Datentyp.
+In JavaScript hat jede Variable einen Datentyp. Genauer: Der Wert, welcher einer Variable zugewiesen wird hat einen Datentyp, die Variable übernimmt diesen Datentyp automatisch bei der Zuweisung.
 
 Zwei wichtige Datentypen werden hier vorgestellt. Später lernen wir noch einige mehr kennen.
 
@@ -194,8 +196,28 @@ const name = " Mrs. Simpson"
 const text = greeting + name
 ----
 
+==== Typen kombinieren
 
-=== Vergleiche & Boolean
+Eine Zahl kann ebenfalls in einer Zeichenkette gespeichert werden.
+Dann kann man damit aber nicht mehr rechnen. 
+
+Folgendes ist also keine gültige Addition:
+
+[source,javascript,linenums]
+----
+const summe = "3.14" + 5
+----
+
+Hingegen kann eine Zahl immer automatisch zu einem String umgewandelt werden. Folgendes ist also sinnvoll: 
+
+[source,javascript,linenums]
+----
+const temp = 35.8; 
+const text = "Temperatur: " + temp
+----
+
+
+=== Boolean & Vergleiche
 &&, ||, \<=, true/false
 
 
