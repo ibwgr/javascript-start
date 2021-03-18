@@ -34,7 +34,7 @@ html, body {
 }
 
 iframe{
-    width: 150% !important;
+    min-width: 900px !important;
 }
 
 pre.rouge table.linenotable{
