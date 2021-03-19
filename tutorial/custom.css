@@ -8,6 +8,10 @@ body {
     border-bottom: none;
 }
 
+body.toc2 #header > h1:nth-last-child(2){
+    border-bottom: 0;
+}
+
 .sect1, .sect1 + .sect1 {
     border-top: 1px solid #aaa;
 }

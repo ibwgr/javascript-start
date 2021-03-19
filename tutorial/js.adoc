@@ -1,5 +1,5 @@
 = JavaScript lernen
-:toc:
+:toc: left
 :toclevels: 3
 :tip-caption: 💡
 :warning-caption: ⚠️
@@ -59,12 +59,12 @@ Die zweite Zeile berechnet die Quadratwurzel (engl. Square Root, sqrt) aus 25, d
 Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo <NAME>".
 
 ==== Übung - Anweisungen
-
+****
 1. Öffne einen Browser
 1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
 1. Öffne die console in den Entwicklertools
 1. Führe eine Zeile nach der anderen aus. Dazu einfach die Zeile eingeben und Enter drücken.
-
+****
 ==== Kommentare
 Eine spezielle Anweisung ist ein Kommentar. Ein Kommentar ist ein Stück Code, welches vom Computer nicht ausgeführt wird. Kommentare sind dazu da, den restlichen Code zu beschreiben. Sie sind also für den Code-Leser gedacht, für Programmierer selbst.
 
@@ -97,7 +97,7 @@ summe = a + b
 ----
 
 Jede Zeile im obigen Beispiel ist eine Anweisung.
-Bei allen drei Anweisungen handelt es sich um Variabel Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).
+Bei allen drei Anweisungen handelt es sich um Variable Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).
 
 Nachdem die erste Zeile ausgeführt ist, hat die Variable `a` den Wert 1.
 
@@ -127,9 +127,16 @@ a = 1
 summe = a + b
 ----
 
-==== Variabelarten
-Die Variabel-Definitionen im obigen Beispiel sind kurz und sprechend, es fehlt jedoch ein sehr wichtiges Detail.
-In JavaScript gibt es zwei unterschiedliche Variabelarten: *veränderbare* und *unveränderbare*, sogenannte Konstanten.
+==== Variablenamen / Bezeichner
+In JavaScript kann eine Variable einen langen, sprechenden Namen. Das ist sehr praktisch. Denn dadurch ist klar, welcher Wert sich dahinter befindet.
+
+Im Folgenden eine Liste von gültigen Namen: `a, name, backgroundColor, first_name`. +
+Einige Zeichen sind nicht erlaubt, z.B. Umlaute und die meisten Sonderzeichen. In der Praxis sind die einzigen zwei Sonderzeichen, die man hin und wieder sieht `_, $`.
+
+
+==== Variablearten
+Die Variable-Definitionen im obigen Beispiel sind kurz und sprechend, es fehlt jedoch ein sehr wichtiges Detail.
+In JavaScript gibt es zwei unterschiedliche Variablearten: *veränderbare* und *unveränderbare*, sogenannte Konstanten.
 
 Veränderbaren Variablen kann mehrfach ein Wert zugewiesen werden. Konstanten kann nur einmal ein Wert zugewiesen werden.
 Veränderbare Variablen erkennt man an dem <<keyword>> `let`, unveränderbare am Keyword `const`.
@@ -152,9 +159,9 @@ WARNING: Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const 
 Ich weiss, ...
 ====
 * [*] was eine Anweisung ist
-* [*] wie ich eine Variabel anlege
-* [*] wie ich einer Variabel einen Wert zuweise
-* [*] welche Variabelarten es gibt
+* [*] wie ich eine Variable anlege
+* [*] wie ich einer Variable einen Wert zuweise
+* [*] welche Variablearten es gibt
 ====
 
 == Datentypen I
@@ -199,7 +206,7 @@ const text = greeting + name
 ==== Typen kombinieren
 
 Eine Zahl kann ebenfalls in einer Zeichenkette gespeichert werden.
-Dann kann man damit aber nicht mehr rechnen. 
+Dann kann man damit aber nicht mehr rechnen.
 
 Folgendes ist also keine gültige Addition:
 
@@ -208,7 +215,7 @@ Folgendes ist also keine gültige Addition:
 const summe = "3.14" + 5
 ----
 
-Hingegen kann eine Zahl immer automatisch zu einem String umgewandelt werden. Folgendes ist also sinnvoll: 
+Hingegen kann eine Zahl immer automatisch zu einem String umgewandelt werden. Folgendes ist also sinnvoll:
 
 [source,javascript,linenums]
 ----
@@ -252,18 +259,19 @@ Ich weiss, ...
 ====
 * [*] dass ich nur Variablen mit gleichem Datentyp vergleichen kann
 * [*] was ein Integer und was ein Float ist
-* [*] was ein String ist 
+* [*] was ein String ist
 ====
 
 == 2D Zeichnen
 Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren von zweidimensionalen geometrischen Formen.
 
-Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert.
+Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.
 
-Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses ist in ein Raster unterteilt ist (unten im Bild rechts).
-Aus dem Mathematikunterricht kennt ihr etwas ähnliches, das kartesische Koordinatensystem (und im Bild links). Im Unterschied dazu, ist der 0 Punkt allerdings ganz oben Links.
+=== Zeichenfläche
+Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt ist (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
+Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur ein Quadrant, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.
 
-image::media/drawing-2d.svg[system,300,300]
+image::media/drawing-2d.svg[system,300,300,align=center]
 
 Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, können wir folgenden Code verwenden:
 
@@ -276,13 +284,20 @@ const endY = 6
 line(startX, startY, endX, endY)
 ----
 
-Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (0, 0). Der Endpunkt ist ganz unten rechts, dieser hat die Koordinaten (6, 6).
+Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz (0, 0). Der Endpunkt ist ganz unten rechts, dieser hat die Koordinaten (6, 6).
 
+*Funktionen*
+
+Aufmerksame Leser werden bemerkt haben, dass sich im obigen Code ein neues Programmelement reingemogelt hat. Nämlich auf Zeile 5, der Aufruf der Funktion `line`.
+
+Eine Funktion ist eine Anweisung, welche vom Computer im Hintergrund zur Verfügung gestellt. Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten (Komma-getrennt), können wir dem Mini-Programm genau sagen, was es für uns tun soll. In diesem Falle beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.
+
+Mit Funktionen werden wir uns später noch vertieft auseinander setzen. Vorerst reicht es, die von PS5.js zur Verfügung gestellten Funktionen aufzurufen, um coole Dinge zu zeichen.
 
 === P5.js
-Wenn du den Code von oben im Browser ausführst, wird das einen Fehler geben. Der Grund ist, dass es den Befehl `line` nicht gibt. Zudem gibt es keine Zeichenfläche.
+Wenn du den Code von oben im Browser ausführst, wird das einen Fehler geben. Der Grund ist, dass es die Funktion `line` nicht gibt. Zudem gibt es keine Zeichenfläche.
 
-Mit einem zusätzlichen Werkzeug namens P5.js erhalten wir jedoch Zugriff auf eine Zeichenfläche, sowie eine Menge von Anweisungen, die wir verwenden können um darauf zu zeichnen.
+Mit einem zusätzlichen Werkzeug namens P5.js erhalten wir jedoch Zugriff auf eine Zeichenfläche, sowie eine Menge von Funktionen, die wir verwenden können um darauf zu zeichnen.
 
 Im Folgenden siehst du ein einfaches Programm, welches mithilfe von P5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.
 
@@ -297,11 +312,12 @@ line(0, 0, 200, 200)
 
 Cool! Aber was geschieht da genau?
 
-1. Die Anweisung `createCanvas` erstellt eine Zeichenfläche. Diese ist 200 Einheiten breit und 200 Einheiten hoch.
+1. Die Funktion `createCanvas` erstellt eine Zeichenfläche. Diese ist 200 Einheiten breit und 200 Einheiten hoch.
 1. Mit `background` setzen wir die Hintergrundfarbe der Zeichenfläche. `skyblue` ist eine Farbbezeichnung die der Computer kennt.
-1. Mit `line` zeichnen wir dann die Diagonale Linie, von oben links nach unten rechts.
+1. Mit `line` zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.
 
-==== Übung
+=== Übung – 2D Zeichnen
+****
 *Linie*
 
 Zeichne eine Linie von unten links nach oben rechts.
@@ -315,7 +331,7 @@ Verändere die Hintergrundfarbe. Auswahl an Farbnamen https://www.w3schools.com/
 Zeichne:
 
 +++
-<iframe src="p5-sketches/index.html?s=pendel" style="border:0; height: 400px;"></iframe>
+<iframe src="p5-sketches/index.html?s=pendel" style="border:0; height: 200px;"></iframe>
 +++
 
 Wichtige Infos die dir helfen:
@@ -323,6 +339,16 @@ Wichtige Infos die dir helfen:
 * Formen zeichnen: https://processing.org/tutorials/drawing
 * Vollständige Liste aller P5.js Anweisungen: https://p5js.org/reference
 
+*Symbol*
+
+Zeichne selbst etwas bestimmtes. z.B. ein Haus oder ein Ying-Yang oder was dir gerade in den Sinn kommt :).
+****
+
+=== Lernkontrolle
+Ich weiss, ...
+====
+* [*] wie ich eine Linie, ein Kreis oder ein Rechteck zeichne
+====
 
 == Verzweigungen / Entscheidungen
 
@@ -350,6 +376,6 @@ link:p5-sketches/index.html?s=sketch[open]
 
 [glossary]
 == Glossar
-[[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variabeln) verwendet werden kann.
+[[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann.
 
 
