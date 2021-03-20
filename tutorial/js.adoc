@@ -203,7 +203,7 @@ Auf Zeile 5 wird die Funktion `line` aufgerufen. Die Komma-separierten Werte in 
 
 Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion Math.sqrt kennen gelernt. Diese hat ein Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion `line` hat 4 Parameter.
 
-Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter: 
+Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:
 
 [source,javascript,linenums]
 ----
@@ -274,7 +274,15 @@ Zeichne:
 
 *Symbol*
 
-Zeichne selbst etwas bestimmtes. z.B. ein Haus oder ein Ying-Yang oder was dir gerade in den Sinn kommt :).
+Zeichne selbst etwas bestimmtes. z.B. ein Haus oder ein Ying-Yang Symbol oder was dir gerade in den Sinn kommt :).
+
+Inspiration:
+
++++
+<iframe src="p5-sketches/index.html?s=peace" style="border:0; height: 200px;"></iframe>
++++
+https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/
+
 ****
 
 === Lernkontrolle
