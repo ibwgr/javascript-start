@@ -1,36 +1,15 @@
-let cc, bgColor
 function setup() {
-  cc = createCanvas(400, 400)
-  cc.mousePressed(mousePressed)
-  cc.mousePressed(mouseReleased)
-  bgColor = 'grey'
-  frameRate(6)
-}
+  createCanvas(200, 200)
+  background("beige")
+  line(100, 0, 100, 20)
+  fill("red")
+  circle(100, 25, 10)
 
-function draw() {
-  background(bgColor)
-}
-function mousePressed(){
-  bgColor = 'yellow'
-}
-function mouseReleased(){
-  bgColor = 'grey'
-}
+  line(100, 30, 100, 70)
+  fill("green")
+  circle(100, 70, 20)
 
-
-/**
-let c, bgColor
-function setup() {
-  c = createCanvas(400, 400)
-  frameRate(6)
+  line(100, 80, 100, 120)
+  fill("blue")
+  circle(100, 120, 30)
 }
-
-function draw() {
-  if(mouseIsPressed){
-    bgColor = 'yellow'
-  }else{
-    bgColor = 'grey'
-  }
-  background(bgColor)
-}
- */

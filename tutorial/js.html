@@ -89,9 +89,9 @@ pre.rouge table td.linenos{
 <li><a href="#_anweisungen">Anweisungen</a>
 <ul class="sectlevel3">
 <li><a href="#_übung_anweisungen">Übung - Anweisungen</a></li>
-<li><a href="#_kommentare">Kommentare</a></li>
 </ul>
 </li>
+<li><a href="#_kommentare">Kommentare</a></li>
 <li><a href="#_variablen">Variablen</a>
 <ul class="sectlevel3">
 <li><a href="#_variablenamen_bezeichner">Variablenamen / Bezeichner</a></li>
@@ -99,6 +99,22 @@ pre.rouge table td.linenos{
 </ul>
 </li>
 <li><a href="#_lernkontrolle">Lernkontrolle</a></li>
+</ul>
+</li>
+<li><a href="#_2d_zeichnen">2D Zeichnen</a>
+<ul class="sectlevel2">
+<li><a href="#_zeichenfläche">Zeichenfläche</a></li>
+</ul>
+</li>
+<li><a href="#_funktionen">Funktionen</a>
+<ul class="sectlevel2">
+<li><a href="#_lernkontrolle_2">Lernkontrolle</a></li>
+</ul>
+</li>
+<li><a href="#_p5_js">P5.js</a>
+<ul class="sectlevel2">
+<li><a href="#_übung_2d_zeichnen">Übung – 2D Zeichnen</a></li>
+<li><a href="#_lernkontrolle_3">Lernkontrolle</a></li>
 </ul>
 </li>
 <li><a href="#_datentypen_i">Datentypen I</a>
@@ -114,22 +130,14 @@ pre.rouge table td.linenos{
 <li><a href="#_gleichheit_prüfen">Gleichheit prüfen</a></li>
 </ul>
 </li>
-<li><a href="#_lernkontrolle_2">Lernkontrolle</a></li>
-</ul>
-</li>
-<li><a href="#_2d_zeichnen">2D Zeichnen</a>
-<ul class="sectlevel2">
-<li><a href="#_zeichenfläche">Zeichenfläche</a></li>
-<li><a href="#_p5_js">P5.js</a></li>
-<li><a href="#_übung_2d_zeichnen">Übung – 2D Zeichnen</a></li>
-<li><a href="#_lernkontrolle_3">Lernkontrolle</a></li>
+<li><a href="#_lernkontrolle_4">Lernkontrolle</a></li>
 </ul>
 </li>
 <li><a href="#_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</a></li>
 <li><a href="#_schleifen">Schleifen</a></li>
-<li><a href="#_funktionen">Funktionen</a></li>
+<li><a href="#_funktionen_2">Funktionen</a></li>
 <li><a href="#_objekte">Objekte</a></li>
-<li><a href="#_weiterführende_javascript_resourcen">Weiterführende JavaScript Resourcen</a></li>
+<li><a href="#_weiterführende_javascript_ressourcen">Weiterführende JavaScript Ressourcen</a></li>
 <li><a href="#_glossar">Glossar</a></li>
 </ul>
 </div>
@@ -164,6 +172,9 @@ Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.</p>
 <p>Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen Texteditor.
 Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben; eine sogenannte <strong>IDE</strong> (Integrated Development Environment).
 Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Visual Studio Code" (kurz vscode).</p>
+</div>
+<div class="paragraph">
+<p>Zu Beginn lernen wir P5.js kennen. Damit können wir 2D-Grafiken zeichnen. P5.js bietet einen einfachen Texteditor an, welcher direkt im <strong>Browser</strong> läuft.</p>
 </div>
 <div class="paragraph">
 <p>Um unseren Code auszuführen verwenden wir einen <strong>Browser</strong> (z.B. Chrome, Firefox oder Edge).</p>
@@ -245,8 +256,9 @@ Mögliche Dinge die man tun kann:</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_kommentare">Kommentare</h4>
+</div>
+<div class="sect2">
+<h3 id="_kommentare">Kommentare</h3>
 <div class="paragraph">
 <p>Eine spezielle Anweisung ist ein Kommentar. Ein Kommentar ist ein Stück Code, welches vom Computer nicht ausgeführt wird. Kommentare sind dazu da, den restlichen Code zu beschreiben. Sie sind also für den Code-Leser gedacht, für Programmierer selbst.</p>
 </div>
@@ -284,7 +296,6 @@ Kommentare sind zu Beginn hilfreich. Später, wenn du die Grundlagen des Program
 </td>
 </tr>
 </table>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -387,7 +398,7 @@ Veränderbare Variablen erkennt man an dem <a href="#keyword">Keyword</a> <code>
 </div>
 </div>
 <div class="paragraph">
-<p>Der obige Code läuft nur dann Fehlerfrei durch, wenn Zeile 2 gelöscht wird.</p>
+<p>Der obige Code läuft nur dann fehlerfrei komplett durch, wenn Zeile 2 gelöscht wird.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -427,6 +438,230 @@ Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2d_zeichnen">2D Zeichnen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren von zweidimensionalen geometrischen Formen.</p>
+</div>
+<div class="paragraph">
+<p>Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.</p>
+</div>
+<div class="sect2">
+<h3 id="_zeichenfläche">Zeichenfläche</h3>
+<div class="paragraph">
+<p>Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt ist (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
+Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur einen Quadranten, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="media/drawing-2d.svg" alt="system" width="300" height="300">
+</div>
+</div>
+<div class="paragraph">
+<p>Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, müssen wir eine Möglichkeit finden, dem Computer zu befehlen: "Zeichne eine Linie von Punkt (0, 0) bis Punkt (6, 6)". Um solche Anweisungen geben zu können, müssen wir zuerst ein neues Programmelement kennen lernen, Funktionen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_funktionen">Funktionen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Eine Funktion ist eine Anweisung, welche vom Computer im Hintergrund zur Verfügung gestellt wird. Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten, können wir dem Mini-Programm genau sagen, was es für uns tun soll.</p>
+</div>
+<div class="paragraph">
+<p>Um eine Linie zu zeichnen können wir folgenden Code verwenden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">startX</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">startY</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">endX</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="kd">const</span> <span class="nx">endY</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nx">line</span><span class="p">(</span><span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Zeile 1-4:
+Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz (0, 0). Der Endpunkt ist ganz unten rechts, dieser hat die Koordinaten (6, 6).</p>
+</div>
+<div class="paragraph">
+<p>Auf Zeile 5 wird die Funktion <code>line</code> aufgerufen. Die Komma-separierten Werte in den Klammern nennt man <code>Parameter</code>. Sie beschreiben, was die Funktion konkret tun soll. In diesem Fall beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.</p>
+</div>
+<div class="paragraph">
+<p>Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion Math.sqrt kennen gelernt. Diese hat ein Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion <code>line</code> hat 4 Parameter.</p>
+</div>
+<div class="paragraph">
+<p>Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">// Ich kann sogar die Wurzel einer Wurzel berechnen:</span>
+<span class="kd">let</span> <span class="nx">nine</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">three</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">nine</span><span class="p">)</span>
+<span class="c1">// Oder nocht kürzer:</span>
+<span class="nx">three</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">81</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Als nächstes lernen wir ein Werkzeug kennen, welches die Funktion <code>line</code> ausführen kann und eine Linie auf den Bildschirm zeichnet. Denn wenn du den Code von oben kopierst und direkt im Browser ausführst, wird das einen Fehler geben. Der Grund ist, dass es die Funktion <code>line</code> nicht gibt. Zudem gäbe es auch noch keine Zeichenfläche ;).</p>
+</div>
+<div class="sect2">
+<h3 id="_lernkontrolle_2">Lernkontrolle</h3>
+<div class="paragraph">
+<p>Ich weiss, &#8230;&#8203;</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; was eine Funktion ist</p>
+</li>
+<li>
+<p>&#10003; was ein Parameter ist</p>
+</li>
+<li>
+<p>&#10003; wie ich eine Funktion aufrufe</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_p5_js">P5.js</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Im Folgenden siehst du ein einfaches Programm, welches mithilfe von P5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.</p>
+</div>
+<script type="text/p5" data-height="300">
+createCanvas(200, 200)
+background('skyblue')
+line(0, 0, 200, 200)
+</script>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Cool! Aber was geschieht da genau?</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Die Funktion <code>createCanvas</code> erstellt eine Zeichenfläche. Diese ist 200 Einheiten breit und 200 Einheiten hoch.</p>
+</li>
+<li>
+<p>Mit <code>background</code> setzen wir die Hintergrundfarbe der Zeichenfläche. <code>skyblue</code> ist eine Farbbezeichnung die der Computer kennt.</p>
+</li>
+<li>
+<p>Mit <code>line</code> zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_übung_2d_zeichnen">Übung – 2D Zeichnen</h3>
+<div class="paragraph">
+<p>Du kannst diese Übungen direkt im obigen Editor lösen.</p>
+</div>
+<div class="paragraph">
+<p>Wichtige Resourcen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Formen zeichnen: <a href="https://processing.org/tutorials/drawing" class="bare">https://processing.org/tutorials/drawing</a></p>
+</li>
+<li>
+<p>Vollständige Dokumentation aller Funktionen von P5.js: <a href="https://p5js.org/reference" class="bare">https://p5js.org/reference</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Linie</strong></p>
+</div>
+<div class="paragraph">
+<p>Zeichne eine zweite Linie von unten links nach oben rechts.</p>
+</div>
+<div class="paragraph">
+<p><strong>Farben</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verändere die Hintergrundfarbe. Auswahl an Farbnamen <a href="https://www.w3schools.com/colors/colors_names.asp" class="bare">https://www.w3schools.com/colors/colors_names.asp</a></p>
+</li>
+<li>
+<p>Verändere die Linienfarbe. Zeichne Linien in verschiedenen Farben.<br>
+Hinweis: Die <code>stroke</code> Funktion</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Farben &amp; Formen</strong></p>
+</div>
+<div class="paragraph">
+<p>Zeichne:</p>
+</div>
+<div class="paragraph">
+<p>
+<iframe src="p5-sketches/index.html?s=pendel" style="border:0; height: 200px;"></iframe>
+</p>
+</div>
+<div class="paragraph">
+<p><strong>Symbol</strong></p>
+</div>
+<div class="paragraph">
+<p>Zeichne selbst etwas bestimmtes. z.B. ein Haus oder ein Ying-Yang oder was dir gerade in den Sinn kommt :).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lernkontrolle_3">Lernkontrolle</h3>
+<div class="paragraph">
+<p>Ich weiss, &#8230;&#8203;</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; wie ich eine Linie, ein Kreis und ein Rechteck zeichne</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Du hast nun einiges gelernt und kannst 2D zeichnen mit P5.js. Das nächste Ziel ist das Erstellen von interaktiven Programmen, welche anhand von Benutzereingaben ihr Verhalten verändern, und so zum Beispiel auf einen Mausklick reagieren. Bevor wir das tun können, musst du dir aber noch ein wenig Theorie aneignen.</p>
 </div>
 </div>
 </div>
@@ -568,7 +803,7 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </div>
 </div>
 <div class="sect2">
-<h3 id="_lernkontrolle_2">Lernkontrolle</h3>
+<h3 id="_lernkontrolle_4">Lernkontrolle</h3>
 <div class="paragraph">
 <p>Ich weiss, &#8230;&#8203;</p>
 </div>
@@ -580,168 +815,13 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <p>&#10003; dass ich nur Variablen mit gleichem Datentyp vergleichen kann</p>
 </li>
 <li>
-<p>&#10003; was ein Integer und was ein Float ist</p>
+<p>&#10003; was ein Boolean Wert ist</p>
+</li>
+<li>
+<p>&#10003; den Unterschied von Integer und Float</p>
 </li>
 <li>
 <p>&#10003; was ein String ist</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_2d_zeichnen">2D Zeichnen</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren von zweidimensionalen geometrischen Formen.</p>
-</div>
-<div class="paragraph">
-<p>Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.</p>
-</div>
-<div class="sect2">
-<h3 id="_zeichenfläche">Zeichenfläche</h3>
-<div class="paragraph">
-<p>Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt ist (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
-Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur ein Quadrant, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="media/drawing-2d.svg" alt="system" width="300" height="300">
-</div>
-</div>
-<div class="paragraph">
-<p>Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, können wir folgenden Code verwenden:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">startX</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">startY</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">endX</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="kd">const</span> <span class="nx">endY</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="nx">line</span><span class="p">(</span><span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz (0, 0). Der Endpunkt ist ganz unten rechts, dieser hat die Koordinaten (6, 6).</p>
-</div>
-<div class="paragraph">
-<p><strong>Funktionen</strong></p>
-</div>
-<div class="paragraph">
-<p>Aufmerksame Leser werden bemerkt haben, dass sich im obigen Code ein neues Programmelement reingemogelt hat. Nämlich auf Zeile 5, der Aufruf der Funktion <code>line</code>.</p>
-</div>
-<div class="paragraph">
-<p>Eine Funktion ist eine Anweisung, welche vom Computer im Hintergrund zur Verfügung gestellt. Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten (Komma-getrennt), können wir dem Mini-Programm genau sagen, was es für uns tun soll. In diesem Falle beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.</p>
-</div>
-<div class="paragraph">
-<p>Mit Funktionen werden wir uns später noch vertieft auseinander setzen. Vorerst reicht es, die von PS5.js zur Verfügung gestellten Funktionen aufzurufen, um coole Dinge zu zeichen.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_p5_js">P5.js</h3>
-<div class="paragraph">
-<p>Wenn du den Code von oben im Browser ausführst, wird das einen Fehler geben. Der Grund ist, dass es die Funktion <code>line</code> nicht gibt. Zudem gibt es keine Zeichenfläche.</p>
-</div>
-<div class="paragraph">
-<p>Mit einem zusätzlichen Werkzeug namens P5.js erhalten wir jedoch Zugriff auf eine Zeichenfläche, sowie eine Menge von Funktionen, die wir verwenden können um darauf zu zeichnen.</p>
-</div>
-<div class="paragraph">
-<p>Im Folgenden siehst du ein einfaches Programm, welches mithilfe von P5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.</p>
-</div>
-<script type="text/p5" data-height="300">
-createCanvas(200, 200)
-background('skyblue')
-line(0, 0, 200, 200)
-</script>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<div class="paragraph">
-<p>Cool! Aber was geschieht da genau?</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Die Funktion <code>createCanvas</code> erstellt eine Zeichenfläche. Diese ist 200 Einheiten breit und 200 Einheiten hoch.</p>
-</li>
-<li>
-<p>Mit <code>background</code> setzen wir die Hintergrundfarbe der Zeichenfläche. <code>skyblue</code> ist eine Farbbezeichnung die der Computer kennt.</p>
-</li>
-<li>
-<p>Mit <code>line</code> zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_übung_2d_zeichnen">Übung – 2D Zeichnen</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Linie</strong></p>
-</div>
-<div class="paragraph">
-<p>Zeichne eine Linie von unten links nach oben rechts.</p>
-</div>
-<div class="paragraph">
-<p><strong>Farben</strong></p>
-</div>
-<div class="paragraph">
-<p>Verändere die Hintergrundfarbe. Auswahl an Farbnamen <a href="https://www.w3schools.com/colors/colors_names.asp" class="bare">https://www.w3schools.com/colors/colors_names.asp</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Farben &amp; Formen</strong></p>
-</div>
-<div class="paragraph">
-<p>Zeichne:</p>
-</div>
-<div class="paragraph">
-<p>
-<iframe src="p5-sketches/index.html?s=pendel" style="border:0; height: 200px;"></iframe>
-</p>
-</div>
-<div class="paragraph">
-<p>Wichtige Infos die dir helfen:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Formen zeichnen: <a href="https://processing.org/tutorials/drawing" class="bare">https://processing.org/tutorials/drawing</a></p>
-</li>
-<li>
-<p>Vollständige Liste aller P5.js Anweisungen: <a href="https://p5js.org/reference" class="bare">https://p5js.org/reference</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Symbol</strong></p>
-</div>
-<div class="paragraph">
-<p>Zeichne selbst etwas bestimmtes. z.B. ein Haus oder ein Ying-Yang oder was dir gerade in den Sinn kommt :).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_lernkontrolle_3">Lernkontrolle</h3>
-<div class="paragraph">
-<p>Ich weiss, &#8230;&#8203;</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist checklist">
-<ul class="checklist">
-<li>
-<p>&#10003; wie ich eine Linie, ein Kreis oder ein Rechteck zeichne</p>
 </li>
 </ul>
 </div>
@@ -763,7 +843,7 @@ line(0, 0, 200, 200)
 </div>
 </div>
 <div class="sect1">
-<h2 id="_funktionen">Funktionen</h2>
+<h2 id="_funktionen_2">Funktionen</h2>
 <div class="sectionbody">
 
 </div>
@@ -775,14 +855,12 @@ line(0, 0, 200, 200)
 </div>
 </div>
 <div class="sect1">
-<h2 id="_weiterführende_javascript_resourcen">Weiterführende JavaScript Resourcen</h2>
+<h2 id="_weiterführende_javascript_ressourcen">Weiterführende JavaScript Ressourcen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<script type="text/p5" src="p5-sketches/sketch.js" data-height="600"></script>
-<div class="paragraph">
-<p><a href="p5-sketches/index.html?s=sketch">open</a></p>
+<p><a href="https://nycdoe-cs4all.github.io/units/1/overview" class="bare">https://nycdoe-cs4all.github.io/units/1/overview</a>
+<a href="https://eloquentjavascript.net/" class="bare">https://eloquentjavascript.net/</a>
+<a href="https://developer.mozilla.org/de/docs/Web/JavaScript" class="bare">https://developer.mozilla.org/de/docs/Web/JavaScript</a></p>
 </div>
 </div>
 </div>
@@ -797,12 +875,19 @@ line(0, 0, 200, 200)
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>DRAFT:</p>
+</div>
+<script type="text/p5" src="p5-sketches/sketch.js" data-height="600"></script>
+<div class="paragraph">
+<p><a href="p5-sketches/index.html?s=sketch">open</a></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-19 19:26:22 UTC
+Last updated 2021-03-20 16:48:18 UTC
 </div>
 </div>
 <style>
