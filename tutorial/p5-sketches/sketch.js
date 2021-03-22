@@ -1,15 +1,19 @@
 function setup() {
   createCanvas(200, 200)
-  background("beige")
-  line(100, 0, 100, 20)
-  fill("red")
-  circle(100, 25, 10)
+  background('beige')
+  fill('beige')
+  strokeWeight(8)
 
-  line(100, 30, 100, 70)
-  fill("green")
-  circle(100, 70, 20)
+  const centerX = width/2
+  const centerY = height/2
+  const r = 75
+  const leftAngle = 140
+  const rightAngle = 40
 
-  line(100, 80, 100, 120)
-  fill("blue")
-  circle(100, 120, 30)
+  circle(centerX, centerY, r*2)
+  translate(centerX, centerY)
+
+  line(0, 0-r, 0, 0)
+  line(0, 0, r * Math.cos(leftAngle*Math.PI/180), r * Math.sin(leftAngle*Math.PI/180))
+  line(0, 0, r * Math.cos(rightAngle*Math.PI/180), r * Math.sin(rightAngle*Math.PI/180))
 }

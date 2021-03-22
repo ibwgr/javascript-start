@@ -26,11 +26,12 @@ Die Inhalte beschränken sich auf das Kursziel. Weiteführende, empfehlenswerte 
 === Tools / Werkzeuge
 Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen Texteditor.
 Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben; eine sogenannte *IDE* (Integrated Development Environment).
+Eine IDE ist für Programmierer, wie Word für Berichteschreiber. Eine IDE versteht eine Programmiersprache, sie bietet Hilfestellung bei Schreibfehlern, formatiert den Text und rückt korrekt ein etc.
 Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Visual Studio Code" (kurz vscode).
 
-Zu Beginn lernen wir P5.js kennen. Damit können wir 2D-Grafiken zeichnen. P5.js bietet einen einfachen Texteditor an, welcher direkt im *Browser* läuft.
+In diesem Tutorial lernen wir zudem P5.js kennen. Damit können wir 2D-Grafiken zeichnen. P5.js bietet einen einfachen Texteditor (eine leichtgewichtige IDE) an, welcher direkt im *Browser* läuft.
 
-Um unseren Code auszuführen verwenden wir einen *Browser* (z.B. Chrome, Firefox oder Edge).
+Um unseren Code auszuführen, also zum Beispiel um die Grafiken zu rendern, verwenden wir einen *Browser* (Chrome, Firefox, Safari oder Edge).
 
 == Anweisungen & Variablen
 
@@ -289,6 +290,7 @@ https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/
 Ich weiss, ...
 ====
 * [*] wie ich eine Linie, ein Kreis und ein Rechteck zeichne
+* [*] wie ich die Farben und Linienstärke von Formen verändere
 ====
 
 Du hast nun einiges gelernt und kannst 2D zeichnen mit P5.js. Das nächste Ziel ist das Erstellen von interaktiven Programmen, welche anhand von Benutzereingaben ihr Verhalten verändern, und so zum Beispiel auf einen Mausklick reagieren. Bevor wir das tun können, musst du dir aber noch ein wenig Theorie aneignen.
@@ -402,9 +404,9 @@ Ich weiss, ...
 
 
 == Weiterführende JavaScript Ressourcen
-https://nycdoe-cs4all.github.io/units/1/overview
-https://eloquentjavascript.net/
-https://developer.mozilla.org/de/docs/Web/JavaScript
+* https://nycdoe-cs4all.github.io/units/1/overview
+* https://eloquentjavascript.net/
+* https://developer.mozilla.org/de/docs/Web/JavaScript
 
 
 [glossary]
@@ -416,7 +418,7 @@ https://developer.mozilla.org/de/docs/Web/JavaScript
 
 
 
-DRAFT:
+EMBEDDED FILE EXAMPLE:
 
 ++++
 <script type="text/p5" src="p5-sketches/sketch.js" data-height="600"></script>
