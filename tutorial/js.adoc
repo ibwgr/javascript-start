@@ -205,7 +205,7 @@ Auf Zeile 5 wird die Funktion namens `line` aufgerufen. Die Komma-separierten We
 
 Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion `Math.sqrt` kennen gelernt. Diese hat nur einen Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion `line` hat 4 Parameter. Es gibt auch Funktionen ohne Parameter, und sogar welche, bei der die Anzahl der Parameter variabel ist.
 
-Ein kleines Beispiel mit der Funktion `prompt`, welche du ebenfalls bereits kennengelernt hast zu Beginn. Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?.
+Ein kleines Beispiel mit der Funktion `prompt`, welche du ebenfalls bereits kennengelernt hast zu Beginn. Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?
 
 [source,javascript,linenums]
 ----
