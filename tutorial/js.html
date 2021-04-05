@@ -250,7 +250,8 @@ Mögliche Dinge die man tun kann:</p>
 <p>Öffne die console in den Entwicklertools</p>
 </li>
 <li>
-<p>Führe eine Zeile nach der anderen aus. Dazu einfach die Zeile eingeben und Enter drücken.</p>
+<p>Führe eine Zeile nach der anderen in der
+console aus. Dazu einfach die Zeile eingeben und dann mit der Enter-Taste ausführen.</p>
 </li>
 </ol>
 </div>
@@ -320,7 +321,7 @@ Kommentare sind zu Beginn hilfreich. Später, wenn du die Grundlagen des Program
 </div>
 <div class="paragraph">
 <p>Jede Zeile im obigen Beispiel ist eine Anweisung.
-Bei allen drei Anweisungen handelt es sich um Variable Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).</p>
+Bei allen drei Anweisungen handelt es sich um Variable-Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).</p>
 </div>
 <div class="paragraph">
 <p>Nachdem die erste Zeile ausgeführt ist, hat die Variable <code>a</code> den Wert 1.</p>
@@ -344,7 +345,7 @@ Man sagt auch, Zeile 3 referenziert die Variablen <code>a</code> und <code>b</co
 2
 3
 </pre></td><td class="code"><pre><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="c1">// Error. Variable b existiert nicht</span>
+<span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="c1">// Error. Variable b ist nicht definiert</span>
 <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
@@ -366,7 +367,7 @@ Man sagt auch, Zeile 3 referenziert die Variablen <code>a</code> und <code>b</co
 <div class="sect3">
 <h4 id="_variablenamen_bezeichner">Variablenamen / Bezeichner</h4>
 <div class="paragraph">
-<p>In JavaScript kann eine Variable einen langen, sprechenden Namen. Das ist sehr praktisch. Denn dadurch ist klar, welcher Wert sich dahinter befindet.</p>
+<p>In JavaScript kann eine Variable einen langen, sprechenden Namen haben. Das ist sehr praktisch. Denn dadurch ist klar, welcher Wert in der Variable gespeichert ist.</p>
 </div>
 <div class="paragraph">
 <p>Im Folgenden eine Liste von gültigen Namen: <code>a, name, backgroundColor, first_name</code>.<br>
@@ -498,10 +499,25 @@ Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordin
 Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz (0, 0). Der Endpunkt ist ganz unten rechts, dieser hat die Koordinaten (6, 6).</p>
 </div>
 <div class="paragraph">
-<p>Auf Zeile 5 wird die Funktion <code>line</code> aufgerufen. Die Komma-separierten Werte in den Klammern nennt man <code>Parameter</code>. Sie beschreiben, was die Funktion konkret tun soll. In diesem Fall beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.</p>
+<p>Auf Zeile 5 wird die Funktion namens <code>line</code> aufgerufen. Die Komma-separierten Werte in den Klammern nennt man <code>Parameter</code>. Sie beschreiben, was die Funktion konkret tun soll. In diesem Fall beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.</p>
 </div>
 <div class="paragraph">
-<p>Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion Math.sqrt kennen gelernt. Diese hat ein Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion <code>line</code> hat 4 Parameter.</p>
+<p>Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion <code>Math.sqrt</code> kennen gelernt. Diese hat nur einen Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion <code>line</code> hat 4 Parameter. Es gibt auch Funktionen ohne Parameter, und sogar welche, bei der die Anzahl der Parameter variabel ist.</p>
+</div>
+<div class="paragraph">
+<p>Ein kleines Beispiel mit der Funktion <code>prompt</code>, welche du ebenfalls bereits kennengelernt hast zu Beginn. Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="nx">prompt</span><span class="p">()</span>
+<span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Wie heisst du?</span><span class="dl">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.</p>
 </div>
 <div class="paragraph">
 <p>Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:</p>
@@ -896,6 +912,11 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </dd>
 </dl>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>TEST:</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>EMBEDDED FILE EXAMPLE:</p>
 </div>
@@ -908,7 +929,7 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-22 20:17:16 UTC
+Last updated 2021-04-05 17:45:38 UTC
 </div>
 </div>
 <style>

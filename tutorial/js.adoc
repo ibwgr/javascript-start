@@ -66,7 +66,8 @@ Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der Us
 1. Öffne einen Browser
 1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
 1. Öffne die console in den Entwicklertools
-1. Führe eine Zeile nach der anderen aus. Dazu einfach die Zeile eingeben und Enter drücken.
+1. Führe eine Zeile nach der anderen in der
+console aus. Dazu einfach die Zeile eingeben und dann mit der Enter-Taste ausführen.
 ****
 
 === Kommentare
@@ -101,7 +102,7 @@ summe = a + b
 ----
 
 Jede Zeile im obigen Beispiel ist eine Anweisung.
-Bei allen drei Anweisungen handelt es sich um Variable Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).
+Bei allen drei Anweisungen handelt es sich um Variable-Definitionen. Das heisst es wird eine Variable erstellt und der Variable wird mithilfe des Gleicheitszeichens (=) direkt ein Wert zugewiesen (engl. Assignment).
 
 Nachdem die erste Zeile ausgeführt ist, hat die Variable `a` den Wert 1.
 
@@ -118,7 +119,7 @@ Weil der Computer die Anweisungen von oben nach unten ausführt, ist es also nic
 [source,javascript,linenums]
 ----
 a = 1
-summe = a + b // Error. Variable b existiert nicht
+summe = a + b // Error. Variable b ist nicht definiert
 b = 3
 ----
 
@@ -132,7 +133,7 @@ summe = a + b
 ----
 
 ==== Variablenamen / Bezeichner
-In JavaScript kann eine Variable einen langen, sprechenden Namen. Das ist sehr praktisch. Denn dadurch ist klar, welcher Wert sich dahinter befindet.
+In JavaScript kann eine Variable einen langen, sprechenden Namen haben. Das ist sehr praktisch. Denn dadurch ist klar, welcher Wert in der Variable gespeichert ist.
 
 Im Folgenden eine Liste von gültigen Namen: `a, name, backgroundColor, first_name`. +
 Einige Zeichen sind nicht erlaubt, z.B. Umlaute und die meisten Sonderzeichen. In der Praxis sind die einzigen zwei Sonderzeichen, die man hin und wieder sieht `_, $`.
@@ -200,9 +201,20 @@ line(startX, startY, endX, endY)
 Zeile 1-4:
 Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz (0, 0). Der Endpunkt ist ganz unten rechts, dieser hat die Koordinaten (6, 6).
 
-Auf Zeile 5 wird die Funktion `line` aufgerufen. Die Komma-separierten Werte in den Klammern nennt man `Parameter`. Sie beschreiben, was die Funktion konkret tun soll. In diesem Fall beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.
+Auf Zeile 5 wird die Funktion namens `line` aufgerufen. Die Komma-separierten Werte in den Klammern nennt man `Parameter`. Sie beschreiben, was die Funktion konkret tun soll. In diesem Fall beschreiben die ersten beiden Werte die Koordinaten der Startpunks, und die letzten beiden Werte die Koordinaten des Endpunkts.
 
-Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion Math.sqrt kennen gelernt. Diese hat ein Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion `line` hat 4 Parameter.
+Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion `Math.sqrt` kennen gelernt. Diese hat nur einen Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion `line` hat 4 Parameter. Es gibt auch Funktionen ohne Parameter, und sogar welche, bei der die Anzahl der Parameter variabel ist.
+
+Ein kleines Beispiel mit der Funktion `prompt`, welche du ebenfalls bereits kennengelernt hast zu Beginn. Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?.
+
+[source,javascript,linenums]
+----
+prompt()
+prompt("Wie heisst du?")
+----
+
+Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.
+
 
 Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:
 
@@ -414,7 +426,9 @@ Ich weiss, ...
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann.
 
 
-
+-----------------
+TEST:
+-----------------
 
 
 
