@@ -53,7 +53,7 @@ Math.sqrt(25)
 "Hallo " + prompt("Wie ist dein Name?")
 ----
 
-Die Anweisungen werden sequentiell von oben nach unten ausgeführt. In JavaScript liefert jede Anweisung ein Ergebnis.
+Die Anweisungen werden sequentiell von oben nach unten ausgeführt.
 
 Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.
 
@@ -66,7 +66,7 @@ Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der Us
 1. Öffne einen Browser
 1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
 1. Öffne die console in den Entwicklertools
-1. Führe eine Zeile nach der anderen in der
+1. Führe eine Zeile nach der anderen (der drei Beispiele oben) in der
 console aus. Dazu einfach die Zeile eingeben und dann mit der Enter-Taste ausführen.
 ****
 
@@ -138,6 +138,8 @@ In JavaScript kann eine Variable einen langen, sprechenden Namen haben. Das ist 
 Im Folgenden eine Liste von gültigen Namen: `a, name, backgroundColor, first_name`. +
 Einige Zeichen sind nicht erlaubt, z.B. Umlaute und die meisten Sonderzeichen. In der Praxis sind die einzigen zwei Sonderzeichen, die man hin und wieder sieht `_, $`.
 
+TIP: Der Name ist frei wählbar und sollte dem Inhalt / Zweck des Wertes der Variable entsprechen. Das macht es deutlich einfacher den Code zu verstehen, wenn man ihn als Mensch liest. Für den Computer selbst hat der Name keinerlei Bedeutung.
+
 
 ==== Variablearten
 Die Variable-Definitionen im obigen Beispiel sind kurz und sprechend, es fehlt jedoch ein sehr wichtiges Detail.
@@ -149,15 +151,25 @@ Veränderbare Variablen erkennt man an dem <<keyword>> `let`, unveränderbare am
 [source,javascript,linenums]
 ----
 const a = 1
-a = 11 // Error, a ist bereits definiert
-let b = 3
-b = 33
-const summe = a + b
+a = 11    // Error, a ist bereits definiert
+let b = 3 // Definition der Variable b
+b = 33    // der bestehenden Variable b einen neuen Wert zuweisen
+let summe = a + b // summe = 11 + 33 = 44
+b = 42
+const zweiteSumme = a + b // zweiteSumme = 42 + 11 = 53
+// summe = 44
 ----
 
 Der obige Code läuft nur dann fehlerfrei komplett durch, wenn Zeile 2 gelöscht wird.
 
-WARNING: Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet wird.
+Nachdem eine Variable mit `let` definiert wurde, kann ihr zu einem beliebigen späteren Zeitpunkt ein neuer Wert zugewiesen werden; oben auf Zeile 4 und 6.
+Die Berechnung auf Zeile 5 wird nur einmal gemacht, das heisst die Zuweisung auf Zeile 6, hat keinen Einfluss auf den Wert der Variable `summe`.
+
+Eine Variabel kann nur einmal definiert werden (mit `let` oder `const`). Danach wird diese nur noch mit dem Namen angesprochen. Entweder für neue Wertzuweisungen, oder um den Wert auszulesen.
+
+WARNING: Es ist wichtig, dass beim Anlegen einer Variable, immer `let` oder `const` verwendet wird.
+
+TIP: Nachdem du in der console eine Variable definiert hast mit `let` oder `const`, kannst du deren Wert einfach abrufen, indem du lediglich den Variablenamen eingibst und Enter drückst.
 
 
 === Lernkontrolle
@@ -176,7 +188,7 @@ Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren v
 Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.
 
 === Zeichenfläche
-Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt ist (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
+Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
 Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur einen Quadranten, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.
 
 image::media/drawing-2d.svg[system,300,300,align=center]
@@ -226,7 +238,7 @@ Math.sqrt(2)
 // Ich kann sogar die Wurzel einer Wurzel berechnen:
 let nine = Math.sqrt(81)
 let three = Math.sqrt(nine)
-// Oder nocht kürzer:
+// Oder noch kürzer:
 three = Math.sqrt(Math.sqrt(81))
 ----
 
@@ -240,7 +252,7 @@ Ich weiss, ...
 * [*] wie ich eine Funktion aufrufe
 ====
 
-== P5.js
+== P5.js – Einführung
 Im Folgenden siehst du ein einfaches Programm, welches mithilfe von P5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.
 
 ++++
@@ -326,6 +338,7 @@ Damit können Ganzzahlen (sogenannte Integer) oder Fliesskommazahlen (sogenannte
 const r = 14
 const pi = 3.14
 const area = pi * r**2
+// area = 3.14 * 14 * 14 = 615.44
 ----
 
 === Zeichenketten (String)
@@ -344,6 +357,7 @@ Mit dem + Zeichen ist es möglich zwei Strings miteinander zu verbinden.
 const greeting = "Hallo"
 const name = " Mrs. Simpson"
 const text = greeting + name
+// text ist jetzt "Hallo Mrs. Simpson"
 ----
 
 ==== Typen kombinieren
@@ -377,6 +391,7 @@ const accountBalance = 3000 // Kontostand
 const articlePrice = 2850
 // ist genug Geld auf dem Konto um Artikel zu kaufen?
 const canBuy = acccountBalance > articlePrice
+// canBuy = true
 ----
 
 Auf Zeile drei werden zwei Werte verglichen. Das Ergebnis ist entweder "ja" oder "nein". Ein Datentyp, welcher nur diese beiden Werte kennt, nennt man `Boolean`. In JavaScript entspricht "ja" dem Wert `true` und "nein" dem Wert `false`.
@@ -392,6 +407,7 @@ Um zu prüfen ob zwei Werte gleich sind, wird in JavaScript `===` verwendet.
 ----
 const anyNumber = 23
 const isEven = anyNumber % 2 === 0
+// isEven = false
 ----
 
 Im obigen Beispiel ist die Variable `isEven` nur dann true, wenn der Wert von `anyNumber` eine gerade (engl. even) Zahl ist. Der Modulo Operator (`%`) berechnet den Rest einer Division.
@@ -406,6 +422,10 @@ Ich weiss, ...
 * [*] was ein String ist
 ====
 
+== Ereignisse
+
+== P5.js – Interaktiv
+
 == Verzweigungen / Entscheidungen
 
 == Schleifen
@@ -416,6 +436,7 @@ Ich weiss, ...
 
 
 == Weiterführende JavaScript Ressourcen
+* http://www.p5js.gym-wst.de/de/javascript 
 * https://nycdoe-cs4all.github.io/units/1/overview
 * https://eloquentjavascript.net/
 * https://developer.mozilla.org/de/docs/Web/JavaScript

@@ -111,7 +111,7 @@ pre.rouge table td.linenos{
 <li><a href="#_lernkontrolle_2">Lernkontrolle</a></li>
 </ul>
 </li>
-<li><a href="#_p5_js">P5.js</a>
+<li><a href="#_p5_js_einführung">P5.js – Einführung</a>
 <ul class="sectlevel2">
 <li><a href="#_übung_2d_zeichnen">Übung – 2D Zeichnen</a></li>
 <li><a href="#_lernkontrolle_3">Lernkontrolle</a></li>
@@ -133,6 +133,8 @@ pre.rouge table td.linenos{
 <li><a href="#_lernkontrolle_4">Lernkontrolle</a></li>
 </ul>
 </li>
+<li><a href="#_ereignisse">Ereignisse</a></li>
+<li><a href="#_p5_js_interaktiv">P5.js – Interaktiv</a></li>
 <li><a href="#_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</a></li>
 <li><a href="#_schleifen">Schleifen</a></li>
 <li><a href="#_funktionen_2">Funktionen</a></li>
@@ -223,7 +225,7 @@ Mögliche Dinge die man tun kann:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Die Anweisungen werden sequentiell von oben nach unten ausgeführt. In JavaScript liefert jede Anweisung ein Ergebnis.</p>
+<p>Die Anweisungen werden sequentiell von oben nach unten ausgeführt.</p>
 </div>
 <div class="paragraph">
 <p>Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.</p>
@@ -250,7 +252,7 @@ Mögliche Dinge die man tun kann:</p>
 <p>Öffne die console in den Entwicklertools</p>
 </li>
 <li>
-<p>Führe eine Zeile nach der anderen in der
+<p>Führe eine Zeile nach der anderen (der drei Beispiele oben) in der
 console aus. Dazu einfach die Zeile eingeben und dann mit der Enter-Taste ausführen.</p>
 </li>
 </ol>
@@ -373,6 +375,18 @@ Man sagt auch, Zeile 3 referenziert die Variablen <code>a</code> und <code>b</co
 <p>Im Folgenden eine Liste von gültigen Namen: <code>a, name, backgroundColor, first_name</code>.<br>
 Einige Zeichen sind nicht erlaubt, z.B. Umlaute und die meisten Sonderzeichen. In der Praxis sind die einzigen zwei Sonderzeichen, die man hin und wieder sieht <code>_, $</code>.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Der Name ist frei wählbar und sollte dem Inhalt / Zweck des Wertes der Variable entsprechen. Das macht es deutlich einfacher den Code zu verstehen, wenn man ihn als Mensch liest. Für den Computer selbst hat der Name keinerlei Bedeutung.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_variablearten">Variablearten</h4>
@@ -391,16 +405,29 @@ Veränderbare Variablen erkennt man an dem <a href="#keyword">Keyword</a> <code>
 3
 4
 5
+6
+7
+8
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1">// Error, a ist bereits definiert</span>
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nx">b</span> <span class="o">=</span> <span class="mi">33</span>
-<span class="kd">const</span> <span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">11</span>    <span class="c1">// Error, a ist bereits definiert</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">// Definition der Variable b</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">33</span>    <span class="c1">// der bestehenden Variable b einen neuen Wert zuweisen</span>
+<span class="kd">let</span> <span class="nx">summe</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="c1">// summe = 11 + 33 = 44</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="kd">const</span> <span class="nx">zweiteSumme</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="c1">// zweiteSumme = 42 + 11 = 53</span>
+<span class="c1">// summe = 44</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Der obige Code läuft nur dann fehlerfrei komplett durch, wenn Zeile 2 gelöscht wird.</p>
+</div>
+<div class="paragraph">
+<p>Nachdem eine Variable mit <code>let</code> definiert wurde, kann ihr zu einem beliebigen späteren Zeitpunkt ein neuer Wert zugewiesen werden; oben auf Zeile 4 und 6.
+Die Berechnung auf Zeile 5 wird nur einmal gemacht, das heisst die Zuweisung auf Zeile 6, hat keinen Einfluss auf den Wert der Variable <code>summe</code>.</p>
+</div>
+<div class="paragraph">
+<p>Eine Variabel kann nur einmal definiert werden (mit <code>let</code> oder <code>const</code>). Danach wird diese nur noch mit dem Namen angesprochen. Entweder für neue Wertzuweisungen, oder um den Wert auszulesen.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -409,7 +436,19 @@ Veränderbare Variablen erkennt man an dem <a href="#keyword">Keyword</a> <code>
 <div class="title">⚠️</div>
 </td>
 <td class="content">
-Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet wird.
+Es ist wichtig, dass beim Anlegen einer Variable, immer <code>let</code> oder <code>const</code> verwendet wird.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Nachdem du in der console eine Variable definiert hast mit <code>let</code> oder <code>const</code>, kannst du deren Wert einfach abrufen, indem du lediglich den Variablenamen eingibst und Enter drückst.
 </td>
 </tr>
 </table>
@@ -456,7 +495,7 @@ Es ist wichtig, dass beim Anlegen einer Variable, immer let oder const verwendet
 <div class="sect2">
 <h3 id="_zeichenfläche">Zeichenfläche</h3>
 <div class="paragraph">
-<p>Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt ist (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
+<p>Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
 Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur einen Quadranten, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.</p>
 </div>
 <div class="imageblock text-center">
@@ -538,7 +577,7 @@ Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz 
 <span class="c1">// Ich kann sogar die Wurzel einer Wurzel berechnen:</span>
 <span class="kd">let</span> <span class="nx">nine</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nx">three</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">nine</span><span class="p">)</span>
-<span class="c1">// Oder nocht kürzer:</span>
+<span class="c1">// Oder noch kürzer:</span>
 <span class="nx">three</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">81</span><span class="p">))</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
@@ -572,7 +611,7 @@ Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_p5_js">P5.js</h2>
+<h2 id="_p5_js_einführung">P5.js – Einführung</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Im Folgenden siehst du ein einfaches Programm, welches mithilfe von P5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.</p>
@@ -721,9 +760,11 @@ Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann 
 <pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 3
+4
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">14</span>
 <span class="kd">const</span> <span class="nx">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
 <span class="kd">const</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">pi</span> <span class="o">*</span> <span class="nx">r</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1">// area = 3.14 * 14 * 14 = 615.44</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -750,9 +791,11 @@ Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann 
 <pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 3
+4
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hallo</span><span class="dl">"</span>
 <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2"> Mrs. Simpson</span><span class="dl">"</span>
 <span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">greeting</span> <span class="o">+</span> <span class="nx">name</span>
+<span class="c1">// text ist jetzt "Hallo Mrs. Simpson"</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -798,10 +841,12 @@ Im folgenden Beispiel entscheidet ein Algorithmus, ob noch genug Geld auf dem Ko
 2
 3
 4
+5
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">accountBalance</span> <span class="o">=</span> <span class="mi">3000</span> <span class="c1">// Kontostand</span>
 <span class="kd">const</span> <span class="nx">articlePrice</span> <span class="o">=</span> <span class="mi">2850</span>
 <span class="c1">// ist genug Geld auf dem Konto um Artikel zu kaufen?</span>
 <span class="kd">const</span> <span class="nx">canBuy</span> <span class="o">=</span> <span class="nx">acccountBalance</span> <span class="o">&gt;</span> <span class="nx">articlePrice</span>
+<span class="c1">// canBuy = true</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -821,8 +866,10 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <div class="content">
 <pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
+3
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">anyNumber</span> <span class="o">=</span> <span class="mi">23</span>
 <span class="kd">const</span> <span class="nx">isEven</span> <span class="o">=</span> <span class="nx">anyNumber</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span>
+<span class="c1">// isEven = false</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -860,6 +907,18 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </div>
 </div>
 <div class="sect1">
+<h2 id="_ereignisse">Ereignisse</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_p5_js_interaktiv">P5.js – Interaktiv</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
 <h2 id="_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</h2>
 <div class="sectionbody">
 
@@ -888,6 +947,9 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p><a href="http://www.p5js.gym-wst.de/de/javascript" class="bare">http://www.p5js.gym-wst.de/de/javascript</a></p>
+</li>
 <li>
 <p><a href="https://nycdoe-cs4all.github.io/units/1/overview" class="bare">https://nycdoe-cs4all.github.io/units/1/overview</a></p>
 </li>
@@ -929,7 +991,7 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-05 17:52:30 UTC
+Last updated 2021-04-06 18:46:34 UTC
 </div>
 </div>
 <style>
