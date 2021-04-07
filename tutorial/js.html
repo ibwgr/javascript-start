@@ -133,6 +133,11 @@ pre.rouge table td.linenos{
 <li><a href="#_lernkontrolle_4">Lernkontrolle</a></li>
 </ul>
 </li>
+<li><a href="#_p5_js_animationen">P5.js - Animationen</a>
+<ul class="sectlevel2">
+<li><a href="#_übung_2d_animationen">Übung – 2D Animationen</a></li>
+</ul>
+</li>
 <li><a href="#_ereignisse">Ereignisse</a></li>
 <li><a href="#_p5_js_interaktiv">P5.js – Interaktiv</a></li>
 <li><a href="#_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</a></li>
@@ -753,7 +758,7 @@ Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann 
 <div class="sect2">
 <h3 id="_zahlen_number">Zahlen (Number)</h3>
 <div class="paragraph">
-<p>Damit können Ganzzahlen (sogenannte Integer) oder Fliesskommazahlen (sogenannte Floats) abgebildet werden.</p>
+<p>Damit können Ganzzahlen (sogenannte <code>Integer</code>) oder Fliesskommazahlen (sogenannte <code>Floats</code>) abgebildet werden. In JavaScript gibt es den Datentypen <code>Number</code>, welcher sowohl Floats als auch Integer beinhaltet.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -784,7 +789,7 @@ Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann 
 </div>
 </div>
 <div class="paragraph">
-<p>Mit dem + Zeichen ist es möglich zwei Strings miteinander zu verbinden.</p>
+<p>Mit dem <code>+</code> Zeichen ist es möglich zwei Strings miteinander zu verbinden, und damit einen neuen String zu erzeugen.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -792,12 +797,26 @@ Es macht z.B. keinen Sinn zwei Namen zu einer Summe zu addieren. Sehr wohl kann 
 2
 3
 4
+5
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hallo</span><span class="dl">"</span>
 <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2"> Mrs. Simpson</span><span class="dl">"</span>
 <span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">greeting</span> <span class="o">+</span> <span class="nx">name</span>
 <span class="c1">// text ist jetzt "Hallo Mrs. Simpson"</span>
+<span class="c1">// greeting und name bleiben unverändert</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Mit dem Keyword <code>typeof</code> kannst du den Datentypen eines Wertes abfragen. z.B. <code>typeof "23"</code> ergibt <code>"string"</code>, <code>typeof 23</code> ergibt <code>"number"</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_typen_kombinieren">Typen kombinieren</h4>
@@ -862,6 +881,25 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <div class="paragraph">
 <p>Um zu prüfen ob zwei Werte gleich sind, wird in JavaScript <code>===</code> verwendet.</p>
 </div>
+<div class="paragraph">
+<p>Einige einfache Beispiele:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="mi">23</span> <span class="o">===</span> <span class="mi">23</span> <span class="c1">// true</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">===</span> <span class="mi">2</span>   <span class="c1">// true</span>
+<span class="kd">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span> <span class="c1">// false, weil ein String nie gleich einer Number ist</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Im folgenden Beispiel wird direkt innerhalb des Vergleichs eine Operation (<code>%</code> – Modulo) ausgeführt, und dann das Ergebniss der Operation geprüft, ob diese den Wert 0 ergab.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
@@ -907,15 +945,126 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </div>
 </div>
 <div class="sect1">
+<h2 id="_p5_js_animationen">P5.js - Animationen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bevor wir mit P5.js bewegte Bilder zeichnen können, müssen wir P5.js noch etwas vertiefter kennen lernen.</p>
+</div>
+<div class="paragraph">
+<p>Sämtliche P5.js Programme beinhalten Anweisungen, welche in zwei Gruppen aufgeteilt werden können: Einmal ausgeführte und wiederholt ausgeführte.</p>
+</div>
+<div class="paragraph">
+<p><strong>Einmal ausgeführt</strong>: Werden beim Programm start einmalig ausgeführt, dann nie wieder. &#160;<br>
+<strong>Wiederholt ausgeführt</strong>: Werden automatisch alle par Millisekunden ausgeführt.</p>
+</div>
+<div class="paragraph">
+<p>Bis jetzt hatten wir nur mit einmal ausgeführten Anweisungen zu tun. Du hast im Editor einmal auf den <code>Run</code>-Button gedrückt und die Zeichnung wurde erstellt. Die Aufgabe des Programms war damit erledigt.</p>
+</div>
+<div class="paragraph">
+<p>Möchten wir jetzt aber, dass sich das Bild verändert (ohne das wir erneut Run drücken), brauchen wir eine Gruppe von Befehlen, welche automatisch wiederholt ausgeführt wird, und unter bestimmten Bedingungen unser Bild verändert.</p>
+</div>
+<div class="paragraph">
+<p>Folgendes Beispiel zeigt eine Animation. Der Kreis pulsiert.</p>
+</div>
+<script type="text/p5" src="p5-sketches/animation-demo.js" data-height="400">
+</script>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Alle einmal ausgeführten Anweisungen kommen in die Funktion <code>setup</code> platziert.
+Alle wiederholt ausgeführten in die Funktion <code>draw</code>. Die Funktion draw wird automatisch alle ca. 60 Millisekunden ausgeführt. Für uns Menschen sieht sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als alle 25 Millisekunden aufgebaut werden würde.</p>
+</div>
+<div class="paragraph">
+<p>Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" P5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer <code>Namenskonvention</code>, welche vom <code>Framework</code> (P5.js), als Rhamenbedingung (engl. frame = Rahmen) vorgegeben wird.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vorerst lassen wir es dabei, es reicht wenn du innerhalb der Funktionen deine Anweisungen korrekt platzieren kannst. Mehr Details zu Funktionen folgen später.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_übung_2d_animationen">Übung – 2D Animationen</h3>
+<div class="paragraph">
+<p>Du kannst diese Übungen direkt im obigen Editor lösen.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Floating Rect</strong></p>
+</div>
+<div class="paragraph">
+<p>Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet. &#160;<br>
+Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_ereignisse">Ereignisse</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Sobald ein Programm, während dem es läuft, auf äussere Einflüsse reagieren muss, kommen Ereignisse (engl. <code>Events</code>) ins Spiel. Beispiele für Ereignisse:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linke Maustaste geklickt</p>
+</li>
+<li>
+<p>Enter Taste gedrückt</p>
+</li>
+<li>
+<p>Fenstergrösse hat geändert</p>
+</li>
+<li>
+<p>Systemzeit hat geändert</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Eine Applikationen (ein Programm, welches von einem Anwender bedient wird) muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.</p>
+</div>
+<div class="paragraph">
+<p>Im Folgenden ein Beispiel in P5.js:</p>
+</div>
+<div class="paragraph">
+<p>
+<iframe src="p5-sketches/index.html?s=events-demo" style="border:0; height: 100px;"></iframe>
+</p>
+</div>
+<div class="paragraph">
+<p>Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl Clicks um eins erhöht.</p>
+</div>
+<div class="paragraph">
+<p>Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen <code>EventHandler</code>, das ist eine Funktion, welche vom Computer automatisch aufegrufen wird, sobald das entsprechende Ereignis auftritt.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_p5_js_interaktiv">P5.js – Interaktiv</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.</p>
+</div>
+<div class="paragraph">
+<p>Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen <code>mouseClicked</code> verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt.</p>
+</div>
+<div class="paragraph">
+<p>
+<script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="200">
+</script>
+</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -991,7 +1140,7 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-06 18:46:34 UTC
+Last updated 2021-04-07 16:55:02 UTC
 </div>
 </div>
 <style>

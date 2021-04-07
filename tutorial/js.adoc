@@ -331,7 +331,7 @@ In JavaScript hat jede Variable einen Datentyp. Genauer: Der Wert, welcher einer
 Zwei wichtige Datentypen werden hier vorgestellt. Später lernen wir noch einige mehr kennen.
 
 === Zahlen (Number)
-Damit können Ganzzahlen (sogenannte Integer) oder Fliesskommazahlen (sogenannte Floats) abgebildet werden.
+Damit können Ganzzahlen (sogenannte `Integer`) oder Fliesskommazahlen (sogenannte `Floats`) abgebildet werden. In JavaScript gibt es den Datentypen `Number`, welcher sowohl Floats als auch Integer beinhaltet.
 
 [source,javascript,linenums]
 ----
@@ -350,7 +350,7 @@ const greeting = "Hallo!"
 const brand = "Mercedes Benz"
 ----
 
-Mit dem + Zeichen ist es möglich zwei Strings miteinander zu verbinden.
+Mit dem `+` Zeichen ist es möglich zwei Strings miteinander zu verbinden, und damit einen neuen String zu erzeugen.
 
 [source,javascript,linenums]
 ----
@@ -358,7 +358,11 @@ const greeting = "Hallo"
 const name = " Mrs. Simpson"
 const text = greeting + name
 // text ist jetzt "Hallo Mrs. Simpson"
+// greeting und name bleiben unverändert
 ----
+
+
+TIP: Mit dem Keyword `typeof` kannst du den Datentypen eines Wertes abfragen. z.B. `typeof "23"` ergibt `"string"`, `typeof 23` ergibt `"number"`.
 
 ==== Typen kombinieren
 
@@ -403,6 +407,18 @@ Nebst > ist auch <, >= und \<= möglich.
 ==== Gleichheit prüfen
 Um zu prüfen ob zwei Werte gleich sind, wird in JavaScript `===` verwendet.
 
+Einige einfache Beispiele:
+
+[source,javascript,linenums]
+----
+23 === 23 // true
+const a = 2
+const x = a === 2   // true
+const y = a === "2" // false, weil ein String nie gleich einer Number ist
+----
+
+Im folgenden Beispiel wird direkt innerhalb des Vergleichs eine Operation (`%` – Modulo) ausgeführt, und dann das Ergebniss der Operation geprüft, ob diese den Wert 0 ergab.
+
 [source,javascript,linenums]
 ----
 const anyNumber = 23
@@ -411,6 +427,7 @@ const isEven = anyNumber % 2 === 0
 ----
 
 Im obigen Beispiel ist die Variable `isEven` nur dann true, wenn der Wert von `anyNumber` eine gerade (engl. even) Zahl ist. Der Modulo Operator (`%`) berechnet den Rest einer Division.
+
 
 
 === Lernkontrolle
@@ -422,9 +439,78 @@ Ich weiss, ...
 * [*] was ein String ist
 ====
 
+
+== P5.js - Animationen
+Bevor wir mit P5.js bewegte Bilder zeichnen können, müssen wir P5.js noch etwas vertiefter kennen lernen.
+
+Sämtliche P5.js Programme beinhalten Anweisungen, welche in zwei Gruppen aufgeteilt werden können: Einmal ausgeführte und wiederholt ausgeführte.
+
+*Einmal ausgeführt*: Werden beim Programm start einmalig ausgeführt, dann nie wieder. {nbsp} +
+*Wiederholt ausgeführt*: Werden automatisch alle par Millisekunden ausgeführt.
+
+Bis jetzt hatten wir nur mit einmal ausgeführten Anweisungen zu tun. Du hast im Editor einmal auf den `Run`-Button gedrückt und die Zeichnung wurde erstellt. Die Aufgabe des Programms war damit erledigt.
+
+Möchten wir jetzt aber, dass sich das Bild verändert (ohne das wir erneut Run drücken), brauchen wir eine Gruppe von Befehlen, welche automatisch wiederholt ausgeführt wird, und unter bestimmten Bedingungen unser Bild verändert.
+
+Folgendes Beispiel zeigt eine Animation. Der Kreis pulsiert.
+
+++++
+<script type="text/p5" src="p5-sketches/animation-demo.js" data-height="400">
+</script>
+++++
+{nbsp} +
+
+Alle einmal ausgeführten Anweisungen kommen in die Funktion `setup` platziert.
+Alle wiederholt ausgeführten in die Funktion `draw`. Die Funktion draw wird automatisch alle ca. 60 Millisekunden ausgeführt. Für uns Menschen sieht sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als alle 25 Millisekunden aufgebaut werden würde.
+
+Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" P5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer `Namenskonvention`, welche vom `Framework` (P5.js), als Rhamenbedingung (engl. frame = Rahmen) vorgegeben wird.
+
+TIP: Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vorerst lassen wir es dabei, es reicht wenn du innerhalb der Funktionen deine Anweisungen korrekt platzieren kannst. Mehr Details zu Funktionen folgen später.
+
+
+=== Übung – 2D Animationen
+Du kannst diese Übungen direkt im obigen Editor lösen.
+
+****
+*Floating Rect*
+
+Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet. {nbsp} +
+Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.
+
+
+****
+
 == Ereignisse
+Sobald ein Programm, während dem es läuft, auf äussere Einflüsse reagieren muss, kommen Ereignisse (engl. `Events`) ins Spiel. Beispiele für Ereignisse:
+
+- Linke Maustaste geklickt
+- Enter Taste gedrückt
+- Fenstergrösse hat geändert
+- Systemzeit hat geändert
+
+Eine Applikationen (ein Programm, welches von einem Anwender bedient wird) muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.
+
+Im Folgenden ein Beispiel in P5.js:
+
++++
+<iframe src="p5-sketches/index.html?s=events-demo" style="border:0; height: 100px;"></iframe>
++++
+
+Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl Clicks um eins erhöht.
+
+Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen `EventHandler`, das ist eine Funktion, welche vom Computer automatisch aufegrufen wird, sobald das entsprechende Ereignis auftritt.
 
 == P5.js – Interaktiv
+In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.
+
+Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClicked` verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt.
+
+
++++
+<script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="200">
+</script>
++++
+
 
 == Verzweigungen / Entscheidungen
 
@@ -436,7 +522,7 @@ Ich weiss, ...
 
 
 == Weiterführende JavaScript Ressourcen
-* http://www.p5js.gym-wst.de/de/javascript 
+* http://www.p5js.gym-wst.de/de/javascript
 * https://nycdoe-cs4all.github.io/units/1/overview
 * https://eloquentjavascript.net/
 * https://developer.mozilla.org/de/docs/Web/JavaScript
