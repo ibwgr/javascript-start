@@ -196,7 +196,7 @@ image::media/drawing-2d.svg[system,300,300,align=center]
 Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, müssen wir eine Möglichkeit finden, dem Computer zu befehlen: "Zeichne eine Linie von Punkt (0, 0) bis Punkt (6, 6)". Um solche Anweisungen geben zu können, müssen wir zuerst ein neues Programmelement kennen lernen, Funktionen.
 
 
-== Funktionen
+== Funktionen – Aufrufen
 Eine Funktion ist eine Anweisung, welche vom Computer im Hintergrund zur Verfügung gestellt wird. Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten, können wir dem Mini-Programm genau sagen, was es für uns tun soll.
 
 Um eine Linie zu zeichnen können wir folgenden Code verwenden.
@@ -386,7 +386,7 @@ const text = "Temperatur: " + temp
 
 
 === Boolean & Vergleiche
-Ein Algorithmus muss oft Entscheidungen treffen. So muss ein Sortieralgorithmus zum Beispiel zwei Elemente vergleichen und entscheiden welches der beiden Elemente zuerst kommen soll.
+Ein Algorithmus muss oft Entscheidungen treffen. So muss ein Sortieralgorithmus zum Beispiel zwei Zahlen vergleichen und entscheiden welches der beiden Zahlen zuerst kommen soll.
 Im folgenden Beispiel entscheidet ein Algorithmus, ob noch genug Geld auf dem Konto verfügbar ist, um einen Einkauf zu tätigen.
 
 [source,javascript,linenums]
@@ -461,9 +461,9 @@ Folgendes Beispiel zeigt eine Animation. Der Kreis pulsiert.
 {nbsp} +
 
 Alle einmal ausgeführten Anweisungen kommen in die Funktion `setup` platziert.
-Alle wiederholt ausgeführten in die Funktion `draw`. Die Funktion draw wird automatisch alle ca. 60 Millisekunden ausgeführt. Für uns Menschen sieht sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als alle 25 Millisekunden aufgebaut werden würde.
+Alle wiederholt ausgeführten in die Funktion `draw`. Die Funktion draw wird automatisch alle ca. 60 Millisekunden ausgeführt. Für uns Menschen sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als alle 25 Millisekunden aufgebaut werden würde.
 
-Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" P5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer `Namenskonvention`, welche vom `Framework` (P5.js), als Rhamenbedingung (engl. frame = Rahmen) vorgegeben wird.
+Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" P5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer `Namenskonvention`, welche vom `Framework` (P5.js), als Rahmenbedingung (engl. frame = Rahmen) vorgegeben wird.
 
 TIP: Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vorerst lassen wir es dabei, es reicht wenn du innerhalb der Funktionen deine Anweisungen korrekt platzieren kannst. Mehr Details zu Funktionen folgen später.
 
@@ -516,7 +516,7 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 
 == Schleifen
 
-== Funktionen
+== Funktionen – Definieren
 
 == Objekte
 
