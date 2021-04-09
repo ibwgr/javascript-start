@@ -22,7 +22,7 @@
 
   <body>
   <script>
-    const [, sketchId] = document.location.search.split('s=');
+    const [, sketchId = 'sketch'] = document.location.search.split('s=');
     console.log(sketchId)
     const script = document.createElement('script')
     script.src = sketchId+".js"
