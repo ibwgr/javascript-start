@@ -398,7 +398,7 @@ const canBuy = acccountBalance > articlePrice
 // canBuy = true
 ----
 
-Auf Zeile drei werden zwei Werte verglichen. Das Ergebnis ist entweder "ja" oder "nein". Ein Datentyp, welcher nur diese beiden Werte kennt, nennt man `Boolean`. In JavaScript entspricht "ja" dem Wert `true` und "nein" dem Wert `false`.
+Auf Zeile vier werden zwei Werte verglichen. Das Ergebnis ist entweder "ja" oder "nein". Ein Datentyp, welcher nur diese beiden Werte kennt, nennt man `Boolean`. In JavaScript entspricht "ja" dem Wert `true` und "nein" dem Wert `false`.
 Im obigen Beispiel hat also die Variable `canBuy` den Wert `true`.
 
 Nebst > ist auch <, >= und \<= möglich.
@@ -531,17 +531,3 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 [glossary]
 == Glossar
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann.
-
-
------------------
-TEST:
------------------
-
-
-
-EMBEDDED FILE EXAMPLE:
-
-++++
-<script type="text/p5" src="p5-sketches/sketch.js" data-height="600"></script>
-++++
-link:p5-sketches/index.html?s=sketch[open]
