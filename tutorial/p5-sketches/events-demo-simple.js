@@ -1,3 +1,5 @@
+let clicks = 0
+
 function setup() {
   createCanvas(200, 100)
 }

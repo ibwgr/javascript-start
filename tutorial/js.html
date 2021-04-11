@@ -108,6 +108,7 @@ pre.rouge table td.linenos{
 </li>
 <li><a href="#_funktionen_aufrufen">Funktionen – Aufrufen</a>
 <ul class="sectlevel2">
+<li><a href="#_übung_funktionen_aufrufen">Übung – Funktionen aufrufen</a></li>
 <li><a href="#_lernkontrolle_2">Lernkontrolle</a></li>
 </ul>
 </li>
@@ -140,7 +141,11 @@ pre.rouge table td.linenos{
 </li>
 <li><a href="#_ereignisse">Ereignisse</a></li>
 <li><a href="#_p5_js_interaktiv">P5.js – Interaktiv</a></li>
-<li><a href="#_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</a></li>
+<li><a href="#_verzweigungen_bedingte_ausführung">Verzweigungen – bedingte Ausführung</a>
+<ul class="sectlevel2">
+<li><a href="#_übung_bedingte_ausführung">Übung – Bedingte Ausführung</a></li>
+</ul>
+</li>
 <li><a href="#_schleifen">Schleifen</a></li>
 <li><a href="#_funktionen_definieren">Funktionen – Definieren</a></li>
 <li><a href="#_objekte">Objekte</a></li>
@@ -500,7 +505,7 @@ Nachdem du in der console eine Variable definiert hast mit <code>let</code> oder
 <div class="sect2">
 <h3 id="_zeichenfläche">Zeichenfläche</h3>
 <div class="paragraph">
-<p>Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
+<p>Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster. &#160;<br>
 Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur einen Quadranten, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.</p>
 </div>
 <div class="imageblock text-center">
@@ -509,7 +514,11 @@ Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordin
 </div>
 </div>
 <div class="paragraph">
-<p>Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, müssen wir eine Möglichkeit finden, dem Computer zu befehlen: "Zeichne eine Linie von Punkt (0, 0) bis Punkt (6, 6)". Um solche Anweisungen geben zu können, müssen wir zuerst ein neues Programmelement kennen lernen, Funktionen.</p>
+<p>Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, müssen wir eine Möglichkeit finden, dem Computer zu befehlen: &#160;<br>
+"Zeichne eine Linie von Punkt (0, 0) bis Punkt (6, 6)".</p>
+</div>
+<div class="paragraph">
+<p>Um solche Anweisungen geben zu können, müssen wir zuerst ein neues Programmelement kennen lernen: Funktionen.</p>
 </div>
 </div>
 </div>
@@ -518,10 +527,13 @@ Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordin
 <h2 id="_funktionen_aufrufen">Funktionen – Aufrufen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eine Funktion ist eine Anweisung, welche vom Computer im Hintergrund zur Verfügung gestellt wird. Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten, können wir dem Mini-Programm genau sagen, was es für uns tun soll.</p>
+<p>Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten (<code>Parameter</code>), können wir dem Mini-Programm genau sagen, was es für uns tun soll.</p>
 </div>
 <div class="paragraph">
-<p>Um eine Linie zu zeichnen können wir folgenden Code verwenden.</p>
+<p>In JavaScript existieren bereits viele vorgefertigte Funktionen, diese können wir als Programmierer direkt verwenden.</p>
+</div>
+<div class="paragraph">
+<p>Um eine Linie zu zeichnen können wir zum Beispiel folgenden Code verwenden:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -548,8 +560,18 @@ Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz 
 <div class="paragraph">
 <p>Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion <code>Math.sqrt</code> kennen gelernt. Diese hat nur einen Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion <code>line</code> hat 4 Parameter. Es gibt auch Funktionen ohne Parameter, und sogar welche, bei der die Anzahl der Parameter variabel ist.</p>
 </div>
+<div class="sect2">
+<h3 id="_übung_funktionen_aufrufen">Übung – Funktionen aufrufen</h3>
 <div class="paragraph">
-<p>Ein kleines Beispiel mit der Funktion <code>prompt</code>, welche du ebenfalls bereits kennengelernt hast zu Beginn. Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?</p>
+<p>Ein kleines Beispiel mit der Funktion <code>prompt</code>, welche du ebenfalls bereits kennengelernt hast zu Beginn.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Prompt</strong></p>
+</div>
+<div class="paragraph">
+<p>Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -561,10 +583,16 @@ Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz 
 </div>
 </div>
 <div class="paragraph">
-<p>Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.</p>
+<p><em>Lösung</em></p>
 </div>
 <div class="paragraph">
-<p>Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:</p>
+<p>Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. &#160;<br>
+Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel ziehen kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -587,8 +615,10 @@ Der Startpunkt ist ganz oben links, dieser hat die Koordinaten (x=0, y=0), kurz 
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
+<hr>
 <div class="paragraph">
 <p>Als nächstes lernen wir ein Werkzeug kennen, welches die Funktion <code>line</code> ausführen kann und eine Linie auf den Bildschirm zeichnet. Denn wenn du den Code von oben kopierst und direkt im Browser ausführst, wird das einen Fehler geben. Der Grund ist, dass es die Funktion <code>line</code> nicht gibt. Zudem gäbe es auch noch keine Zeichenfläche ;).</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_lernkontrolle_2">Lernkontrolle</h3>
@@ -1001,8 +1031,16 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <p><strong>Floating Rect</strong></p>
 </div>
 <div class="paragraph">
-<p>Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet. &#160;<br>
-Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
+<p>Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.</p>
+</div>
+<div class="paragraph">
+<p><strong>Mouse Deco</strong></p>
+</div>
+<div class="paragraph">
+<p>Ersetze den Mauszeiger durch einen roten Punkt.</p>
+</div>
+<div class="paragraph">
+<p>Tip: <code>noCursor</code></p>
 </div>
 </div>
 </div>
@@ -1032,7 +1070,7 @@ Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Eine Applikationen (ein Programm, welches von einem Anwender bedient wird) muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.</p>
+<p>Eine Applikation, ein Programm, welches von einem Anwender bedient wird, muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.</p>
 </div>
 <div class="paragraph">
 <p>Im Folgenden ein Beispiel in P5.js:</p>
@@ -1046,7 +1084,7 @@ Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
 <p>Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl Clicks um eins erhöht.</p>
 </div>
 <div class="paragraph">
-<p>Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen <code>EventHandler</code>, das ist eine Funktion, welche vom Computer automatisch aufegrufen wird, sobald das entsprechende Ereignis auftritt.</p>
+<p>Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen <code>EventHandler</code>, das ist eine Funktion, welche vom Computer automatisch aufgerufen wird, sobald das entsprechende Ereignis auftritt.</p>
 </div>
 </div>
 </div>
@@ -1057,7 +1095,7 @@ Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
 <p>In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.</p>
 </div>
 <div class="paragraph">
-<p>Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen <code>mouseClicked</code> verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt.</p>
+<p>Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen <code>mouseClicked</code> verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt. Diese Funktion ist also der <code>EventHandler</code> des Click Events.</p>
 </div>
 <div class="paragraph">
 <p>
@@ -1068,15 +1106,209 @@ Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_verzweigungen_entscheidungen">Verzweigungen / Entscheidungen</h2>
+<h2 id="_verzweigungen_bedingte_ausführung">Verzweigungen – bedingte Ausführung</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Ein Weiterer wichtiger Baustein von Programmen sind Verzweigungen. Damit ist es möglich gewisse Anweisungen nur bedingt auszuführen.</p>
+</div>
+<div class="paragraph">
+<p>Denken wir an das Ballon-Treff-Spiel von oben. Da möchten wir, dass die Punktezahl nur dann erhöht wird, wenn der Spieler mit der Maus beim Click den Ballon getroffen hat. Klickt er ausserhalb des Ballons, gibt es keine Punkte. Die Anweisung "Erhöhe Punktezahl um eins" wird also bedingt ausgeführt. Die Bedingung ist "Click erfolgte auf Ballon".</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#Pseudo-Code">Pseudo-Code</a> könnte man das so formulieren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="nx">Wenn</span> <span class="dl">"</span><span class="s2">Click erfolgte auf Ballon</span><span class="dl">"</span><span class="p">:</span>
+    <span class="dl">"</span><span class="s2">Erhöhe Punktezahl um eins</span><span class="dl">"</span>
+<span class="nx">Sonst</span><span class="p">:</span>
+    <span class="dl">"</span><span class="s2">Tue nichts</span><span class="dl">"</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Anweisung auf Zeile 2 wird nur ausgeführt, wenn die Bedingung auf Zeile 1 wahr (true) ist.
+Ist die Bedingung auf Zeile 1 nicht wahr (false), dann wird nur die Anweisung auf Zeile 4 ausgeführt.</p>
+</div>
+<div class="paragraph">
+<p>Die allgemein gültige <a href="#Syntax">Syntax</a>, um eine solche Bedingung in JavaScript zu formulieren ist wie folgt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="k">if</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">Bedingung</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="nx">Anweisungen</span><span class="o">&gt;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="nx">Anweisungen</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Dieses Beispiel verwendet Platzhalter (mit &lt; und &gt; gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Erläuterung:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Zeile 1</dt>
+<dd>
+<p>Das Keyword um eine bedingte Ausführung einzuleiten ist <code>if</code> (engl. falls) &#160;<br></p>
+</dd>
+<dt class="hdlist1">Zeile 1</dt>
+<dd>
+<p>Die runden Klammern (engl. Parentheses) sind zwingend nötig. Sie umfassen die ganze Bedingung. Eine Bedingung kann z.B. ein Vergleich <code>(a &lt; 2)</code> sein. &#160;<br></p>
+</dd>
+<dt class="hdlist1">Zeile 1</dt>
+<dd>
+<p>Die geschweifte Klammer (engl. Brace) eröffnet einen <code>Block</code>. Der Block reicht bis zur ersten schliessenden geschweiften Klammer auf Zeile 3. Alle Anweisungen die sich innerhalb dieser beiden Klammern befinden, werden nur dann ausgeführt, wenn die Bedingung wahr ist. &#160;<br></p>
+</dd>
+<dt class="hdlist1">Zeile 2</dt>
+<dd>
+<p>Eine oder mehrere Anweisungen, die bedingt ausgeführt werden.</p>
+</dd>
+<dt class="hdlist1">Zeile 3</dt>
+<dd>
+<p>Schliesst den Block, welcher auf Zeile 1 geöffnet wurde. Eröffnet einen neuen Block, welcher nur dann ausgeführt wird, wenn die Bedingung nicht wahr ist. Zwischen den beiden Blöcken muss das Keyword <code>else</code> (engl. sonst) stehen. &#160;<br></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Hier nun ein lauffähiges Beispiel:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Eine bedingte Ausführung kann auch ohne else-Verzweigung definiert werden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Im Weiteren spielt es keine Rolle wieviel Leerzeichen oder Zeilenumbrüche verwendet werden. Wichtig sind die Steuerzeichen (z.B. Klammerpaare) und Keywords. Folgender Code ist also äquivalent, allerdings schlechter lesbar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>            <span class="p">{</span>  <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span>
 
+
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_übung_bedingte_ausführung">Übung – Bedingte Ausführung</h3>
+<div class="paragraph">
+<p>Du kannst diese Übungen direkt im obigen Editor lösen.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Floating Rect</strong></p>
+</div>
+<div class="paragraph">
+<p>Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt …</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sobald es den rechten Rand berührt stoppt es.</p>
+</li>
+<li>
+<p>Sobald es den rechten Rand berührt prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Catch me</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Zeichne einen Kreis. Wenn der Spieler daneben klickt, bekommt er einen Punkt abzug. Weniger als 0 Punkte geht nicht. &#160;<br>
+Wenn der Spieler auf den Kreis klickt:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>bekommt er einen Punkt</p>
+</li>
+<li>
+<p>ändert der Kreis seine Position auf eine zufällige, neue Position</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Der Kreis ändert (zusätzlich) alle par Sekunden automatisch seine Position</p>
+</li>
+<li>
+<p>Die Grösse des Kreises ändert bei jedem Treffer.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Hinweis: <code>dist</code>, <code>random</code>, <code>frameRate</code></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_schleifen">Schleifen</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Generieren von Kreisen</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1117,9 +1349,17 @@ Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="Syntax"></a>Syntax</dt>
+<dd>
+<p>Vorgabe innerhalb der Programmiersprache, wie man bestimmte Dinge zu schreiben hat. Die Syntax bestimmt an welchem Ort welches Zeichen gültig ist. Also z.B. ob ein Steuerzeichen (z.B. <code>{</code> oder <code>=</code>) erwartet wird, oder ein Keyword.</p>
+</dd>
+<dt class="hdlist1"><a id="Pseudo-Code"></a>Pseudo-Code</dt>
+<dd>
+<p>Mit Pseudo-Code kann man Prorgrammcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.</p>
+</dd>
 <dt class="hdlist1"><a id="keyword"></a>Keyword</dt>
 <dd>
-<p>Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann.</p>
+<p>Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. <a href="https://www.w3schools.com/js/js_reserved.asp">Liste aller JavaScript Keywords</a></p>
 </dd>
 </dl>
 </div>
@@ -1128,7 +1368,7 @@ Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-10 08:45:36 UTC
+Last updated 2021-04-11 11:47:11 UTC
 </div>
 </div>
 <style>

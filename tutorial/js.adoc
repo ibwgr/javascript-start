@@ -188,18 +188,23 @@ Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren v
 Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.
 
 === Zeichenfläche
-Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster.
+Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster. {nbsp} +
 Aus dem Mathematikunterricht kennst du etwas ähnliches, das kartesische Koordinatensystem (unten im Bild links). Im Unterschied zum kartesischen System, ist beim Koordinatensystem unserer Zeichenfläche der 0-Punkt ganz oben Links. Es gibt also nur einen Quadranten, und alle Punkte im Koordinatensystem haben positive x- und y-Werte.
 
 image::media/drawing-2d.svg[system,300,300,align=center]
 
-Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, müssen wir eine Möglichkeit finden, dem Computer zu befehlen: "Zeichne eine Linie von Punkt (0, 0) bis Punkt (6, 6)". Um solche Anweisungen geben zu können, müssen wir zuerst ein neues Programmelement kennen lernen, Funktionen.
+Möchten wir also eine diagonale Linie zeichnen, von oben Links nach unten Rechts, müssen wir eine Möglichkeit finden, dem Computer zu befehlen: {nbsp} +
+"Zeichne eine Linie von Punkt (0, 0) bis Punkt (6, 6)".
+
+Um solche Anweisungen geben zu können, müssen wir zuerst ein neues Programmelement kennen lernen: Funktionen.
 
 
 == Funktionen – Aufrufen
-Eine Funktion ist eine Anweisung, welche vom Computer im Hintergrund zur Verfügung gestellt wird. Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten, können wir dem Mini-Programm genau sagen, was es für uns tun soll.
+Eine Funktion ist quasi ein eigenständiges Mini-Programm, welches über dessen Namen gestartet werden kann. Über eine Liste von Werten (`Parameter`), können wir dem Mini-Programm genau sagen, was es für uns tun soll.
 
-Um eine Linie zu zeichnen können wir folgenden Code verwenden.
+In JavaScript existieren bereits viele vorgefertigte Funktionen, diese können wir als Programmierer direkt verwenden.
+
+Um eine Linie zu zeichnen können wir zum Beispiel folgenden Code verwenden:
 
 [source,javascript,linenums]
 ----
@@ -217,7 +222,15 @@ Auf Zeile 5 wird die Funktion namens `line` aufgerufen. Die Komma-separierten We
 
 Es gibt viele weitere nützliche Funktionen. Du hast z.B. ganz zu Beginn die Funktion `Math.sqrt` kennen gelernt. Diese hat nur einen Parameter. Nämlich die Zahl von der man gerne die Quadratwurzel berechnet haben möchte. Die Funktion `line` hat 4 Parameter. Es gibt auch Funktionen ohne Parameter, und sogar welche, bei der die Anzahl der Parameter variabel ist.
 
-Ein kleines Beispiel mit der Funktion `prompt`, welche du ebenfalls bereits kennengelernt hast zu Beginn. Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?
+
+
+=== Übung – Funktionen aufrufen
+Ein kleines Beispiel mit der Funktion `prompt`, welche du ebenfalls bereits kennengelernt hast zu Beginn.
+
+****
+*Prompt*
+
+Was ist der Unterschied der folgenden beiden Zeilen? Wie wirkt sich dieser Unterschied aus, wenn du die beiden Zeilen ausführst?
 
 [source,javascript,linenums]
 ----
@@ -225,10 +238,15 @@ prompt()
 prompt("Wie heisst du?")
 ----
 
-Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.
+_Lösung_
+
+Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. {nbsp} +
+Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.
+
+****
 
 
-Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:
+Das tolle an Funktionen ist, dass man sie beliebig oft nacheinander aufrufen kann. Möchte man also von drei verschiedenen Zahlen die Quadratwurzel ziehen kann man die Funktion einfach dreimal aufrufen, jedesmal mit einem anderen Parameter:
 
 [source,javascript,linenums]
 ----
@@ -241,6 +259,8 @@ let three = Math.sqrt(nine)
 // Oder noch kürzer:
 three = Math.sqrt(Math.sqrt(81))
 ----
+
+'''
 
 Als nächstes lernen wir ein Werkzeug kennen, welches die Funktion `line` ausführen kann und eine Linie auf den Bildschirm zeichnet. Denn wenn du den Code von oben kopierst und direkt im Browser ausführst, wird das einen Fehler geben. Der Grund ist, dass es die Funktion `line` nicht gibt. Zudem gäbe es auch noch keine Zeichenfläche ;).
 
@@ -458,6 +478,7 @@ Folgendes Beispiel zeigt eine Animation. Der Kreis pulsiert.
 <script type="text/p5" src="p5-sketches/animation-demo.js" data-height="400">
 </script>
 ++++
+
 {nbsp} +
 
 Alle einmal ausgeführten Anweisungen kommen in die Funktion `setup` platziert.
@@ -474,9 +495,13 @@ Du kannst diese Übungen direkt im obigen Editor lösen.
 ****
 *Floating Rect*
 
-Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet. {nbsp} +
-Als Zusatzaufgabe: stoppe das Rechteck, sobald es den rechten Rand berührt.
+Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.
 
+*Mouse Deco*
+
+Ersetze den Mauszeiger durch einen roten Punkt.
+
+Tip: `noCursor`
 
 ****
 
@@ -488,7 +513,7 @@ Sobald ein Programm, während dem es läuft, auf äussere Einflüsse reagieren m
 - Fenstergrösse hat geändert
 - Systemzeit hat geändert
 
-Eine Applikationen (ein Programm, welches von einem Anwender bedient wird) muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.
+Eine Applikation, ein Programm, welches von einem Anwender bedient wird, muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.
 
 Im Folgenden ein Beispiel in P5.js:
 
@@ -498,12 +523,12 @@ Im Folgenden ein Beispiel in P5.js:
 
 Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl Clicks um eins erhöht.
 
-Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen `EventHandler`, das ist eine Funktion, welche vom Computer automatisch aufegrufen wird, sobald das entsprechende Ereignis auftritt.
+Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen `EventHandler`, das ist eine Funktion, welche vom Computer automatisch aufgerufen wird, sobald das entsprechende Ereignis auftritt.
 
 == P5.js – Interaktiv
 In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.
 
-Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClicked` verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt.
+Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClicked` verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt. Diese Funktion ist also der `EventHandler` des Click Events.
 
 
 +++
@@ -512,9 +537,112 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 +++
 
 
-== Verzweigungen / Entscheidungen
+== Verzweigungen – bedingte Ausführung
+
+Ein Weiterer wichtiger Baustein von Programmen sind Verzweigungen. Damit ist es möglich gewisse Anweisungen nur bedingt auszuführen.
+
+Denken wir an das Ballon-Treff-Spiel von oben. Da möchten wir, dass die Punktezahl nur dann erhöht wird, wenn der Spieler mit der Maus beim Click den Ballon getroffen hat. Klickt er ausserhalb des Ballons, gibt es keine Punkte. Die Anweisung "Erhöhe Punktezahl um eins" wird also bedingt ausgeführt. Die Bedingung ist "Click erfolgte auf Ballon".
+
+In <<Pseudo-Code>> könnte man das so formulieren:
+
+[source,javascript,linenums]
+----
+Wenn "Click erfolgte auf Ballon":
+    "Erhöhe Punktezahl um eins"
+Sonst:
+    "Tue nichts"
+----
+
+Die Anweisung auf Zeile 2 wird nur ausgeführt, wenn die Bedingung auf Zeile 1 wahr (true) ist.
+Ist die Bedingung auf Zeile 1 nicht wahr (false), dann wird nur die Anweisung auf Zeile 4 ausgeführt.
+
+Die allgemein gültige <<Syntax>>, um eine solche Bedingung in JavaScript zu formulieren ist wie folgt:
+
+[source,javascript,linenums]
+----
+if (<Bedingung>) {
+    <Anweisungen>
+} else {
+    <Anweisungen>
+}
+----
+
+TIP: Dieses Beispiel verwendet Platzhalter (mit < und > gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
+
+Erläuterung:
+
+Zeile 1:: Das Keyword um eine bedingte Ausführung einzuleiten ist `if` (engl. falls) {nbsp} +
+Zeile 1:: Die runden Klammern (engl. Parentheses) sind zwingend nötig. Sie umfassen die ganze Bedingung. Eine Bedingung kann z.B. ein Vergleich `(a < 2)` sein. {nbsp} +
+Zeile 1:: Die geschweifte Klammer (engl. Brace) eröffnet einen `Block`. Der Block reicht bis zur ersten schliessenden geschweiften Klammer auf Zeile 3. Alle Anweisungen die sich innerhalb dieser beiden Klammern befinden, werden nur dann ausgeführt, wenn die Bedingung wahr ist. {nbsp} +
+Zeile 2:: Eine oder mehrere Anweisungen, die bedingt ausgeführt werden.
+Zeile 3:: Schliesst den Block, welcher auf Zeile 1 geöffnet wurde. Eröffnet einen neuen Block, welcher nur dann ausgeführt wird, wenn die Bedingung nicht wahr ist. Zwischen den beiden Blöcken muss das Keyword `else` (engl. sonst) stehen. {nbsp} +
+
+Hier nun ein lauffähiges Beispiel:
+
+[source,javascript,linenums]
+----
+let a = 2
+if (a < 0) {
+    a = 0
+} else {
+    a = a * 2
+}
+----
+
+
+Eine bedingte Ausführung kann auch ohne else-Verzweigung definiert werden:
+
+[source,javascript,linenums]
+----
+let a = 2
+if (a < 0) {
+    a = 0
+}
+----
+
+Im Weiteren spielt es keine Rolle wieviel Leerzeichen oder Zeilenumbrüche verwendet werden. Wichtig sind die Steuerzeichen (z.B. Klammerpaare) und Keywords. Folgender Code ist also äquivalent, allerdings schlechter lesbar:
+
+[source,javascript,linenums]
+----
+let a=2
+if(a <0)            {  a = 0
+
+
+}
+----
+
+
+=== Übung – Bedingte Ausführung
+Du kannst diese Übungen direkt im obigen Editor lösen.
+
+****
+*Floating Rect*
+
+Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt …
+
+. Sobald es den rechten Rand berührt stoppt es.
+
+. Sobald es den rechten Rand berührt prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …
+
+*Catch me*
+
+. Zeichne einen Kreis. Wenn der Spieler daneben klickt, bekommt er einen Punkt abzug. Weniger als 0 Punkte geht nicht. {nbsp} +
+Wenn der Spieler auf den Kreis klickt:
+    .. bekommt er einen Punkt
+    .. ändert der Kreis seine Position auf eine zufällige, neue Position
+
+. Der Kreis ändert (zusätzlich) alle par Sekunden automatisch seine Position
+
+. Die Grösse des Kreises ändert bei jedem Treffer.
+
+Hinweis: `dist`, `random`, `frameRate`
+
+****
+
 
 == Schleifen
+
+Generieren von Kreisen
 
 == Funktionen – Definieren
 
@@ -530,4 +658,6 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 
 [glossary]
 == Glossar
-[[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann.
+[[Syntax]]Syntax:: Vorgabe innerhalb der Programmiersprache, wie man bestimmte Dinge zu schreiben hat. Die Syntax bestimmt an welchem Ort welches Zeichen gültig ist. Also z.B. ob ein Steuerzeichen (z.B. `{` oder `=`) erwartet wird, oder ein Keyword.
+[[Pseudo-Code]]Pseudo-Code:: Mit Pseudo-Code kann man Prorgrammcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.
+[[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. https://www.w3schools.com/js/js_reserved.asp[Liste aller JavaScript Keywords]
