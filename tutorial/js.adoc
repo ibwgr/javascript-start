@@ -238,10 +238,13 @@ prompt()
 prompt("Wie heisst du?")
 ----
 
-_Lösung_
 
+.Lösung (Click)
+[%collapsible]
+====
 Zeile 1 ruft die Funktion prompt auf, ohne Parameter. Als Ergebnis wird ein Eingabe-Dialog angezeigt ohne textuelle Aufforderung, sondern lediglich mit einem Eingabefeld. {nbsp} +
 Zeile 2 zeigt einen Eingabe-Dialog mit textueller Aufforderung.
+====
 
 ****
 
@@ -541,7 +544,7 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 
 Ein Weiterer wichtiger Baustein von Programmen sind Verzweigungen. Damit ist es möglich gewisse Anweisungen nur bedingt auszuführen.
 
-Denken wir an das Ballon-Treff-Spiel von oben. Da möchten wir, dass die Punktezahl nur dann erhöht wird, wenn der Spieler mit der Maus beim Click den Ballon getroffen hat. Klickt er ausserhalb des Ballons, gibt es keine Punkte. Die Anweisung "Erhöhe Punktezahl um eins" wird also bedingt ausgeführt. Die Bedingung ist "Click erfolgte auf Ballon".
+Denken wir an ein Ballon-Treff-Spiel: Ein Kreis ändert ständig seine Position. Der Spieler bekommt einen Punkt, wenn er mit der Maus in den Kreis klickt. Klickt er ausserhalb des Ballons, gibt es keine Punkte. Die Anweisung "Erhöhe Punktezahl um eins" wird also bedingt ausgeführt. Die Bedingung ist "Click erfolgte auf Ballon".
 
 In <<Pseudo-Code>> könnte man das so formulieren:
 
@@ -566,6 +569,7 @@ if (<Bedingung>) {
     <Anweisungen>
 }
 ----
+
 
 TIP: Dieses Beispiel verwendet Platzhalter (mit < und > gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
 
