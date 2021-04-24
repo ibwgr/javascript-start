@@ -576,8 +576,8 @@ TIP: Dieses Beispiel verwendet Platzhalter (mit < und > gekennzeichnet). Es ist 
 Erläuterung:
 
 Zeile 1:: Das Keyword um eine bedingte Ausführung einzuleiten ist `if` (engl. falls) {nbsp} +
-Zeile 1:: Die runden Klammern (engl. Parentheses) sind zwingend nötig. Sie umfassen die ganze Bedingung. Eine Bedingung kann z.B. ein Vergleich `(a < 2)` sein. {nbsp} +
-Zeile 1:: Die geschweifte Klammer (engl. Brace) eröffnet einen `Block`. Der Block reicht bis zur ersten schliessenden geschweiften Klammer auf Zeile 3. Alle Anweisungen die sich innerhalb dieser beiden Klammern befinden, werden nur dann ausgeführt, wenn die Bedingung wahr ist. {nbsp} +
+Zeile 1:: Die runden Klammern (engl. Parentheses) sind zwingend nötig. Sie umfassen die ganze Bedingung. Eine Bedingung kann z.B. ein Vergleich `(a < 2)` sein. Eine Bedingung ist immer entweder true (wahr, zutreffend) oder false (nicht wahr, falsch). {nbsp} +
+Zeile 1:: Die geschweifte Klammer (engl. Brace) eröffnet einen `Block`. Der Block reicht bis zu der ersten schliessenden geschweiften Klammer auf Zeile 3. Alle Anweisungen die sich innerhalb dieser beiden Klammern befinden, werden nur dann ausgeführt, wenn die Bedingung wahr ist. {nbsp} +
 Zeile 2:: Eine oder mehrere Anweisungen, die bedingt ausgeführt werden.
 Zeile 3:: Schliesst den Block, welcher auf Zeile 1 geöffnet wurde. Eröffnet einen neuen Block, welcher nur dann ausgeführt wird, wenn die Bedingung nicht wahr ist. Zwischen den beiden Blöcken muss das Keyword `else` (engl. sonst) stehen. {nbsp} +
 
@@ -642,6 +642,142 @@ Wenn der Spieler auf den Kreis klickt:
 Hinweis: `dist`, `random`, `frameRate`
 
 ****
+
+== Blöcke & Geltungsbereiche
+
+Im Zusammenhang mit Verzweigungen haben wir das erste mal Blöcke verwendet. Ein Block besteht aus einer Liste von Anweisungen, welche von geschweiften Klammern (engl. Brace) umschlossen sind.
+
+Theoretisch ist es also möglich einen Block zu definieren, auch ohne das man eine Verzweigung verwendet. Das sieht dann so aus:
+[source,javascript,linenums]
+----
+let a = 0
+{
+    let b = 0
+}
+let c = 0
+----
+
+Im obigen Beispiel beginnt der explizit definierte Block auf Zeile 2 und geht bis Zeile 4. In JavaScript existiert immer auch ein impliziter Block: der, welcher das ganze Programm beinhaltet.
+
+Ein Block kann einen anderen Block beinhalten. Man spricht dann von Verschachtelung:
+
+[source,javascript,linenums]
+----
+let a = 0
+{
+    let b = 0
+    {
+        let b1 = 0
+    }
+}
+let c = 0
+----
+
+Im obigen Beispiel beginnt auf Zeile 4 der verschachtelte Block und geht bis Zeile 6.
+
+In der Praxis werden Blöcke selten allein verwendet, sondern zum Beispiel in Kombination mit Verzweigungen. Eine einfache Verzweigung kennen wir bereits. Hier nun ein Beispiel einer verschachtelten Verzweigung:
+
+[source,javascript,linenums]
+----
+let a = 0
+if (a > 0) {
+    if (a <= 10) {
+        // a >= 1 und <= 10
+    } else {
+        // a > 10
+    }
+} else {
+    // a <= 0
+}
+----
+
+=== Formatierung
+
+Im Zusammenhang mit Blöcken wird gut sichtbar, wie hilfreich gut formatierter Code für uns Menschen ist. Es ist wie bei Texten in Büchern oder Zeitungen auch: Ein geordnetes Gesamtbild mit genügend Leerräumen (engl. whitespace) erhöht die Lesbarkeit und erfordert weniger Aufwand, um den Text zu verstehen.
+
+Gut formatiert heisst:
+
+* Pro Verschachtelungs-Stufe wird der gesamte Blockinhalt nach rechts eingerückt
+* Abstände zwischen Steuerzeichen und Variablen ist einheitlich
+* Zeilenumbrüche zwischen Steuerzeichen einheitlich
+
+Das obige Beispiel ohne einheitliche Einrückung:
+
+[source,javascript,linenums]
+----
+let a = 0
+if (a > 0) {
+if (a <= 10) {
+  // a >= 1 und <= 10
+    } else {
+// a > 10
+        }
+} else {
+        // a <= 0
+    }
+----
+
+Das obige Beispiel ohne einheitliche Zeilenumbrüche und ohne einheitliche Abstände:
+
+[source,javascript,linenums]
+----
+let a = 0
+if ( a >0 )
+{
+    if ( a<=10) {
+        // a >= 1 und <= 10
+    }
+    else {
+        // a > 10
+    }
+}else{
+    // a <= 0
+}
+----
+
+TIP: Eine wichtige Funktion von IDEs ist die automatische Code-formatierung. Direkt bei der Eingabe, oder via Tastenkombination / Menüpunkt kann die ganze Datei automatisch korrekt formatiert werden.
+
+
+=== Geltungsbereich
+
+WARNING: In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sondern nur das minimal nötige für diesen Einführungskurs. Gewisse Definitionen / Erläuterungen sind daher nicht vollständig korrekt.
+
+Blöcke dienen nicht nur der Formatierung und Gruppierung von Anweisungen. Blöcke definieren ebenfalls einen Geltungsbereich (engl. scope) für Variablen. Der Geltungsbereich einer Variable ist eine Reihe von Zeilen, in denen auf die Variabel zugegriffen (referenziert) werden kann. Der Gültigkeitsbereich einer Variabel startet auf der Zeile, auf der diese definiert wird, und geht bis an das Blockende.
+
+Erinnern wir uns an das Beispiel von oben:
+
+[source,javascript,linenums]
+----
+let a = 0
+{
+    let b = 0
+}
+let c = 0
+----
+
+* Der Geltungsbereich von `a` geht von Zeile 1 bis und mit 5.
+* Der Geltungsbereich von `b` geht von Zeile 3 bis und mit 3.
+* Der Geltungsbereich von `c` geht von Zeile 5 bis und mit 5.
+
+Das impliziert:
+
+* Geltungsbereiche beinhalten verschachtelte Blöcke
+* Variabeln in verschachtelten Blöcken sind in äusseren Blöcken nicht referenzierbar
+
+Diese Tatsachen mit Kommentaren in einem Codebeispiel erläutert:
+
+[source,javascript,linenums]
+----
+// Zugriff auf a nicht erlaubt, da noch nicht definiert
+let a = 0
+{
+    // Zugriff auf a erlaubt, da im äusseren Block definiert
+    let b = 0
+}
+// Zugriff auf b nicht erlaubt, da im inneren Block definiert
+// Zugriff auf a erlaubt, da im gleichen Block, davor definiert
+let c = 0
+----
 
 
 == Schleifen
