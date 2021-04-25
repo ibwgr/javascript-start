@@ -129,6 +129,7 @@ pre.rouge table td.linenos{
 <li><a href="#_boolean_vergleiche">Boolean &amp; Vergleiche</a>
 <ul class="sectlevel3">
 <li><a href="#_gleichheit_prüfen">Gleichheit prüfen</a></li>
+<li><a href="#_logische_ausdrücke">Logische Ausdrücke</a></li>
 </ul>
 </li>
 <li><a href="#_lernkontrolle_4">Lernkontrolle</a></li>
@@ -144,17 +145,23 @@ pre.rouge table td.linenos{
 <li><a href="#_verzweigungen_bedingte_ausführung">Verzweigungen – bedingte Ausführung</a>
 <ul class="sectlevel2">
 <li><a href="#_übung_bedingte_ausführung">Übung – Bedingte Ausführung</a></li>
+<li><a href="#_lernkontrolle_5">Lernkontrolle</a></li>
 </ul>
 </li>
 <li><a href="#_blöcke_geltungsbereiche">Blöcke &amp; Geltungsbereiche</a>
 <ul class="sectlevel2">
 <li><a href="#_formatierung">Formatierung</a></li>
 <li><a href="#_geltungsbereich">Geltungsbereich</a></li>
+<li><a href="#_lernkontrolle_6">Lernkontrolle</a></li>
 </ul>
 </li>
-<li><a href="#_schleifen">Schleifen</a></li>
+<li><a href="#_schleifen">Schleifen</a>
+<ul class="sectlevel2">
+<li><a href="#_datentypen_ii_arrays">Datentypen II – Arrays</a></li>
+</ul>
+</li>
 <li><a href="#_funktionen_definieren">Funktionen – Definieren</a></li>
-<li><a href="#_objekte">Objekte</a></li>
+<li><a href="#_datentypen_iii_objekte">Datentypen III – Objekte</a></li>
 <li><a href="#_weiterführende_javascript_ressourcen">Weiterführende JavaScript Ressourcen</a></li>
 <li><a href="#_glossar">Glossar</a></li>
 </ul>
@@ -953,6 +960,81 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <p>Im obigen Beispiel ist die Variable <code>isEven</code> nur dann true, wenn der Wert von <code>anyNumber</code> eine gerade (engl. even) Zahl ist. Der Modulo Operator (<code>%</code>) berechnet den Rest einer Division.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_logische_ausdrücke">Logische Ausdrücke</h4>
+<div class="paragraph">
+<p>Boolean Werte kann man auch miteinander verknüpfen. Zwei häufig verwendete Operationen sind <code>und</code> (engl. and) und <code>oder</code> (engl. or).
+Es geht also darum logische Aussagen, die entweder wahr oder falsch sind, miteinander zu kombinieren. Das Ergebnis ist dann wiederum ein boolscher Wert.</p>
+</div>
+<div class="paragraph">
+<p>Folgendes Beispiel illustriert die <code>or</code> Operation:</p>
+</div>
+<div class="paragraph">
+<p>Ein Online-Shop gewährt 10% Rabatt, wenn die Kundin weniger als 20 Jahre alt ist, oder wenn die Kundin mehr als 300.- CHF im Warenkorb hat. Im Code könnte man das so abbilden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">basketTotal</span> <span class="o">=</span> <span class="mf">344.65</span>
+<span class="kd">const</span> <span class="nx">yearOfBirth</span> <span class="o">=</span> <span class="mi">1980</span>
+<span class="kd">const</span> <span class="nx">youngerThan20</span> <span class="o">=</span> <span class="p">(</span><span class="nx">today</span><span class="p">(</span><span class="dl">'</span><span class="s1">year</span><span class="dl">'</span><span class="p">)</span> <span class="o">-</span> <span class="nx">yearOfBirth</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">20</span>
+<span class="kd">const</span> <span class="nx">has10Discount</span> <span class="o">=</span> <span class="nx">basketTotal</span> <span class="o">&gt;</span> <span class="mi">300</span> <span class="o">||</span> <span class="nx">youngerThan20</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auf Zeile 4 werden zwei boolsche Werte mit <code>or</code> kombiniert. In JavaScript wird dafür der <code>||</code>-Operator verwendet. <code>has10Discount</code> ist also immer nur dann true, wenn mindestens ein Operand true ist. Der <code>or</code> Operator hat zwei Operanden, einer links und einer rechts vom <code>||</code> Zeichen.</p>
+</div>
+<div class="paragraph">
+<p><em>Quizfrage</em> &#160;<br>
+Welchen Variablenwert musst du ändern, damit <code>has10Discount</code> false wird?</p>
+</div>
+<div class="paragraph">
+<p>Folgendes Beispiel illustriert die <code>and</code> Operation:</p>
+</div>
+<div class="paragraph">
+<p>Gefragt sind alle Zahlen, welche gerade sind und durch vier teilbar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="kd">const</span> <span class="nx">goodNumber</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auf Zeile 2 werden zwei boolsche Werte mit <code>and</code> kombiniert. In JavaScript wird dafür der <code>&amp;&amp;</code>-Operator verwendet.</p>
+</div>
+<div class="paragraph">
+<p>Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man <em>und</em> und <em>oder</em> miteinander mischen, ist zu empfehlen die Teilausdrücke in runde Klammern zu setzen, oder in eine Variable auszulagern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="kd">const</span> <span class="nx">goodNumber</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">goodPositive1</span> <span class="o">=</span> <span class="nx">goodNumber</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">goodPositive2</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">goodOrNegative1</span> <span class="o">=</span> <span class="nx">goodNumber</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">goodOrNegative2</span> <span class="o">=</span> <span class="p">(</span><span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Zeilen 3 und 4, sowie 5 und 6 sind jeweils äquivalent. Auf Zeile 6 wird <em>und</em> mit <em>oder</em> gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. &#160;<br>
+ Auf Zeile 5 wird ebenfalls <em>und</em> mit <em>oder</em> gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der <em>und</em> Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_lernkontrolle_4">Lernkontrolle</h3>
@@ -967,13 +1049,13 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <p>&#10003; dass ich nur Variablen mit gleichem Datentyp vergleichen kann</p>
 </li>
 <li>
-<p>&#10003; was ein Boolean Wert ist</p>
+<p>&#10003; was ein logischer Ausdruck ist</p>
 </li>
 <li>
 <p>&#10003; den Unterschied von Integer und Float</p>
 </li>
 <li>
-<p>&#10003; was ein String ist</p>
+<p>&#10003; wie ich Strings kombinieren kann</p>
 </li>
 </ul>
 </div>
@@ -1036,6 +1118,12 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
+<p><strong>Ruckel</strong></p>
+</div>
+<div class="paragraph">
+<p>Verwende im Beispiel oben die Funktion <code>frameRate</code>, um eine ruckelnde Animition zu erstellen.</p>
+</div>
+<div class="paragraph">
 <p><strong>Floating Rect</strong></p>
 </div>
 <div class="paragraph">
@@ -1045,7 +1133,7 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <p><strong>Mouse Deco</strong></p>
 </div>
 <div class="paragraph">
-<p>Ersetze den Mauszeiger durch einen roten Punkt.</p>
+<p>Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.</p>
 </div>
 <div class="paragraph">
 <p>Tip: <code>noCursor</code></p>
@@ -1269,10 +1357,10 @@ Dieses Beispiel verwendet Platzhalter (mit &lt; und &gt; gekennzeichnet). Es ist
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sobald es den rechten Rand berührt stoppt es.</p>
+<p>Sobald es den rechten Rand berührt, stoppt es.</p>
 </li>
 <li>
-<p>Sobald es den rechten Rand berührt prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …</p>
+<p>Sobald es den rechten Rand berührt, prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt, prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …</p>
 </li>
 </ol>
 </div>
@@ -1305,6 +1393,26 @@ Wenn der Spieler auf den Kreis klickt:</p>
 </div>
 <div class="paragraph">
 <p>Hinweis: <code>dist</code>, <code>random</code>, <code>frameRate</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lernkontrolle_5">Lernkontrolle</h3>
+<div class="paragraph">
+<p>Ich weiss, &#8230;&#8203;</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; wie ich Programmteile nur bedingt ausführe</p>
+</li>
+<li>
+<p>&#10003; was die Keywords if, else und else if bedeuten</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1544,7 +1652,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <p>Geltungsbereiche beinhalten verschachtelte Blöcke</p>
 </li>
 <li>
-<p>Variabeln in verschachtelten Blöcken sind in äusseren Blöcken nicht referenzierbar</p>
+<p>Variabeln, welche in verschachtelten Blöcken definiert werden, sind in äusseren Blöcken nicht referenzierbar</p>
 </li>
 </ul>
 </div>
@@ -1575,13 +1683,33 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_lernkontrolle_6">Lernkontrolle</h3>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; Anhand eines Codebeispiels, kann ich den Geltungsbereich einer Variable bestimmen</p>
+</li>
+<li>
+<p>&#10003; Ich kenne die Kriterien korrekter Formatierung und kann diese Anwenden</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_schleifen">Schleifen</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_datentypen_ii_arrays">Datentypen II – Arrays</h3>
 <div class="paragraph">
 <p>Generieren von Kreisen</p>
+</div>
 </div>
 </div>
 </div>
@@ -1592,7 +1720,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 </div>
 <div class="sect1">
-<h2 id="_objekte">Objekte</h2>
+<h2 id="_datentypen_iii_objekte">Datentypen III – Objekte</h2>
 <div class="sectionbody">
 
 </div>
@@ -1642,7 +1770,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-24 21:10:28 UTC
+Last updated 2021-04-25 20:59:32 UTC
 </div>
 </div>
 <style>

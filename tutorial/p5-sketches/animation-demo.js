@@ -1,21 +1,16 @@
-let rStart = 0
-let rMax = 40
-let r = rStart
-let change = 1
+let rMax = 95
+let r = 0
 
 function setup() {
+  // einmal ausgeführt
   createCanvas(100, 100)
   fill("black")
+  background("beige")
 }
 
 function draw(){
-  background("beige")
-  if(r >= rMax){
-    change = -1
-  }
-  if(r <= rStart){
-    change = 1
-  }
-  r = r + change
+  // wiederholt ausgeführt
+  r = r+1
+  r = Math.min(r, rMax)
   circle(50, 50, r)
 }

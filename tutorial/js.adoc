@@ -452,14 +452,64 @@ const isEven = anyNumber % 2 === 0
 Im obigen Beispiel ist die Variable `isEven` nur dann true, wenn der Wert von `anyNumber` eine gerade (engl. even) Zahl ist. Der Modulo Operator (`%`) berechnet den Rest einer Division.
 
 
+==== Logische Ausdrücke
+
+Boolean Werte kann man auch miteinander verknüpfen. Zwei häufig verwendete Operationen sind `und` (engl. and) und `oder` (engl. or).
+Es geht also darum logische Aussagen, die entweder wahr oder falsch sind, miteinander zu kombinieren. Das Ergebnis ist dann wiederum ein boolscher Wert.
+
+Folgendes Beispiel illustriert die `or` Operation:
+
+Ein Online-Shop gewährt 10% Rabatt, wenn die Kundin weniger als 20 Jahre alt ist, oder wenn die Kundin mehr als 300.- CHF im Warenkorb hat. Im Code könnte man das so abbilden:
+
+[source,javascript,linenums]
+----
+const basketTotal = 344.65
+const yearOfBirth = 1980
+const youngerThan20 = (today('year') - yearOfBirth) < 20
+const has10Discount = basketTotal > 300 || youngerThan20
+----
+
+Auf Zeile 4 werden zwei boolsche Werte mit `or` kombiniert. In JavaScript wird dafür der `||`-Operator verwendet. `has10Discount` ist also immer nur dann true, wenn mindestens ein Operand true ist. Der `or` Operator hat zwei Operanden, einer links und einer rechts vom `||` Zeichen.
+
+__Quizfrage__ {nbsp} +
+Welchen Variablenwert musst du ändern, damit `has10Discount` false wird?
+
+
+Folgendes Beispiel illustriert die `and` Operation:
+
+Gefragt sind alle Zahlen, welche gerade sind und durch vier teilbar:
+
+[source,javascript,linenums]
+----
+const number = 23
+const goodNumber = number % 2 === 0 && number % 4 === 0 
+----
+
+Auf Zeile 2 werden zwei boolsche Werte mit `and` kombiniert. In JavaScript wird dafür der `&&`-Operator verwendet.
+
+Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man _und_ und _oder_ miteinander mischen, ist zu empfehlen die Teilausdrücke in runde Klammern zu setzen, oder in eine Variable auszulagern:
+
+[source,javascript,linenums]
+----
+const number = 23
+const goodNumber = number % 2 === 0 && number % 4 === 0 
+const goodPositive1 = goodNumber && number >= 0
+const goodPositive2 = number % 2 === 0 && number % 4 === 0 && number >= 0
+const goodOrNegative1 = goodNumber || number < 0
+const goodOrNegative2 = (number % 2 === 0 && number % 4 === 0) || number < 0
+----
+
+Die Zeilen 3 und 4, sowie 5 und 6 sind jeweils äquivalent. Auf Zeile 6 wird _und_ mit _oder_ gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. {nbsp} +
+ Auf Zeile 5 wird ebenfalls _und_ mit _oder_ gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der _und_ Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".
+
 
 === Lernkontrolle
 Ich weiss, ...
 ====
 * [*] dass ich nur Variablen mit gleichem Datentyp vergleichen kann
-* [*] was ein Boolean Wert ist
+* [*] was ein logischer Ausdruck ist
 * [*] den Unterschied von Integer und Float
-* [*] was ein String ist
+* [*] wie ich Strings kombinieren kann
 ====
 
 
@@ -496,13 +546,17 @@ TIP: Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt
 Du kannst diese Übungen direkt im obigen Editor lösen.
 
 ****
+*Ruckel*
+
+Verwende im Beispiel oben die Funktion `frameRate`, um eine ruckelnde Animition zu erstellen.
+
 *Floating Rect*
 
 Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.
 
 *Mouse Deco*
 
-Ersetze den Mauszeiger durch einen roten Punkt.
+Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.
 
 Tip: `noCursor`
 
@@ -624,9 +678,9 @@ Du kannst diese Übungen direkt im obigen Editor lösen.
 
 Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt …
 
-. Sobald es den rechten Rand berührt stoppt es.
+. Sobald es den rechten Rand berührt, stoppt es.
 
-. Sobald es den rechten Rand berührt prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …
+. Sobald es den rechten Rand berührt, prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt, prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …
 
 *Catch me*
 
@@ -642,6 +696,14 @@ Wenn der Spieler auf den Kreis klickt:
 Hinweis: `dist`, `random`, `frameRate`
 
 ****
+
+
+=== Lernkontrolle
+Ich weiss, ...
+====
+* [*] wie ich Programmteile nur bedingt ausführe
+* [*] was die Keywords if, else und else if bedeuten
+====
 
 == Blöcke & Geltungsbereiche
 
@@ -762,7 +824,7 @@ let c = 0
 Das impliziert:
 
 * Geltungsbereiche beinhalten verschachtelte Blöcke
-* Variabeln in verschachtelten Blöcken sind in äusseren Blöcken nicht referenzierbar
+* Variabeln, welche in verschachtelten Blöcken definiert werden, sind in äusseren Blöcken nicht referenzierbar
 
 Diese Tatsachen mit Kommentaren in einem Codebeispiel erläutert:
 
@@ -779,14 +841,21 @@ let a = 0
 let c = 0
 ----
 
+=== Lernkontrolle
+====
+* [*] Anhand eines Codebeispiels, kann ich den Geltungsbereich einer Variable bestimmen
+* [*] Ich kenne die Kriterien korrekter Formatierung und kann diese Anwenden
+====
 
 == Schleifen
+
+=== Datentypen II – Arrays
 
 Generieren von Kreisen
 
 == Funktionen – Definieren
 
-== Objekte
+== Datentypen III – Objekte
 
 
 == Weiterführende JavaScript Ressourcen
