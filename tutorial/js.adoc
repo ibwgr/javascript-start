@@ -289,7 +289,7 @@ line(0, 0, 200, 200)
 
 Cool! Aber was geschieht da genau?
 
-1. Die Funktion `createCanvas` erstellt eine Zeichenfläche. Diese ist 200 Einheiten breit und 200 Einheiten hoch.
+1. Die Funktion `createCanvas` erstellt eine Zeichenfläche. Diese ist 200 Einheiten (sogenannte <<Pixel>>) breit und 200 Einheiten hoch.
 1. Mit `background` setzen wir die Hintergrundfarbe der Zeichenfläche. `skyblue` ist eine Farbbezeichnung die der Computer kennt.
 1. Mit `line` zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.
 
@@ -497,10 +497,31 @@ const goodPositive1 = goodNumber && number >= 0
 const goodPositive2 = number % 2 === 0 && number % 4 === 0 && number >= 0
 const goodOrNegative1 = goodNumber || number < 0
 const goodOrNegative2 = (number % 2 === 0 && number % 4 === 0) || number < 0
+const goodOrNegative3 = number % 2 === 0 && number % 4 === 0 || number < 0
 ----
 
-Die Zeilen 3 und 4, sowie 5 und 6 sind jeweils äquivalent. Auf Zeile 6 wird _und_ mit _oder_ gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. {nbsp} +
- Auf Zeile 5 wird ebenfalls _und_ mit _oder_ gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der _und_ Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".
+Die Zeilen 3 und 4, sowie 5, 6 und 7 sind jeweils äquivalent. Auf Zeile 6 wird _und_ mit _oder_ gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. {nbsp} +
+ Auf Zeile 7 wird ebenfalls _und_ mit _oder_ gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der _und_ Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".
+
+Zur Illustration kann das Ergebnis der Zeile 7 in mehreren Schritten hergeleitet werden:
+ 
+[source,javascript,linenums]
+----
+const number = 23
+const goodOrNegative = number % 2 === 0 && number % 4 === 0 || number < 0
+
+// 1. Modulo auflösen
+                     = 1 === 0 && 3 === 0 || number < 0
+
+// 2. Operanden auflösen
+                     = false && false || false
+
+// 3. Operanden nach Priorität auflösen
+                     = false || false
+
+// 4. Operanden auflösen
+                     = false
+----
 
 
 === Lernkontrolle
@@ -617,15 +638,15 @@ Die allgemein gültige <<Syntax>>, um eine solche Bedingung in JavaScript zu for
 
 [source,javascript,linenums]
 ----
-if (<Bedingung>) {
-    <Anweisungen>
+if (<<Bedingung>>) {
+    <<Anweisungen>>
 } else {
-    <Anweisungen>
+    <<Anweisungen>>
 }
 ----
 
 
-TIP: Dieses Beispiel verwendet Platzhalter (mit < und > gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
+TIP: Dieses Beispiel verwendet Platzhalter (mit << und >> gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
 
 Erläuterung:
 
@@ -849,6 +870,33 @@ let c = 0
 
 == Schleifen
 
+Eine weiterer wichtiger Baustein von Programmiersprachen sind Schleifen. Damit kann man eine Liste von Befehlen wiederholt ausführen. Es gibt verschiedene Schleifentypen. Die einfachste davon ist die `while`-Schleife.
+
+Eine `while`-Schleife besteht lediglich aus einer Abbruchbedingung.
+
+[source,javascript,linenums]
+----
+const stop = 100
+let counter = 0
+while(counter < stop) {
+    text("Counter: " + counter, 10, 10)
+    count = counter + 1
+}
+----
+
+Im Beispiel oben, wird die Funktion `text` 100 mal ausgeführt. Begonnen wird mit `counter = 0`. Der letzte Durchgang wird mit `counter = 99` ausgeführt.
+
+TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten Aufgaben reicht eine simple `while` Schleife jedoch bestens. Später, im Zusammenhang mit Arrays, lernst du den Schleifentypen `for of` kennen.
+
+=== Übung – Schleifen
+
+****
+*...*
+
+...
+
+****
+
 === Datentypen II – Arrays
 
 Generieren von Kreisen
@@ -870,3 +918,4 @@ Generieren von Kreisen
 [[Syntax]]Syntax:: Vorgabe innerhalb der Programmiersprache, wie man bestimmte Dinge zu schreiben hat. Die Syntax bestimmt an welchem Ort welches Zeichen gültig ist. Also z.B. ob ein Steuerzeichen (z.B. `{` oder `=`) erwartet wird, oder ein Keyword.
 [[Pseudo-Code]]Pseudo-Code:: Mit Pseudo-Code kann man Prorgrammcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. https://www.w3schools.com/js/js_reserved.asp[Liste aller JavaScript Keywords]
+[[Pixel]]Pixel:: Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel mit blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.

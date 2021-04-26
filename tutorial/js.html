@@ -157,6 +157,7 @@ pre.rouge table td.linenos{
 </li>
 <li><a href="#_schleifen">Schleifen</a>
 <ul class="sectlevel2">
+<li><a href="#_übung_schleifen">Übung – Schleifen</a></li>
 <li><a href="#_datentypen_ii_arrays">Datentypen II – Arrays</a></li>
 </ul>
 </li>
@@ -680,7 +681,7 @@ line(0, 0, 200, 200)
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Die Funktion <code>createCanvas</code> erstellt eine Zeichenfläche. Diese ist 200 Einheiten breit und 200 Einheiten hoch.</p>
+<p>Die Funktion <code>createCanvas</code> erstellt eine Zeichenfläche. Diese ist 200 Einheiten (sogenannte <a href="#Pixel">Pixel</a>) breit und 200 Einheiten hoch.</p>
 </li>
 <li>
 <p>Mit <code>background</code> setzen wir die Hintergrundfarbe der Zeichenfläche. <code>skyblue</code> ist eine Farbbezeichnung die der Computer kennt.</p>
@@ -1021,18 +1022,56 @@ Welchen Variablenwert musst du ändern, damit <code>has10Discount</code> false w
 4
 5
 6
+7
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">23</span>
 <span class="kd">const</span> <span class="nx">goodNumber</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span>
 <span class="kd">const</span> <span class="nx">goodPositive1</span> <span class="o">=</span> <span class="nx">goodNumber</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 <span class="kd">const</span> <span class="nx">goodPositive2</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 <span class="kd">const</span> <span class="nx">goodOrNegative1</span> <span class="o">=</span> <span class="nx">goodNumber</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
 <span class="kd">const</span> <span class="nx">goodOrNegative2</span> <span class="o">=</span> <span class="p">(</span><span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">goodOrNegative3</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Die Zeilen 3 und 4, sowie 5 und 6 sind jeweils äquivalent. Auf Zeile 6 wird <em>und</em> mit <em>oder</em> gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. &#160;<br>
- Auf Zeile 5 wird ebenfalls <em>und</em> mit <em>oder</em> gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der <em>und</em> Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".</p>
+<p>Die Zeilen 3 und 4, sowie 5, 6 und 7 sind jeweils äquivalent. Auf Zeile 6 wird <em>und</em> mit <em>oder</em> gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. &#160;<br>
+ Auf Zeile 7 wird ebenfalls <em>und</em> mit <em>oder</em> gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der <em>und</em> Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".</p>
+</div>
+<div class="paragraph">
+<p>Zur Illustration kann das Ergebnis der Zeile 7 in mehreren Schritten hergeleitet werden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="kd">const</span> <span class="nx">goodOrNegative</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+
+<span class="c1">// 1. Modulo auflösen</span>
+                     <span class="o">=</span> <span class="mi">1</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+
+<span class="c1">// 2. Operanden auflösen</span>
+                     <span class="o">=</span> <span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span>
+
+<span class="c1">// 3. Operanden nach Priorität auflösen</span>
+                     <span class="o">=</span> <span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span>
+
+<span class="c1">// 4. Operanden auflösen</span>
+                     <span class="o">=</span> <span class="kc">false</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1240,10 +1279,10 @@ Ist die Bedingung auf Zeile 1 nicht wahr (false), dann wird nur die Anweisung au
 3
 4
 5
-</pre></td><td class="code"><pre><span class="k">if</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">Bedingung</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">&lt;</span><span class="nx">Anweisungen</span><span class="o">&gt;</span>
+</pre></td><td class="code"><pre><span class="k">if</span> <span class="p">(</span><span class="o">&lt;&lt;</span><span class="nx">Bedingung</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">&lt;&lt;</span><span class="nx">Anweisungen</span><span class="o">&gt;&gt;</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="o">&lt;</span><span class="nx">Anweisungen</span><span class="o">&gt;</span>
+    <span class="o">&lt;&lt;</span><span class="nx">Anweisungen</span><span class="o">&gt;&gt;</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
@@ -1255,7 +1294,7 @@ Ist die Bedingung auf Zeile 1 nicht wahr (false), dann wird nur die Anweisung au
 <div class="title">💡</div>
 </td>
 <td class="content">
-Dieses Beispiel verwendet Platzhalter (mit &lt; und &gt; gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
+Dieses Beispiel verwendet Platzhalter (mit &lt;&lt; und &gt;&gt; gekennzeichnet). Es ist also nicht lauffähig, sondern illustriert die allgemein gültige Syntax in JavaScript.
 </td>
 </tr>
 </table>
@@ -1705,6 +1744,57 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <div class="sect1">
 <h2 id="_schleifen">Schleifen</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Eine weiterer wichtiger Baustein von Programmiersprachen sind Schleifen. Damit kann man eine Liste von Befehlen wiederholt ausführen. Es gibt verschiedene Schleifentypen. Die einfachste davon ist die <code>while</code>-Schleife.</p>
+</div>
+<div class="paragraph">
+<p>Eine <code>while</code>-Schleife besteht lediglich aus einer Abbruchbedingung.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">stop</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span><span class="p">(</span><span class="nx">counter</span> <span class="o">&lt;</span> <span class="nx">stop</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="p">(</span><span class="dl">"</span><span class="s2">Counter: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="nx">count</span> <span class="o">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Im Beispiel oben, wird die Funktion <code>text</code> 100 mal ausgeführt. Begonnen wird mit <code>counter = 0</code>. Der letzte Durchgang wird mit <code>counter = 99</code> ausgeführt.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für die allermeisten Aufgaben reicht eine simple <code>while</code> Schleife jedoch bestens. Später, im Zusammenhang mit Arrays, lernst du den Schleifentypen <code>for of</code> kennen.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_übung_schleifen">Übung – Schleifen</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>&#8230;&#8203;</strong></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_datentypen_ii_arrays">Datentypen II – Arrays</h3>
 <div class="paragraph">
@@ -1763,6 +1853,10 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <dd>
 <p>Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. <a href="https://www.w3schools.com/js/js_reserved.asp">Liste aller JavaScript Keywords</a></p>
 </dd>
+<dt class="hdlist1"><a id="Pixel"></a>Pixel</dt>
+<dd>
+<p>Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel mit blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -1770,7 +1864,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-25 20:59:32 UTC
+Last updated 2021-04-26 19:26:03 UTC
 </div>
 </div>
 <style>
