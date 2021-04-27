@@ -695,13 +695,15 @@ if(a <0)            {  a = 0
 Du kannst diese Übungen direkt im obigen Editor lösen.
 
 ****
-*Floating Rect*
+*Floating Rect Bounded*
 
 Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt …
 
 . Sobald es den rechten Rand berührt, stoppt es.
 
 . Sobald es den rechten Rand berührt, prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt, prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …
+
+Zusatzaufgabe: Löse das Problem ohne `if`. Tip: `Math.min`.
 
 *Catch me*
 
