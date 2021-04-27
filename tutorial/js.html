@@ -967,6 +967,8 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <p>Boolean Werte kann man auch miteinander verknüpfen. Zwei häufig verwendete Operationen sind <code>und</code> (engl. and) und <code>oder</code> (engl. or).
 Es geht also darum logische Aussagen, die entweder wahr oder falsch sind, miteinander zu kombinieren. Das Ergebnis ist dann wiederum ein boolscher Wert.</p>
 </div>
+<div class="sect4">
+<h5 id="_or">OR</h5>
 <div class="paragraph">
 <p>Folgendes Beispiel illustriert die <code>or</code> Operation:</p>
 </div>
@@ -987,12 +989,27 @@ Es geht also darum logische Aussagen, die entweder wahr oder falsch sind, mitein
 </div>
 </div>
 <div class="paragraph">
-<p>Auf Zeile 4 werden zwei boolsche Werte mit <code>or</code> kombiniert. In JavaScript wird dafür der <code>||</code>-Operator verwendet. <code>has10Discount</code> ist also immer nur dann true, wenn mindestens ein Operand true ist. Der <code>or</code> Operator hat zwei Operanden, einer links und einer rechts vom <code>||</code> Zeichen.</p>
+<p>Auf Zeile 4 werden zwei boolsche Werte mit <code>or</code> kombiniert. In JavaScript wird dafür der <code>||</code>-Operator verwendet. <code>has10Discount</code> ist also immer nur dann true, wenn mindestens ein Operand true ist. Der <code>or</code> Operator hat zwei Operanden, einer links und einer rechts vom <code>||</code>-Zeichen.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
-<p><em>Quizfrage</em> &#160;<br>
-Welchen Variablenwert musst du ändern, damit <code>has10Discount</code> false wird?</p>
+<p><strong>Quizfrage</strong> &#160;<br>
+Wie kannst du <code>basketTotal</code> oder <code>yearOfBirth</code> ändern, damit <code>has10Discount</code> false wird?</p>
 </div>
+<details>
+<summary class="title">Lösung (Click)</summary>
+<div class="content">
+<div class="paragraph">
+<p><code>basketTotal</code> auf kleiner gleich 300. <code>yearOfBirth</code> ist bereits so gesetzt, dass false rauskommt.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_and">AND</h5>
 <div class="paragraph">
 <p>Folgendes Beispiel illustriert die <code>and</code> Operation:</p>
 </div>
@@ -1011,6 +1028,9 @@ Welchen Variablenwert musst du ändern, damit <code>has10Discount</code> false w
 <div class="paragraph">
 <p>Auf Zeile 2 werden zwei boolsche Werte mit <code>and</code> kombiniert. In JavaScript wird dafür der <code>&amp;&amp;</code>-Operator verwendet.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_verkettung">Verkettung</h5>
 <div class="paragraph">
 <p>Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man <em>und</em> und <em>oder</em> miteinander mischen, ist zu empfehlen die Teilausdrücke in runde Klammern zu setzen, oder in eine Variable auszulagern:</p>
 </div>
@@ -1071,6 +1091,7 @@ Welchen Variablenwert musst du ändern, damit <code>has10Discount</code> false w
 <span class="c1">// 4. Operanden auflösen</span>
                      <span class="o">=</span> <span class="kc">false</span>
 </pre></td></tr></tbody></table></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1735,7 +1756,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <p>&#10003; Anhand eines Codebeispiels, kann ich den Geltungsbereich einer Variable bestimmen</p>
 </li>
 <li>
-<p>&#10003; Ich kenne die Kriterien korrekter Formatierung und kann diese Anwenden</p>
+<p>&#10003; Ich kenne die Kriterien korrekter Formatierung und kann diese anwenden</p>
 </li>
 </ul>
 </div>
@@ -1763,7 +1784,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 6
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">stop</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span><span class="p">(</span><span class="nx">counter</span> <span class="o">&lt;</span> <span class="nx">stop</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">while</span><span class="p">(</span><span class="nx">counter</span> <span class="o">&lt;</span> <span class="nx">stop</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Abbruchbedingung</span>
     <span class="nx">text</span><span class="p">(</span><span class="dl">"</span><span class="s2">Counter: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
     <span class="nx">count</span> <span class="o">=</span> <span class="nx">counter</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="p">}</span>
@@ -1771,7 +1792,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 </div>
 <div class="paragraph">
-<p>Im Beispiel oben, wird die Funktion <code>text</code> 100 mal ausgeführt. Begonnen wird mit <code>counter = 0</code>. Der letzte Durchgang wird mit <code>counter = 99</code> ausgeführt.</p>
+<p>Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 100 mal nacheinander ausgeführt. Begonnen wird mit <code>counter = 0</code>. Der letzte Durchgang wird mit <code>counter = 99</code> ausgeführt. Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung <code>false</code> ist.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1867,7 +1888,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-27 18:26:44 UTC
+Last updated 2021-04-27 18:42:35 UTC
 </div>
 </div>
 <style>

@@ -457,6 +457,8 @@ Im obigen Beispiel ist die Variable `isEven` nur dann true, wenn der Wert von `a
 Boolean Werte kann man auch miteinander verknüpfen. Zwei häufig verwendete Operationen sind `und` (engl. and) und `oder` (engl. or).
 Es geht also darum logische Aussagen, die entweder wahr oder falsch sind, miteinander zu kombinieren. Das Ergebnis ist dann wiederum ein boolscher Wert.
 
+===== OR
+
 Folgendes Beispiel illustriert die `or` Operation:
 
 Ein Online-Shop gewährt 10% Rabatt, wenn die Kundin weniger als 20 Jahre alt ist, oder wenn die Kundin mehr als 300.- CHF im Warenkorb hat. Im Code könnte man das so abbilden:
@@ -469,11 +471,20 @@ const youngerThan20 = (today('year') - yearOfBirth) < 20
 const has10Discount = basketTotal > 300 || youngerThan20
 ----
 
-Auf Zeile 4 werden zwei boolsche Werte mit `or` kombiniert. In JavaScript wird dafür der `||`-Operator verwendet. `has10Discount` ist also immer nur dann true, wenn mindestens ein Operand true ist. Der `or` Operator hat zwei Operanden, einer links und einer rechts vom `||` Zeichen.
+Auf Zeile 4 werden zwei boolsche Werte mit `or` kombiniert. In JavaScript wird dafür der `||`-Operator verwendet. `has10Discount` ist also immer nur dann true, wenn mindestens ein Operand true ist. Der `or` Operator hat zwei Operanden, einer links und einer rechts vom `||`-Zeichen.
 
-__Quizfrage__ {nbsp} +
-Welchen Variablenwert musst du ändern, damit `has10Discount` false wird?
+****
+*Quizfrage* {nbsp} +
+Wie kannst du `basketTotal` oder `yearOfBirth` ändern, damit `has10Discount` false wird?
 
+.Lösung (Click)
+[%collapsible]
+====
+`basketTotal` auf kleiner gleich 300. `yearOfBirth` ist bereits so gesetzt, dass false rauskommt.
+====
+****
+
+===== AND
 
 Folgendes Beispiel illustriert die `and` Operation:
 
@@ -486,6 +497,8 @@ const goodNumber = number % 2 === 0 && number % 4 === 0
 ----
 
 Auf Zeile 2 werden zwei boolsche Werte mit `and` kombiniert. In JavaScript wird dafür der `&&`-Operator verwendet.
+
+===== Verkettung
 
 Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man _und_ und _oder_ miteinander mischen, ist zu empfehlen die Teilausdrücke in runde Klammern zu setzen, oder in eine Variable auszulagern:
 
@@ -867,7 +880,7 @@ let c = 0
 === Lernkontrolle
 ====
 * [*] Anhand eines Codebeispiels, kann ich den Geltungsbereich einer Variable bestimmen
-* [*] Ich kenne die Kriterien korrekter Formatierung und kann diese Anwenden
+* [*] Ich kenne die Kriterien korrekter Formatierung und kann diese anwenden
 ====
 
 == Schleifen
@@ -880,13 +893,13 @@ Eine `while`-Schleife besteht lediglich aus einer Abbruchbedingung.
 ----
 const stop = 100
 let counter = 0
-while(counter < stop) {
+while(counter < stop) { // Abbruchbedingung
     text("Counter: " + counter, 10, 10)
     count = counter + 1
 }
 ----
 
-Im Beispiel oben, wird die Funktion `text` 100 mal ausgeführt. Begonnen wird mit `counter = 0`. Der letzte Durchgang wird mit `counter = 99` ausgeführt.
+Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 100 mal nacheinander ausgeführt. Begonnen wird mit `counter = 0`. Der letzte Durchgang wird mit `counter = 99` ausgeführt. Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung `false` ist.
 
 TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten Aufgaben reicht eine simple `while` Schleife jedoch bestens. Später, im Zusammenhang mit Arrays, lernst du den Schleifentypen `for of` kennen.
 
