@@ -140,8 +140,12 @@ pre.rouge table td.linenos{
 <li><a href="#_übung_2d_animationen">Übung – 2D Animationen</a></li>
 </ul>
 </li>
-<li><a href="#_ereignisse">Ereignisse</a></li>
+<li><a href="#_ereignisse">Ereignisse</a>
+<ul class="sectlevel2">
 <li><a href="#_p5_js_interaktiv">P5.js – Interaktiv</a></li>
+<li><a href="#_übungen_ereignisse">Übungen – Ereignisse</a></li>
+</ul>
+</li>
 <li><a href="#_verzweigungen_bedingte_ausführung">Verzweigungen – bedingte Ausführung</a>
 <ul class="sectlevel2">
 <li><a href="#_übung_bedingte_ausführung">Übung – Bedingte Ausführung</a></li>
@@ -1190,13 +1194,18 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <p>Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.</p>
 </div>
 <div class="paragraph">
-<p><strong>Mouse Deco</strong></p>
+<p><strong>Pixel Screen</strong></p>
 </div>
 <div class="paragraph">
-<p>Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.</p>
+<p>Stelle dir vor die Zeichenfläche sei in ein regelmässiges Gitternetz unterteilt. Generiere bei jedem <code>draw</code> Aufruf ein Quadrat und platziere dieses an einer zufälligen Position im Gitternetz. Du kannst die Anzahl der Positionen (resp. die Quadratgrösse) selbst bestimmen. (Zum Beispiel: Bei einer Zeichenfläche von 200x200 und einer Positionsgrösse von 20x20 pro Quadrat ergibt das im Total 10x10 = 100 Positionen). &#160;<br>
+Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss komplett in der Zeichenfläche liegen.</p>
 </div>
 <div class="paragraph">
-<p>Tip: <code>noCursor</code></p>
+<p>Hinweis: Die <code>random</code> Funktion</p>
+</div>
+<div class="paragraph">
+<p><em>Zusatzaufgabe</em> &#160;<br>
+Ändere die Farbe für jedes Quadrat indem du mit RGB arbeitest. Zum Thema p5.js und Farben: <a href="https://p5js.org/learn/color.html" class="bare">https://p5js.org/learn/color.html</a></p>
 </div>
 </div>
 </div>
@@ -1242,11 +1251,8 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <div class="paragraph">
 <p>Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen <code>EventHandler</code>, das ist eine Funktion, welche vom Computer automatisch aufgerufen wird, sobald das entsprechende Ereignis auftritt.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_p5_js_interaktiv">P5.js – Interaktiv</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_p5_js_interaktiv">P5.js – Interaktiv</h3>
 <div class="paragraph">
 <p>In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.</p>
 </div>
@@ -1258,6 +1264,33 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="200">
 </script>
 </p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_übungen_ereignisse">Übungen – Ereignisse</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Mouse Deco</strong></p>
+</div>
+<div class="paragraph">
+<p>Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.</p>
+</div>
+<div class="paragraph">
+<p>Tip: <code>noCursor</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Typewriter</strong></p>
+</div>
+<div class="paragraph">
+<p>Bei jedem Tastendruck eines Buchstabens oder einer Zahl, schreibe den Wert der Taste (z.B. a oder 2) auf die Zeichenfläche. Beginne Links oben und füge bei jedem Tastendruck ein Zeichen rechts hinzu. Am Ende der Zeichenfläche beginnt automatisch eine neue Zeile. &#160;<br>
+Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.</p>
+</div>
+<div class="paragraph">
+<p>Hinweis: Die Funktion <code>keyTyped</code> und <code>Math.floor</code></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1888,7 +1921,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-27 18:42:35 UTC
+Last updated 2021-04-30 19:33:43 UTC
 </div>
 </div>
 <style>

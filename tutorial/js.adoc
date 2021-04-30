@@ -588,11 +588,15 @@ Verwende im Beispiel oben die Funktion `frameRate`, um eine ruckelnde Animition 
 
 Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.
 
-*Mouse Deco*
+*Pixel Screen*
 
-Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.
+Stelle dir vor die Zeichenfläche sei in ein regelmässiges Gitternetz unterteilt. Generiere bei jedem `draw` Aufruf ein Quadrat und platziere dieses an einer zufälligen Position im Gitternetz. Du kannst die Anzahl der Positionen (resp. die Quadratgrösse) selbst bestimmen. (Zum Beispiel: Bei einer Zeichenfläche von 200x200 und einer Positionsgrösse von 20x20 pro Quadrat ergibt das im Total 10x10 = 100 Positionen). {nbsp} +
+Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss komplett in der Zeichenfläche liegen.
 
-Tip: `noCursor`
+Hinweis: Die `random` Funktion
+
+_Zusatzaufgabe_ {nbsp} +
+Ändere die Farbe für jedes Quadrat indem du mit RGB arbeitest. Zum Thema p5.js und Farben: https://p5js.org/learn/color.html
 
 ****
 
@@ -616,7 +620,7 @@ Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl
 
 Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen `EventHandler`, das ist eine Funktion, welche vom Computer automatisch aufgerufen wird, sobald das entsprechende Ereignis auftritt.
 
-== P5.js – Interaktiv
+=== P5.js – Interaktiv
 In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.
 
 Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClicked` verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt. Diese Funktion ist also der `EventHandler` des Click Events.
@@ -626,6 +630,25 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 <script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="200">
 </script>
 +++
+
+=== Übungen – Ereignisse
+
+****
+
+*Mouse Deco*
+
+Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.
+
+Tip: `noCursor`
+
+*Typewriter*
+
+Bei jedem Tastendruck eines Buchstabens oder einer Zahl, schreibe den Wert der Taste (z.B. a oder 2) auf die Zeichenfläche. Beginne Links oben und füge bei jedem Tastendruck ein Zeichen rechts hinzu. Am Ende der Zeichenfläche beginnt automatisch eine neue Zeile. {nbsp} +
+Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.
+
+Hinweis: Die Funktion `keyTyped` und `Math.floor`
+
+****
 
 
 == Verzweigungen – bedingte Ausführung
