@@ -29,7 +29,7 @@ Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben
 Eine IDE ist für Programmierer, wie Word für Berichteschreiber. Eine IDE versteht eine Programmiersprache, sie bietet Hilfestellung bei Schreibfehlern, formatiert den Text und rückt korrekt ein etc.
 Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Visual Studio Code" (kurz vscode).
 
-In diesem Tutorial lernen wir zudem P5.js kennen. Damit können wir 2D-Grafiken zeichnen. P5.js bietet einen einfachen Texteditor (eine leichtgewichtige IDE) an, welcher direkt im *Browser* läuft.
+In diesem Tutorial lernen wir zudem p5.js kennen. Damit können wir 2D-Grafiken zeichnen. p5.js bietet einen einfachen Texteditor (eine leichtgewichtige IDE) an, welcher direkt im *Browser* läuft.
 
 Um unseren Code auszuführen, also zum Beispiel um die Grafiken zu rendern, verwenden wir einen *Browser* (Chrome, Firefox, Safari oder Edge).
 
@@ -275,8 +275,8 @@ Ich weiss, ...
 * [*] wie ich eine Funktion aufrufe
 ====
 
-== P5.js – Einführung
-Im Folgenden siehst du ein einfaches Programm, welches mithilfe von P5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.
+== p5.js – Einführung
+Im Folgenden siehst du ein einfaches Programm, welches mithilfe von p5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.
 
 ++++
 <script type="text/p5" data-height="300">
@@ -299,7 +299,7 @@ Du kannst diese Übungen direkt im obigen Editor lösen.
 Wichtige Resourcen:
 
 * Formen zeichnen: https://processing.org/tutorials/drawing
-* Vollständige Dokumentation aller Funktionen von P5.js: https://p5js.org/reference
+* Vollständige Dokumentation aller Funktionen von p5.js: https://p5js.org/reference
 
 ****
 *Linie*
@@ -340,7 +340,7 @@ Ich weiss, ...
 * [*] wie ich die Farben und Linienstärke von Formen verändere
 ====
 
-Du hast nun einiges gelernt und kannst 2D zeichnen mit P5.js. Das nächste Ziel ist das Erstellen von interaktiven Programmen, welche anhand von Benutzereingaben ihr Verhalten verändern, und so zum Beispiel auf einen Mausklick reagieren. Bevor wir das tun können, musst du dir aber noch ein wenig Theorie aneignen.
+Du hast nun einiges gelernt und kannst 2D zeichnen mit p5.js. Das nächste Ziel ist das Erstellen von interaktiven Programmen, welche anhand von Benutzereingaben ihr Verhalten verändern, und so zum Beispiel auf einen Mausklick reagieren. Bevor wir das tun können, musst du dir aber noch ein wenig Theorie aneignen.
 
 == Datentypen I
 
@@ -547,10 +547,10 @@ Ich weiss, ...
 ====
 
 
-== P5.js - Animationen
-Bevor wir mit P5.js bewegte Bilder zeichnen können, müssen wir P5.js noch etwas vertiefter kennen lernen.
+== p5.js - Animationen
+Bevor wir mit p5.js bewegte Bilder zeichnen können, müssen wir p5.js noch etwas vertiefter kennen lernen.
 
-Sämtliche P5.js Programme beinhalten Anweisungen, welche in zwei Gruppen aufgeteilt werden können: Einmal ausgeführte und wiederholt ausgeführte.
+Sämtliche p5.js Programme beinhalten Anweisungen, welche in zwei Gruppen aufgeteilt werden können: Einmal ausgeführte und wiederholt ausgeführte.
 
 *Einmal ausgeführt*: Werden beim Programm start einmalig ausgeführt, dann nie wieder. {nbsp} +
 *Wiederholt ausgeführt*: Werden automatisch alle par Millisekunden ausgeführt.
@@ -559,7 +559,7 @@ Bis jetzt hatten wir nur mit einmal ausgeführten Anweisungen zu tun. Du hast im
 
 Möchten wir jetzt aber, dass sich das Bild verändert (ohne das wir erneut Run drücken), brauchen wir eine Gruppe von Befehlen, welche automatisch wiederholt ausgeführt wird, und unter bestimmten Bedingungen unser Bild verändert.
 
-Folgendes Beispiel zeigt eine Animation. Der Kreis pulsiert.
+Folgendes Beispiel zeigt eine Animation. Der Kreis wächst.
 
 ++++
 <script type="text/p5" src="p5-sketches/animation-demo.js" data-height="400">
@@ -569,9 +569,9 @@ Folgendes Beispiel zeigt eine Animation. Der Kreis pulsiert.
 {nbsp} +
 
 Alle einmal ausgeführten Anweisungen kommen in die Funktion `setup` platziert.
-Alle wiederholt ausgeführten in die Funktion `draw`. Die Funktion draw wird automatisch alle ca. 60 Millisekunden ausgeführt. Für uns Menschen sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als alle 25 Millisekunden aufgebaut werden würde.
+Alle wiederholt ausgeführten Anweisungen kommen in die Funktion `draw`. Die Funktion draw wird automatisch alle ca. 17 Millisekunden ausgeführt (60 mal pro Sekunde). Für uns Menschen sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als 25 pro Sekunde gezeichnet wird.
 
-Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" P5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer `Namenskonvention`, welche vom `Framework` (P5.js), als Rahmenbedingung (engl. frame = Rahmen) vorgegeben wird.
+Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" p5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer `Namenskonvention`, welche vom `Framework` (p5.js), als Rahmenbedingung (engl. frame = Rahmen) vorgegeben wird.
 
 TIP: Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vorerst lassen wir es dabei, es reicht wenn du innerhalb der Funktionen deine Anweisungen korrekt platzieren kannst. Mehr Details zu Funktionen folgen später.
 
@@ -598,6 +598,10 @@ Hinweis: Die `random` Funktion
 _Zusatzaufgabe_ {nbsp} +
 Ändere die Farbe für jedes Quadrat indem du mit RGB arbeitest. Zum Thema p5.js und Farben: https://p5js.org/learn/color.html
 
+Vorschau:
+
+image::media/pixelscreen-preview.png[system,100,100,align=center]
+
 ****
 
 == Ereignisse
@@ -610,7 +614,7 @@ Sobald ein Programm, während dem es läuft, auf äussere Einflüsse reagieren m
 
 Eine Applikation, ein Programm, welches von einem Anwender bedient wird, muss zwangsläufig mit dem Anwender interagieren, um zum Beispiel auf Mausklicks reagieren zu können.
 
-Im Folgenden ein Beispiel in P5.js:
+Im Folgenden ein Beispiel in p5.js:
 
 +++
 <iframe src="p5-sketches/index.html?s=events-demo" style="border:0; height: 100px;"></iframe>
@@ -620,10 +624,10 @@ Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl
 
 Damit wir in JavaScript auf Ereignisse reagieren können, brauchen wir einen `EventHandler`, das ist eine Funktion, welche vom Computer automatisch aufgerufen wird, sobald das entsprechende Ereignis auftritt.
 
-=== P5.js – Interaktiv
-In P5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.
+=== p5.js – Interaktiv
+In p5.js ist es möglich auf Events zu reagieren. Dies geschieht wiederum über Funktionen, welche einer Namenskonvention folgen.
 
-Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClicked` verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von P5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt. Diese Funktion ist also der `EventHandler` des Click Events.
+Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClicked` verwendet. Ist diese im Programmcode vorhanden, wird diese automatisch von p5.js aufgerufen, sobald der User mit der Maus auf die Zeichenfläche klickt. Diese Funktion ist also der `EventHandler` des Click Events.
 
 
 +++
@@ -639,7 +643,7 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 
 Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.
 
-Tip: `noCursor`
+Hinweis: Die Funktion `noCursor`
 
 *Typewriter*
 
@@ -649,6 +653,13 @@ Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.
 Hinweis: Die Funktion `keyTyped` und `Math.floor`
 
 ****
+
+=== Lernkontrolle
+Ich weiss, ...
+====
+* [*] was ein EventHandler ist
+* [*] wie ich in p5.js auf Tastatur- oder Maus-Ereignisse reagiere
+====
 
 
 == Verzweigungen – bedingte Ausführung
@@ -761,7 +772,7 @@ Hinweis: `dist`, `random`, `frameRate`
 Ich weiss, ...
 ====
 * [*] wie ich Programmteile nur bedingt ausführe
-* [*] was die Keywords if, else und else if bedeuten
+* [*] was die Keywords if und bedeuten
 ====
 
 == Blöcke & Geltungsbereiche
