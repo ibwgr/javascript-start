@@ -451,6 +451,17 @@ const isEven = anyNumber % 2 === 0
 
 Im obigen Beispiel ist die Variable `isEven` nur dann true, wenn der Wert von `anyNumber` eine gerade (engl. even) Zahl ist. Der Modulo Operator (`%`) berechnet den Rest einer Division.
 
+===== Ungleichheit prüfen
+
+Möchte man prüfen ob ein Wert ungleich einem anderen Wert ist, verwendet man den `!==` Operator.
+
+[source,javascript,linenums]
+----
+const anyNumber = 23
+const isOdd = anyNumber % 2 !== 0
+// isOdd = true
+----
+
 
 ==== Logische Ausdrücke
 
@@ -497,6 +508,23 @@ const goodNumber = number % 2 === 0 && number % 4 === 0
 ----
 
 Auf Zeile 2 werden zwei boolsche Werte mit `and` kombiniert. In JavaScript wird dafür der `&&`-Operator verwendet.
+
+
+===== NOT
+
+Mit dem `!`-Operator ist es möglich einen Boolean Wert zu negieren.
+
+[source,javascript,linenums]
+----
+const anyNumber = 23
+const isEven = anyNumber % 2 === 0
+const isOdd = !isEven
+const isOdd1 = !(anyNumber % 2 === 0)
+----
+
+Auf Zeile 3 wird der `!`-Operator verwendet um einen Boolean Wert zu negieren. In diesem Fall ist `isEven = false`. Der negierte Wert von _false_ ist _true_, dieser Wert wird der Variable `isOdd` zugewiesen: `const isOdd = !false`
+
+Auf Zeile 4 wird der `!`-Operator verwendet, um das Boolean Ergebnis eines ganzen logischen Ausdrucks zu negieren. Wichtig hierbei ist, dass der gesamte zu negierende Ausdruck in runden Klammern steht.
 
 ===== Verkettung
 
@@ -650,7 +678,7 @@ Hinweis: Die Funktion `noCursor`
 Bei jedem Tastendruck eines Buchstabens oder einer Zahl, schreibe den Wert der Taste (z.B. a oder 2) auf die Zeichenfläche. Beginne Links oben und füge bei jedem Tastendruck ein Zeichen rechts hinzu. Am Ende der Zeichenfläche beginnt automatisch eine neue Zeile. {nbsp} +
 Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.
 
-Hinweis: Die Funktion `keyTyped` und `Math.floor`
+Hinweis: Die Funktionen `keyTyped` und `floor`
 
 ****
 
@@ -750,7 +778,7 @@ Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts b
 
 . Sobald es den rechten Rand berührt, prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt, prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …
 
-Zusatzaufgabe: Löse das Problem ohne `if`. Tip: `Math.min`.
+Zusatzaufgabe: Löse das Problem ohne `if`. Tip: Die Funktion `min`.
 
 *Catch me*
 
@@ -956,10 +984,11 @@ Generieren von Kreisen
 
 
 == Weiterführende JavaScript Ressourcen
-* http://www.p5js.gym-wst.de/de/javascript
-* https://nycdoe-cs4all.github.io/units/1/overview
-* https://eloquentjavascript.net/
-* https://developer.mozilla.org/de/docs/Web/JavaScript
+* p5.js Referenz: https://p5js.org/reference 
+* JavaScript Tutorial mit p5.js (ähnlich wie dieses): http://www.p5js.gym-wst.de/de/javascript
+* JavaScript in der Tiefe: https://eloquentjavascript.net/
+* JavaScript Tutorial & Referenz: https://developer.mozilla.org/de/docs/Web/JavaScript
+* JavaScript Tutorial & Referenz: https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Einstieg
 
 
 [glossary]

@@ -10,7 +10,7 @@ function draw(){
     fill('red')
     // Zusatzaufgabe: fill(random(255),random(255), random(255))
     rect(
-        Math.min(9, Math.round(random(width/gridSize)))*gridSize, 
-        Math.min(9, Math.round(random(height/gridSize)))*gridSize, 
+        min(9, round(random(width/gridSize)))*gridSize, 
+        min(9, round(random(height/gridSize)))*gridSize, 
         gridSize, gridSize)
 }

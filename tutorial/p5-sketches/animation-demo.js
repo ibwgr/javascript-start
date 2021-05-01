@@ -10,6 +10,6 @@ function setup() {
 
 function draw(){
   // wiederholt ausgeführt
-  r = Math.min(rMax, r+1)
+  r = min(rMax, r+1)
   circle(50, 50, r)
 }

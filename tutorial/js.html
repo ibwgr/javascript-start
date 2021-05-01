@@ -965,6 +965,23 @@ Im obigen Beispiel hat also die Variable <code>canBuy</code> den Wert <code>true
 <div class="paragraph">
 <p>Im obigen Beispiel ist die Variable <code>isEven</code> nur dann true, wenn der Wert von <code>anyNumber</code> eine gerade (engl. even) Zahl ist. Der Modulo Operator (<code>%</code>) berechnet den Rest einer Division.</p>
 </div>
+<div class="sect4">
+<h5 id="_ungleichheit_prüfen">Ungleichheit prüfen</h5>
+<div class="paragraph">
+<p>Möchte man prüfen ob ein Wert ungleich einem anderen Wert ist, verwendet man den <code>!==</code> Operator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">anyNumber</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="kd">const</span> <span class="nx">isOdd</span> <span class="o">=</span> <span class="nx">anyNumber</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span>
+<span class="c1">// isOdd = true</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_logische_ausdrücke">Logische Ausdrücke</h4>
@@ -1032,6 +1049,31 @@ Wie kannst du <code>basketTotal</code> oder <code>yearOfBirth</code> ändern, da
 </div>
 <div class="paragraph">
 <p>Auf Zeile 2 werden zwei boolsche Werte mit <code>and</code> kombiniert. In JavaScript wird dafür der <code>&amp;&amp;</code>-Operator verwendet.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_not">NOT</h5>
+<div class="paragraph">
+<p>Mit dem <code>!</code>-Operator ist es möglich einen Boolean Wert zu negieren.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">anyNumber</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="kd">const</span> <span class="nx">isEven</span> <span class="o">=</span> <span class="nx">anyNumber</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">isOdd</span> <span class="o">=</span> <span class="o">!</span><span class="nx">isEven</span>
+<span class="kd">const</span> <span class="nx">isOdd1</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="nx">anyNumber</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auf Zeile 3 wird der <code>!</code>-Operator verwendet um einen Boolean Wert zu negieren. In diesem Fall ist <code>isEven = false</code>. Der negierte Wert von <em>false</em> ist <em>true</em>, dieser Wert wird der Variable <code>isOdd</code> zugewiesen: <code>const isOdd = !false</code></p>
+</div>
+<div class="paragraph">
+<p>Auf Zeile 4 wird der <code>!</code>-Operator verwendet, um das Boolean Ergebnis eines ganzen logischen Ausdrucks zu negieren. Wichtig hierbei ist, dass der gesamte zu negierende Ausdruck in runden Klammern steht.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1296,7 +1338,7 @@ Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss k
 Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.</p>
 </div>
 <div class="paragraph">
-<p>Hinweis: Die Funktion <code>keyTyped</code> und <code>Math.floor</code></p>
+<p>Hinweis: Die Funktionen <code>keyTyped</code> und <code>floor</code></p>
 </div>
 </div>
 </div>
@@ -1487,7 +1529,7 @@ Dieses Beispiel verwendet Platzhalter (mit &lt;&lt; und &gt;&gt; gekennzeichnet)
 </ol>
 </div>
 <div class="paragraph">
-<p>Zusatzaufgabe: Löse das Problem ohne <code>if</code>. Tip: <code>Math.min</code>.</p>
+<p>Zusatzaufgabe: Löse das Problem ohne <code>if</code>. Tip: Die Funktion <code>min</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Catch me</strong></p>
@@ -1907,16 +1949,19 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://www.p5js.gym-wst.de/de/javascript" class="bare">http://www.p5js.gym-wst.de/de/javascript</a></p>
+<p>p5.js Referenz: <a href="https://p5js.org/reference" class="bare">https://p5js.org/reference</a></p>
 </li>
 <li>
-<p><a href="https://nycdoe-cs4all.github.io/units/1/overview" class="bare">https://nycdoe-cs4all.github.io/units/1/overview</a></p>
+<p>JavaScript Tutorial mit p5.js (ähnlich wie dieses): <a href="http://www.p5js.gym-wst.de/de/javascript" class="bare">http://www.p5js.gym-wst.de/de/javascript</a></p>
 </li>
 <li>
-<p><a href="https://eloquentjavascript.net/" class="bare">https://eloquentjavascript.net/</a></p>
+<p>JavaScript in der Tiefe: <a href="https://eloquentjavascript.net/" class="bare">https://eloquentjavascript.net/</a></p>
 </li>
 <li>
-<p><a href="https://developer.mozilla.org/de/docs/Web/JavaScript" class="bare">https://developer.mozilla.org/de/docs/Web/JavaScript</a></p>
+<p>JavaScript Tutorial &amp; Referenz: <a href="https://developer.mozilla.org/de/docs/Web/JavaScript" class="bare">https://developer.mozilla.org/de/docs/Web/JavaScript</a></p>
+</li>
+<li>
+<p>JavaScript Tutorial &amp; Referenz: <a href="https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Einstieg" class="bare">https://wiki.selfhtml.org/wiki/JavaScript/Tutorials/Einstieg</a></p>
 </li>
 </ul>
 </div>
@@ -1950,7 +1995,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-01 10:12:28 UTC
+Last updated 2021-05-01 16:40:38 UTC
 </div>
 </div>
 <style>

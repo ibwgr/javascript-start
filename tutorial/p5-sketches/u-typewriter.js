@@ -15,7 +15,7 @@ function draw(){
 function keyTyped(){
     text(key, x, y)
     count = count + 1
-    line = Math.floor((count*space) / width) + 1
+    line = floor((count*space) / width) + 1
     x = (x + space) % width
     y = line * space
 }

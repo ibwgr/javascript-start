@@ -39,7 +39,7 @@ function mouseClicked(){
     calcRandomPosition()
     circleFillColor = color(random(0, 256), random(0, 256), random(0, 256))
   } else {
-    points = Math.max(0, points - 1)
+    points = max(0, points - 1)
   }
 }
 
