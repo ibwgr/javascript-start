@@ -673,7 +673,7 @@ Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Z
 
 Hinweis: Die Funktion `noCursor`
 
-*Typewriter*
+*Typewriter* 
 
 Bei jedem Tastendruck eines Buchstabens oder einer Zahl, schreibe den Wert der Taste (z.B. a oder 2) auf die Zeichenfläche. Beginne Links oben und füge bei jedem Tastendruck ein Zeichen rechts hinzu. Am Ende der Zeichenfläche beginnt automatisch eine neue Zeile. {nbsp} +
 Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.
@@ -782,7 +782,7 @@ Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts b
 
 . Sobald es den rechten Rand berührt, prallt es ab und bewegt sich nach links. Sobald es den linken Rand berührt, prallt es wieder ab und geht nach rechts. Bis es da wieder abprallt …
 
-Zusatzaufgabe: Löse das Problem ohne `if`. Tip: Die Funktion `min`.
+Zusatzaufgabe: Löse das Problem ohne `if`. Hinweis: Die Funktion `min`.
 
 *Catch me*
 
