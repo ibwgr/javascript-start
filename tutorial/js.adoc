@@ -680,6 +680,10 @@ Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.
 
 Hinweis: Die Funktionen `keyTyped` und `floor`
 
+Vorschau:
+
+image::media/typewriter-preview.png[system,200,200,align=center]
+
 ****
 
 === Lernkontrolle

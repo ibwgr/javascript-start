@@ -1,21 +1,18 @@
 let x = 0
 let y = 10
-const space = 10
-let line = 0
-let count = 0
+const charWidth = 10
+let lineIdx = 0
+let charCount = 0
 
 function setup() {
     createCanvas(200, 200)
     background('beige')
 }
 
-function draw(){
-}
-
 function keyTyped(){
     text(key, x, y)
-    count = count + 1
-    line = floor((count*space) / width) + 1
-    x = (x + space) % width
-    y = line * space
+    charCount = charCount + 1
+    lineIdx = floor((charCount * charWidth) / width) + 1
+    x = (x + charWidth) % width
+    y = lineIdx * charWidth
 }

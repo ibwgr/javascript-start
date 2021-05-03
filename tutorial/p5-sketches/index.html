@@ -12,8 +12,21 @@
         padding: 0;
       }
 
+      body {
+        margin-top: 2rem;
+      }
+
       canvas {
         display: block;
+        margin: 0 auto;
+      }
+
+      body.framed canvas {
+        margin: inherit;
+      }
+
+      body.framed {
+        margin-top: 0;
       }
     </style>
 
@@ -27,6 +40,11 @@
     const script = document.createElement('script')
     script.src = sketchId+".js"
     document.body.appendChild(script)
+
+    const framed = window.self !== window.top
+    if(framed){
+      document.body.classList.add('framed')
+    }
   </script>
   </body>
 </html>
