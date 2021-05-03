@@ -957,7 +957,7 @@ Eine `while`-Schleife besteht lediglich aus einer Abbruchbedingung.
 
 [source,javascript,linenums]
 ----
-const stop = 100
+const stop = 3
 let counter = 0
 while(counter < stop) { // Abbruchbedingung
     text("Counter: " + counter, 10, 10)
@@ -965,16 +965,29 @@ while(counter < stop) { // Abbruchbedingung
 }
 ----
 
-Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 100 mal nacheinander ausgeführt. Begonnen wird mit `counter = 0`. Der letzte Durchgang wird mit `counter = 99` ausgeführt. Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung `false` ist.
+Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 3 mal nacheinander ausgeführt. Begonnen wird mit `counter = 0`. Der letzte Durchgang wird mit `counter = 2` ausgeführt. {nbsp} +
+Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung `false` ist. Ist diese `false`, wird die Schleife nicht mehr ausgeführt. Der Computer führt dann die nächste Anweisung nach der Schleife aus, bzw. beendet das Programm, wenn die Schleife am Ende steht.
 
 TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten Aufgaben reicht eine simple `while` Schleife jedoch bestens. Später, im Zusammenhang mit Arrays, lernst du den Schleifentypen `for of` kennen.
 
 === Übung – Schleifen
 
 ****
-*...*
+*Split*
 
-...
+a) Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.
+
+b) Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.
+
+c) Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.
+
+Hinweis: Die Funktion `strokeWeight`
+
+*Grid*
+
+a) Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.
+
+b) Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.
 
 ****
 

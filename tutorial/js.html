@@ -1894,7 +1894,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 4
 5
 6
-</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">stop</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">stop</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span><span class="p">(</span><span class="nx">counter</span> <span class="o">&lt;</span> <span class="nx">stop</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Abbruchbedingung</span>
     <span class="nx">text</span><span class="p">(</span><span class="dl">"</span><span class="s2">Counter: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -1904,7 +1904,8 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 </div>
 <div class="paragraph">
-<p>Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 100 mal nacheinander ausgeführt. Begonnen wird mit <code>counter = 0</code>. Der letzte Durchgang wird mit <code>counter = 99</code> ausgeführt. Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung <code>false</code> ist.</p>
+<p>Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 3 mal nacheinander ausgeführt. Begonnen wird mit <code>counter = 0</code>. Der letzte Durchgang wird mit <code>counter = 2</code> ausgeführt. &#160;<br>
+Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung <code>false</code> ist. Ist diese <code>false</code>, wird die Schleife nicht mehr ausgeführt. Der Computer führt dann die nächste Anweisung nach der Schleife aus, bzw. beendet das Programm, wenn die Schleife am Ende steht.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1923,10 +1924,28 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>&#8230;&#8203;</strong></p>
+<p><strong>Split</strong></p>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>a) Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.</p>
+</div>
+<div class="paragraph">
+<p>b) Verändere das Programm so, dass du in einer Variable <code>parts</code> vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.</p>
+</div>
+<div class="paragraph">
+<p>c) Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.</p>
+</div>
+<div class="paragraph">
+<p>Hinweis: Die Funktion <code>strokeWeight</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Grid</strong></p>
+</div>
+<div class="paragraph">
+<p>a) Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.</p>
+</div>
+<div class="paragraph">
+<p>b) Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.</p>
 </div>
 </div>
 </div>
@@ -2003,7 +2022,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-03 18:05:12 UTC
+Last updated 2021-05-03 19:06:34 UTC
 </div>
 </div>
 <style>
