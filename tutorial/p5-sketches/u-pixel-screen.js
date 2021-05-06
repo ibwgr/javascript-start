@@ -1,16 +1,19 @@
 const gridSize = 20
 
 function setup() {
-    createCanvas(200, 200)
-    background('beige')
-    frameRate(4)
+  createCanvas(200, 200)
+  background('beige')
+  frameRate(4)
+  noStroke() 
 }
-  
-function draw(){
-    fill('red')
-    // Zusatzaufgabe: fill(random(255),random(255), random(255))
-    rect(
-        min(9, round(random(width/gridSize)))*gridSize, 
-        min(9, round(random(height/gridSize)))*gridSize, 
-        gridSize, gridSize)
+
+function draw() {
+  fill('red')
+  const xs = width / gridSize
+  const ys = height / gridSize
+  // Zusatzaufgabe: fill(random(255),random(255), random(255))
+  rect(
+    min(round(xs - 1), round(random(xs))) * gridSize,
+    min(round(ys - 1), round(random(ys))) * gridSize,
+    gridSize, gridSize)
 }
