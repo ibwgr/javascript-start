@@ -7,7 +7,7 @@ function setup() {
 function draw(){
     background('beige')
     fill('red')
-    left = Math.min(200 - 50, left + change)
+    left = min(200 - 50, left + change)
     
     // 1. activate to stop at right border
     rect(left, height/2 - 50/2, 50, 50)
