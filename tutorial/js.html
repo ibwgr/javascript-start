@@ -1079,33 +1079,10 @@ Wie kannst du <code>basketTotal</code> oder <code>yearOfBirth</code> ändern, da
 <div class="sect4">
 <h5 id="_verkettung">Verkettung</h5>
 <div class="paragraph">
-<p>Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man <em>und</em> und <em>oder</em> miteinander mischen, ist zu empfehlen die Teilausdrücke in runde Klammern zu setzen, oder in eine Variable auszulagern:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="kd">const</span> <span class="nx">goodNumber</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">goodPositive1</span> <span class="o">=</span> <span class="nx">goodNumber</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">goodPositive2</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">goodOrNegative1</span> <span class="o">=</span> <span class="nx">goodNumber</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">goodOrNegative2</span> <span class="o">=</span> <span class="p">(</span><span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
-<span class="kd">const</span> <span class="nx">goodOrNegative3</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
+<p>Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man <em>und</em> und <em>oder</em> miteinander mischen, ist zu empfehlen die Teilausdrücke in <code>runde Klammern</code> zu setzen, oder in eine <code>Variable</code> auszulagern. Ansonsten kann es sehr schnell zu unbeabsichtigten Ergebnissen führen.</p>
 </div>
 <div class="paragraph">
-<p>Die Zeilen 3 und 4, sowie 5, 6 und 7 sind jeweils äquivalent. Auf Zeile 6 wird <em>und</em> mit <em>oder</em> gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. &#160;<br>
- Auf Zeile 7 wird ebenfalls <em>und</em> mit <em>oder</em> gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der <em>und</em> Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".</p>
-</div>
-<div class="paragraph">
-<p>Zur Illustration kann das Ergebnis der Zeile 7 in mehreren Schritten hergeleitet werden:</p>
+<p>Im Folgenden geht es darum zu entscheiden, ob jemand Alkohol kaufen darf, abhängig von seinem Geschlecht und Alter. Die Aufgabe des Programmes ist es, nur dann Alkoholverkauf zuzulassen, wenn die Person älter als 18 Jahre ist und entweder männlich oder weiblich ist.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1123,22 +1100,75 @@ Wie kannst du <code>basketTotal</code> oder <code>yearOfBirth</code> ändern, da
 12
 13
 14
-</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="kd">const</span> <span class="nx">goodOrNegative</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">minAge</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="kd">let</span> <span class="nx">clientAge</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="kd">let</span> <span class="nx">clientSex</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span>
 
-<span class="c1">// 1. Modulo auflösen</span>
-                     <span class="o">=</span> <span class="mi">1</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="kd">const</span> <span class="nx">canBuyAlcohol1</span> <span class="o">=</span> <span class="nx">clientAge</span> <span class="o">&gt;</span> <span class="nx">minAge</span> <span class="o">&amp;&amp;</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">||</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+                  <span class="c1">// = true &amp;&amp; true || false</span>
+                  <span class="c1">// = true || false</span>
+                  <span class="c1">// = true</span>
 
-<span class="c1">// 2. Operanden auflösen</span>
-                     <span class="o">=</span> <span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span>
+<span class="nx">clientAge</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="nx">clientSex</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">canBuyAlcohol2</span> <span class="o">=</span> <span class="nx">clientAge</span> <span class="o">&gt;</span> <span class="nx">minAge</span> <span class="o">&amp;&amp;</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">||</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+                  <span class="c1">// = true &amp;&amp; false || true // implizit: (true &amp;&amp; false) || true</span>
+                  <span class="c1">// = false || true         // ⚠️ kann nur kaufen, weil weiblich</span>
+                  <span class="c1">// = true</span>
 
-<span class="c1">// 3. Operanden nach Priorität auflösen</span>
-                     <span class="o">=</span> <span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span>
+<span class="nx">clientAge</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="nx">clientSex</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">canBuyAlcohol3</span> <span class="o">=</span> <span class="nx">clientAge</span> <span class="o">&gt;</span> <span class="nx">minAge</span> <span class="o">&amp;&amp;</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">||</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+                  <span class="c1">// = false &amp;&amp; false || true // implizit: (false &amp;&amp; false) || true</span>
+                  <span class="c1">// = false || true          // ⚠️ kann nur kaufen, weil weiblich</span>
+                  <span class="c1">// = true</span>
 
-<span class="c1">// 4. Operanden auflösen</span>
-                     <span class="o">=</span> <span class="kc">false</span>
+<span class="c1">// Korrekte Lösung: indem Klammern verwendet werden</span>
+<span class="nx">clientAge</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nx">clientSex</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">canBuyAlcohol4</span> <span class="o">=</span> <span class="nx">clientAge</span> <span class="o">&gt;</span> <span class="nx">minAge</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">||</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span><span class="p">)</span>
+                  <span class="c1">// = false &amp;&amp; (false || true)</span>
+                  <span class="c1">// = false &amp;&amp; true           // ✅</span>
+                  <span class="c1">// = false                   // ✅</span>
+
+<span class="c1">// Korrekte Lösung: indem eine Variable verwendet wird</span>
+<span class="nx">clientAge</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nx">clientSex</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">hasValidSex</span> <span class="o">=</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">male</span><span class="dl">"</span> <span class="o">||</span> <span class="nx">clientSex</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">female</span><span class="dl">"</span>
+<span class="kd">const</span> <span class="nx">canBuyAlcohol5</span> <span class="o">=</span> <span class="nx">clientAge</span> <span class="o">&gt;</span> <span class="nx">minAge</span> <span class="o">&amp;&amp;</span> <span class="nx">hasValidSex</span>
+                  <span class="c1">// = false &amp;&amp; true           // ✅</span>
+                  <span class="c1">// = false                   // ✅</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Im Beispiel 2 und 3 kommt es zu einem falschen Ergebnis. Der Grund: der Computer evaluiert zuerst das Ergebnis aller <em>und</em> Operatoren. Und erst dann werden die <em>oder</em> Operatoren ausgewertet. Der Computer setzt also implizit jede <code>&amp;&amp;</code>-Verknüpfung in Klammer und berechnet zuerst den Klammerinhalt.
+&#160;<br>
+So ähnlich wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".</p>
 </div>
 </div>
 </div>
@@ -1157,6 +1187,9 @@ Wie kannst du <code>basketTotal</code> oder <code>yearOfBirth</code> ändern, da
 </li>
 <li>
 <p>&#10003; was ein logischer Ausdruck ist</p>
+</li>
+<li>
+<p>&#10003; wie ich logische Ausdrücke korrekt kombiniere</p>
 </li>
 <li>
 <p>&#10003; den Unterschied von Integer und Float</p>
@@ -1905,8 +1938,61 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 </div>
 <div class="paragraph">
 <p>Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 3 mal nacheinander ausgeführt. Begonnen wird mit <code>counter = 0</code>. Der letzte Durchgang wird mit <code>counter = 2</code> ausgeführt. &#160;<br>
-Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung <code>false</code> ist. Ist diese <code>false</code>, wird die Schleife nicht mehr ausgeführt. Der Computer führt dann die nächste Anweisung nach der Schleife aus, bzw. beendet das Programm, wenn die Schleife am Ende steht.</p>
+Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung <code>false</code> ist. Ist diese <code>false</code>, wird die Schleife nicht mehr ausgeführt. Der Computer führt dann die nächste Anweisung nach der Schleife aus, bzw. beendet das Programm, wenn nach der Schleife keine weitere Anweisung folgt.
+&#160;<br>
+Die Zeile 3 wird also 4 mal ausgeführt. Denn erst bei deren vierten Ausführung ist die Bedingung <code>false</code> und somit wird der Schleifeninhalt kein weiteres mal ausgeführt.</p>
 </div>
+<div class="paragraph">
+<p>Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal wenn Zeile 3 ausgeführt wird.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 33.3336%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Durchgangs-Nr</th>
+<th class="tableblock halign-left valign-top">counter</th>
+<th class="tableblock halign-left valign-top">stop</th>
+<th class="tableblock halign-left valign-top">counter &lt; stop</th>
+<th class="tableblock halign-left valign-top">Aktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter: 0, counter + 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter: 1, counter + 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter: 2, counter + 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -1926,14 +2012,18 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 <div class="paragraph">
 <p><strong>Split</strong></p>
 </div>
-<div class="paragraph">
-<p>a) Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.</p>
-</div>
-<div class="paragraph">
-<p>b) Verändere das Programm so, dass du in einer Variable <code>parts</code> vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.</p>
-</div>
-<div class="paragraph">
-<p>c) Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.</p>
+</li>
+<li>
+<p>Verändere das Programm so, dass du in einer Variable <code>parts</code> vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.</p>
+</li>
+<li>
+<p>Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Hinweis: Die Funktion <code>strokeWeight</code></p>
@@ -1941,11 +2031,15 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 <div class="paragraph">
 <p><strong>Grid</strong></p>
 </div>
-<div class="paragraph">
-<p>a) Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.</p>
-</div>
-<div class="paragraph">
-<p>b) Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.</p>
+</li>
+<li>
+<p>Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -2022,7 +2116,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-08 09:52:39 UTC
+Last updated 2021-05-08 20:50:11 UTC
 </div>
 </div>
 <style>

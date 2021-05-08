@@ -528,41 +528,55 @@ Auf Zeile 4 wird der `!`-Operator verwendet, um das Boolean Ergebnis eines ganze
 
 ===== Verkettung
 
-Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man _und_ und _oder_ miteinander mischen, ist zu empfehlen die Teilausdrücke in runde Klammern zu setzen, oder in eine Variable auszulagern:
+Es können beliebig viele boolean Werte miteinander kombiniert werden. Möchte man _und_ und _oder_ miteinander mischen, ist zu empfehlen die Teilausdrücke in `runde Klammern` zu setzen, oder in eine `Variable` auszulagern. Ansonsten kann es sehr schnell zu unbeabsichtigten Ergebnissen führen.
+
+Im Folgenden geht es darum zu entscheiden, ob jemand Alkohol kaufen darf, abhängig von seinem Geschlecht und Alter. Die Aufgabe des Programmes ist es, nur dann Alkoholverkauf zuzulassen, wenn die Person älter als 18 Jahre ist und entweder männlich oder weiblich ist.
 
 [source,javascript,linenums]
 ----
-const number = 23
-const goodNumber = number % 2 === 0 && number % 4 === 0 
-const goodPositive1 = goodNumber && number >= 0
-const goodPositive2 = number % 2 === 0 && number % 4 === 0 && number >= 0
-const goodOrNegative1 = goodNumber || number < 0
-const goodOrNegative2 = (number % 2 === 0 && number % 4 === 0) || number < 0
-const goodOrNegative3 = number % 2 === 0 && number % 4 === 0 || number < 0
+const minAge = 18
+let clientAge = 23
+let clientSex = "male"
+
+const canBuyAlcohol1 = clientAge > minAge && clientSex === "male" || clientSex === "female"
+                  // = true && true || false
+                  // = true || false
+                  // = true
+
+clientAge = 23
+clientSex = "female"
+const canBuyAlcohol2 = clientAge > minAge && clientSex === "male" || clientSex === "female"
+                  // = true && false || true // implizit: (true && false) || true
+                  // = false || true         // ⚠️ kann nur kaufen, weil weiblich 
+                  // = true
+
+clientAge = 16
+clientSex = "female"
+const canBuyAlcohol3 = clientAge > minAge && clientSex === "male" || clientSex === "female"
+                  // = false && false || true // implizit: (false && false) || true
+                  // = false || true          // ⚠️ kann nur kaufen, weil weiblich
+                  // = true
+
+// Korrekte Lösung: indem Klammern verwendet werden
+clientAge = 7
+clientSex = "female"
+const canBuyAlcohol4 = clientAge > minAge && (clientSex === "male" || clientSex === "female")
+                  // = false && (false || true)
+                  // = false && true           // ✅
+                  // = false                   // ✅
+
+// Korrekte Lösung: indem eine Variable verwendet wird
+clientAge = 7
+clientSex = "female"
+const hasValidSex = clientSex === "male" || clientSex === "female"
+const canBuyAlcohol5 = clientAge > minAge && hasValidSex
+                  // = false && true           // ✅
+                  // = false                   // ✅
 ----
 
-Die Zeilen 3 und 4, sowie 5, 6 und 7 sind jeweils äquivalent. Auf Zeile 6 wird _und_ mit _oder_ gemischt, deshalb werden runde Klammern verwendet. Das erhöht die Lesbarkeit und verdeutlicht die Intension des Autors. {nbsp} +
- Auf Zeile 7 wird ebenfalls _und_ mit _oder_ gemischt, aber ohne runde Klammern. Trotzdem ist das Ergebnis stets korrekt. Das ist so, weil der _und_ Operator zuerst geprüft wird. So ähnliche wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".
-
-Zur Illustration kann das Ergebnis der Zeile 7 in mehreren Schritten hergeleitet werden:
- 
-[source,javascript,linenums]
-----
-const number = 23
-const goodOrNegative = number % 2 === 0 && number % 4 === 0 || number < 0
-
-// 1. Modulo auflösen
-                     = 1 === 0 && 3 === 0 || number < 0
-
-// 2. Operanden auflösen
-                     = false && false || false
-
-// 3. Operanden nach Priorität auflösen
-                     = false || false
-
-// 4. Operanden auflösen
-                     = false
-----
+Im Beispiel 2 und 3 kommt es zu einem falschen Ergebnis. Der Grund: der Computer evaluiert zuerst das Ergebnis aller _und_ Operatoren. Und erst dann werden die _oder_ Operatoren ausgewertet. Der Computer setzt also implizit jede `&&`-Verknüpfung in Klammer und berechnet zuerst den Klammerinhalt.
+{nbsp} + 
+So ähnlich wie die altbekannte Eselsbrücke beim Multiplizieren und Addieren: "Punkt vor Strich", heisst es hier: "Und vor Oder".
 
 
 === Lernkontrolle
@@ -570,6 +584,7 @@ Ich weiss, ...
 ====
 * [*] dass ich nur Variablen mit gleichem Datentyp vergleichen kann
 * [*] was ein logischer Ausdruck ist
+* [*] wie ich logische Ausdrücke korrekt kombiniere
 * [*] den Unterschied von Integer und Float
 * [*] wie ich Strings kombinieren kann
 ====
@@ -966,7 +981,26 @@ while(counter < stop) { // Abbruchbedingung
 ----
 
 Im Beispiel oben, werden die Zeilen 4 und 5 insgesamt 3 mal nacheinander ausgeführt. Begonnen wird mit `counter = 0`. Der letzte Durchgang wird mit `counter = 2` ausgeführt. {nbsp} +
-Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung `false` ist. Ist diese `false`, wird die Schleife nicht mehr ausgeführt. Der Computer führt dann die nächste Anweisung nach der Schleife aus, bzw. beendet das Programm, wenn die Schleife am Ende steht.
+Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingung `false` ist. Ist diese `false`, wird die Schleife nicht mehr ausgeführt. Der Computer führt dann die nächste Anweisung nach der Schleife aus, bzw. beendet das Programm, wenn nach der Schleife keine weitere Anweisung folgt.
+{nbsp} +
+Die Zeile 3 wird also 4 mal ausgeführt. Denn erst bei deren vierten Ausführung ist die Bedingung `false` und somit wird der Schleifeninhalt kein weiteres mal ausgeführt.
+
+Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal wenn Zeile 3 ausgeführt wird.
+
+[%header,cols="1,1,1,1,2"] 
+|===
+|Durchgangs-Nr
+|counter
+|stop
+|counter < stop
+|Aktion
+
+|1|0|3|true|Counter: 0, counter + 1
+|2|1|3|true|Counter: 1, counter + 1
+|3|2|3|true|Counter: 2, counter + 1
+|4|3|3|false|
+|===
+
 
 TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten Aufgaben reicht eine simple `while` Schleife jedoch bestens. Später, im Zusammenhang mit Arrays, lernst du den Schleifentypen `for of` kennen.
 
@@ -975,19 +1009,21 @@ TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten A
 ****
 *Split*
 
-a) Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.
+[loweralpha]
+. Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.
 
-b) Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.
+. Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.
 
-c) Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.
+. Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.
 
 Hinweis: Die Funktion `strokeWeight`
 
 *Grid*
 
-a) Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.
+[loweralpha]
+. Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.
 
-b) Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.
+. Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.
 
 ****
 
