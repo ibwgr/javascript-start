@@ -1,19 +1,21 @@
 const gridSize = 20
+const width = 400
+const numberOfLines = (width / gridSize) - 1
 
 function setup() {
-  createCanvas(200, 200)
+  createCanvas(width, width)
   background('beige')
-  frameRate(4)
-  noStroke() 
+  noStroke()
+  background('black')
+  frameRate(10)
 }
 
-function draw() {
-  fill('red')
-  const xs = width / gridSize
-  const ys = height / gridSize
-  // Zusatzaufgabe: fill(random(255),random(255), random(255))
-  rect(
-    min(round(xs - 1), round(random(xs))) * gridSize,
-    min(round(ys - 1), round(random(ys))) * gridSize,
-    gridSize, gridSize)
+function draw(){
+  let x = round(random(numberOfLines)) * gridSize
+  let y = round(random(numberOfLines)) * gridSize
+  let red = random(255)
+  let green = random(255)
+  let blue = random(255)
+  fill(red, green, blue)
+  rect(x, y, gridSize, gridSize)
 }
