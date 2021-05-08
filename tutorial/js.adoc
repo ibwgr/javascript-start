@@ -961,7 +961,7 @@ const stop = 3
 let counter = 0
 while(counter < stop) { // Abbruchbedingung
     text("Counter: " + counter, 10, 10)
-    count = counter + 1
+    counter = counter + 1
 }
 ----
 
