@@ -1010,11 +1010,11 @@ TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten A
 *Split*
 
 [loweralpha]
-. Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Teile unterteilt wird.
+. Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Spalten unterteilt wird.
 
-. Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wieviele Teile die Fläche unterteilt wird.
+. Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wieviele Spalten die Fläche unterteilt wird.
 
-. Verändere das Programm so, dass jede zweite Linie 2px breit ist, wobei die erste Linie 2 Pixel breit ist.
+. Verändere das Programm so, dass jede zweite Linie 2 Pixel breit ist, wobei die erste Linie 2 Pixel breit ist.
 
 Hinweis: Die Funktion `strokeWeight`
 
@@ -1028,8 +1028,6 @@ Hinweis: Die Funktion `strokeWeight`
 ****
 
 === Datentypen II – Arrays
-
-Generieren von Kreisen
 
 == Funktionen – Definieren
 
