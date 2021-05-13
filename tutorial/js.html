@@ -163,11 +163,16 @@ pre.rouge table td.linenos{
 <li><a href="#_schleifen">Schleifen</a>
 <ul class="sectlevel2">
 <li><a href="#_übung_schleifen">Übung – Schleifen</a></li>
-<li><a href="#_datentypen_ii_arrays">Datentypen II – Arrays</a></li>
+<li><a href="#_lernkontrolle_8">Lernkontrolle</a></li>
+<li><a href="#_datentypen_ii">Datentypen II</a>
+<ul class="sectlevel3">
+<li><a href="#_objekte">Objekte</a></li>
+<li><a href="#_arrays">Arrays</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_funktionen_definieren">Funktionen – Definieren</a></li>
-<li><a href="#_datentypen_iii_objekte">Datentypen III – Objekte</a></li>
 <li><a href="#_weiterführende_javascript_ressourcen">Weiterführende JavaScript Ressourcen</a></li>
 <li><a href="#_glossar">Glossar</a></li>
 </ul>
@@ -1898,7 +1903,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p>&#10003; Anhand eines Codebeispiels, kann ich den Geltungsbereich einer Variable bestimmen</p>
+<p>&#10003; In einem Stück Code kann ich den Geltungsbereich einer Variable bestimmen</p>
 </li>
 <li>
 <p>&#10003; Ich kenne die Kriterien korrekter Formatierung und kann diese anwenden</p>
@@ -1917,7 +1922,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <p>Eine weiterer wichtiger Baustein von Programmiersprachen sind Schleifen. Damit kann man eine Liste von Befehlen wiederholt ausführen. Es gibt verschiedene Schleifentypen. Die einfachste davon ist die <code>while</code>-Schleife.</p>
 </div>
 <div class="paragraph">
-<p>Eine <code>while</code>-Schleife besteht lediglich aus einer Abbruchbedingung.</p>
+<p>Eine <code>while</code>-Schleife besteht lediglich aus einer <code>Abbruchbedingung</code> und einer Liste von wiederholt ausgeführten Anweisungen, dem Schleifeninhalt (engl. <code>Body</code>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1943,7 +1948,7 @@ Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingu
 Die Zeile 3 wird also 4 mal ausgeführt. Denn erst bei deren vierten Ausführung ist die Bedingung <code>false</code> und somit wird der Schleifeninhalt kein weiteres mal ausgeführt.</p>
 </div>
 <div class="paragraph">
-<p>Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal wenn Zeile 3 ausgeführt wird.</p>
+<p>Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal unmittelbar bevor Zeile 3 ausgeführt wird.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2045,19 +2050,110 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 </div>
 <div class="sect2">
-<h3 id="_datentypen_ii_arrays">Datentypen II – Arrays</h3>
+<h3 id="_lernkontrolle_8">Lernkontrolle</h3>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; Ich kann eine while Schleife gezielt einsetzen, um ein Problem zu lösen</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datentypen_ii">Datentypen II</h3>
+<div class="paragraph">
+<p>Neben den primitiven Datentypen Number, String und Boolean gibt es zwei weitere sehr elementare, jedoch in der Handhabung etwas komplexere, Datentypen.</p>
+</div>
+<div class="sect3">
+<h4 id="_objekte">Objekte</h4>
+<div class="paragraph">
+<p>Unser physikalisches Weltbild ist voller Objekte: Planeten, Ameisen, Häuser, Sandkörner, Atomkerne etc. Alle diese Dinge haben einen Namen, und eine dazugehörende Sammlung von Eigenschaften, welche das Ding beschreiben. Zum Beispiel das Sandkorn hat eine Grösse, Farbe, sowie chemische Zusammensetzung. Es gäbe bestimmt noch viele weitere Eigenschaften, um ein Sandkorn zu beschreiben. Je nach Verwendungszweck beschränken wir uns jedoch auf die relevanten. &#160;<br>
+Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke, Zins, Rabatt oder PI. Diese Dinge / Konzepte sind nicht greifbar, können jedoch ebenfalls benannt werden und sie haben ebenfalls Eigenschaften. Zum Beispiel die Zahl PI hat einen Namen, und gehört zu Klasse der irrationalen Zahlen (Eigenschaft).</p>
+</div>
+<div class="paragraph">
+<p>In der Softwareentwicklung geht es immer darum, die echte Welt digital abzubilden. Mit einer Programmiersprache haben wir die Möglichkeit, dies sehr sprechend zu formulieren. Wir möchten also einen Weg, um diese Objekte in unserem Code abzubilden.</p>
+</div>
+<div class="sect4">
+<h5 id="_javascript_objekte">JavaScript Objekte</h5>
+<div class="paragraph">
+<p>Im Folgenden geht es darum einen <em>Kreis</em> zu zeichnen. Dieser Kreis hat vier Eigenschaften (Zeilen 1 - 4).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">circleX</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="kd">let</span> <span class="nx">circleY</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="kd">let</span> <span class="nx">circleRadius</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="kd">let</span> <span class="nx">circleFillColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">black</span><span class="dl">'</span>
 
+<span class="nx">fill</span><span class="p">(</span><span class="nx">circleFillColor</span><span class="p">)</span>
+<span class="nx">circle</span><span class="p">(</span><span class="nx">circleX</span><span class="p">,</span> <span class="nx">circleY</span><span class="p">,</span> <span class="nx">circleRadius</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alle diese Variablen kann man nun in einem Objekt zusammenfassen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">x</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
+    <span class="na">y</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
+    <span class="na">radius</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="na">fillColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">black</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nx">fill</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">fillColor</span><span class="p">)</span>
+<span class="nx">circle</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">radius</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// Zugriff auf Eigenschaft via Punkt-Operator</span>
+<span class="nx">circle</span><span class="p">(</span><span class="nx">c</span><span class="p">[</span><span class="dl">'</span><span class="s1">x</span><span class="dl">'</span><span class="p">],</span> <span class="nx">c</span><span class="p">[</span><span class="dl">'</span><span class="s1">y</span><span class="dl">'</span><span class="p">],</span> <span class="nx">c</span><span class="p">[</span><span class="dl">'</span><span class="s1">radius</span><span class="dl">'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// Zugriff auf Eigenschaft via Index-Operator</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die einfachste Form, um in JavaScript ein Objekt zu definieren, ist via einem geschweiften Klammerpaar. Innerhalb der Klammern folgt eine Liste von Eigenschaften, getrennt durch Komma. Jede Eigenschaft (engl. <code>property</code>) hat einen Namen und einen Wert, getrennt durch Doppelpunkt. Zugriff auf die Eigenschaften eines Objektes erfolgt mit dem Punkt-Operator oder via Index-Operator (eckiges Klammerpaar, engl. brackets). Der Vorteil des Index-Operators ist, dass der Name der Eigenschaft dynamisch sein kann:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c1">// c = { ... }</span>
+<span class="kd">let</span> <span class="nx">propName</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">radius</span><span class="dl">'</span>
+<span class="nx">circle</span><span class="p">(</span><span class="nx">c</span><span class="p">[</span><span class="dl">'</span><span class="s1">x</span><span class="dl">'</span><span class="p">],</span> <span class="nx">c</span><span class="p">[</span><span class="dl">'</span><span class="s1">y</span><span class="dl">'</span><span class="p">],</span> <span class="nx">c</span><span class="p">[</span><span class="nx">propName</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// Eigenschaftsname in Variable gespeichert</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_arrays">Arrays</h4>
+
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_funktionen_definieren">Funktionen – Definieren</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_datentypen_iii_objekte">Datentypen III – Objekte</h2>
 <div class="sectionbody">
 
 </div>
@@ -2114,7 +2210,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-08 20:53:41 UTC
+Last updated 2021-05-13 11:41:00 UTC
 </div>
 </div>
 <style>

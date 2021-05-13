@@ -960,7 +960,7 @@ let c = 0
 
 === Lernkontrolle
 ====
-* [*] Anhand eines Codebeispiels, kann ich den Geltungsbereich einer Variable bestimmen
+* [*] In einem Stück Code kann ich den Geltungsbereich einer Variable bestimmen
 * [*] Ich kenne die Kriterien korrekter Formatierung und kann diese anwenden
 ====
 
@@ -968,7 +968,7 @@ let c = 0
 
 Eine weiterer wichtiger Baustein von Programmiersprachen sind Schleifen. Damit kann man eine Liste von Befehlen wiederholt ausführen. Es gibt verschiedene Schleifentypen. Die einfachste davon ist die `while`-Schleife.
 
-Eine `while`-Schleife besteht lediglich aus einer Abbruchbedingung.
+Eine `while`-Schleife besteht lediglich aus einer `Abbruchbedingung` und einer Liste von wiederholt ausgeführten Anweisungen, dem Schleifeninhalt (engl. `Body`).
 
 [source,javascript,linenums]
 ----
@@ -985,7 +985,7 @@ Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingu
 {nbsp} +
 Die Zeile 3 wird also 4 mal ausgeführt. Denn erst bei deren vierten Ausführung ist die Bedingung `false` und somit wird der Schleifeninhalt kein weiteres mal ausgeführt.
 
-Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal wenn Zeile 3 ausgeführt wird.
+Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal unmittelbar bevor Zeile 3 ausgeführt wird.
 
 [%header,cols="1,1,1,1,2"] 
 |===
@@ -1027,11 +1027,66 @@ Hinweis: Die Funktion `strokeWeight`
 
 ****
 
-=== Datentypen II – Arrays
+
+=== Lernkontrolle
+====
+* [*] Ich kann eine while Schleife gezielt einsetzen, um ein Problem zu lösen
+====
+
+
+=== Datentypen II
+Neben den primitiven Datentypen Number, String und Boolean gibt es zwei weitere sehr elementare, jedoch in der Handhabung etwas komplexere, Datentypen.
+
+==== Objekte
+Unser physikalisches Weltbild ist voller Objekte: Planeten, Ameisen, Häuser, Sandkörner, Atomkerne etc. Alle diese Dinge haben einen Namen, und eine dazugehörende Sammlung von Eigenschaften, welche das Ding beschreiben. Zum Beispiel das Sandkorn hat eine Grösse, Farbe, sowie chemische Zusammensetzung. Es gäbe bestimmt noch viele weitere Eigenschaften, um ein Sandkorn zu beschreiben. Je nach Verwendungszweck beschränken wir uns jedoch auf die relevanten. {nbsp} +
+Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke, Zins, Rabatt oder PI. Diese Dinge / Konzepte sind nicht greifbar, können jedoch ebenfalls benannt werden und sie haben ebenfalls Eigenschaften. Zum Beispiel die Zahl PI hat einen Namen, und gehört zu Klasse der irrationalen Zahlen (Eigenschaft).
+
+In der Softwareentwicklung geht es immer darum, die echte Welt digital abzubilden. Mit einer Programmiersprache haben wir die Möglichkeit, dies sehr sprechend zu formulieren. Wir möchten also einen Weg, um diese Objekte in unserem Code abzubilden.
+
+===== JavaScript Objekte
+Im Folgenden geht es darum einen _Kreis_ zu zeichnen. Dieser Kreis hat vier Eigenschaften (Zeilen 1 - 4).
+
+[source,javascript,linenums]
+----
+let circleX = 250
+let circleY = 250
+let circleRadius = 20
+let circleFillColor = 'black'
+
+fill(circleFillColor)
+circle(circleX, circleY, circleRadius * 2)
+----
+
+Alle diese Variablen kann man nun in einem Objekt zusammenfassen:
+
+[source,javascript,linenums]
+----
+let c = {
+    x: 250,
+    y: 250,
+    radius: 20,
+    fillColor: 'black',
+}
+
+fill(c.fillColor)
+circle(c.x, c.y, c.radius * 2) // Zugriff auf Eigenschaft via Punkt-Operator
+circle(c['x'], c['y'], c['radius'] * 2) // Zugriff auf Eigenschaft via Index-Operator
+----
+
+Die einfachste Form, um in JavaScript ein Objekt zu definieren, ist via einem geschweiften Klammerpaar. Innerhalb der Klammern folgt eine Liste von Eigenschaften, getrennt durch Komma. Jede Eigenschaft (engl. `property`) hat einen Namen und einen Wert, getrennt durch Doppelpunkt. Zugriff auf die Eigenschaften eines Objektes erfolgt mit dem Punkt-Operator oder via Index-Operator (eckiges Klammerpaar, engl. brackets). Der Vorteil des Index-Operators ist, dass der Name der Eigenschaft dynamisch sein kann:
+
+[source,javascript,linenums]
+----
+// c = { ... }
+let propName = 'radius'
+circle(c['x'], c['y'], c[propName] * 2) // Eigenschaftsname in Variable gespeichert
+----
+
+
+==== Arrays
+
 
 == Funktionen – Definieren
-
-== Datentypen III – Objekte
 
 
 == Weiterführende JavaScript Ressourcen
