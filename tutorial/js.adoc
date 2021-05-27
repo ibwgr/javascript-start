@@ -968,6 +968,8 @@ let c = 0
 
 Eine weiterer wichtiger Baustein von Programmiersprachen sind Schleifen. Damit kann man eine Liste von Befehlen wiederholt ausführen. Es gibt verschiedene Schleifentypen. Die einfachste davon ist die `while`-Schleife.
 
+=== while Schleife
+
 Eine `while`-Schleife besteht lediglich aus einer `Abbruchbedingung` und einer Liste von wiederholt ausgeführten Anweisungen, dem Schleifeninhalt (engl. `Body`).
 
 [source,javascript,linenums]
@@ -1034,17 +1036,17 @@ Hinweis: Die Funktion `strokeWeight`
 ====
 
 
-=== Datentypen II
+== Datentypen II
 Neben den primitiven Datentypen Number, String und Boolean gibt es zwei weitere sehr elementare, jedoch in der Handhabung etwas komplexere, Datentypen.
 
-==== Objekte
-Unser physikalisches Weltbild ist voller Objekte: Planeten, Ameisen, Häuser, Sandkörner, Atomkerne etc. Alle diese Dinge haben einen Namen, und eine dazugehörende Sammlung von Eigenschaften, welche das Ding beschreiben. Zum Beispiel das Sandkorn hat eine Grösse, Farbe, sowie chemische Zusammensetzung. Es gäbe bestimmt noch viele weitere Eigenschaften, um ein Sandkorn zu beschreiben. Je nach Verwendungszweck beschränken wir uns jedoch auf die relevanten. {nbsp} +
+=== Objekte
+Unser physikalisches Weltbild ist voller Objekte: Planeten, Ameisen, Häuser, Sandkörner, Fahrräder etc. Alle diese Dinge haben einen Namen, und eine dazugehörende Sammlung von Eigenschaften, welche das Ding beschreiben. Zum Beispiel das Sandkorn hat eine Grösse, Farbe, sowie chemische Zusammensetzung. Es gäbe bestimmt noch viele weitere Eigenschaften, um ein Sandkorn zu beschreiben. Je nach Verwendungszweck beschränken wir uns jedoch auf die relevanten. {nbsp} +
 Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke, Zins, Rabatt oder PI. Diese Dinge / Konzepte sind nicht greifbar, können jedoch ebenfalls benannt werden und sie haben ebenfalls Eigenschaften. Zum Beispiel die Zahl PI hat einen Namen, und gehört zu Klasse der irrationalen Zahlen (Eigenschaft).
 
-In der Softwareentwicklung geht es immer darum, die echte Welt digital abzubilden. Mit einer Programmiersprache haben wir die Möglichkeit, dies sehr sprechend zu formulieren. Wir möchten also einen Weg, um diese Objekte in unserem Code abzubilden.
+In der Softwareentwicklung geht es immer darum, die echte Welt digital abzubilden. Mit einer Programmiersprache haben wir die Möglichkeit, dies sehr sprechend zu formulieren. Wir möchten also einen Weg, um all die Dinge / Konzepte der echten Welt in unserem Code abzubilden.
 
-===== JavaScript Objekte
-Im Folgenden geht es darum einen _Kreis_ zu zeichnen. Dieser Kreis hat vier Eigenschaften (Zeilen 1 - 4).
+=== JavaScript Objekte
+Im Folgenden geht es darum einen _Kreis_ zu zeichnen. Dieser Kreis hat vier Eigenschaften (Zeilen 1 bis 4).
 
 [source,javascript,linenums]
 ----
@@ -1073,7 +1075,7 @@ circle(c.x, c.y, c.radius * 2) // Zugriff auf Eigenschaft via Punkt-Operator
 circle(c['x'], c['y'], c['radius'] * 2) // Zugriff auf Eigenschaft via Index-Operator
 ----
 
-Die einfachste Form, um in JavaScript ein Objekt zu definieren, ist via einem geschweiften Klammerpaar. Innerhalb der Klammern folgt eine Liste von Eigenschaften, getrennt durch Komma. Jede Eigenschaft (engl. `property`) hat einen Namen und einen Wert, getrennt durch Doppelpunkt. Zugriff auf die Eigenschaften eines Objektes erfolgt mit dem Punkt-Operator oder via Index-Operator (eckiges Klammerpaar, engl. brackets). Der Vorteil des Index-Operators ist, dass der Name der Eigenschaft dynamisch sein kann:
+Die einfachste Form, um in JavaScript ein Objekt zu definieren, ist, via einem geschweiften Klammerpaar. Innerhalb der Klammern folgt eine Liste von Eigenschaften, getrennt durch Komma. Jede Eigenschaft (engl. `property`) hat einen Namen und einen Wert, getrennt durch Doppelpunkt. Zugriff auf die Eigenschaften eines Objektes erfolgt mit dem Punkt-Operator oder via Index-Operator (eckiges Klammerpaar, engl. brackets). Der Vorteil des Index-Operators ist, dass der Name der Eigenschaft dynamisch sein kann:
 
 [source,javascript,linenums]
 ----
@@ -1083,7 +1085,130 @@ circle(c['x'], c['y'], c[propName] * 2) // Eigenschaftsname in Variable gespeich
 ----
 
 
-==== Arrays
+==== Übung – Objekte
+
+****
+*Fancy Circle Object*
+
+. Kopiere den Inhalt der Datei _p5-sketches/u-catchme-fancy.js_ nach _sketch.js_. 
+
+. Wandle die Zeilen 1 - 4 in ein Objekt um. Ändere den ganzen Programmcode, damit er weiterhin funktioniert.
+
+****
+
+
+=== Arrays
+
+Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.
+
+Wir können zum Beispiel alle Ganzzahlen von 100 bis und mit 105 in einem Array speichern:
+
+
+[source,javascript,linenums]
+----
+const nums = [100, 101, 102, 103, 104, 105]
+----
+
+Die einfachste Form, um in JavaScript ein Array zu definieren, ist, via einem eckigen Klammerpaar (engl. brackets). Innerhalb der Klammern werden die einzelnen Werte durch Komma getrennt aufgeführt.
+
+Zugriff auf die einzelnen Werte eines Array erfolgt via Index-Operator. Der Index 0 greift auf das erste Element zu, der Index 1 auf das zweite Element und so weiter. Das letzte Element hat den Index "Array-Länge - 1".
+
+In JavaScript ist jedes Array eine spezielle Form eines Objektes. Das heisst ein Array hat Eigenschaften. Eine viel verwendete Eigenschaft ist `length`.
+
+[source,javascript,linenums]
+----
+const nums = [100, 101, 102, 103, 104, 105]
+const first = nums[0] // 100
+let last    = nums[nums.length - 1] // nums[6 - 1] = nums[5] = 105
+last        = nums[5] // 105
+----
+
+TIP: Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. `[6, 3.14, 'zero', { }]`. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
+
+Nebst `length` gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte Methoden. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:
+
+* push – Neuen Wert im Array speichern
+* includes – Prüfen ob ein Wert bereits im Array enthalten ist
+* join – Alle Werte des Arrays zu einer Zeichenkette zusammenführen
+
+Diese Methoden sind auf MDN sehr gut dokumentiert: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods.
+
+
+Im folgenden Beispiel werden diese drei Methoden verwendet:
+
+[source,javascript,linenums]
+----
+const nums = []
+let i = 0
+while(i < 5){
+    const num = Math.round(Math.random() * 10)
+    if(nums.includes(num) === false){
+        nums.push(num)
+        i = i + 1
+    }
+}
+const display = nums.join(",")
+----
+
+****
+*Quizfragen* {nbsp} +
+Was macht obiger Code genau?
+
+.Lösung (Click)
+[%collapsible]
+====
+Generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon >= 0 und \<= 10, wobei eine Zahl nie doppelt vorkommt.
+====
+
+{nbsp} +
+
+Ist es möglich, dass die while Schlaufe mehr als fünf mal durchlaufen wird?
+
+.Lösung (Click)
+[%collapsible]
+====
+Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird `i` nicht um eins erhöht.
+====
+****
+
+==== for of Schleife
+
+Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die `for of` Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <<iterieren>>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Array iterieren".
+
+
+Das folgende Beispiel iteriert über einen Array von Zahlen:
+
+[source,javascript,linenums]
+----
+const nums = [1, 2, 7]
+for(let num of nums){
+    // num entspricht
+    // im ersten Schleifendurchlauf 1, 
+    // im zweiten 6 und 
+    // im dritten Durchlauf 7
+}
+----
+
+
+==== Übung – Arrays
+
+****
+*Streight to the Point*
+
+Verwende das Codebeispiel von oben (das mit den Quizzfragen). Ändere den Code so ab, dass die Variable `i` nicht mehr gebraucht wird.
+
+Hinweis: `length`
+
+
+*Path*
+
+. Generiere hundert Punkt-Objekte. Jeder Punkt besteht aus einer x- und y-Koordinate. Die x- und y-Werte sollen zufällig sein, jedoch immer ganzahlig und zwischen 10 und 990 (inklusive).
+
+. Zeichne jeden einzelnen Punkt als kleinen Kreis auf eine quadratische Fläche mit der Seitenlänge 1000.
+
+. Verbinde die Punkte mit Linien. Also der erste generierte Punkt hat eine gerade Linie zu Punkt zwei. Punkt zwei hat eine gerade Linie zu Punkt drei und so weiter.
+
+****
 
 
 == Funktionen – Definieren
@@ -1103,3 +1228,4 @@ circle(c['x'], c['y'], c[propName] * 2) // Eigenschaftsname in Variable gespeich
 [[Pseudo-Code]]Pseudo-Code:: Mit Pseudo-Code kann man Prorgrammcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. https://www.w3schools.com/js/js_reserved.asp[Liste aller JavaScript Keywords]
 [[Pixel]]Pixel:: Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel mit blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.
+[[iterieren]]iterieren:: Bedeutet: Alle Elemente einer Datenstruktur in einer bestimmten Reihenfolge abrufen. Zum Beispiel: Alle Elemente eines Array fortlaufend abrufen, beginnend mit Index 0.

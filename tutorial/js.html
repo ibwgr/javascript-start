@@ -162,12 +162,23 @@ pre.rouge table td.linenos{
 </li>
 <li><a href="#_schleifen">Schleifen</a>
 <ul class="sectlevel2">
+<li><a href="#_while_schleife">while Schleife</a></li>
 <li><a href="#_übung_schleifen">Übung – Schleifen</a></li>
 <li><a href="#_lernkontrolle_8">Lernkontrolle</a></li>
+</ul>
+</li>
 <li><a href="#_datentypen_ii">Datentypen II</a>
-<ul class="sectlevel3">
+<ul class="sectlevel2">
 <li><a href="#_objekte">Objekte</a></li>
-<li><a href="#_arrays">Arrays</a></li>
+<li><a href="#_javascript_objekte">JavaScript Objekte</a>
+<ul class="sectlevel3">
+<li><a href="#_übung_objekte">Übung – Objekte</a></li>
+</ul>
+</li>
+<li><a href="#_arrays">Arrays</a>
+<ul class="sectlevel3">
+<li><a href="#_for_of_schleife">for of Schleife</a></li>
+<li><a href="#_übung_arrays">Übung – Arrays</a></li>
 </ul>
 </li>
 </ul>
@@ -1921,6 +1932,8 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <div class="paragraph">
 <p>Eine weiterer wichtiger Baustein von Programmiersprachen sind Schleifen. Damit kann man eine Liste von Befehlen wiederholt ausführen. Es gibt verschiedene Schleifentypen. Die einfachste davon ist die <code>while</code>-Schleife.</p>
 </div>
+<div class="sect2">
+<h3 id="_while_schleife">while Schleife</h3>
 <div class="paragraph">
 <p>Eine <code>while</code>-Schleife besteht lediglich aus einer <code>Abbruchbedingung</code> und einer Liste von wiederholt ausgeführten Anweisungen, dem Schleifeninhalt (engl. <code>Body</code>).</p>
 </div>
@@ -2010,6 +2023,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </tr>
 </table>
 </div>
+</div>
 <div class="sect2">
 <h3 id="_übung_schleifen">Übung – Schleifen</h3>
 <div class="sidebarblock">
@@ -2063,24 +2077,28 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_datentypen_ii">Datentypen II</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datentypen_ii">Datentypen II</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Neben den primitiven Datentypen Number, String und Boolean gibt es zwei weitere sehr elementare, jedoch in der Handhabung etwas komplexere, Datentypen.</p>
 </div>
-<div class="sect3">
-<h4 id="_objekte">Objekte</h4>
+<div class="sect2">
+<h3 id="_objekte">Objekte</h3>
 <div class="paragraph">
-<p>Unser physikalisches Weltbild ist voller Objekte: Planeten, Ameisen, Häuser, Sandkörner, Atomkerne etc. Alle diese Dinge haben einen Namen, und eine dazugehörende Sammlung von Eigenschaften, welche das Ding beschreiben. Zum Beispiel das Sandkorn hat eine Grösse, Farbe, sowie chemische Zusammensetzung. Es gäbe bestimmt noch viele weitere Eigenschaften, um ein Sandkorn zu beschreiben. Je nach Verwendungszweck beschränken wir uns jedoch auf die relevanten. &#160;<br>
+<p>Unser physikalisches Weltbild ist voller Objekte: Planeten, Ameisen, Häuser, Sandkörner, Fahrräder etc. Alle diese Dinge haben einen Namen, und eine dazugehörende Sammlung von Eigenschaften, welche das Ding beschreiben. Zum Beispiel das Sandkorn hat eine Grösse, Farbe, sowie chemische Zusammensetzung. Es gäbe bestimmt noch viele weitere Eigenschaften, um ein Sandkorn zu beschreiben. Je nach Verwendungszweck beschränken wir uns jedoch auf die relevanten. &#160;<br>
 Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke, Zins, Rabatt oder PI. Diese Dinge / Konzepte sind nicht greifbar, können jedoch ebenfalls benannt werden und sie haben ebenfalls Eigenschaften. Zum Beispiel die Zahl PI hat einen Namen, und gehört zu Klasse der irrationalen Zahlen (Eigenschaft).</p>
 </div>
 <div class="paragraph">
-<p>In der Softwareentwicklung geht es immer darum, die echte Welt digital abzubilden. Mit einer Programmiersprache haben wir die Möglichkeit, dies sehr sprechend zu formulieren. Wir möchten also einen Weg, um diese Objekte in unserem Code abzubilden.</p>
+<p>In der Softwareentwicklung geht es immer darum, die echte Welt digital abzubilden. Mit einer Programmiersprache haben wir die Möglichkeit, dies sehr sprechend zu formulieren. Wir möchten also einen Weg, um all die Dinge / Konzepte der echten Welt in unserem Code abzubilden.</p>
 </div>
-<div class="sect4">
-<h5 id="_javascript_objekte">JavaScript Objekte</h5>
+</div>
+<div class="sect2">
+<h3 id="_javascript_objekte">JavaScript Objekte</h3>
 <div class="paragraph">
-<p>Im Folgenden geht es darum einen <em>Kreis</em> zu zeichnen. Dieser Kreis hat vier Eigenschaften (Zeilen 1 - 4).</p>
+<p>Im Folgenden geht es darum einen <em>Kreis</em> zu zeichnen. Dieser Kreis hat vier Eigenschaften (Zeilen 1 bis 4).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2130,7 +2148,7 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 </div>
 </div>
 <div class="paragraph">
-<p>Die einfachste Form, um in JavaScript ein Objekt zu definieren, ist via einem geschweiften Klammerpaar. Innerhalb der Klammern folgt eine Liste von Eigenschaften, getrennt durch Komma. Jede Eigenschaft (engl. <code>property</code>) hat einen Namen und einen Wert, getrennt durch Doppelpunkt. Zugriff auf die Eigenschaften eines Objektes erfolgt mit dem Punkt-Operator oder via Index-Operator (eckiges Klammerpaar, engl. brackets). Der Vorteil des Index-Operators ist, dass der Name der Eigenschaft dynamisch sein kann:</p>
+<p>Die einfachste Form, um in JavaScript ein Objekt zu definieren, ist, via einem geschweiften Klammerpaar. Innerhalb der Klammern folgt eine Liste von Eigenschaften, getrennt durch Komma. Jede Eigenschaft (engl. <code>property</code>) hat einen Namen und einen Wert, getrennt durch Doppelpunkt. Zugriff auf die Eigenschaften eines Objektes erfolgt mit dem Punkt-Operator oder via Index-Operator (eckiges Klammerpaar, engl. brackets). Der Vorteil des Index-Operators ist, dass der Name der Eigenschaft dynamisch sein kann:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2143,11 +2161,212 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_übung_objekte">Übung – Objekte</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Fancy Circle Object</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Kopiere den Inhalt der Datei <em>p5-sketches/u-catchme-fancy.js</em> nach <em>sketch.js</em>.</p>
+</li>
+<li>
+<p>Wandle die Zeilen 1 - 4 in ein Objekt um. Ändere den ganzen Programmcode, damit er weiterhin funktioniert.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_arrays">Arrays</h3>
+<div class="paragraph">
+<p>Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.</p>
+</div>
+<div class="paragraph">
+<p>Wir können zum Beispiel alle Ganzzahlen von 100 bis und mit 105 in einem Array speichern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die einfachste Form, um in JavaScript ein Array zu definieren, ist, via einem eckigen Klammerpaar (engl. brackets). Innerhalb der Klammern werden die einzelnen Werte durch Komma getrennt aufgeführt.</p>
+</div>
+<div class="paragraph">
+<p>Zugriff auf die einzelnen Werte eines Array erfolgt via Index-Operator. Der Index 0 greift auf das erste Element zu, der Index 1 auf das zweite Element und so weiter. Das letzte Element hat den Index "Array-Länge - 1".</p>
+</div>
+<div class="paragraph">
+<p>In JavaScript ist jedes Array eine spezielle Form eines Objektes. Das heisst ein Array hat Eigenschaften. Eine viel verwendete Eigenschaft ist <code>length</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">first</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// 100</span>
+<span class="kd">let</span> <span class="nx">last</span>    <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="c1">// nums[6 - 1] = nums[5] = 105</span>
+<span class="nx">last</span>        <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1">// 105</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. <code>[6, 3.14, 'zero', { }]</code>. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Nebst <code>length</code> gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte Methoden. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>push – Neuen Wert im Array speichern</p>
+</li>
+<li>
+<p>includes – Prüfen ob ein Wert bereits im Array enthalten ist</p>
+</li>
+<li>
+<p>join – Alle Werte des Arrays zu einer Zeichenkette zusammenführen</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Diese Methoden sind auf MDN sehr gut dokumentiert: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods" class="bare">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods</a>.</p>
+</div>
+<div class="paragraph">
+<p>Im folgenden Beispiel werden diese drei Methoden verwendet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">){</span>
+    <span class="kd">const</span> <span class="nx">num</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">){</span>
+        <span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+        <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">display</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Quizfragen</strong> &#160;<br>
+Was macht obiger Code genau?</p>
+</div>
+<details>
+<summary class="title">Lösung (Click)</summary>
+<div class="content">
+<div class="paragraph">
+<p>Generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon &gt;= 0 und &lt;= 10, wobei eine Zahl nie doppelt vorkommt.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Ist es möglich, dass die while Schlaufe mehr als fünf mal durchlaufen wird?</p>
+</div>
+<details>
+<summary class="title">Lösung (Click)</summary>
+<div class="content">
+<div class="paragraph">
+<p>Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird <code>i</code> nicht um eins erhöht.</p>
+</div>
+</div>
+</details>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_arrays">Arrays</h4>
-
+<h4 id="_for_of_schleife">for of Schleife</h4>
+<div class="paragraph">
+<p>Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die <code>for of</code> Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <a href="#iterieren">iterieren</a>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Array iterieren".</p>
+</div>
+<div class="paragraph">
+<p>Das folgende Beispiel iteriert über einen Array von Zahlen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">nums</span><span class="p">){</span>
+    <span class="c1">// num entspricht</span>
+    <span class="c1">// im ersten Schleifendurchlauf 1,</span>
+    <span class="c1">// im zweiten 6 und</span>
+    <span class="c1">// im dritten Durchlauf 7</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_übung_arrays">Übung – Arrays</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Streight to the Point</strong></p>
+</div>
+<div class="paragraph">
+<p>Verwende das Codebeispiel von oben (das mit den Quizzfragen). Ändere den Code so ab, dass die Variable <code>i</code> nicht mehr gebraucht wird.</p>
+</div>
+<div class="paragraph">
+<p>Hinweis: <code>length</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Path</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generiere hundert Punkt-Objekte. Jeder Punkt besteht aus einer x- und y-Koordinate. Die x- und y-Werte sollen zufällig sein, jedoch immer ganzahlig und zwischen 10 und 990 (inklusive).</p>
+</li>
+<li>
+<p>Zeichne jeden einzelnen Punkt als kleinen Kreis auf eine quadratische Fläche mit der Seitenlänge 1000.</p>
+</li>
+<li>
+<p>Verbinde die Punkte mit Linien. Also der erste generierte Punkt hat eine gerade Linie zu Punkt zwei. Punkt zwei hat eine gerade Linie zu Punkt drei und so weiter.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2203,6 +2422,10 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 <dd>
 <p>Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel mit blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.</p>
 </dd>
+<dt class="hdlist1"><a id="iterieren"></a>iterieren</dt>
+<dd>
+<p>Bedeutet: Alle Elemente einer Datenstruktur in einer bestimmten Reihenfolge abrufen. Zum Beispiel: Alle Elemente eines Array fortlaufend abrufen, beginnend mit Index 0.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -2210,7 +2433,7 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-13 11:41:00 UTC
+Last updated 2021-05-27 18:09:43 UTC
 </div>
 </div>
 <style>
