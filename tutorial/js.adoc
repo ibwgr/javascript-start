@@ -1099,7 +1099,7 @@ circle(c['x'], c['y'], c[propName] * 2) // Eigenschaftsname in Variable gespeich
 
 === Arrays
 
-Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.
+Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, in einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.
 
 Wir können zum Beispiel alle Ganzzahlen von 100 bis und mit 105 in einem Array speichern:
 
@@ -1125,16 +1125,19 @@ last        = nums[5] // 105
 
 TIP: Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. `[6, 3.14, 'zero', { }]`. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
 
-Nebst `length` gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte Methoden. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:
+Nebst `length` gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte `Methoden`. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:
 
 * push – Neuen Wert im Array speichern
+* pop – Letzten Wert aus Array entfernen (Umkehroperation von push)
 * includes – Prüfen ob ein Wert bereits im Array enthalten ist
 * join – Alle Werte des Arrays zu einer Zeichenkette zusammenführen
 
 Diese Methoden sind auf MDN sehr gut dokumentiert: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods.
 
+TIP: In vielen Codebeispielen die du online im Zusammenhang mit JavaScript findest, siehst du den Aufruf der Funktion `console.log`. Diese Funktion gibt alle ihr übergebenen Parameter in der console aus. Die console haben wir ganz zu Beginn im Kapitel <<Anweisungen & Variablen>> kennen gelernt. {nbsp} +
+In p5.js gibt es diese Funktion nicht. Denn in p5.js zeichnen wir ja Dinge auf eine 2D Zeichenfläche. In einer reinen JavaScript-Umgebung hingegen, also z.B. der console im Browser, gibt es aber keine 2D Zeichenfläche. Deshalb ist es da sehr nützlich, wenn man Werte über die Funktion console.log ausgeben kann.
 
-Im folgenden Beispiel werden diese drei Methoden verwendet:
+Im folgenden JavaScript Beispiel werden drei Array-Methoden (push, includes und join) verwendet. Ebenfalls wird das Resultat am Ende via console.log ausgegeben. Kopiere das Codebeispiel und führe es in der console im Browser aus.
 
 [source,javascript,linenums]
 ----
@@ -1148,6 +1151,7 @@ while(i < 5){
     }
 }
 const display = nums.join(",")
+console.log(display)
 ----
 
 ****
@@ -1157,7 +1161,7 @@ Was macht obiger Code genau?
 .Lösung (Click)
 [%collapsible]
 ====
-Generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon >= 0 und \<= 10, wobei eine Zahl nie doppelt vorkommt.
+Er generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon >= 0 und \<= 10, wobei eine Zahl nie doppelt vorkommt.
 ====
 
 {nbsp} +
@@ -1173,7 +1177,7 @@ Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird `i` nicht um 
 
 ==== for of Schleife
 
-Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die `for of` Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <<iterieren>>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Array iterieren".
+Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die `for of` Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <<iterieren>>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Arrays iterieren".
 
 
 Das folgende Beispiel iteriert über einen Array von Zahlen:
@@ -1182,10 +1186,10 @@ Das folgende Beispiel iteriert über einen Array von Zahlen:
 ----
 const nums = [1, 2, 7]
 for(let num of nums){
-    // num entspricht
-    // im ersten Schleifendurchlauf 1, 
-    // im zweiten 6 und 
-    // im dritten Durchlauf 7
+    // num entspricht:
+    //   im ersten Schleifendurchlauf 1, 
+    //   im zweiten 6 und 
+    //   im dritten Durchlauf 7
 }
 ----
 
@@ -1195,7 +1199,7 @@ for(let num of nums){
 ****
 *Streight to the Point*
 
-Verwende das Codebeispiel von oben (das mit den Quizzfragen). Ändere den Code so ab, dass die Variable `i` nicht mehr gebraucht wird.
+Verwende das Codebeispiel von oben (das mit den Quizzfragen und dem console.log). Ändere den Code so ab, dass die Variable `i` nicht mehr gebraucht wird.
 
 Hinweis: `length`
 
@@ -1208,7 +1212,31 @@ Hinweis: `length`
 
 . Verbinde die Punkte mit Linien. Also der erste generierte Punkt hat eine gerade Linie zu Punkt zwei. Punkt zwei hat eine gerade Linie zu Punkt drei und so weiter.
 
+
+*Undo*
+
+. Bei jedem Click soll am Ort des Klicks ein kleiner Kreis gezeichnet werden.
+. Jeder neu gezeichnete Punkt wird mit einer geraden Linie mit dem zuletzt gezeichneten Punkt verbunden.
+. Sobald die Taste Backspace ("letztes Zeichen löschen", oberhalb der Enter-Taste) gedrückt wird, soll der zuletzt gezeichnete Punkt (und dessen Verbindungslinie) gelöscht werden.
+
+Hinweis: p5.js Funktionen `keyPressed` und `mouseClicked`, Array Methode `pop`.
+
+_Zusatzaufgabe_ {nbsp} +
+
+* Der Benutzer kann die Linienfarbe, der nächsten Linie, via Tastendruck bestimmen: `r`-Taste: Rot, `g`-Taste: Grün, `y`-Taste: Gelb.
+
+
 ****
+
+=== Lernkontrolle
+====
+* [*] Ich kann Dinge der echten Welt in JavaScript Objekte abbilden
+* [*] Ich kann die Methoden `join`, `includes`, `push` und `pop` im Zusammenhang mit einem Array anwenden
+* [*] Ich weiss wie ich mit einer while Schleife über ein Array iteriere
+* [*] Ich weiss wie ich mit einer for of Schleife über ein Array iteriere
+====
+
+
 
 
 == Funktionen – Definieren

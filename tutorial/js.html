@@ -181,6 +181,7 @@ pre.rouge table td.linenos{
 <li><a href="#_übung_arrays">Übung – Arrays</a></li>
 </ul>
 </li>
+<li><a href="#_lernkontrolle_9">Lernkontrolle</a></li>
 </ul>
 </li>
 <li><a href="#_funktionen_definieren">Funktionen – Definieren</a></li>
@@ -2185,7 +2186,7 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 <div class="sect2">
 <h3 id="_arrays">Arrays</h3>
 <div class="paragraph">
-<p>Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.</p>
+<p>Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, in einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.</p>
 </div>
 <div class="paragraph">
 <p>Wir können zum Beispiel alle Ganzzahlen von 100 bis und mit 105 in einem Array speichern:</p>
@@ -2232,12 +2233,15 @@ Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlic
 </table>
 </div>
 <div class="paragraph">
-<p>Nebst <code>length</code> gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte Methoden. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:</p>
+<p>Nebst <code>length</code> gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte <code>Methoden</code>. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>push – Neuen Wert im Array speichern</p>
+</li>
+<li>
+<p>pop – Letzten Wert aus Array entfernen (Umkehroperation von push)</p>
 </li>
 <li>
 <p>includes – Prüfen ob ein Wert bereits im Array enthalten ist</p>
@@ -2250,8 +2254,21 @@ Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlic
 <div class="paragraph">
 <p>Diese Methoden sind auf MDN sehr gut dokumentiert: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods" class="bare">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods</a>.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+In vielen Codebeispielen die du online im Zusammenhang mit JavaScript findest, siehst du den Aufruf der Funktion <code>console.log</code>. Diese Funktion gibt alle ihr übergebenen Parameter in der console aus. Die console haben wir ganz zu Beginn im Kapitel <a href="#_anweisungen_variablen">Anweisungen &amp; Variablen</a> kennen gelernt. &#160;<br>
+In p5.js gibt es diese Funktion nicht. Denn in p5.js zeichnen wir ja Dinge auf eine 2D Zeichenfläche. In einer reinen JavaScript-Umgebung hingegen, also z.B. der console im Browser, gibt es aber keine 2D Zeichenfläche. Deshalb ist es da sehr nützlich, wenn man Werte über die Funktion console.log ausgeben kann.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Im folgenden Beispiel werden diese drei Methoden verwendet:</p>
+<p>Im folgenden JavaScript Beispiel werden drei Array-Methoden (push, includes und join) verwendet. Ebenfalls wird das Resultat am Ende via console.log ausgegeben. Kopiere das Codebeispiel und führe es in der console im Browser aus.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2265,6 +2282,7 @@ Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlic
  8
  9
 10
+11
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">){</span>
@@ -2275,6 +2293,7 @@ Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlic
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">const</span> <span class="nx">display</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">display</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -2288,7 +2307,7 @@ Was macht obiger Code genau?</p>
 <summary class="title">Lösung (Click)</summary>
 <div class="content">
 <div class="paragraph">
-<p>Generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon &gt;= 0 und &lt;= 10, wobei eine Zahl nie doppelt vorkommt.</p>
+<p>Er generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon &gt;= 0 und &lt;= 10, wobei eine Zahl nie doppelt vorkommt.</p>
 </div>
 </div>
 </details>
@@ -2311,7 +2330,7 @@ Was macht obiger Code genau?</p>
 <div class="sect3">
 <h4 id="_for_of_schleife">for of Schleife</h4>
 <div class="paragraph">
-<p>Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die <code>for of</code> Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <a href="#iterieren">iterieren</a>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Array iterieren".</p>
+<p>Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die <code>for of</code> Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <a href="#iterieren">iterieren</a>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Arrays iterieren".</p>
 </div>
 <div class="paragraph">
 <p>Das folgende Beispiel iteriert über einen Array von Zahlen:</p>
@@ -2327,10 +2346,10 @@ Was macht obiger Code genau?</p>
 7
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">nums</span><span class="p">){</span>
-    <span class="c1">// num entspricht</span>
-    <span class="c1">// im ersten Schleifendurchlauf 1,</span>
-    <span class="c1">// im zweiten 6 und</span>
-    <span class="c1">// im dritten Durchlauf 7</span>
+    <span class="c1">// num entspricht:</span>
+    <span class="c1">//   im ersten Schleifendurchlauf 1,</span>
+    <span class="c1">//   im zweiten 6 und</span>
+    <span class="c1">//   im dritten Durchlauf 7</span>
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
@@ -2344,7 +2363,7 @@ Was macht obiger Code genau?</p>
 <p><strong>Streight to the Point</strong></p>
 </div>
 <div class="paragraph">
-<p>Verwende das Codebeispiel von oben (das mit den Quizzfragen). Ändere den Code so ab, dass die Variable <code>i</code> nicht mehr gebraucht wird.</p>
+<p>Verwende das Codebeispiel von oben (das mit den Quizzfragen und dem console.log). Ändere den Code so ab, dass die Variable <code>i</code> nicht mehr gebraucht wird.</p>
 </div>
 <div class="paragraph">
 <p>Hinweis: <code>length</code></p>
@@ -2365,6 +2384,58 @@ Was macht obiger Code genau?</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><strong>Undo</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Bei jedem Click soll am Ort des Klicks ein kleiner Kreis gezeichnet werden.</p>
+</li>
+<li>
+<p>Jeder neu gezeichnete Punkt wird mit einer geraden Linie mit dem zuletzt gezeichneten Punkt verbunden.</p>
+</li>
+<li>
+<p>Sobald die Taste Backspace ("letztes Zeichen löschen", oberhalb der Enter-Taste) gedrückt wird, soll der zuletzt gezeichnete Punkt (und dessen Verbindungslinie) gelöscht werden.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Hinweis: p5.js Funktionen <code>keyPressed</code> und <code>mouseClicked</code>, Array Methode <code>pop</code>.</p>
+</div>
+<div class="paragraph">
+<p><em>Zusatzaufgabe</em> &#160;<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Der Benutzer kann die Linienfarbe, der nächsten Linie, via Tastendruck bestimmen: <code>r</code>-Taste: Rot, <code>g</code>-Taste: Grün, <code>y</code>-Taste: Gelb.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lernkontrolle_9">Lernkontrolle</h3>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; Ich kann Dinge der echten Welt in JavaScript Objekte abbilden</p>
+</li>
+<li>
+<p>&#10003; Ich kann die Methoden <code>join</code>, <code>includes</code>, <code>push</code> und <code>pop</code> im Zusammenhang mit einem Array anwenden</p>
+</li>
+<li>
+<p>&#10003; Ich weiss wie ich mit einer while Schleife über ein Array iteriere</p>
+</li>
+<li>
+<p>&#10003; Ich weiss wie ich mit einer for of Schleife über ein Array iteriere</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2433,7 +2504,7 @@ Was macht obiger Code genau?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-27 18:09:43 UTC
+Last updated 2021-05-28 18:17:01 UTC
 </div>
 </div>
 <style>
