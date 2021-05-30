@@ -1025,7 +1025,7 @@ Hinweis: Die Funktion `strokeWeight`
 [loweralpha]
 . Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.
 
-. Fülle die x- und y-Achse mit Zahlen. Im Quadrat oben links steht dann eine 1. Rechts daneben eine 2, und so weiter; ganz rechts oben steht dann eine 10. Dasselbe Verhalten für die Spalte ganz links.
+. Fülle die erste Zeile und die erste Spalte mit Zahlen. Jeweils von 1 bis 10. Beginne oben links.
 
 ****
 
@@ -1084,6 +1084,42 @@ let propName = 'radius'
 circle(c['x'], c['y'], c[propName] * 2) // Eigenschaftsname in Variable gespeichert
 ----
 
+==== Objekte verändern
+
+In JavaScript können Eigenschaften von Objekten jederzeit geändert werden. Das heisst, nachdem ich ein Objekt definiert habe, kann ich den *Wert einer Eigenschaft ändern*:
+
+[source,javascript,linenums]
+----
+const myPoint = {
+    x: 250,
+    y: 250
+}
+
+myPoint.x = 10 // Ändere Wert von myPoint.x auf 10
+----
+
+Die Variable `myPoint` ist als const definiert. Das ist möglich, denn auf Zeile 6 ändern wir nicht die Variable `myPoint` selbst, sondern dessen Inhalt. Also den Wert der Eigenschaft `x` des Objektes, welches hinter der Variable `myPoint` steht.
+
+Im folgenden Beispiel untersuchen wir was passiert, wenn man einer Variable, welche ein Objekt beinhaltet, einen neuen Wert zuweist.
+
+[source,javascript,linenums]
+----
+const myPoint = {
+    x: 250,
+    y: 250
+}
+
+const myPoint2 = myPoint 
+myPoint2.y = 10
+myPoint2.y === myPoint.y  // true
+
+myPoint2 = { x: 1, y: 2 } // Error
+----
+
+`myPoint2` beinhaltet das gleiche (dasselbe) Objekt wie `myPoint`. Das heisst, sobald wir an `myPoint2` etwas ändern, wird es auch an `myPoint` geändert (Zeile 7 & 8).
+
+Auf Zeile 10 versuchen wir der Variable `myPoint2` einen neuen Wert zuzuweisen. Das geht nicht, denn die Variable `myPoint` ist const.
+
 
 ==== Übung – Objekte
 
@@ -1099,7 +1135,7 @@ circle(c['x'], c['y'], c[propName] * 2) // Eigenschaftsname in Variable gespeich
 
 === Arrays
 
-Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten, in einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.
+Eine weitere, wichtige Datenstruktur ist das Array. Mit einem Array können wir eine Menge von Werten in einer einzigen Variabel speichern und später auf die einzelnen Werte zugreifen.
 
 Wir können zum Beispiel alle Ganzzahlen von 100 bis und mit 105 in einem Array speichern:
 
@@ -1237,9 +1273,40 @@ _Zusatzaufgabe_ {nbsp} +
 ====
 
 
-
-
 == Funktionen – Definieren
+Funktionen haben wir bereits oft verwendet. Allerdings meistens nur als Aufrufer. Zum Beispiel wenn wir die Funktion `random` aufgerufen haben um eine Zufallszahl zu generieren. Oder die Methode `push` um einen Array zu erweitern.
+
+Ausnahmen sind die Funktionen `draw` und `setup`, welche von p5.js benötigt werden. Diese haben wir nicht aufgerufen, sondern wir haben diese *Funktionen selbst definiert*. Aufgerufen werden diese vom p5j.js Framework.
+
+Es gibt viele weitere Situationen, in denen es Sinn macht, selbst eine Funktion zu definieren, und diese dann auch aufzurufen.
+
+Im folgenden Beispiel verwenden wir eine selbst geschriebene Funktion `drawSmile`. Diese zeichnet ein Smiley. Als Parameter erwartet die Funktion, die x- und y-Koordinaten an denen das Smiley gezeichnet werden soll.
+
+++++
+<script type="text/p5" src="p5-sketches/smiley-function-demo.js" data-height="400">
+</script>
+++++
+
+{nbsp} +
+
+Die Funktion `drawSmiley` wird innerhalbt der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird guter letzt wird noch ein Smiley in die Bildmitte gezeichnet.
+
+Der Vorteil von Funktionen ist:
+
+* Zusammengehörige Anweisungen können in einem sprechenden Namen zusammgenfasst werden. {nbsp} +
+ Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens `drawSmiley` zusammgenfasst.
+
+* Funktionen können widerholt aufgerufen werden. Damit kann ich an verschiedenen Orten meines Programms von der Funktionalität der Funktion gebrauch machen. {nbsp} +
+Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhalb der while Schleife.
+
+=== Übung – Funktionen definieren
+
+****
+*Inline*
+
+Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergbnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.
+
+****
 
 
 == Weiterführende JavaScript Ressourcen
