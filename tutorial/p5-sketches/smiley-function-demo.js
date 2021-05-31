@@ -9,6 +9,8 @@ function setup() {
 	    random(40, width - 40))
     i = i + 1
   }
+
+  drawSmiley(width / 2, width / 2)
 }
 
 function drawSmiley(x, y){

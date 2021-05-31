@@ -1280,7 +1280,7 @@ Ausnahmen sind die Funktionen `draw` und `setup`, welche von p5.js benötigt wer
 
 Es gibt viele weitere Situationen, in denen es Sinn macht, selbst eine Funktion zu definieren, und diese dann auch aufzurufen.
 
-Im folgenden Beispiel verwenden wir eine selbst geschriebene Funktion `drawSmile`. Diese zeichnet ein Smiley. Als Parameter erwartet die Funktion, die x- und y-Koordinaten an denen das Smiley gezeichnet werden soll.
+Im folgenden Beispiel verwenden wir eine selbst geschriebene Funktion `drawSmiley`. Diese zeichnet ein Smiley. Als Parameter erwartet die Funktion die x- und y-Koordinaten an denen das Smiley gezeichnet werden soll.
 
 ++++
 <script type="text/p5" src="p5-sketches/smiley-function-demo.js" data-height="400">
@@ -1289,14 +1289,14 @@ Im folgenden Beispiel verwenden wir eine selbst geschriebene Funktion `drawSmile
 
 {nbsp} +
 
-Die Funktion `drawSmiley` wird innerhalbt der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird guter letzt wird noch ein Smiley in die Bildmitte gezeichnet.
+Die Funktion `drawSmiley` wird innerhalbt der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.
 
 Der Vorteil von Funktionen ist:
 
 * Zusammengehörige Anweisungen können in einem sprechenden Namen zusammgenfasst werden. {nbsp} +
  Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens `drawSmiley` zusammgenfasst.
 
-* Funktionen können widerholt aufgerufen werden. Damit kann ich an verschiedenen Orten meines Programms von der Funktionalität der Funktion gebrauch machen. {nbsp} +
+* Funktionen können wiederholt aufgerufen werden. Damit kann an verschiedenen Orten des Programms von der Funktionalität der Funktion profitiert werden. {nbsp} +
 Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhalb der while Schleife.
 
 === Übung – Funktionen definieren
@@ -1305,6 +1305,12 @@ Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhal
 *Inline*
 
 Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergbnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.
+
+*Drawing*
+
+Zeichne ein einfaches Haus mit mehreren Fenstern. Das Haus steht auf einer Blumenwiese mit grünem Gras. Die Blumen haben unterschiedliche Farben.
+
+Falls dir Blumenwiesen nicht zusagen: Zeichne eine sandige Wüstenlandschaft mit Kakten unterschiedlicher Art (Form) und Grösse.
 
 ****
 
