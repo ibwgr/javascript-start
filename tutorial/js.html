@@ -2536,7 +2536,7 @@ Was macht obiger Code genau?</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Zusammengehörige Anweisungen können in einem sprechenden Namen zusammgenfasst werden. &#160;<br>
+<p>Zusammengehörige Anweisungen können in einem sprechenden Namen zusammengefasst werden. &#160;<br>
 Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens <code>drawSmiley</code> zusammgenfasst.</p>
 </li>
 <li>
@@ -2554,6 +2554,68 @@ Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhal
 </div>
 <div class="paragraph">
 <p>Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergbnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.</p>
+</div>
+<div class="paragraph">
+<p><strong>Say Hello</strong></p>
+</div>
+<div class="paragraph">
+<p>Gegeben ist folgender Code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">juliane</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+<code>toUpperCase</code> wandelt die Zeichenkette in Grossbuchstaben um.
+<code>substr</code> schneidet einen Teil der Zeichenkette ab. Teste den Code in der Console, um zu sehen wie er funktioniert.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Problemstellung: Ich möchte auch noch zwei weitere Begrüssungen ausgeben, für andere Namen. Was tun? &#160;<br>
+Einfachste Lösung: Copy &amp; Paste. Das sieht dann so aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">name1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">juliane</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name1</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name1</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="kd">const</span> <span class="nx">name2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">martin</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name2</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="kd">const</span> <span class="nx">name3</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ruth</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name3</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name3</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Für drei Namen geht das gerade noch so. Was ist aber wenn ich 42 Namen habe?</p>
+</div>
+<div class="paragraph">
+<p><em>Aufgabe</em> &#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Finde eine Lösung die weniger duplizierten Code beinhaltet. Die Lösung soll auch mit vielen Namen problemlos umgehen können.</p>
 </div>
 <div class="paragraph">
 <p><strong>Drawing</strong></p>
@@ -2574,7 +2636,7 @@ Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhal
 </div>
 <div class="paragraph">
 <p><em>Zusatzaufgabe</em> &#160;<br>
-Animiere das Gras, so als ob die Gräser im Wind tanzen.</p>
+Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </div>
 </div>
 </div>
@@ -2637,7 +2699,7 @@ Animiere das Gras, so als ob die Gräser im Wind tanzen.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-04 17:19:12 UTC
+Last updated 2021-06-04 17:35:59 UTC
 </div>
 </div>
 <style>
