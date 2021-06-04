@@ -317,7 +317,7 @@ Hinweis: Die `stroke` Funktion
 Zeichne:
 
 +++
-<iframe src="p5-sketches/index.html?s=pendel" style="border:0; height: 200px;"></iframe>
+<iframe src="p5-sketches/index.html?s=u-pendel" style="border:0; height: 200px;"></iframe>
 +++
 
 *Symbol*
@@ -327,7 +327,7 @@ Zeichne selbst etwas bestimmtes. z.B. ein Haus oder ein Ying-Yang Symbol oder wa
 Inspiration:
 
 +++
-<iframe src="p5-sketches/index.html?s=peace" style="border:0; height: 200px;"></iframe>
+<iframe src="p5-sketches/index.html?s=u-peace" style="border:0; height: 200px;"></iframe>
 +++
 https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/
 
@@ -1308,9 +1308,18 @@ Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das
 
 *Drawing*
 
-Zeichne ein einfaches Haus mit mehreren Fenstern. Das Haus steht auf einer Blumenwiese mit grünem Gras. Die Blumen haben unterschiedliche Farben.
+Zeichne ein einfaches Haus mit mehreren Fenstern. Das Haus steht neben einer Wiese mit grünem Gras.
 
-Falls dir Blumenwiesen nicht zusagen: Zeichne eine sandige Wüstenlandschaft mit Kakten unterschiedlicher Art (Form) und Grösse.
+Versuche Dinge, die wiederholt ausgeführt werden, in Funktionen auszulagern. Die Länge und der Neigungswinkel eines Grashalms ist zufällig.
+
+Vorlage:
+
++++
+<iframe src="p5-sketches/index.html?s=u-house" style="border:0; height: 150px;"></iframe>
++++
+
+_Zusatzaufgabe_ {nbsp} +
+Animiere das Gras, so als ob die Gräser im Wind tanzen.
 
 ****
 
