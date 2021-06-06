@@ -1190,6 +1190,42 @@ const display = nums.join(",")
 console.log(display)
 ----
 
+==== Array und String
+
+Ein String besteht aus einer Abfolge von Zeichen. Daher auch die Bezeichnung `Zeichenkette`. Ein String ist also im Prinzip so etwas ähnliches wie ein Array von Zeichen. Das heisst wir können via Index auf ein Zeichen zugreifen, sowie die Länge des Strings via `length` abfragen:
+
+[source,javascript,linenums]
+----
+const word = "abcdefgh"
+console.log(word.length) // 8
+console.log(word[0]) // a
+console.log(word[word.length -1]) // h
+----
+
+TIP: Es ist nicht möglich die bekannten Array-Methoden (z.B. `pop`) auf einem String aufzurufen. Ein String ist ähnlich wie ein Array, aber eben kein Array. Lediglich der Zugriff via Index, sowie die Eigenschaft `length` sind den beiden Datentypen gemeinsam.
+
+
+==== for of Schleife
+
+Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die `for of` Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <<iterieren>>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Arrays iterieren".
+
+
+Das folgende Beispiel iteriert über einen Array von Zahlen:
+
+[source,javascript,linenums]
+----
+const nums = [1, 2, 7]
+for(let num of nums){
+    // num entspricht:
+    //   im ersten Schleifendurchlauf 1, 
+    //   im zweiten 6 und 
+    //   im dritten Durchlauf 7
+}
+----
+
+Die Variable `num` wird als Teil der Schleife deklariert. Das heisst der Gültigkeitsbereich ist beschränkt auf die Schleife selbst (im Beispiel Zeile 3 - 6).
+
+
 ****
 *Quizfragen* {nbsp} +
 Was macht obiger Code genau?
@@ -1211,23 +1247,6 @@ Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird `i` nicht um 
 ====
 ****
 
-==== for of Schleife
-
-Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die `for of` Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <<iterieren>>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Arrays iterieren".
-
-
-Das folgende Beispiel iteriert über einen Array von Zahlen:
-
-[source,javascript,linenums]
-----
-const nums = [1, 2, 7]
-for(let num of nums){
-    // num entspricht:
-    //   im ersten Schleifendurchlauf 1, 
-    //   im zweiten 6 und 
-    //   im dritten Durchlauf 7
-}
-----
 
 
 ==== Übung – Arrays
@@ -1314,7 +1333,7 @@ Gegeben ist folgender Code:
 [source,javascript,linenums]
 ----
 const name = "juliane"
-console.log('Hi ' name[0].toUpperCase() + name.substr(1))
+console.log('Hi ' + name[0].toUpperCase() + name.substr(1))
 ----
 
 TIP: `toUpperCase` wandelt die Zeichenkette in Grossbuchstaben um.
@@ -1326,20 +1345,20 @@ Einfachste Lösung: Copy & Paste. Das sieht dann so aus:
 [source,javascript,linenums]
 ----
 const name1 = "juliane"
-console.log('Hi ' name1[0].toUpperCase() + name1.substr(1))
+console.log('Hi ' + name1[0].toUpperCase() + name1.substr(1))
 
 const name2 = "martin"
-console.log('Hi ' name2[0].toUpperCase() + name2.substr(1))
+console.log('Hi ' + name2[0].toUpperCase() + name2.substr(1))
 
 const name3 = "ruth"
-console.log('Hi ' name3[0].toUpperCase() + name3.substr(1))
+console.log('Hi ' + name3[0].toUpperCase() + name3.substr(1))
 ----
 
 Für drei Namen geht das gerade noch so. Was ist aber wenn ich 42 Namen habe?
 
 _Aufgabe_ {nbsp} +
 
-Finde eine Lösung die weniger duplizierten Code beinhaltet. Die Lösung soll auch mit vielen Namen problemlos umgehen können.
+Finde eine Lösung, die weniger duplizierten Code beinhaltet. Erstelle dazu eine Funktion `sayHello` mit einem Parameter `name`.
 
 *Drawing*
 

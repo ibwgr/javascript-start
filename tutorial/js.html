@@ -178,6 +178,7 @@ pre.rouge table td.linenos{
 </li>
 <li><a href="#_arrays">Arrays</a>
 <ul class="sectlevel3">
+<li><a href="#_array_und_string">Array und String</a></li>
 <li><a href="#_for_of_schleife">for of Schleife</a></li>
 <li><a href="#_übung_arrays">Übung – Arrays</a></li>
 </ul>
@@ -2362,6 +2363,67 @@ In p5.js gibt es diese Funktion nicht. Denn in p5.js zeichnen wir ja Dinge auf e
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_array_und_string">Array und String</h4>
+<div class="paragraph">
+<p>Ein String besteht aus einer Abfolge von Zeichen. Daher auch die Bezeichnung <code>Zeichenkette</code>. Ein String ist also im Prinzip so etwas ähnliches wie ein Array von Zeichen. Das heisst wir können via Index auf ein Zeichen zugreifen, sowie die Länge des Strings via <code>length</code> abfragen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">word</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">abcdefgh</span><span class="dl">"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="c1">// 8</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">// a</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">[</span><span class="nx">word</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">// h</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">💡</div>
+</td>
+<td class="content">
+Es ist nicht möglich die bekannten Array-Methoden (z.B. <code>pop</code>) auf einem String aufzurufen. Ein String ist ähnlich wie ein Array, aber eben kein Array. Lediglich der Zugriff via Index, sowie die Eigenschaft <code>length</code> sind den beiden Datentypen gemeinsam.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_for_of_schleife">for of Schleife</h4>
+<div class="paragraph">
+<p>Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die <code>for of</code> Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <a href="#iterieren">iterieren</a>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Arrays iterieren".</p>
+</div>
+<div class="paragraph">
+<p>Das folgende Beispiel iteriert über einen Array von Zahlen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">nums</span><span class="p">){</span>
+    <span class="c1">// num entspricht:</span>
+    <span class="c1">//   im ersten Schleifendurchlauf 1,</span>
+    <span class="c1">//   im zweiten 6 und</span>
+    <span class="c1">//   im dritten Durchlauf 7</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Variable <code>num</code> wird als Teil der Schleife deklariert. Das heisst der Gültigkeitsbereich ist beschränkt auf die Schleife selbst (im Beispiel Zeile 3 - 6).</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -2390,33 +2452,6 @@ Was macht obiger Code genau?</p>
 </div>
 </div>
 </details>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_for_of_schleife">for of Schleife</h4>
-<div class="paragraph">
-<p>Im Zusammenhang mit Arrays gibt es einen weiteren Schleifentyp, die <code>for of</code> Schleife. Diese ermöglicht es sehr einfach über alle Werte, die in einem Array gespeichert sind, zu <a href="#iterieren">iterieren</a>. Man sagt auch: "über den Array iterieren" oder: "über die Elemente des Arrays iterieren".</p>
-</div>
-<div class="paragraph">
-<p>Das folgende Beispiel iteriert über einen Array von Zahlen:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">nums</span><span class="p">){</span>
-    <span class="c1">// num entspricht:</span>
-    <span class="c1">//   im ersten Schleifendurchlauf 1,</span>
-    <span class="c1">//   im zweiten 6 und</span>
-    <span class="c1">//   im dritten Durchlauf 7</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 </div>
@@ -2566,7 +2601,7 @@ Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhal
 <pre class="rouge highlight"><code data-lang="javascript"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">juliane</span><span class="dl">"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -2598,13 +2633,13 @@ Einfachste Lösung: Copy &amp; Paste. Das sieht dann so aus:</p>
 7
 8
 </pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">name1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">juliane</span><span class="dl">"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name1</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name1</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name1</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name1</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 
 <span class="kd">const</span> <span class="nx">name2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">martin</span><span class="dl">"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name2</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name2</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 
 <span class="kd">const</span> <span class="nx">name3</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ruth</span><span class="dl">"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="nx">name3</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name3</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hi </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name3</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">name3</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -2615,7 +2650,7 @@ Einfachste Lösung: Copy &amp; Paste. Das sieht dann so aus:</p>
 <p><em>Aufgabe</em> &#160;<br></p>
 </div>
 <div class="paragraph">
-<p>Finde eine Lösung die weniger duplizierten Code beinhaltet. Die Lösung soll auch mit vielen Namen problemlos umgehen können.</p>
+<p>Finde eine Lösung, die weniger duplizierten Code beinhaltet. Erstelle dazu eine Funktion <code>sayHello</code> mit einem Parameter <code>name</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Drawing</strong></p>
@@ -2699,7 +2734,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-04 17:35:59 UTC
+Last updated 2021-06-06 07:39:22 UTC
 </div>
 </div>
 <style>

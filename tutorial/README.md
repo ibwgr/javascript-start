@@ -13,3 +13,8 @@ http://eradman.com/entrproject/ must be installed
 
 `./live.sh` \
 `open js.html`
+
+# Todo
+
+* Arrays with illustrations / simple examples
+* Objects with illustrations / simple examples
