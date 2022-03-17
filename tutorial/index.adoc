@@ -33,21 +33,22 @@ In diesem Tutorial lernen wir zudem p5.js kennen. Damit können wir 2D-Grafiken 
 
 Um unseren Code auszuführen, also zum Beispiel um die Grafiken zu rendern, verwenden wir einen *Browser* (Chrome, Firefox, Safari oder Edge).
 
+[#vscode-setup]
 ==== Editor für p5.js Übungen
-Dieses Kapitel wird erst mit Kapitel xy relevant. Du kannst dieses Kapitel fürs Erste überspringen und später darauf zurück kommen.
+Dieses Kapitel wird erst mit Kapitel link:#p5[p5.js – Einführung] relevant. Du kannst dieses Kapitel fürs Erste überspringen und später darauf zurück kommen.
 
 
-Im Kapitel xy beginnst du Programme zu schreiben die einige dutzend Zeilen lang sind. Theoretisch kannst du diese direkt auf dieser Webseite mit dem p5.js inline Editor lösen. Komfortabler, und näher an der beruflichen Realität ist jedoch, wenn du dafür eine IDE verwendest. 
+Im Kapitel link:#p5[p5.js – Einführung] beginnst du Programme zu schreiben die einige dutzend Zeilen lang sind. Theoretisch kannst du diese direkt auf dieser Webseite mit dem p5.js inline Editor lösen. Komfortabler, und näher an der beruflichen Realität ist jedoch, wenn du dafür eine IDE verwendest. 
 
 Führe folgende Schritte aus um Visual Studio Code optimal einzurichten für das Lösen der p5.js Übungen:
 
 1. Visual Studio Code herunterladen und installieren: https://code.visualstudio.com/download
 1. Plugin "p5.vscode" installieren: https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode
-1. Tutorial Source Code herunterladen von Download-URL: xy . Die heruntergeladene ZIP-Datei entpacken.
-1. Entpackten Ordner "tutorial" in Visual Studio Code öffnen
-1. Die Datei p5-sketches/index.html öffnen und in der Statuszeile auf "Go Live" klicken. Die index.html wird nun automatisch im Browser geöffnet.
-1. Zurück im Visual Studio Code. Die Datei p5-sketches/sketch.js öffnen. Darin die Funktion `draw` um die Anweisung `line(0, 0, 100, 100)` ergänzen.
-1. Im Browser die Seite neu laden. Die Linie ist nun auf der Zeichenfläche sichtbar.
+1. Tutorial Source Code herunterladen von Download-URL: TODO. Die heruntergeladene ZIP-Datei entpacken.
+1. Entpackten Ordner in Visual Studio Code öffnen
+1. Die Datei index.html öffnen und in der Statuszeile auf "Go Live" klicken. Die index.html wird nun automatisch im Browser geöffnet.
+1. Zurück im Visual Studio Code. Die Datei sketch.js öffnen. Darin die Funktion `draw` um die Anweisung `line(0, 0, 100, 100)` ergänzen. Änderungen speichern.
+1. Die Seite im Browser wird automatisch neu geladen. Die Linie ist nun auf der Zeichenfläche sichtbar.
 
 == Anweisungen & Variablen
 
@@ -291,6 +292,7 @@ Ich weiss, ...
 * [*] wie ich eine Funktion aufrufe
 ====
 
+[#p5]
 == p5.js – Einführung
 Im Folgenden siehst du ein einfaches Programm, welches mithilfe von p5.js eine Linie zeichnet. Klicke auf "Play" um das Programm auszuführen und das Ergebnis zu sehen.
 
@@ -310,7 +312,7 @@ Cool! Aber was geschieht da genau?
 1. Mit `line` zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.
 
 === Übung – 2D Zeichnen
-Du kannst diese Übungen direkt im obigen Editor lösen.
+Du kannst diese Übungen direkt im obigen Editor lösen. Empfohlen wird jedoch, diese Übungen in der Visual Studio Code IDE zu lösen. Folge der Anleitung in dem Kapitel link:#vscode-setup[Editor für p5.js Übungen], um Visual Studio Code einzurichten.
 
 Wichtige Ressourcen:
 
