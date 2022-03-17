@@ -77,33 +77,43 @@ pre.rouge table td.linenos{
     list-style-type: none;
 }
 
-a[href^="#_übung_"]::before{
+a[href^="#_übung"]::before{
     content: "";
     float: left;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 14px;
     margin-right: 5px;
     background: url(practice.png) no-repeat center center;
-    background-size: 71%;
+    background-size: 100%;
     opacity: 0.5;
 }
 
 
-a[href^="#_lernkontrolle_"]::before{
+a[href^="#_lernkontrolle"]::before{
     content: "";
     float: left;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 14px;
     margin-right: 5px;
     background: url(tick.png) no-repeat center center;
-    background-size: 71%;
+    background-size: 100%;
     opacity: 0.25;
 }
-
 
 .source-code-link {
     display: block;
     margin-top: -0.5em;
+}
+
+
+details > summary.title{
+    color: #2156a5;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+details[open] > summary {
+    margin-bottom: 1em;
 }
 </style>
 <style>
@@ -3062,7 +3072,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 14:00:01 UTC
+Last updated 2022-03-17 19:30:52 UTC
 </div>
 </div>
 </body>
