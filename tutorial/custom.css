@@ -74,7 +74,7 @@ a[href^="#_übung"]::before{
     width: 10px;
     height: 14px;
     margin-right: 5px;
-    background: url(practice.png) no-repeat center center;
+    background: url(media/practice.png) no-repeat center center;
     background-size: 100%;
     opacity: 0.5;
 }
@@ -86,7 +86,7 @@ a[href^="#_lernkontrolle"]::before{
     width: 10px;
     height: 14px;
     margin-right: 5px;
-    background: url(tick.png) no-repeat center center;
+    background: url(media/tick.png) no-repeat center center;
     background-size: 100%;
     opacity: 0.25;
 }

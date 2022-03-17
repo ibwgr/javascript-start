@@ -16,3 +16,6 @@ python3.8 -m http.server 8000
 http://eradman.com/entrproject/ must be installed
 
 `./live.sh`
+
+#
+Todo tutorial dist zip erstellen

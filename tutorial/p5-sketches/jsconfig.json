@@ -1,6 +1,7 @@
 {
   "include": [
     "*.js",
-    "libraries/*.js"
+    "libraries/*.js",
+    "types/global.d.ts"
   ]
 }
