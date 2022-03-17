@@ -59,3 +59,40 @@ pre.rouge table td.linenos{
     border-radius: 0 !important;
 }
 
+#toctitle{
+    display: none;
+}
+
+#toc .sectlevel1 > li {
+    margin-top: 1rem;
+    list-style-type: none;
+}
+
+a[href^="#_übung_"]::before{
+    content: "";
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    background: url(practice.png) no-repeat center center;
+    background-size: 71%;
+    opacity: 0.5;
+}
+
+
+a[href^="#_lernkontrolle_"]::before{
+    content: "";
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    background: url(tick.png) no-repeat center center;
+    background-size: 71%;
+    opacity: 0.25;
+}
+
+
+.source-code-link {
+    display: block;
+    margin-top: -0.5em;
+}

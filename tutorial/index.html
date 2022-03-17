@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <title>JavaScript lernen</title>
 <style>
 @import url(asciidoctor.css);
@@ -68,7 +68,258 @@ pre.rouge table td.linenos{
     border-radius: 0 !important;
 }
 
+#toctitle{
+    display: none;
+}
 
+#toc .sectlevel1 > li {
+    margin-top: 1rem;
+    list-style-type: none;
+}
+
+a[href^="#_übung_"]::before{
+    content: "";
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    background: url(practice.png) no-repeat center center;
+    background-size: 71%;
+    opacity: 0.5;
+}
+
+
+a[href^="#_lernkontrolle_"]::before{
+    content: "";
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    background: url(tick.png) no-repeat center center;
+    background-size: 71%;
+    opacity: 0.25;
+}
+
+
+.source-code-link {
+    display: block;
+    margin-top: -0.5em;
+}
+</style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
 </style>
 <script src="//julesfouchy.github.io/p5.js-widget/p5-widget.js"></script>
 </head>
@@ -88,7 +339,7 @@ pre.rouge table td.linenos{
 <ul class="sectlevel2">
 <li><a href="#_anweisungen">Anweisungen</a>
 <ul class="sectlevel3">
-<li><a href="#_übung_anweisungen">Übung - Anweisungen</a></li>
+<li><a href="#_übung_anweisungen">Übung – Anweisungen</a></li>
 </ul>
 </li>
 <li><a href="#_kommentare">Kommentare</a></li>
@@ -143,11 +394,11 @@ pre.rouge table td.linenos{
 <li><a href="#_ereignisse">Ereignisse</a>
 <ul class="sectlevel2">
 <li><a href="#_p5_js_interaktiv">p5.js – Interaktiv</a></li>
-<li><a href="#_übungen_ereignisse">Übungen – Ereignisse</a></li>
+<li><a href="#_übung_ereignisse">Übung – Ereignisse</a></li>
 <li><a href="#_lernkontrolle_5">Lernkontrolle</a></li>
 </ul>
 </li>
-<li><a href="#_verzweigungen_bedingte_ausführung">Verzweigungen – bedingte Ausführung</a>
+<li><a href="#_verzweigungen_bedingte_ausführung">Verzweigungen – Bedingte Ausführung</a>
 <ul class="sectlevel2">
 <li><a href="#_übung_bedingte_ausführung">Übung – Bedingte Ausführung</a></li>
 <li><a href="#_lernkontrolle_6">Lernkontrolle</a></li>
@@ -181,9 +432,9 @@ pre.rouge table td.linenos{
 <li><a href="#_array_und_string">Array und String</a></li>
 <li><a href="#_for_of_schleife">for of Schleife</a></li>
 <li><a href="#_übung_arrays">Übung – Arrays</a></li>
+<li><a href="#_lernkontrolle_9">Lernkontrolle</a></li>
 </ul>
 </li>
-<li><a href="#_lernkontrolle_9">Lernkontrolle</a></li>
 </ul>
 </li>
 <li><a href="#_funktionen_definieren">Funktionen – Definieren</a>
@@ -217,7 +468,7 @@ Mit jedem Baustein kannst du komplexere / vielfältigere Programme schreiben.
 Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.</p>
 </div>
 <div class="paragraph">
-<p>Die Inhalte beschränken sich auf das Kursziel. Weiteführende, empfehlenswerte Lernquellen sind am Ende aufgeführt.</p>
+<p>Die Inhalte beschränken sich auf das Kursziel. Weiterführende, empfehlenswerte Lernquellen sind am Ende aufgeführt.</p>
 </div>
 </div>
 <div class="sect2">
@@ -280,7 +531,7 @@ Mögliche Dinge die man tun kann:</p>
 <p>Die Anweisungen werden sequentiell von oben nach unten ausgeführt.</p>
 </div>
 <div class="paragraph">
-<p>Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.</p>
+<p>Die erste Zeile weist den Computer an, zwei Zahlen zu addieren, das Ergebnis ist 4.</p>
 </div>
 <div class="paragraph">
 <p>Die zweite Zeile berechnet die Quadratwurzel (engl. Square Root, sqrt) aus 25, das Ergebnis ist 5.</p>
@@ -289,7 +540,7 @@ Mögliche Dinge die man tun kann:</p>
 <p>Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo &lt;NAME&gt;".</p>
 </div>
 <div class="sect3">
-<h4 id="_übung_anweisungen">Übung - Anweisungen</h4>
+<h4 id="_übung_anweisungen">Übung – Anweisungen</h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="olist arabic">
@@ -337,7 +588,7 @@ Mehrzeiliger Kommentar ...
 Ende Kommentar
 */</span>
 <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="c1">// Quadratwurzel von 25</span>
-<span class="nb">Math</span><span class="p">.</span><span class="cm">/*Kommentar innerhalb einer Anweisung, einfach weils geht :)*/</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="nb">Math</span><span class="p">.</span><span class="cm">/*Kommentar innerhalb einer Anweisung, einfach weil es geht :)*/</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -542,7 +793,7 @@ Nachdem du in der console eine Variable definiert hast mit <code>let</code> oder
 <p>Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren von zweidimensionalen geometrischen Formen.</p>
 </div>
 <div class="paragraph">
-<p>Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.</p>
+<p>Um einen Computer anzuweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.</p>
 </div>
 <div class="sect2">
 <h3 id="_zeichenfläche">Zeichenfläche</h3>
@@ -725,7 +976,7 @@ line(0, 0, 200, 200)
 <p>Du kannst diese Übungen direkt im obigen Editor lösen.</p>
 </div>
 <div class="paragraph">
-<p>Wichtige Resourcen:</p>
+<p>Wichtige Ressourcen:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -768,6 +1019,9 @@ Hinweis: Die <code>stroke</code> Funktion</p>
 <div class="paragraph">
 <p>
 <iframe src="p5-sketches/index.html?s=u-pendel" style="border:0; height: 200px;"></iframe>
+
+
+<a href="p5-sketches/u-pendel.js" class="source-code-link">Source Code anzeigen</a>
 </p>
 </div>
 <div class="paragraph">
@@ -783,7 +1037,12 @@ Hinweis: Die <code>stroke</code> Funktion</p>
 <p>
 <iframe src="p5-sketches/index.html?s=u-peace" style="border:0; height: 200px;"></iframe>
 
-<a href="https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/" class="bare">https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/</a></p>
+
+<a href="p5-sketches/u-peace.js" class="source-code-link">Source Code anzeigen</a>
+</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/" class="bare">https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/</a></p>
 </div>
 </div>
 </div>
@@ -1284,13 +1543,18 @@ Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vor
 <p><strong>Ruckel</strong></p>
 </div>
 <div class="paragraph">
-<p>Verwende im Beispiel oben die Funktion <code>frameRate</code>, um eine ruckelnde Animition zu erstellen.</p>
+<p>Verwende im Beispiel oben die Funktion <code>frameRate</code>, um eine ruckelnde Animation zu erstellen.</p>
 </div>
 <div class="paragraph">
 <p><strong>Floating Rect</strong></p>
 </div>
 <div class="paragraph">
 <p>Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.</p>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-floating-rect.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 <div class="paragraph">
 <p><strong>Pixel Screen</strong></p>
@@ -1313,6 +1577,11 @@ Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss k
 <div class="content">
 <img src="media/pixelscreen-preview.png" alt="system" width="100" height="100">
 </div>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-pixel-screen.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 </div>
 </div>
@@ -1350,6 +1619,9 @@ Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss k
 <div class="paragraph">
 <p>
 <iframe src="p5-sketches/index.html?s=events-demo" style="border:0; height: 100px;"></iframe>
+
+
+<a href="p5-sketches/events-demo.js" class="source-code-link">Source Code anzeigen</a>
 </p>
 </div>
 <div class="paragraph">
@@ -1368,13 +1640,13 @@ Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss k
 </div>
 <div class="paragraph">
 <p>
-<script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="200">
+<script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="350">
 </script>
 </p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_übungen_ereignisse">Übungen – Ereignisse</h3>
+<h3 id="_übung_ereignisse">Übung – Ereignisse</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -1385,6 +1657,11 @@ Beachte: Die Quadrate dürfen sich nicht überschneiden und jedes Quadrat muss k
 </div>
 <div class="paragraph">
 <p>Hinweis: Die Funktion <code>noCursor</code></p>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-mouse-deco.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 <div class="paragraph">
 <p><strong>Typewriter</strong></p>
@@ -1403,6 +1680,11 @@ Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.</p>
 <div class="content">
 <img src="media/typewriter-preview.png" alt="system" width="200" height="200">
 </div>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-typewriter.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 </div>
 </div>
@@ -1430,7 +1712,7 @@ Sonderzeichen, Backspace und Enter etc. musst du nicht berücksichtigen.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_verzweigungen_bedingte_ausführung">Verzweigungen – bedingte Ausführung</h2>
+<h2 id="_verzweigungen_bedingte_ausführung">Verzweigungen – Bedingte Ausführung</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Ein Weiterer wichtiger Baustein von Programmen sind Verzweigungen. Damit ist es möglich gewisse Anweisungen nur bedingt auszuführen.</p>
@@ -1552,7 +1834,7 @@ Dieses Beispiel verwendet Platzhalter (mit &lt;&lt; und &gt;&gt; gekennzeichnet)
 </div>
 </div>
 <div class="paragraph">
-<p>Im Weiteren spielt es keine Rolle wieviel Leerzeichen oder Zeilenumbrüche verwendet werden. Wichtig sind die Steuerzeichen (z.B. Klammerpaare) und Keywords. Folgender Code ist also äquivalent, allerdings schlechter lesbar:</p>
+<p>Im Weiteren spielt es keine Rolle wie viel Leerzeichen oder Zeilenumbrüche verwendet werden. Wichtig sind die Steuerzeichen (z.B. Klammerpaare) und Keywords. Folgender Code ist also äquivalent, allerdings schlechter lesbar:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1596,12 +1878,17 @@ Dieses Beispiel verwendet Platzhalter (mit &lt;&lt; und &gt;&gt; gekennzeichnet)
 <p>Zusatzaufgabe: Löse das Problem ohne <code>if</code>. Hinweis: Die Funktion <code>min</code>.</p>
 </div>
 <div class="paragraph">
+<p>
+<a href="p5-sketches/u-floating-rect-boundary.js" class="source-code-link">Source Code anzeigen</a>
+</p>
+</div>
+<div class="paragraph">
 <p><strong>Catch me</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Zeichne einen Kreis. Wenn der Spieler daneben klickt, bekommt er einen Punkt abzug. Weniger als 0 Punkte geht nicht. &#160;<br>
+<p>Zeichne einen Kreis. Wenn der Spieler daneben klickt, bekommt er einen Punkt Abzug. Weniger als 0 Punkte geht nicht. &#160;<br>
 Wenn der Spieler auf den Kreis klickt:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -1624,6 +1911,12 @@ Wenn der Spieler auf den Kreis klickt:</p>
 </div>
 <div class="paragraph">
 <p>Hinweis: <code>dist</code>, <code>random</code>, <code>frameRate</code></p>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-catchme-minimal.js" class="source-code-link">Source Code anzeigen (minimale Lösung)</a>
+<a href="p5-sketches/u-catchme-fancy.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 </div>
 </div>
@@ -1883,7 +2176,7 @@ In diesem Kapitel behandeln wir nicht alle Aspekte von Geltungsbereichen, sonder
 <p>Geltungsbereiche beinhalten verschachtelte Blöcke</p>
 </li>
 <li>
-<p>Variabeln, welche in verschachtelten Blöcken definiert werden, sind in äusseren Blöcken nicht referenzierbar</p>
+<p>Variablen, welche in verschachtelten Blöcken definiert werden, sind in äusseren Blöcken nicht referenzierbar</p>
 </li>
 </ul>
 </div>
@@ -1968,7 +2261,7 @@ Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingu
 Die Zeile 3 wird also 4 mal ausgeführt. Denn erst bei deren vierten Ausführung ist die Bedingung <code>false</code> und somit wird der Schleifeninhalt kein weiteres mal ausgeführt.</p>
 </div>
 <div class="paragraph">
-<p>Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal unmittelbar bevor Zeile 3 ausgeführt wird.</p>
+<p>Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedes mal unmittelbar bevor Zeile 3 ausgeführt wird.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2044,7 +2337,7 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 <p>Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Spalten unterteilt wird.</p>
 </li>
 <li>
-<p>Verändere das Programm so, dass du in einer Variable <code>parts</code> vorgeben kannst, in wieviele Spalten die Fläche unterteilt wird.</p>
+<p>Verändere das Programm so, dass du in einer Variable <code>parts</code> vorgeben kannst, in wie viele Spalten die Fläche unterteilt wird.</p>
 </li>
 <li>
 <p>Verändere das Programm so, dass jede zweite Linie 2 Pixel breit ist, wobei die erste Linie 2 Pixel breit ist.</p>
@@ -2053,6 +2346,11 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 </div>
 <div class="paragraph">
 <p>Hinweis: Die Funktion <code>strokeWeight</code></p>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-split.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 <div class="paragraph">
 <p><strong>Grid</strong></p>
@@ -2066,6 +2364,11 @@ Es gibt weitere Schleifentypen (<code>for</code>, <code>do while</code>). Für d
 <p>Fülle die erste Zeile und die erste Spalte mit Zahlen. Jeweils von 1 bis 10. Beginne oben links.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-grid.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 </div>
 </div>
@@ -2245,6 +2548,11 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-catchme-fancy.js" class="source-code-link">Source Code anzeigen</a>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -2293,7 +2601,7 @@ Man kann aber auch sagen, dass es immaterielle, abstrakte Objekte gibt: Gedanke,
 <div class="title">💡</div>
 </td>
 <td class="content">
-Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. <code>[6, 3.14, 'zero', { }]</code>. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
+Theoretisch ist es möglich in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. <code>[6, 3.14, 'zero', { }]</code>. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
 </td>
 </tr>
 </table>
@@ -2460,13 +2768,18 @@ Was macht obiger Code genau?</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Streight to the Point</strong></p>
+<p><strong>Straight to the Point</strong></p>
 </div>
 <div class="paragraph">
-<p>Verwende das Codebeispiel von oben (das mit den Quizzfragen und dem console.log). Ändere den Code so ab, dass die Variable <code>i</code> nicht mehr gebraucht wird.</p>
+<p>Verwende das Codebeispiel von oben (das mit den Quizfragen und dem console.log). Ändere den Code so ab, dass die Variable <code>i</code> nicht mehr gebraucht wird.</p>
 </div>
 <div class="paragraph">
 <p>Hinweis: <code>length</code></p>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-straight-to-the-point.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 <div class="paragraph">
 <p><strong>Path</strong></p>
@@ -2474,7 +2787,7 @@ Was macht obiger Code genau?</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Generiere hundert Punkt-Objekte. Jeder Punkt besteht aus einer x- und y-Koordinate. Die x- und y-Werte sollen zufällig sein, jedoch immer ganzahlig und zwischen 10 und 990 (inklusive).</p>
+<p>Generiere hundert Punkt-Objekte. Jeder Punkt besteht aus einer x- und y-Koordinate. Die x- und y-Werte sollen zufällig sein, jedoch immer ganzzahlig und zwischen 10 und 990 (inklusive).</p>
 </li>
 <li>
 <p>Zeichne jeden einzelnen Punkt als kleinen Kreis auf eine quadratische Fläche mit der Seitenlänge 1000.</p>
@@ -2483,6 +2796,11 @@ Was macht obiger Code genau?</p>
 <p>Verbinde die Punkte mit Linien. Also der erste generierte Punkt hat eine gerade Linie zu Punkt zwei. Punkt zwei hat eine gerade Linie zu Punkt drei und so weiter.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-path.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 <div class="paragraph">
 <p><strong>Undo</strong></p>
@@ -2513,12 +2831,16 @@ Was macht obiger Code genau?</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-undo.js" class="source-code-link">Source Code anzeigen</a>
+</p>
 </div>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_lernkontrolle_9">Lernkontrolle</h3>
+<div class="sect3">
+<h4 id="_lernkontrolle_9">Lernkontrolle</h4>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist checklist">
@@ -2536,6 +2858,7 @@ Was macht obiger Code genau?</p>
 <p>&#10003; Ich weiss wie ich mit einer for of Schleife über ein Array iteriere</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -2563,7 +2886,7 @@ Was macht obiger Code genau?</p>
 <p>&#160;<br></p>
 </div>
 <div class="paragraph">
-<p>Die Funktion <code>drawSmiley</code> wird innerhalbt der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.</p>
+<p>Die Funktion <code>drawSmiley</code> wird innerhalb der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.</p>
 </div>
 <div class="paragraph">
 <p>Der Vorteil von Funktionen ist:</p>
@@ -2572,7 +2895,7 @@ Was macht obiger Code genau?</p>
 <ul>
 <li>
 <p>Zusammengehörige Anweisungen können in einem sprechenden Namen zusammengefasst werden. &#160;<br>
-Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens <code>drawSmiley</code> zusammgenfasst.</p>
+Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens <code>drawSmiley</code> zusammengefasst.</p>
 </li>
 <li>
 <p>Funktionen können wiederholt aufgerufen werden. Damit kann an verschiedenen Orten des Programms von der Funktionalität der Funktion profitiert werden. &#160;<br>
@@ -2588,7 +2911,7 @@ Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhal
 <p><strong>Inline</strong></p>
 </div>
 <div class="paragraph">
-<p>Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergbnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.</p>
+<p>Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergebnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.</p>
 </div>
 <div class="paragraph">
 <p><strong>Say Hello</strong></p>
@@ -2673,6 +2996,11 @@ Einfachste Lösung: Copy &amp; Paste. Das sieht dann so aus:</p>
 <p><em>Zusatzaufgabe</em> &#160;<br>
 Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </div>
+<div class="paragraph">
+<p>
+<a href="p5-sketches/u-house.js" class="source-code-link">Source Code anzeigen</a>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -2713,7 +3041,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </dd>
 <dt class="hdlist1"><a id="Pseudo-Code"></a>Pseudo-Code</dt>
 <dd>
-<p>Mit Pseudo-Code kann man Prorgrammcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.</p>
+<p>Mit Pseudo-Code kann man Programmcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.</p>
 </dd>
 <dt class="hdlist1"><a id="keyword"></a>Keyword</dt>
 <dd>
@@ -2721,7 +3049,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </dd>
 <dt class="hdlist1"><a id="Pixel"></a>Pixel</dt>
 <dd>
-<p>Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel mit blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.</p>
+<p>Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel von blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.</p>
 </dd>
 <dt class="hdlist1"><a id="iterieren"></a>iterieren</dt>
 <dd>
@@ -2734,219 +3062,8 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-06 07:39:22 UTC
+Last updated 2022-03-17 14:00:01 UTC
 </div>
 </div>
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
-}
-pre.rouge .gr {
-  color: #aa0000;
-}
-pre.rouge .gh {
-  color: #999999;
-}
-pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-pre.rouge .go {
-  color: #888888;
-}
-pre.rouge .gp {
-  color: #555555;
-}
-pre.rouge .gs {
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
-}
-pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
-}
-</style>
 </body>
 </html>

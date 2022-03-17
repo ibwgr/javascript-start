@@ -21,7 +21,7 @@ Das Tutorial ist in Kapitel unterteilt. In jedem Kapitel lernst du neue Baustein
 Mit jedem Baustein kannst du komplexere / vielfältigere Programme schreiben.
 Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.
 
-Die Inhalte beschränken sich auf das Kursziel. Weiteführende, empfehlenswerte Lernquellen sind am Ende aufgeführt.
+Die Inhalte beschränken sich auf das Kursziel. Weiterführende, empfehlenswerte Lernquellen sind am Ende aufgeführt.
 
 === Tools / Werkzeuge
 Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen Texteditor.
@@ -55,13 +55,13 @@ Math.sqrt(25)
 
 Die Anweisungen werden sequentiell von oben nach unten ausgeführt.
 
-Die erste Zeile weist den Compter an, zwei Zahlen zu addieren, das Ergebnis ist 4.
+Die erste Zeile weist den Computer an, zwei Zahlen zu addieren, das Ergebnis ist 4.
 
 Die zweite Zeile berechnet die Quadratwurzel (engl. Square Root, sqrt) aus 25, das Ergebnis ist 5.
 
 Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der User den Namen eingegeben, wird diese Eingabe verwendet und an die Zeichenkette "Hallo " angehängt. Das Ergebnis ist "Hallo <NAME>".
 
-==== Übung - Anweisungen
+==== Übung – Anweisungen
 ****
 1. Öffne einen Browser
 1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
@@ -83,7 +83,7 @@ Mehrzeiliger Kommentar ...
 Ende Kommentar
 */
 Math.sqrt(25) // Quadratwurzel von 25
-Math./*Kommentar innerhalb einer Anweisung, einfach weils geht :)*/sqrt(25)
+Math./*Kommentar innerhalb einer Anweisung, einfach weil es geht :)*/sqrt(25)
 ----
 
 TIP: Kommentare sind zu Beginn hilfreich. Später, wenn du die Grundlagen des Programmierens kennst, solltest du Kommentare aber sehr sparsam einsetzen. Als Programmierer ist es nämlich unsere Aufgabe den Code so zu schreiben, dass erläuternde Kommentare kaum notwendig sind.
@@ -185,7 +185,7 @@ Ich weiss, ...
 == 2D Zeichnen
 Du bist nun bereit ein neues Kapitel aufzuschlagen: Das Zeichnen und Animieren von zweidimensionalen geometrischen Formen.
 
-Um einen Computer anzuzweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.
+Um einen Computer anzuweisen eine Linie zu zeichnen, müssen wir ganz genau sagen wie diese Linie auszusehen hat. Also die Position, Länge, Farbe und Breite der Linie. Die Art und Weise wie wir Position und Länge definieren wird im Folgenden erläutert. Um die Farbe und Breite kümmern wir uns später.
 
 === Zeichenfläche
 Die Zeichenfläche, auf der die Linie entstehen soll, ist ein Rechteck. Dieses Rechteck ist in ein Raster unterteilt (unten im Bild rechts). Ähnlich wie bei einem Blatt Papier mit einem vorgezeichneten Gittermuster. {nbsp} +
@@ -296,7 +296,7 @@ Cool! Aber was geschieht da genau?
 === Übung – 2D Zeichnen
 Du kannst diese Übungen direkt im obigen Editor lösen.
 
-Wichtige Resourcen:
+Wichtige Ressourcen:
 
 * Formen zeichnen: https://processing.org/tutorials/drawing
 * Vollständige Dokumentation aller Funktionen von p5.js: https://p5js.org/reference
@@ -319,6 +319,9 @@ Zeichne:
 +++
 <iframe src="p5-sketches/index.html?s=u-pendel" style="border:0; height: 200px;"></iframe>
 +++
++++
+<a href="p5-sketches/u-pendel.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 *Symbol*
 
@@ -329,6 +332,10 @@ Inspiration:
 +++
 <iframe src="p5-sketches/index.html?s=u-peace" style="border:0; height: 200px;"></iframe>
 +++
++++
+<a href="p5-sketches/u-peace.js" class="source-code-link">Source Code anzeigen</a>
++++
+
 https://www.wihel.de/wie-das-peace-symbol-entstanden-ist/
 
 ****
@@ -625,11 +632,15 @@ Du kannst diese Übungen direkt im obigen Editor lösen.
 ****
 *Ruckel*
 
-Verwende im Beispiel oben die Funktion `frameRate`, um eine ruckelnde Animition zu erstellen.
+Verwende im Beispiel oben die Funktion `frameRate`, um eine ruckelnde Animation zu erstellen.
 
 *Floating Rect*
 
 Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts bewegt. Es ist egal, wenn es dann rechts aus dem Bild verschwindet.
+
++++
+<a href="p5-sketches/u-floating-rect.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 *Pixel Screen*
 
@@ -644,6 +655,10 @@ _Zusatzaufgabe_ {nbsp} +
 Vorschau:
 
 image::media/pixelscreen-preview.png[system,100,100,align=center]
+
++++
+<a href="p5-sketches/u-pixel-screen.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 ****
 
@@ -662,6 +677,9 @@ Im Folgenden ein Beispiel in p5.js:
 +++
 <iframe src="p5-sketches/index.html?s=events-demo" style="border:0; height: 100px;"></iframe>
 +++
++++
+<a href="p5-sketches/events-demo.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 Bei jedem Click wird die Hintergrundfarbe geändert. Sowie die angezeigte Anzahl Clicks um eins erhöht.
 
@@ -674,11 +692,11 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 
 
 +++
-<script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="200">
+<script type="text/p5" src="p5-sketches/events-demo-simple.js" data-height="350">
 </script>
 +++
 
-=== Übungen – Ereignisse
+=== Übung – Ereignisse
 
 ****
 
@@ -687,6 +705,10 @@ Um auf einen Mausklick zu reagieren, wird eine Funktion mit dem Namen `mouseClic
 Ersetze den Mauszeiger durch einen roten Punkt, während dieser sich über die Zeichenfläche bewegt.
 
 Hinweis: Die Funktion `noCursor`
+
++++
+<a href="p5-sketches/u-mouse-deco.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 *Typewriter* 
 
@@ -699,6 +721,10 @@ Vorschau:
 
 image::media/typewriter-preview.png[system,200,200,align=center]
 
++++
+<a href="p5-sketches/u-typewriter.js" class="source-code-link">Source Code anzeigen</a>
++++
+
 ****
 
 === Lernkontrolle
@@ -709,7 +735,7 @@ Ich weiss, ...
 ====
 
 
-== Verzweigungen – bedingte Ausführung
+== Verzweigungen – Bedingte Ausführung
 
 Ein Weiterer wichtiger Baustein von Programmen sind Verzweigungen. Damit ist es möglich gewisse Anweisungen nur bedingt auszuführen.
 
@@ -773,7 +799,7 @@ if (a < 0) {
 }
 ----
 
-Im Weiteren spielt es keine Rolle wieviel Leerzeichen oder Zeilenumbrüche verwendet werden. Wichtig sind die Steuerzeichen (z.B. Klammerpaare) und Keywords. Folgender Code ist also äquivalent, allerdings schlechter lesbar:
+Im Weiteren spielt es keine Rolle wie viel Leerzeichen oder Zeilenumbrüche verwendet werden. Wichtig sind die Steuerzeichen (z.B. Klammerpaare) und Keywords. Folgender Code ist also äquivalent, allerdings schlechter lesbar:
 
 [source,javascript,linenums]
 ----
@@ -799,9 +825,13 @@ Zeichne ein Rechteck, welches sich automatisch von ganz Links nach ganz Rechts b
 
 Zusatzaufgabe: Löse das Problem ohne `if`. Hinweis: Die Funktion `min`.
 
++++
+<a href="p5-sketches/u-floating-rect-boundary.js" class="source-code-link">Source Code anzeigen</a>
++++
+
 *Catch me*
 
-. Zeichne einen Kreis. Wenn der Spieler daneben klickt, bekommt er einen Punkt abzug. Weniger als 0 Punkte geht nicht. {nbsp} +
+. Zeichne einen Kreis. Wenn der Spieler daneben klickt, bekommt er einen Punkt Abzug. Weniger als 0 Punkte geht nicht. {nbsp} +
 Wenn der Spieler auf den Kreis klickt:
     .. bekommt er einen Punkt
     .. ändert der Kreis seine Position auf eine zufällige, neue Position
@@ -811,6 +841,11 @@ Wenn der Spieler auf den Kreis klickt:
 . Die Grösse des Kreises ändert bei jedem Treffer.
 
 Hinweis: `dist`, `random`, `frameRate`
+
++++
+<a href="p5-sketches/u-catchme-minimal.js" class="source-code-link">Source Code anzeigen (minimale Lösung)</a>
+<a href="p5-sketches/u-catchme-fancy.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 ****
 
@@ -941,7 +976,7 @@ let c = 0
 Das impliziert:
 
 * Geltungsbereiche beinhalten verschachtelte Blöcke
-* Variabeln, welche in verschachtelten Blöcken definiert werden, sind in äusseren Blöcken nicht referenzierbar
+* Variablen, welche in verschachtelten Blöcken definiert werden, sind in äusseren Blöcken nicht referenzierbar
 
 Diese Tatsachen mit Kommentaren in einem Codebeispiel erläutert:
 
@@ -987,7 +1022,7 @@ Der Computer wiederholt also den Schleifeninhalt solange, bis die Abbruchbedingu
 {nbsp} +
 Die Zeile 3 wird also 4 mal ausgeführt. Denn erst bei deren vierten Ausführung ist die Bedingung `false` und somit wird der Schleifeninhalt kein weiteres mal ausgeführt.
 
-Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedesmal unmittelbar bevor Zeile 3 ausgeführt wird.
+Im Folgenden eine Tabelle, welche den Zustand des Programms bei jedem Schleifendurchgang darstellt. Also den Zustand der Variablen, jedes mal unmittelbar bevor Zeile 3 ausgeführt wird.
 
 [%header,cols="1,1,1,1,2"] 
 |===
@@ -1014,11 +1049,15 @@ TIP: Es gibt weitere Schleifentypen (`for`, `do while`). Für die allermeisten A
 [loweralpha]
 . Zeichne einen schwarzen quadratischen Hintergrund, welcher von weissen, vertikalen, 1-Pixel-breiten Linien in zehn Spalten unterteilt wird.
 
-. Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wieviele Spalten die Fläche unterteilt wird.
+. Verändere das Programm so, dass du in einer Variable `parts` vorgeben kannst, in wie viele Spalten die Fläche unterteilt wird.
 
 . Verändere das Programm so, dass jede zweite Linie 2 Pixel breit ist, wobei die erste Linie 2 Pixel breit ist.
 
 Hinweis: Die Funktion `strokeWeight`
+
++++
+<a href="p5-sketches/u-split.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 *Grid*
 
@@ -1026,6 +1065,10 @@ Hinweis: Die Funktion `strokeWeight`
 . Zeichne ein quadratisches Gittermuster mit der Seitenlänge 10.
 
 . Fülle die erste Zeile und die erste Spalte mit Zahlen. Jeweils von 1 bis 10. Beginne oben links.
+
++++
+<a href="p5-sketches/u-grid.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 ****
 
@@ -1130,6 +1173,11 @@ Auf Zeile 10 versuchen wir der Variable `myPoint2` einen neuen Wert zuzuweisen. 
 
 . Wandle die Zeilen 1 - 4 in ein Objekt um. Ändere den ganzen Programmcode, damit er weiterhin funktioniert.
 
+
++++
+<a href="p5-sketches/u-catchme-fancy.js" class="source-code-link">Source Code anzeigen</a>
++++
+
 ****
 
 
@@ -1159,7 +1207,7 @@ let last    = nums[nums.length - 1] // nums[6 - 1] = nums[5] = 105
 last        = nums[5] // 105
 ----
 
-TIP: Theoretisch ist es mögilch in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. `[6, 3.14, 'zero', { }]`. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
+TIP: Theoretisch ist es möglich in einem Array Werte zu speichern mit unterschiedlichen Datentypen. Also z.B. `[6, 3.14, 'zero', { }]`. Das wird jedoch äusserst selten notwendig sein und führt zu Programmfehlern. Achte also immer darauf, dass alle Werte in einem Array vom gleichen Datentyp sind. Denn wer mischt schon Äpfel mit Birnen …
 
 Nebst `length` gibt es weitere wichtige Eigenschaften von Arrays. Dabei handelt es sich um sogenannte `Methoden`. Methoden sind Funktionen, welche auf einem Objekt aufgerufen werden können. Folgende Array-Methoden solltest du kennen lernen:
 
@@ -1252,20 +1300,28 @@ Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird `i` nicht um 
 ==== Übung – Arrays
 
 ****
-*Streight to the Point*
+*Straight to the Point*
 
-Verwende das Codebeispiel von oben (das mit den Quizzfragen und dem console.log). Ändere den Code so ab, dass die Variable `i` nicht mehr gebraucht wird.
+Verwende das Codebeispiel von oben (das mit den Quizfragen und dem console.log). Ändere den Code so ab, dass die Variable `i` nicht mehr gebraucht wird.
 
 Hinweis: `length`
+
++++
+<a href="p5-sketches/u-straight-to-the-point.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 
 *Path*
 
-. Generiere hundert Punkt-Objekte. Jeder Punkt besteht aus einer x- und y-Koordinate. Die x- und y-Werte sollen zufällig sein, jedoch immer ganzahlig und zwischen 10 und 990 (inklusive).
+. Generiere hundert Punkt-Objekte. Jeder Punkt besteht aus einer x- und y-Koordinate. Die x- und y-Werte sollen zufällig sein, jedoch immer ganzzahlig und zwischen 10 und 990 (inklusive).
 
 . Zeichne jeden einzelnen Punkt als kleinen Kreis auf eine quadratische Fläche mit der Seitenlänge 1000.
 
 . Verbinde die Punkte mit Linien. Also der erste generierte Punkt hat eine gerade Linie zu Punkt zwei. Punkt zwei hat eine gerade Linie zu Punkt drei und so weiter.
+
++++
+<a href="p5-sketches/u-path.js" class="source-code-link">Source Code anzeigen</a>
++++
 
 
 *Undo*
@@ -1281,9 +1337,13 @@ _Zusatzaufgabe_ {nbsp} +
 * Der Benutzer kann die Linienfarbe, der nächsten Linie, via Tastendruck bestimmen: `r`-Taste: Rot, `g`-Taste: Grün, `y`-Taste: Gelb.
 
 
++++
+<a href="p5-sketches/u-undo.js" class="source-code-link">Source Code anzeigen</a>
++++
+
 ****
 
-=== Lernkontrolle
+==== Lernkontrolle
 ====
 * [*] Ich kann Dinge der echten Welt in JavaScript Objekte abbilden
 * [*] Ich kann die Methoden `join`, `includes`, `push` und `pop` im Zusammenhang mit einem Array anwenden
@@ -1308,12 +1368,12 @@ Im folgenden Beispiel verwenden wir eine selbst geschriebene Funktion `drawSmile
 
 {nbsp} +
 
-Die Funktion `drawSmiley` wird innerhalbt der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.
+Die Funktion `drawSmiley` wird innerhalb der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.
 
 Der Vorteil von Funktionen ist:
 
 * Zusammengehörige Anweisungen können in einem sprechenden Namen zusammengefasst werden. {nbsp} +
- Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens `drawSmiley` zusammgenfasst.
+ Zum Beispiel: Alle Anweisungen die es braucht, um ein Smiley zu zeichnen, werden in einer Funktion namens `drawSmiley` zusammengefasst.
 
 * Funktionen können wiederholt aufgerufen werden. Damit kann an verschiedenen Orten des Programms von der Funktionalität der Funktion profitiert werden. {nbsp} +
 Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhalb der while Schleife.
@@ -1324,7 +1384,7 @@ Zum Beispiel: Einmal innerhalb der while Schleife und dann noch einmal ausserhal
 ****
 *Inline*
 
-Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergbnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.
+Verwende das Codebeispiel von oben (im Editor). Verändere den Code so, dass das Endergebnis gleich bleibt, jedoch ohne eine selbst geschriebene Funktion (ausser setup ;)) zu verwenden.
 
 *Say Hello*
 
@@ -1375,6 +1435,10 @@ Vorlage:
 _Zusatzaufgabe_ {nbsp} +
 Animiere das Gras so, als ob die Gräser im Wind tanzen.
 
++++
+<a href="p5-sketches/u-house.js" class="source-code-link">Source Code anzeigen</a>
++++
+
 ****
 
 
@@ -1389,7 +1453,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.
 [glossary]
 == Glossar
 [[Syntax]]Syntax:: Vorgabe innerhalb der Programmiersprache, wie man bestimmte Dinge zu schreiben hat. Die Syntax bestimmt an welchem Ort welches Zeichen gültig ist. Also z.B. ob ein Steuerzeichen (z.B. `{` oder `=`) erwartet wird, oder ein Keyword.
-[[Pseudo-Code]]Pseudo-Code:: Mit Pseudo-Code kann man Prorgrammcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.
+[[Pseudo-Code]]Pseudo-Code:: Mit Pseudo-Code kann man Programmcode vereinfacht schreiben, so, dass der Sinn und Zweck des Algorithmus einfach notiert werden kann. Pseudo-Code ist unabhängig von den syntaktischen Details einer Programmiersprache und in der Regel nicht mit einem Computer ausführbar.
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. https://www.w3schools.com/js/js_reserved.asp[Liste aller JavaScript Keywords]
-[[Pixel]]Pixel:: Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel mit blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.
+[[Pixel]]Pixel:: Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel von blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.
 [[iterieren]]iterieren:: Bedeutet: Alle Elemente einer Datenstruktur in einer bestimmten Reihenfolge abrufen. Zum Beispiel: Alle Elemente eines Array fortlaufend abrufen, beginnend mit Index 0.
