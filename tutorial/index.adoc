@@ -1,4 +1,4 @@
-= JavaScript lernen
+= Programmieren lernen mit JavaScript
 :toc: left
 :toclevels: 3
 :tip-caption: 💡
@@ -21,34 +21,18 @@ Das Tutorial ist in Kapitel unterteilt. In jedem Kapitel lernst du neue Baustein
 Mit jedem Baustein kannst du komplexere / vielfältigere Programme schreiben.
 Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.
 
-Die Inhalte beschränken sich auf das Kursziel. Weiterführende, empfehlenswerte Lernquellen sind am Ende aufgeführt.
+Die Inhalte beschränken sich auf das Kursziel. Weiterführende, link:#ressources[empfehlenswerte Lernquellen sind am Ende] aufgeführt.
 
 === Tools / Werkzeuge
-Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen Texteditor.
+Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen *Texteditor*.
 Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben; eine sogenannte *IDE* (Integrated Development Environment).
 Eine IDE ist für Programmierer, wie Word für Berichteschreiber. Eine IDE versteht eine Programmiersprache, sie bietet Hilfestellung bei Schreibfehlern, formatiert den Text und rückt korrekt ein etc.
 Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Visual Studio Code" (kurz vscode).
 
-In diesem Tutorial lernen wir zudem p5.js kennen. Damit können wir 2D-Grafiken zeichnen. p5.js bietet einen einfachen Texteditor (eine leichtgewichtige IDE) an, welcher direkt im *Browser* läuft.
+In diesem Tutorial lernen wir zudem *p5.js* kennen. Damit können wir 2D-Grafiken zeichnen. Die ersten Schritte mit p5.js und JavaScript machen wir direkt im Browser. Danach wechseln wir auf vscode.
 
-Um unseren Code auszuführen, also zum Beispiel um die Grafiken zu rendern, verwenden wir einen *Browser* (Chrome, Firefox, Safari oder Edge).
+Um unseren selbst geschriebenen Code auszuführen, also zum Beispiel um die 2D-Grafiken auf dem Bildschirm anzuzeigen, verwenden wir einen *Browser* (Chrome, Firefox, Safari oder Edge).
 
-[#vscode-setup]
-==== Editor für p5.js Übungen
-Dieses Kapitel wird erst mit Kapitel link:#p5[p5.js – Einführung] relevant. Du kannst dieses Kapitel fürs Erste überspringen und später darauf zurück kommen.
-
-
-Im Kapitel link:#p5[p5.js – Einführung] beginnst du Programme zu schreiben die einige dutzend Zeilen lang sind. Theoretisch kannst du diese direkt auf dieser Webseite mit dem p5.js inline Editor lösen. Komfortabler, und näher an der beruflichen Realität ist jedoch, wenn du dafür eine IDE verwendest. 
-
-Führe folgende Schritte aus um Visual Studio Code optimal einzurichten für das Lösen der p5.js Übungen:
-
-1. Visual Studio Code herunterladen und installieren: https://code.visualstudio.com/download
-1. Plugin "p5.vscode" installieren: https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode
-1. Tutorial Source Code herunterladen von Download-URL: TODO. Die heruntergeladene ZIP-Datei entpacken.
-1. Entpackten Ordner in Visual Studio Code öffnen
-1. Die Datei index.html öffnen und in der Statuszeile auf "Go Live" klicken. Die index.html wird nun automatisch im Browser geöffnet.
-1. Zurück im Visual Studio Code. Die Datei sketch.js öffnen. Darin die Funktion `draw` um die Anweisung `line(0, 0, 100, 100)` ergänzen. Änderungen speichern.
-1. Die Seite im Browser wird automatisch neu geladen. Die Linie ist nun auf der Zeichenfläche sichtbar.
 
 == Anweisungen & Variablen
 
@@ -80,10 +64,10 @@ Die dritte Zeile fragt den User (engl. für Benutzer) nach dem Namen. Hat der Us
 
 ==== Übung – Anweisungen
 ****
-1. Öffne einen Browser
-1. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
-1. Öffne die console in den Entwicklertools
-1. Führe eine Zeile nach der anderen (der drei Beispiele oben) in der
+. Öffne einen Browser
+. Öffne die https://balsamiq.com/support/faqs/browserconsole/[Entwicklertools]
+. Öffne die console in den Entwicklertools
+. Führe eine Zeile nach der anderen (der drei Beispiele oben) in der
 console aus. Dazu einfach die Zeile eingeben und dann mit der Enter-Taste ausführen.
 ****
 
@@ -303,13 +287,13 @@ background('skyblue')
 line(0, 0, 200, 200)
 </script>
 ++++
-{nbsp} +
+{nbsp} + 
 
 Cool! Aber was geschieht da genau?
 
-1. Die Funktion `createCanvas` erstellt eine Zeichenfläche. Diese ist 200 Einheiten (sogenannte <<Pixel>>) breit und 200 Einheiten hoch.
-1. Mit `background` setzen wir die Hintergrundfarbe der Zeichenfläche. `skyblue` ist eine Farbbezeichnung die der Computer kennt.
-1. Mit `line` zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.
+. Die Funktion `createCanvas` erstellt eine Zeichenfläche. Diese ist 200 Einheiten (sogenannte <<Pixel>>) breit und 200 Einheiten hoch.
+. Mit `background` setzen wir die Hintergrundfarbe der Zeichenfläche. `skyblue` ist eine Farbbezeichnung die der Computer kennt.
+. Mit `line` zeichnen wir dann die diagonale Linie, von oben links nach unten rechts.
 
 === Übung – 2D Zeichnen
 Du kannst diese Übungen direkt im obigen Editor lösen. Empfohlen wird jedoch, diese Übungen in der Visual Studio Code IDE zu lösen. Folge der Anleitung in dem Kapitel link:#vscode-setup[Editor für p5.js Übungen], um Visual Studio Code einzurichten.
@@ -326,8 +310,8 @@ Zeichne eine zweite Linie von unten links nach oben rechts.
 
 *Farben*
 
-1. Verändere die Hintergrundfarbe. Auswahl an Farbnamen https://www.w3schools.com/colors/colors_names.asp
-1. Verändere die Linienfarbe. Zeichne Linien in verschiedenen Farben. +
+. Verändere die Hintergrundfarbe. Auswahl an Farbnamen https://www.w3schools.com/colors/colors_names.asp
+. Verändere die Linienfarbe. Zeichne Linien in verschiedenen Farben. +
 Hinweis: Die `stroke` Funktion
 
 *Farben & Formen*
@@ -620,10 +604,10 @@ Bevor wir mit p5.js bewegte Bilder zeichnen können, müssen wir p5.js noch etwa
 
 Sämtliche p5.js Programme beinhalten Anweisungen, welche in zwei Gruppen aufgeteilt werden können: Einmal ausgeführte und wiederholt ausgeführte.
 
-*Einmal ausgeführt*: Werden beim Programm start einmalig ausgeführt, dann nie wieder. {nbsp} +
+*Einmal ausgeführt*: Werden beim Programmstart einmalig ausgeführt, dann nie wieder. {nbsp} +
 *Wiederholt ausgeführt*: Werden automatisch alle par Millisekunden ausgeführt.
 
-Bis jetzt hatten wir nur mit einmal ausgeführten Anweisungen zu tun. Du hast im Editor einmal auf den `Run`-Button gedrückt und die Zeichnung wurde erstellt. Die Aufgabe des Programms war damit erledigt.
+Bis jetzt hatten wir nur mit einmal ausgeführten Programmen zu tun. Du hast im Editor einmal auf den `Run`-Button gedrückt und die Zeichnung wurde erstellt. Die Aufgabe des Programms war damit erledigt.
 
 Möchten wir jetzt aber, dass sich das Bild verändert (ohne das wir erneut Run drücken), brauchen wir eine Gruppe von Befehlen, welche automatisch wiederholt ausgeführt wird, und unter bestimmten Bedingungen unser Bild verändert.
 
@@ -636,16 +620,15 @@ Folgendes Beispiel zeigt eine Animation. Der Kreis wächst.
 
 {nbsp} +
 
-Alle einmal ausgeführten Anweisungen kommen in die Funktion `setup` platziert.
-Alle wiederholt ausgeführten Anweisungen kommen in die Funktion `draw`. Die Funktion draw wird automatisch alle ca. 17 Millisekunden ausgeführt (60 mal pro Sekunde). Für uns Menschen sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als 25 pro Sekunde gezeichnet wird.
+Alle einmal ausgeführten Anweisungen werden in der Funktion `setup` platziert.
+Alle wiederholt ausgeführten Anweisungen werden in der Funktion `draw` platziert. Die Funktion draw wird automatisch alle ca. 17 Millisekunden ausgeführt (60 mal pro Sekunde). Für uns Menschen sieht die Animation trotzdem flüssig aus, weil das menschliche Auge ein ruckeln / flimmern nur dann erkennt, wenn das Bild weniger als 25 mal pro Sekunde gezeichnet wird.
 
 Die Namen der Funktionen müssen genau so heissen, wie im Code oben. Denn nur dann "weiss" p5.js welche Anweisungen einmalig oder wiederholt ausgeführt werden müssen. Man spricht auch von einer `Namenskonvention`, welche vom `Framework` (p5.js), als Rahmenbedingung (engl. frame = Rahmen) vorgegeben wird.
 
-TIP: Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vorerst lassen wir es dabei, es reicht wenn du innerhalb der Funktionen deine Anweisungen korrekt platzieren kannst. Mehr Details zu Funktionen folgen später.
+TIP: Das ist das erste mal dass du siehst, wie man eine Funktion selbst erstellt. Vorerst lassen wir es dabei, es reicht wenn du innerhalb der Funktionen deine Anweisungen korrekt platzieren kannst. link:#functions-define[Mehr Details zu Funktionen folgen später].
 
 
 === Übung – 2D Animationen
-Du kannst diese Übungen direkt im obigen Editor lösen.
 
 ****
 *Ruckel*
@@ -830,7 +813,6 @@ if(a <0)            {  a = 0
 
 
 === Übung – Bedingte Ausführung
-Du kannst diese Übungen direkt im obigen Editor lösen.
 
 ****
 *Floating Rect Bounded*
@@ -1369,7 +1351,7 @@ _Zusatzaufgabe_ {nbsp} +
 * [*] Ich weiss wie ich mit einer for of Schleife über ein Array iteriere
 ====
 
-
+[#functions-define]
 == Funktionen – Definieren
 Funktionen haben wir bereits oft verwendet. Allerdings meistens nur als Aufrufer. Zum Beispiel wenn wir die Funktion `random` aufgerufen haben um eine Zufallszahl zu generieren. Oder die Methode `push` um einen Array zu erweitern.
 
@@ -1459,7 +1441,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.
 
 ****
 
-
+[#ressources]
 == Weiterführende JavaScript Ressourcen
 * p5.js Referenz: https://p5js.org/reference 
 * JavaScript Tutorial mit p5.js (ähnlich wie dieses): http://www.p5js.gym-wst.de/de/javascript
@@ -1475,3 +1457,18 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.
 [[keyword]]Keyword:: Schlüsselwort. Ein reserviertes Wort, welches nicht für Bezeichner (z.B. von Variablen) verwendet werden kann. https://www.w3schools.com/js/js_reserved.asp[Liste aller JavaScript Keywords]
 [[Pixel]]Pixel:: Ein Pixel ist ein Bildpunkt. Ein Computerbildschirm besteht aus tausenden von Pixel. Jeder Pixel kann eine Farbe annehmen. Bei älteren Bildschirmen kann man ein einzelnes Pixel von blossem Auge erkennen (z.B. bei Röhrenbildschirmen die RGB-Dioden). Je mehr Pixel pro Zentimeter platziert sind, desto schärfer wirkt das Bild.
 [[iterieren]]iterieren:: Bedeutet: Alle Elemente einer Datenstruktur in einer bestimmten Reihenfolge abrufen. Zum Beispiel: Alle Elemente eines Array fortlaufend abrufen, beginnend mit Index 0.
+
+[appendix]
+[#vscode-setup]
+== Editor für p5.js Übungen
+Im Kapitel link:#p5[p5.js – Einführung] beginnst du Programme zu schreiben die einige dutzend Zeilen lang sind. Theoretisch kannst du diese direkt auf dieser Webseite mit dem p5.js inline Editor lösen. Komfortabler, und näher an der beruflichen Realität ist jedoch, wenn du dafür eine IDE verwendest. 
+
+Führe folgende Schritte aus um Visual Studio Code optimal einzurichten für das Lösen der p5.js Übungen:
+
+. Visual Studio Code herunterladen und installieren: https://code.visualstudio.com/download
+. Plugin "p5.vscode" installieren: https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode
+. Tutorial Source Code herunterladen von Download-URL: TODO. Die heruntergeladene ZIP-Datei entpacken.
+. Entpackten Ordner in Visual Studio Code öffnen
+. Die Datei index.html öffnen und in der Statuszeile auf "Go Live" klicken. Die index.html wird nun automatisch im Browser geöffnet.
+. Zurück im Visual Studio Code. Die Datei sketch.js öffnen. Darin die Funktion `draw` um die Anweisung `line(0, 0, 100, 100)` ergänzen. Änderungen speichern.
+. Die Seite im Browser wird automatisch neu geladen. Die Linie ist nun auf der Zeichenfläche sichtbar.
