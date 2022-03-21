@@ -7,24 +7,27 @@
 :docinfo: shared-head
 
 == Einleitung
+In diesem Tutorial wirst du Programmieren lernen. Dabei lernst du die Programmiersprache JavaScript kennen. 
+Wir werden JavaScript verwenden um 2D-Grafiken zu zeichnen, Figuren zu animieren und auf Benutzereingaben zu reagieren.
 
-In diesem Tutorial wirst du Programmieren lernen.
-Du lernst wie man mit der Programmiersprache JavaScript 2D-Grafiken zeichnet,
-Elemente animiert und auf Benutzereingaben reagiert.
+Dieser Ansatz hat folgende Vorteile:
 
-Am Ende des Tutorials kennst du die grundlegenden Bausteine moderner Programmiersprachen und kannst diese verwenden,
-um eigenständig deine Ideen als Computer-Programm zu realisieren.
+* JavaScript ist sehr weit verbreitet. Du findest in Büchern und im Internet schnell Unterstützung.
+* Programme, die in JavaScript geschrieben sind, laufen ohne zusätzliche Vorbereitung auf sehr vielen Plattformen (z.B. Chrome auf Windows oder Firefox auf MacOS).
+* Interaktive 2D-Grafiken machen Spass und erleichtern damit den Einstieg in die Programmierung. Denn damit verbunden sind notwendigerweise abstrakte Konzepte.
+
+Am Ende des Tutorials kennst du die grundlegenden Bausteine einer Programmiersprache. Erlernt hast du diese Bausteine am Beispiel von JavaScript. Du kannst damit eigenständig deine Ideen als Computer-Programm realisieren. Diese Bausteine gelten auch für viele andere Programmiersprachen, wie z.B. Python, C# oder Java.
 
 === Aufbau
-
 Das Tutorial ist in Kapitel unterteilt. In jedem Kapitel lernst du neue Bausteine kennen.
-Mit jedem Baustein kannst du komplexere / vielfältigere Programme schreiben.
-Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.
+Mit jedem Baustein kannst du komplexere, vielfältigere Programme schreiben.
+Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke, sowie Lernziele.
+Zu jeder Übung ist eine korrekte Lösung verlinkt. Das heisst jedoch nicht, dass es die einzige Lösung ist. Es gibt immer mehrere mögliche Lösungen, jede mit ihren eigenen Vor- und Nachteilen.
 
-Die Inhalte beschränken sich auf das Kursziel. Weiterführende, link:#ressources[empfehlenswerte Lernquellen sind am Ende] aufgeführt.
+Die Inhalte beschränken sich auf das minimal notwendige, um die Lernziele zu vermitteln. Für Neugierige sind weiterführende, link:#ressources[empfehlenswerte Lernquellen am Ende] aufgeführt.
 
 === Werkzeuge / Tools
-Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen *Texteditor*.
+Um unseren Programmcode, auch Quelltext genannt (engl. Source Code, kurz Code), zu schreiben verwenden wir einen *Texteditor*.
 Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben; eine sogenannte *IDE* (Integrated Development Environment).
 Eine IDE ist für Programmierer, wie Word für Berichteschreiber. Eine IDE versteht eine Programmiersprache, sie bietet Hilfestellung bei Schreibfehlern, formatiert den Text und rückt korrekt ein etc.
 Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Visual Studio Code" (kurz vscode).
