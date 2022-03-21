@@ -1,4 +1,4 @@
-= Programmieren lernen mit JavaScript
+= Spielerisch programmieren lernen mit JavaScript
 :toc: left
 :toclevels: 3
 :tip-caption: 💡
@@ -23,7 +23,7 @@ Pro Kapitel gibt es verschiedene Theorie- und Übungsblöcke.
 
 Die Inhalte beschränken sich auf das Kursziel. Weiterführende, link:#ressources[empfehlenswerte Lernquellen sind am Ende] aufgeführt.
 
-=== Tools / Werkzeuge
+=== Werkzeuge / Tools
 Um unseren Programmcode (kurz Code) zu schreiben verwenden wir einen *Texteditor*.
 Einen speziellen Texteditor, welcher extra gemacht ist um Programme zu schreiben; eine sogenannte *IDE* (Integrated Development Environment).
 Eine IDE ist für Programmierer, wie Word für Berichteschreiber. Eine IDE versteht eine Programmiersprache, sie bietet Hilfestellung bei Schreibfehlern, formatiert den Text und rückt korrekt ein etc.
@@ -31,7 +31,7 @@ Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Vi
 
 In diesem Tutorial lernen wir zudem *p5.js* kennen. Damit können wir 2D-Grafiken zeichnen. Die ersten Schritte mit p5.js und JavaScript machen wir direkt im Browser. Danach wechseln wir auf vscode.
 
-Um unseren selbst geschriebenen Code auszuführen, also zum Beispiel um die 2D-Grafiken auf dem Bildschirm anzuzeigen, verwenden wir einen *Browser* (Chrome, Firefox, Safari oder Edge).
+Um unseren selbst geschriebenen Code auszuführen, also zum Beispiel um die programmierten 2D-Grafiken auf dem Bildschirm anzuzeigen, verwenden wir einen *Browser* (Firefox, Chrome, Safari, Edge, Opera, …).
 
 
 == Anweisungen & Variablen
@@ -1466,9 +1466,8 @@ Im Kapitel link:#p5[p5.js – Einführung] beginnst du Programme zu schreiben di
 Führe folgende Schritte aus um Visual Studio Code optimal einzurichten für das Lösen der p5.js Übungen:
 
 . Visual Studio Code herunterladen und installieren: https://code.visualstudio.com/download
-. Plugin "p5.vscode" installieren: https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode
-. Tutorial Source Code herunterladen von Download-URL: TODO. Die heruntergeladene ZIP-Datei entpacken.
-. Entpackten Ordner in Visual Studio Code öffnen
-. Die Datei index.html öffnen und in der Statuszeile auf "Go Live" klicken. Die index.html wird nun automatisch im Browser geöffnet.
+. Plugin "p5.vscode" installieren. Via "install" Button auf der Plugin Homepage: https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode
+. Folge der Anleitung auf der Plugin Homepage, um ein neues p5.js Projekt anzulegen.
+. In der Statuszeile auf "Go Live" klicken. Die index.html Datei wird nun automatisch im Browser geöffnet.
 . Zurück im Visual Studio Code. Die Datei sketch.js öffnen. Darin die Funktion `draw` um die Anweisung `line(0, 0, 100, 100)` ergänzen. Änderungen speichern.
 . Die Seite im Browser wird automatisch neu geladen. Die Linie ist nun auf der Zeichenfläche sichtbar.
