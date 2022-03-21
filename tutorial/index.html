@@ -520,8 +520,7 @@ Es gibt viele verschiedene IDEs, wir verwenden das frei verfügbare Programm "Vi
 <div class="sect2">
 <h3 id="_anweisungen">Anweisungen</h3>
 <div class="paragraph">
-<p>Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung (engl. statement) veranlasst den Computer dazu etwas zu tun.
-Mögliche Dinge die man tun kann:</p>
+<p>Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung (engl. statement) veranlasst den Computer dazu etwas zu tun. Einige Beispiele:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2691,6 +2690,36 @@ In p5.js gibt es diese Funktion nicht. Denn in p5.js zeichnen wir ja Dinge auf e
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Quizfragen</strong> &#160;<br>
+Was macht obiger Code genau?</p>
+</div>
+<details>
+<summary class="title">Lösung (Click)</summary>
+<div class="content">
+<div class="paragraph">
+<p>Er generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon &gt;= 0 und &lt;= 10, wobei eine Zahl nie doppelt vorkommt.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Ist es möglich, dass die while Schlaufe mehr als fünf mal durchlaufen wird?</p>
+</div>
+<details>
+<summary class="title">Lösung (Click)</summary>
+<div class="content">
+<div class="paragraph">
+<p>Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird <code>i</code> nicht um eins erhöht.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
 <div class="sect3">
 <h4 id="_array_und_string">Array und String</h4>
 <div class="paragraph">
@@ -2751,36 +2780,6 @@ Es ist nicht möglich die bekannten Array-Methoden (z.B. <code>pop</code>) auf e
 </div>
 <div class="paragraph">
 <p>Die Variable <code>num</code> wird als Teil der Schleife deklariert. Das heisst der Gültigkeitsbereich ist beschränkt auf die Schleife selbst (im Beispiel Zeile 3 - 6).</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Quizfragen</strong> &#160;<br>
-Was macht obiger Code genau?</p>
-</div>
-<details>
-<summary class="title">Lösung (Click)</summary>
-<div class="content">
-<div class="paragraph">
-<p>Er generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon &gt;= 0 und &lt;= 10, wobei eine Zahl nie doppelt vorkommt.</p>
-</div>
-</div>
-</details>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-<div class="paragraph">
-<p>Ist es möglich, dass die while Schlaufe mehr als fünf mal durchlaufen wird?</p>
-</div>
-<details>
-<summary class="title">Lösung (Click)</summary>
-<div class="content">
-<div class="paragraph">
-<p>Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird <code>i</code> nicht um eins erhöht.</p>
-</div>
-</div>
-</details>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -2906,7 +2905,7 @@ Was macht obiger Code genau?</p>
 <p>&#160;<br></p>
 </div>
 <div class="paragraph">
-<p>Die Funktion <code>drawSmiley</code> wird innerhalb der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.</p>
+<p>Die Funktion <code>drawSmiley</code> wird innerhalb der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt ein Smiley in die Bildmitte gezeichnet.</p>
 </div>
 <div class="paragraph">
 <p>Der Vorteil von Funktionen ist:</p>
@@ -3115,7 +3114,7 @@ Animiere das Gras so, als ob die Gräser im Wind tanzen.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-21 15:35:58 UTC
+Last updated 2022-03-21 19:06:33 UTC
 </div>
 </div>
 </body>

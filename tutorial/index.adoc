@@ -40,8 +40,7 @@ Um unseren selbst geschriebenen Code auszuführen, also zum Beispiel um die prog
 == Anweisungen & Variablen
 
 === Anweisungen
-Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung (engl. statement) veranlasst den Computer dazu etwas zu tun.
-Mögliche Dinge die man tun kann:
+Ein Computerprogramm (kurz Programm) besteht aus einer Sequenz von Anweisungen. Jede Anweisung (engl. statement) veranlasst den Computer dazu etwas zu tun. Einige Beispiele:
 
 * Mathematische Berechnung
 * Eine Datei einlesen
@@ -1241,6 +1240,27 @@ const display = nums.join(",")
 console.log(display)
 ----
 
+****
+*Quizfragen* {nbsp} +
+Was macht obiger Code genau?
+
+.Lösung (Click)
+[%collapsible]
+====
+Er generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon >= 0 und \<= 10, wobei eine Zahl nie doppelt vorkommt.
+====
+
+{nbsp} +
+
+Ist es möglich, dass die while Schlaufe mehr als fünf mal durchlaufen wird?
+
+.Lösung (Click)
+[%collapsible]
+====
+Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird `i` nicht um eins erhöht.
+====
+****
+
 ==== Array und String
 
 Ein String besteht aus einer Abfolge von Zeichen. Daher auch die Bezeichnung `Zeichenkette`. Ein String ist also im Prinzip so etwas ähnliches wie ein Array von Zeichen. Das heisst wir können via Index auf ein Zeichen zugreifen, sowie die Länge des Strings via `length` abfragen:
@@ -1275,29 +1295,6 @@ for(let num of nums){
 ----
 
 Die Variable `num` wird als Teil der Schleife deklariert. Das heisst der Gültigkeitsbereich ist beschränkt auf die Schleife selbst (im Beispiel Zeile 3 - 6).
-
-
-****
-*Quizfragen* {nbsp} +
-Was macht obiger Code genau?
-
-.Lösung (Click)
-[%collapsible]
-====
-Er generiert eine Kommaseparierte Liste von fünf zufälligen Ganzzahlen, jede davon >= 0 und \<= 10, wobei eine Zahl nie doppelt vorkommt.
-====
-
-{nbsp} +
-
-Ist es möglich, dass die while Schlaufe mehr als fünf mal durchlaufen wird?
-
-.Lösung (Click)
-[%collapsible]
-====
-Ja, falls eine Zahl bereits im Array vorhanden ist. Denn dann wird `i` nicht um eins erhöht.
-====
-****
-
 
 
 ==== Übung – Arrays
@@ -1371,7 +1368,7 @@ Im folgenden Beispiel verwenden wir eine selbst geschriebene Funktion `drawSmile
 
 {nbsp} +
 
-Die Funktion `drawSmiley` wird innerhalb der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt wird ein Smiley in die Bildmitte gezeichnet.
+Die Funktion `drawSmiley` wird innerhalb der while Schleife insgesamt 10 mal aufgerufen. Bei jedem Aufruf wird für den x- und y-Parameter jeweils eine zufällige Zahl berechnet. Nachdem die while Schleife durch ist, wird zu guter Letzt ein Smiley in die Bildmitte gezeichnet.
 
 Der Vorteil von Funktionen ist:
 
