@@ -68,27 +68,19 @@ pre.rouge table td.linenos{
     list-style-type: none;
 }
 
-a[href^="#_übung"]::before{
+a[href^="#_übung"]::after{
     content: "";
-    float: left;
+    float: right;
     width: 10px;
     height: 14px;
     margin-right: 5px;
-    background: url(media/practice.png) no-repeat center center;
+    background: url(media/pencil.png) no-repeat center center;
     background-size: 100%;
     opacity: 0.5;
 }
 
-
-a[href^="#_lernkontrolle"]::before{
-    content: "";
-    float: left;
-    width: 10px;
-    height: 14px;
-    margin-right: 5px;
-    background: url(media/tick.png) no-repeat center center;
-    background-size: 100%;
-    opacity: 0.25;
+#toc a.in-view{
+    font-weight: bold;
 }
 
 .source-code-link {

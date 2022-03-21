@@ -77,27 +77,19 @@ pre.rouge table td.linenos{
     list-style-type: none;
 }
 
-a[href^="#_übung"]::before{
+a[href^="#_übung"]::after{
     content: "";
-    float: left;
+    float: right;
     width: 10px;
     height: 14px;
     margin-right: 5px;
-    background: url(media/practice.png) no-repeat center center;
+    background: url(media/pencil.png) no-repeat center center;
     background-size: 100%;
     opacity: 0.5;
 }
 
-
-a[href^="#_lernkontrolle"]::before{
-    content: "";
-    float: left;
-    width: 10px;
-    height: 14px;
-    margin-right: 5px;
-    background: url(media/tick.png) no-repeat center center;
-    background-size: 100%;
-    opacity: 0.25;
+#toc a.in-view{
+    font-weight: bold;
 }
 
 .source-code-link {
@@ -332,6 +324,33 @@ pre.rouge {
 }
 </style>
 <script src="//julesfouchy.github.io/p5.js-widget/p5-widget.js"></script>
+
+<script>
+    const isInViewport = (rect) => rect.top >= 0 && rect.bottom <= window.innerHeight
+
+    function debounce(func, timeout = 300){
+        let timer;
+        return (...args) => {
+            clearTimeout(timer)
+            timer = setTimeout(() => { func.apply(this, args); }, timeout)
+        }
+    }
+
+    window.addEventListener('load', () => {
+        const hs = [...document.querySelectorAll("#content h1, #content h2, #content h3,  #content h4")]
+        const refs = new Map([...document.querySelectorAll("#toc [href]")].map(a => [a.getAttribute("href").substring(1), a]))
+        const refAs = [...refs.values()]
+
+        document.addEventListener('scroll', debounce(() => {
+            refAs.forEach(a => a.classList.remove('in-view'))
+            const h = hs.find(r => isInViewport(r.getBoundingClientRect()))
+
+            if(h){
+                refs.get(h.getAttribute('id')).classList.add('in-view')
+            }
+        }, 200))
+    })
+</script>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
