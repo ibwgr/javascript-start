@@ -4,7 +4,8 @@
 :tip-caption: 💡
 :warning-caption: ⚠️
 :source-highlighter: rouge
-:docinfo: shared-head
+:docinfo: shared-head,shared-footer
+:nofooter:
 
 == Einleitung
 In diesem Tutorial wirst du Programmieren lernen. Dabei lernst du die Programmiersprache JavaScript kennen. 

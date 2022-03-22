@@ -8,6 +8,10 @@ body {
     border-bottom: none;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 body.toc2 #header > h1:nth-last-child(2){
     border-bottom: 0;
 }
@@ -88,7 +92,6 @@ a[href^="#_übung"]::after{
     margin-top: -0.5em;
 }
 
-
 details > summary.title{
     color: #2156a5;
     text-decoration: underline;
@@ -97,4 +100,8 @@ details > summary.title{
 
 details[open] > summary {
     margin-bottom: 1em;
+}
+
+#footer a{
+    color: white;
 }
