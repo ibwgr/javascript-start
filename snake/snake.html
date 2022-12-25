@@ -4,13 +4,18 @@
     <title>Snake Game</title>
     <meta charset="UTF-8">
     <style>
+        body{
+            background-color: slategrey;
+            color: lightgray;
+            font-family: "Andale Mono", "Courier New", sans-serif;
+        }
         main{
             min-width: fit-content;
             max-width: fit-content;
             margin: 0 auto;
         }
         header{
-            font-family: "Andale Mono", "Courier New", sans-serif;
+            text-align: center;
             font-weight: bold;
             margin-bottom: 16px;
             margin-top: 16px;
@@ -25,8 +30,8 @@
         #board{
             border: 1px solid black;
         }
-        small{
-            color: lightgray;
+        aside{
+            text-align: center;
         }
     </style>
 </head>
@@ -44,14 +49,23 @@
 <script type="module">
     import {loadImages, setupContext, randomMultiple} from "./helpers.js";
 
-    const gridSize = 12; // Anzahl Pixel pro Feld
-    const gameSize = 18 * gridSize; // Anzahl Felder pro Seitenlänge des Spielbretts
+    const maxWidth = window.innerWidth - 100;
+    const maxHeight = window.innerHeight - 100;
+    const gridSizeNoZoom = 12;
+    const grids = 18; // Anzahl Felder pro Seitenlänge des Spielbretts
+    const zoomX = maxWidth / (grids * gridSizeNoZoom) / 2;
+    const zoomY = maxHeight / (grids * gridSizeNoZoom) / 2;
+    const zoom = Math.floor(Math.min(zoomX, zoomY));
+    const gridSize = gridSizeNoZoom * zoom; // Anzahl Pixel pro Feld
+    const gameSize = grids * gridSize; // Kantenlänge des quadratischen Spielbretts
+
     const board = document.getElementById('board');
     const ctx = setupContext(board, gameSize);
 
     // Alle x ms (Millisekunden) bewegt sich die Schlange. Je tiefer der Wert, desto schneller also die Schlange.
     const initialGameSpeed = 160;
     const initialSnakeSize = 4;
+
     // Die Geschwindigkeit ändert sich (später) während des Spiels
     let speed = initialGameSpeed;
     let snake;
@@ -138,7 +152,7 @@
 
     function clearCanvas() {
         // Set canvas background color
-        ctx.fillStyle = 'beige';
+        ctx.fillStyle = '#2C3539';
         // Set the canvas border color
         ctx.strokeStyle = 'black';
         // Draw a filled rectangle covering the entire canvas
