@@ -33,6 +33,28 @@
         aside{
             text-align: center;
         }
+
+        canvas.anim-shake{
+            animation: shake .75s linear both;
+        }
+
+        @keyframes shake {
+            10%, 90% {
+                transform: translate3d(-1px, 4px, 0);
+            }
+
+            20%, 80% {
+                transform: translate3d(3px, 0, 0);
+            }
+
+            30%, 50%, 70% {
+                transform: translate3d(-6px, -4px, 0);
+            }
+
+            40%, 60% {
+                transform: translate3d(8px, 0, 0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -233,12 +255,22 @@
         document.getElementById('score').innerText = game.score;
     }
 
+    function gameOver(){
+        const collidedPart = getCollidedPart(snake)
+        if(collidedPart){
+            drawSnakePart(collidedPart, 'red')
+        }
+        animate('shake')
+    }
+
+    function animate(name){
+        board.classList.add('anim-' + name)
+        window.setTimeout(() => board.classList.remove('anim-' + name), 500)
+    }
+
     function gameLoop() {
         if(hasCollided(snake)) {
-            const collidedPart = getCollidedPart(snake)
-            if(collidedPart){
-              drawSnakePart(collidedPart, 'red')
-            }
+            gameOver(snake);
             resetGame();
             return;
         }
