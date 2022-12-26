@@ -4,37 +4,43 @@
     <title>Snake Game</title>
     <meta charset="UTF-8">
     <style>
-        body{
+        body {
             background-color: slategrey;
             color: lightgray;
             font-family: "Andale Mono", "Courier New", sans-serif;
         }
-        main{
+
+        main {
             min-width: fit-content;
             max-width: fit-content;
             margin: 0 auto;
         }
-        header{
+
+        header {
             text-align: center;
             font-weight: bold;
             margin-bottom: 16px;
             margin-top: 16px;
         }
-        .label{
+
+        .label {
             font-size: 18px;
             padding-right: 9px;
         }
+
         .label ~ em {
             font-size: 18px;
         }
-        #board{
+
+        #board {
             border: 1px solid black;
         }
-        aside{
+
+        aside {
             text-align: center;
         }
 
-        canvas.anim-shake{
+        canvas.anim-shake {
             animation: shake .75s linear both;
         }
 
@@ -85,19 +91,24 @@
     const ctx = setupContext(board, gameSize);
 
     // Alle x ms (Millisekunden) bewegt sich die Schlange. Je tiefer der Wert, desto schneller also die Schlange.
-    const initialGameSpeed = 160;
-    const initialSnakeSize = 4;
+    const initialInterval = 160;
+    const initialSnakeLength = 4;
 
     // Die Geschwindigkeit ändert sich (später) während des Spiels
-    let speed = initialGameSpeed;
-    const noEffect = (ctx) => {}
+    let interval = initialInterval;
+    let lastTime = (new Date()).getTime();
+    let currentTime = 0;
+    let delta = 0;
+
+    const noEffect = (ctx) => {
+    }
     let ctxEffect = noEffect
     let snake;
     let game;
     let food = {}; // { x: number, y: number, img: Image }
-    let foods = [];
+    let foodImages = [];
 
-    function createGame(snake){
+    function createGame(snake) {
         return {
             // Veränderung des Schlangekopfs auf der x-Achse im nächsten Tick.
             // Entweder 0, 1 oder -1.
@@ -113,7 +124,7 @@
         }
     }
 
-    function createSnake(snakeSize){
+    function createSnake(snakeSize) {
         const firstPart = {
             x: randomMultiple(gridSize * (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize),
             y: randomMultiple(gridSize * (snakeSize - 1), gameSize - snakeSize * gridSize, gridSize)
@@ -136,7 +147,7 @@
 
     // Zeichne alle Glieder der Schlange
     function drawSnake(snake) {
-        snake.forEach(function(part, index){
+        snake.forEach(function (part, index) {
             drawSnakePart(part, index === 0 ? 'darkgreen' : 'green')
         });
     }
@@ -149,27 +160,26 @@
         snake.unshift(head);
 
         const didEat = snake[0].x === food.x && snake[0].y === food.y;
-        if(didEat){
+        if (didEat) {
             game.score++;
             applyFoodEffect(food, snake);
             Object.assign(food, findNewFoodPlace(snake));
-            food.img = findNewFood(foods)
-        }else{
+            food.img = findNewFood(foodImages)
+        } else {
             // Entferne das letzte Glied
             snake.pop();
         }
     }
 
-    function applyFoodEffect(food, snake){
+    function applyFoodEffect(food, snake) {
         ctxEffect = noEffect
-        if(food.img.attributes.src.value === 'mushroom.svg') {
-          speed = 100
-          ctxEffect = ctx => ctx.translate(Math.random()*10, Math.random()*10)
-        }else if(food.img.attributes.src.value === 'banana.svg'){
-          snake[0].x += gridSize
-          snake[0].x = snake[0].x % gameSize
-        }else{
-            speed = initialGameSpeed;
+        interval = initialInterval
+        if (food.img.attributes.src.value === 'mushroom.svg') {
+            interval = 100
+            ctxEffect = ctx => ctx.translate(Math.random() * 10, Math.random() * 10)
+        } else if (food.img.attributes.src.value === 'banana.svg') {
+            snake[0].x += gridSize
+            snake[0].x = snake[0].x % gameSize
         }
     }
 
@@ -183,7 +193,7 @@
     }
 
     function changeDirection(game, event) {
-        if(game.changingDirection) return;
+        if (game.changingDirection) return;
         game.changingDirection = true;
 
         const keyName = event.key;
@@ -209,35 +219,35 @@
         }
     }
 
-    function findNewFood(foods){
+    function findNewFood(foods) {
         return foods[randomMultiple(0, foods.length - 1)];
     }
 
-    function findNewFoodPlace(snake){
+    function findNewFoodPlace(snake) {
         const food = {
             x: randomMultiple(0, gameSize - gridSize, gridSize),
             y: randomMultiple(0, gameSize - gridSize, gridSize)
         }
 
-        const isPartOfSnake = snake.filter(function(part){
+        const isPartOfSnake = snake.filter(function (part) {
             return part.x === food.x && part.y === food.y
         }).length > 0;
 
-        if(isPartOfSnake){
+        if (isPartOfSnake) {
             return findNewFoodPlace(snake);
         }
         return food;
     }
 
-    function drawFood(food){
+    function drawFood(food) {
         ctx.drawImage(food.img, food.x, food.y, gridSize, gridSize);
     }
 
-    function getCollidedPart(snake){
-      const snakeWithoutHead = snake.slice(1);
-      return snakeWithoutHead.filter(function(part){
-        return part.x === snake[0].x && part.y === snake[0].y
-      }).shift()
+    function getCollidedPart(snake) {
+        const snakeWithoutHead = snake.slice(1);
+        return snakeWithoutHead.filter(function (part) {
+            return part.x === snake[0].x && part.y === snake[0].y
+        }).shift()
     }
 
     function hasCollided(snake) {
@@ -250,31 +260,34 @@
         return snakeHitItself || hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
     }
 
-    function drawScore(game){
+    function drawScore(game) {
         document.getElementById('score').innerText = game.score;
     }
 
-    function gameOver(){
+    function gameOver() {
         const collidedPart = getCollidedPart(snake)
-        if(collidedPart){
+        if (collidedPart) {
             drawSnakePart(collidedPart, 'red')
         }
         animate('shake')
     }
 
-    function animate(name){
+    function animate(name) {
         board.classList.add('anim-' + name)
         window.setTimeout(() => board.classList.remove('anim-' + name), 500)
     }
 
     function gameLoop() {
-        if(hasCollided(snake)) {
+        if (hasCollided(snake)) {
             gameOver(snake);
             resetGame();
             return;
         }
 
-        window.setTimeout(function tick() {
+        window.requestAnimationFrame(gameLoop);
+        currentTime = (new Date()).getTime();
+        delta = (currentTime - lastTime);
+        if (delta > interval) {
             game.changingDirection = false;
             clearCanvas();
             ctx.save();
@@ -284,21 +297,21 @@
             drawSnake(snake);
             drawScore(game);
             ctx.restore();
-            gameLoop();
-        }, speed)
+            lastTime = currentTime - (delta % interval);
+        }
     }
 
-    function startOnSpace(event){
-        if(event.key === ' ' && !game.running === true){
+    function startOnSpace(event) {
+        if (event.key === ' ' && !game.running === true) {
             gameLoop();
             game.running = true;
         }
     }
 
-    function readyToStart(){
+    function readyToStart() {
         clearCanvas();
         drawScore(game);
-        document.addEventListener('keydown', function(event){
+        document.addEventListener('keydown', function (event) {
             startOnSpace(event)
             changeDirection(game, event);
         });
@@ -307,16 +320,16 @@
     function resetGame() {
         ctx.restore();
         ctxEffect = noEffect
-        snake = createSnake(initialSnakeSize);
+        snake = createSnake(initialSnakeLength);
         Object.assign(food, findNewFoodPlace(snake));
-        food.img = foods[0];
-        speed = initialGameSpeed;
+        food.img = foodImages[0];
+        interval = initialInterval;
         game = createGame(snake);
     }
 
     // Erstes Food-Element ist guter / normaler Food.
-    loadImages(['raspberry.png', 'mushroom.svg', 'banana.svg'], function onImagesLoaded(foodImages){
-        foods = foods.concat(foodImages)
+    loadImages(['raspberry.png', 'mushroom.svg', 'banana.svg'], function onImagesLoaded(loadedFoodImages) {
+        foodImages = foodImages.concat(loadedFoodImages)
         resetGame();
         readyToStart();
     })
