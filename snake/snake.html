@@ -90,6 +90,8 @@
 
     // Die Geschwindigkeit ändert sich (später) während des Spiels
     let speed = initialGameSpeed;
+    const noEffect = (ctx) => {}
+    let ctxEffect = noEffect
     let snake;
     let game;
     let food = {}; // { x: number, y: number, img: Image }
@@ -149,8 +151,8 @@
         const didEat = snake[0].x === food.x && snake[0].y === food.y;
         if(didEat){
             game.score++;
-            const foodSideEffect = applyFoodEffect(food, snake);
-            Object.assign(food, findNewFoodPlace(snake, foodSideEffect));
+            applyFoodEffect(food, snake);
+            Object.assign(food, findNewFoodPlace(snake));
             food.img = findNewFood(foods)
         }else{
             // Entferne das letzte Glied
@@ -159,14 +161,13 @@
     }
 
     function applyFoodEffect(food, snake){
+        ctxEffect = noEffect
         if(food.img.attributes.src.value === 'mushroom.svg') {
-          speed = 100;
+          speed = 100
+          ctxEffect = ctx => ctx.translate(Math.random()*10, Math.random()*10)
         }else if(food.img.attributes.src.value === 'banana.svg'){
           snake[0].x += gridSize
           snake[0].x = snake[0].x % gameSize
-          return (food) => {
-            food.x = gameSize - gridSize
-          }
         }else{
             speed = initialGameSpeed;
         }
@@ -212,13 +213,11 @@
         return foods[randomMultiple(0, foods.length - 1)];
     }
 
-    function findNewFoodPlace(snake, foodSideEffect = () => {}){
+    function findNewFoodPlace(snake){
         const food = {
             x: randomMultiple(0, gameSize - gridSize, gridSize),
             y: randomMultiple(0, gameSize - gridSize, gridSize)
         }
-
-        foodSideEffect(food)
 
         const isPartOfSnake = snake.filter(function(part){
             return part.x === food.x && part.y === food.y
@@ -278,10 +277,13 @@
         window.setTimeout(function tick() {
             game.changingDirection = false;
             clearCanvas();
+            ctx.save();
+            ctxEffect(ctx);
             drawFood(food);
             advanceSnake(snake, game.dx, game.dy);
             drawSnake(snake);
             drawScore(game);
+            ctx.restore();
             gameLoop();
         }, speed)
     }
@@ -303,6 +305,8 @@
     }
 
     function resetGame() {
+        ctx.restore();
+        ctxEffect = noEffect
         snake = createSnake(initialSnakeSize);
         Object.assign(food, findNewFoodPlace(snake));
         food.img = foods[0];
